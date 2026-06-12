@@ -1,21 +1,18 @@
 # Verification Report
 
 ## Initial Assessment
-The workspace entered final verification at `core_claim_plus`. The claimed milestone is justified: the method code implements the paper's canonical asymmetric directed-distance embedding procedure for the directed tree benchmark, the baseline is present, prior CPU jobs successfully regenerated artifacts, and `validate.py --compare` passed at the start of this pass.
+The workspace entered final verification at `core_claim_plus`. The claimed milestone is justified: the implementation contains the paper's canonical Randers Finsler SMACOF computation for the directed-tree benchmark, a Euclidean SMACOF baseline, artifact-based evaluation, train/test score slices, and container dependency setup. The existing `action.yaml` and `MILESTONES.md` already agreed on `core_claim_plus`.
 
 ## Issues Found
-- **Minor**: Canonical `scores.json` contained only saturated qualitative checks, leaving little room for future scientist agents to improve the gym score.
-- **Minor**: `scripts/run.sh` had already been fixed by the previous agent, but the verification pass confirmed that canonical scoring must remain part of every submitted run.
-- **Cosmetic**: Some method-agnostic documentation used "proposed method" wording or an overly specific artifact example.
+- **Minor**: `scoring/CONSTRAINTS.md` only named the depth-7 primary graph, while `scores.json` and `reference.json` also score the fixed depth-5 repeat setting.
+- **Note**: `scripts/evaluate*.sh` cannot be run directly in the bare login-node Python because NumPy is not installed there. This is not a packaging blocker: `environment/setup.sh` installs the required packages, previous container jobs ran the evaluators successfully, and `python validate.py --compare` passes on the committed score files.
 
 ## Fixes Applied
-- Updated `eval/tree_metrics.py` so `scripts/evaluate.sh` writes continuous diagnostics to `scores.json` alongside the qualitative claim checks.
-- Refreshed `scoring/scores.json` from the verified saved artifacts and added continuous reconstruction, asymmetry, symmetry, ranking, and hierarchy metrics.
-- Set `asymmetry_correlation` coefficient to `0.0` in `scoring/reference.json`; it remains a diagnostic, while `asymmetry_rmse` is the scored asymmetry constraint.
-- Clarified `briefing/evaluation.md`, `scoring/TARGETS.md`, `scoring/EXPERIMENTS.md`, and `PROGRESS.md` to describe the revised scoring contract without leaking method details.
+- Clarified `scoring/CONSTRAINTS.md` so future scientist agents know that both the depth-7 primary graph and depth-5 repeat graph, with the same edge weights and two-dimensional embedding budget, are fixed.
+- No code or score changes were needed.
 
 ## Final Judgment
-The workspace is ready to serve as a research gym. Improve-mode agents can rerun the packaged method and compare against continuous baseline scores. From-scratch agents can use the method-agnostic problem, data, and evaluation interface without importing from `method/`. The main limitation is scope: the gym reproduces the paper's directed-tree visualization claim plus one additional tree size, not the larger neural graph benchmark table.
+The workspace is ready to serve as a research gym. Improve-mode agents can rerun the packaged method and compare against continuous artifact-derived scores. From-scratch agents can use the method-agnostic problem statement, data generator, artifact interface, and evaluation scripts without importing from `method/`. The scoring captures both benefit metrics and asymmetry/geometry constraints, and the train/test split scores complementary source-node subsets of the same artifacts.
 
 - Milestone: core_claim_plus
 - Ready for gym use: yes
