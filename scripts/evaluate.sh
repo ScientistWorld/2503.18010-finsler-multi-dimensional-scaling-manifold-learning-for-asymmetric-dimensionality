@@ -27,4 +27,5 @@ cd /home/user
 mkdir -p scoring
 
 python -m eval.tree_metrics \
-  --output scoring/scores.json
+  --output scoring/scores.json \
+  "$@"

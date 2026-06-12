@@ -12,12 +12,12 @@ from scipy.stats import spearmanr
 
 DEFAULT_EXPERIMENTS = {
     "directed_tree_reconstruction": {
-        "euclidean": "outputs/euclidean_tree/predictions.npz",
-        "finsler": "outputs/finsler_tree/predictions.npz",
+        "euclidean_mds": "outputs/euclidean_tree/predictions.npz",
+        "finsler_mds": "outputs/finsler_tree/predictions.npz",
     },
     "directed_tree_depth5_reconstruction": {
-        "euclidean": "outputs/euclidean_tree_depth5/predictions.npz",
-        "finsler": "outputs/finsler_tree_depth5/predictions.npz",
+        "euclidean_mds": "outputs/euclidean_tree_depth5/predictions.npz",
+        "finsler_mds": "outputs/finsler_tree_depth5/predictions.npz",
     },
 }
 
@@ -58,20 +58,47 @@ def average_precision_from_distances(target: np.ndarray, predicted: np.ndarray, 
     return float(np.mean(aps))
 
 
+def _artifact_text(artifact: np.lib.npyio.NpzFile, key: str, default: str = "") -> str:
+    if key not in artifact:
+        return default
+    value = artifact[key]
+    if value.shape == ():
+        return str(value.item())
+    return str(value)
+
+
 def metrics_for_artifact(path: Path) -> dict[str, float]:
     artifact = np.load(path, allow_pickle=False)
-    embedding = artifact["embedding"]
     target = artifact["distances"]
-    depths = artifact["depths"]
-    alpha = float(artifact["alpha"])
-    method = str(artifact["method"].item())
+    depths = artifact["depths"] if "depths" in artifact else None
 
-    if method == "finsler_mds":
-        predicted = _randers_distances(embedding, alpha)
-    elif method == "euclidean_mds":
-        predicted = _euclidean_distances(embedding)
+    if "predicted_distances" in artifact:
+        predicted = artifact["predicted_distances"]
+        embedding = artifact["embedding"] if "embedding" in artifact else None
     else:
-        raise ValueError(f"unknown method in artifact: {method}")
+        if "embedding" not in artifact:
+            raise ValueError(
+                f"{path} must contain either predicted_distances or embedding"
+            )
+        embedding = artifact["embedding"]
+        alpha = float(artifact["alpha"]) if "alpha" in artifact else 0.0
+        distance_family = _artifact_text(artifact, "distance_family")
+        method = _artifact_text(artifact, "method")
+        if distance_family in {"randers", "finsler"} or method == "finsler_mds":
+            predicted = _randers_distances(embedding, alpha)
+        elif distance_family == "euclidean" or method == "euclidean_mds":
+            predicted = _euclidean_distances(embedding)
+        else:
+            raise ValueError(
+                f"{path} must specify distance_family='randers'/'euclidean', "
+                "method='finsler_mds'/'euclidean_mds', or predicted_distances"
+            )
+
+    if predicted.shape != target.shape:
+        raise ValueError(
+            f"{path} predicted_distances shape {predicted.shape} does not match "
+            f"target distances shape {target.shape}"
+        )
 
     weights = np.ones_like(target)
     np.fill_diagonal(weights, 0.0)
@@ -84,8 +111,11 @@ def metrics_for_artifact(path: Path) -> dict[str, float]:
     sym_error = float(
         np.sqrt(np.mean(((0.5 * (predicted + predicted.T)) - (0.5 * (target + target.T))) ** 2))
     )
-    rho = spearmanr(embedding[:, -1], -depths).statistic
-    hierarchy_alignment = float(0.0 if np.isnan(rho) else abs(rho))
+    if embedding is not None and depths is not None:
+        rho = spearmanr(embedding[:, -1], -depths).statistic
+        hierarchy_alignment = float(0.0 if np.isnan(rho) else abs(rho))
+    else:
+        hierarchy_alignment = 0.0
     return {
         "normalized_stress": normalized_stress,
         "map_at_10": average_precision_from_distances(target, predicted, k=min(10, target.shape[0] - 1)),
@@ -108,6 +138,9 @@ def claim_scores(metrics: dict[str, float]) -> dict[str, float]:
     scores = {}
     for claim, (metric_name, threshold, direction) in CLAIM_THRESHOLDS.items():
         value = metrics[metric_name]
+        if np.isnan(value):
+            scores[claim] = 0.0
+            continue
         if direction == "le":
             passed = value <= threshold
         elif direction == "ge":
@@ -118,42 +151,70 @@ def claim_scores(metrics: dict[str, float]) -> dict[str, float]:
     return scores
 
 
+def load_manifest(path: Path | None) -> dict[str, dict[str, str]]:
+    if path is None:
+        return DEFAULT_EXPERIMENTS
+    with path.open("r", encoding="utf-8") as handle:
+        manifest = json.load(handle)
+    if "experiments" in manifest:
+        manifest = manifest["experiments"]
+    normalized: dict[str, dict[str, str]] = {}
+    for experiment, spec in manifest.items():
+        if "results" in spec:
+            spec = spec["results"]
+        normalized[experiment] = {
+            method_name: str(artifact_path)
+            for method_name, artifact_path in spec.items()
+        }
+    return normalized
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
+        "--manifest",
+        type=Path,
+        help=(
+            "Optional JSON mapping experiments to method artifact paths. "
+            "Accepted shapes: {experiment: {method: path}} or "
+            "{experiments: {experiment: {results: {method: path}}}}."
+        ),
+    )
+    parser.add_argument(
         "--experiments",
         nargs="*",
-        default=list(DEFAULT_EXPERIMENTS),
-        choices=list(DEFAULT_EXPERIMENTS),
+        default=None,
         help="Experiment artifact groups to score.",
     )
     parser.add_argument("--output", default="scoring/scores.json")
     args = parser.parse_args()
 
+    manifest = load_manifest(args.manifest)
+    experiments = args.experiments if args.experiments is not None else list(manifest)
     scores = {}
     details = {}
-    for experiment in args.experiments:
-        paths = DEFAULT_EXPERIMENTS[experiment]
-        euclidean_path = Path(paths["euclidean"])
-        finsler_path = Path(paths["finsler"])
-        if not euclidean_path.exists() or not finsler_path.exists():
+    for experiment in experiments:
+        if experiment not in manifest:
+            raise KeyError(f"{experiment} is not present in the evaluation manifest")
+        result_paths = {name: Path(path) for name, path in manifest[experiment].items()}
+        missing = [str(path) for path in result_paths.values() if not path.exists()]
+        if missing:
             raise FileNotFoundError(
-                f"missing artifacts for {experiment}: "
-                f"{euclidean_path} and {finsler_path} must both exist"
+                f"missing artifacts for {experiment}: {', '.join(missing)}"
             )
-        euclidean_metrics = metrics_for_artifact(euclidean_path)
-        finsler_metrics = metrics_for_artifact(finsler_path)
+
+        metric_results = {
+            method_name: metrics_for_artifact(path)
+            for method_name, path in result_paths.items()
+        }
         details[experiment] = {
-            "results": {
-                "euclidean_mds": euclidean_metrics,
-                "finsler_mds": finsler_metrics,
-            },
+            "results": metric_results,
             "_thresholds": CLAIM_THRESHOLDS,
         }
         scores[experiment] = {
             "results": {
-                "euclidean_mds": claim_scores(euclidean_metrics),
-                "finsler_mds": claim_scores(finsler_metrics),
+                method_name: claim_scores(metrics)
+                for method_name, metrics in metric_results.items()
             }
         }
 

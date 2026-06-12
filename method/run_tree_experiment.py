@@ -50,6 +50,7 @@ def main() -> None:
         depths=tree.depths,
         alpha=np.array(args.alpha),
         method=np.array("finsler_mds"),
+        distance_family=np.array("randers"),
         stress_history=np.array(result.stress_history, dtype=np.float64),
     )
     with (out_dir / "metadata.json").open("w", encoding="utf-8") as handle:

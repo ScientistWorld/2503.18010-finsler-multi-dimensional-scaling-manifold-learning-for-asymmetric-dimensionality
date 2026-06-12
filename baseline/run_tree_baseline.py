@@ -45,6 +45,7 @@ def main() -> None:
         depths=tree.depths,
         alpha=np.array(0.0),
         method=np.array("euclidean_mds"),
+        distance_family=np.array("euclidean"),
         stress_history=np.array(result.stress_history, dtype=np.float64),
     )
     with (out_dir / "metadata.json").open("w", encoding="utf-8") as handle:

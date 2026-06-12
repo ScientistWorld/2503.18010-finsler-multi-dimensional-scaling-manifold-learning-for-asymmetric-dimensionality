@@ -12,5 +12,9 @@
 - Added and scored a second directed-tree depth setting.
 - Confirmed the Finsler SMACOF implementation preserves asymmetric distances and hierarchy direction while the Euclidean SMACOF baseline fails those checks.
 
+### [2026-06-12 04:20] - core_claim_plus
+- Continuation audit verified the method is a real implementation of canonical Randers Finsler SMACOF.
+- Fixed evaluator reusability by adding manifest-based artifact scoring for future methods.
+
 ## Current Submission
-- Running one final CPU test job after packaging cleanup to verify the committed import layout inside the container.
+- Running a CPU test job after the evaluator fix to verify `scripts/reproduce.sh`, `validate.py --compare`, and manifest-mode scoring inside the container.

@@ -11,6 +11,7 @@
 - Follow-up audit found that the previous `reference.json` used invented continuous targets for the qualitative Figure 5 tree result. The score contract has been repaired so `scores.json` contains binary checks of paper-stated qualitative claims, while continuous diagnostics are written to `scoring/details.json`.
 - CPU job `7d307bfa-ccd` reran the full reproduction under the repaired scoring contract and `python validate.py --compare` passed.
 - A final packaging pass moved the shared Isomap/classical-scaling initializer from `method/` to `data/`, so the Euclidean baseline no longer imports the proposed-method package. The optional unrun Cora reference entry now uses method labels matching the paper's neural directed-graph embedding setup.
+- Continuation audit confirmed the Finsler SMACOF implementation is faithful, then fixed a reusable-evaluation gap: `eval/tree_metrics.py` now supports a manifest of artifact paths and artifacts with precomputed `predicted_distances`, while preserving the default reproduction interface.
 
 ## Results
 
@@ -35,6 +36,7 @@
 - The tree visualization experiment in the paper is reported qualitatively rather than with a numeric table. `reference.json` now encodes only qualitative pass/fail claim checks for the tree task and keeps the paper Table 1 Cora numbers as an unrun reference target.
 - CPU job `aa29f577-e55` failed before scoring because `scripts/evaluate.sh` still passed removed `--finsler` and `--euclidean` options. The script now calls the evaluator's default experiment suite.
 - Initial tree reference stress targets were benchmark-scale values rather than paper-reported numbers. This audit replaced them with binary qualitative claim checks and moved continuous diagnostics out of `scores.json`.
+- The continuation audit found that the previous evaluator was independent from `method/` but too hard-coded for future methods. This has been fixed with a JSON manifest interface and a `predicted_distances` artifact path; `scripts/run.sh` now tests that interface in the container.
 
 ## Deviations from Paper
 
