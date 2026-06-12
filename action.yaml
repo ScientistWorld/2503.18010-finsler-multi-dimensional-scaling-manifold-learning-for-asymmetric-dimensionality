@@ -1,5 +1,5 @@
-action: done
+action: submit
 gpus: 0
 test: false
 milestone: core_claim_plus
-notes: "Stratified source-row split; 36 train metrics, 36 test metrics; Finsler train/test gaps are small on stress/asymmetry/hierarchy, Euclidean remains a clear baseline; no null scores."
+notes: "Re-score after making distance_preservation_pass graded and replacing RNG splits with deterministic hash-stratified source rows."

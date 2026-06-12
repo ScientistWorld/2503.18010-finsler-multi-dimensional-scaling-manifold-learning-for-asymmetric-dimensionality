@@ -103,9 +103,11 @@ def _source_indices(depths: np.ndarray) -> np.ndarray:
     selected: list[int] = []
     for depth in np.unique(depths):
         nodes = np.flatnonzero(depths == depth)
-        rng = np.random.default_rng(SPLIT_SEED + int(depth))
-        permuted = np.array(nodes, copy=True)
-        rng.shuffle(permuted)
+        order = np.argsort(
+            ((nodes + 1) * 1103515245 + SPLIT_SEED + int(depth) * 12345)
+            % (2**31 - 1)
+        )
+        permuted = nodes[order]
         cutoff = (len(permuted) + 1) // 2
         selected.extend(int(node) for node in permuted[cutoff:])
     return np.array(sorted(selected), dtype=np.int64)
@@ -214,6 +216,9 @@ def claim_scores(metrics: dict[str, float]) -> dict[str, float]:
         value = metrics[metric_name]
         if np.isnan(value):
             scores[claim] = 0.0
+            continue
+        if claim == "distance_preservation_pass" and direction == "le":
+            scores[claim] = float(np.clip(1.0 - (value / threshold), 0.0, 1.0))
             continue
         if direction == "le":
             passed = value <= threshold

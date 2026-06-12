@@ -38,7 +38,7 @@
                 "distance_preservation_pass": {
                     "higher_is_better": true,
                     "coefficient": 0.3,
-                    "description": "Binary check that continuous reconstruction error clears the qualitative Figure 5 threshold."
+                    "description": "Graded threshold-clearance score for directed-distance reconstruction error; zero means the qualitative Figure 5 threshold was not cleared."
                 },
                 "asymmetry_preservation_pass": {
                     "higher_is_better": true,
@@ -104,7 +104,7 @@
                 "distance_preservation_pass": {
                     "higher_is_better": true,
                     "coefficient": 0.3,
-                    "description": "Binary check that continuous reconstruction error clears the qualitative Figure 5 threshold."
+                    "description": "Graded threshold-clearance score for directed-distance reconstruction error; zero means the qualitative Figure 5 threshold was not cleared."
                 },
                 "asymmetry_preservation_pass": {
                     "higher_is_better": true,
