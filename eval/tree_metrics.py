@@ -21,6 +21,12 @@ DEFAULT_EXPERIMENTS = {
     },
 }
 
+CLAIM_THRESHOLDS = {
+    "distance_preservation_pass": ("normalized_stress", 0.10, "le"),
+    "asymmetry_preservation_pass": ("asymmetry_rmse", 0.10, "le"),
+    "hierarchy_direction_pass": ("hierarchy_alignment", 0.80, "ge"),
+}
+
 
 def _euclidean_distances(x: np.ndarray) -> np.ndarray:
     return np.linalg.norm(x[None, :, :] - x[:, None, :], axis=-1)
@@ -89,6 +95,29 @@ def metrics_for_artifact(path: Path) -> dict[str, float]:
     }
 
 
+def claim_scores(metrics: dict[str, float]) -> dict[str, float]:
+    """Convert continuous diagnostics into paper Figure 5 claim checks.
+
+    Figure 5 reports the tree experiment qualitatively: Finsler MDS reveals
+    hierarchy direction and preserves distances, while symmetric embeddings do
+    not. The official scores therefore use binary checks instead of fabricated
+    continuous paper targets. Full continuous diagnostics are written beside
+    scores.json for analysis.
+    """
+
+    scores = {}
+    for claim, (metric_name, threshold, direction) in CLAIM_THRESHOLDS.items():
+        value = metrics[metric_name]
+        if direction == "le":
+            passed = value <= threshold
+        elif direction == "ge":
+            passed = value >= threshold
+        else:
+            raise ValueError(f"unknown threshold direction: {direction}")
+        scores[claim] = float(passed)
+    return scores
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -102,6 +131,7 @@ def main() -> None:
     args = parser.parse_args()
 
     scores = {}
+    details = {}
     for experiment in args.experiments:
         paths = DEFAULT_EXPERIMENTS[experiment]
         euclidean_path = Path(paths["euclidean"])
@@ -111,10 +141,19 @@ def main() -> None:
                 f"missing artifacts for {experiment}: "
                 f"{euclidean_path} and {finsler_path} must both exist"
             )
+        euclidean_metrics = metrics_for_artifact(euclidean_path)
+        finsler_metrics = metrics_for_artifact(finsler_path)
+        details[experiment] = {
+            "results": {
+                "euclidean_mds": euclidean_metrics,
+                "finsler_mds": finsler_metrics,
+            },
+            "_thresholds": CLAIM_THRESHOLDS,
+        }
         scores[experiment] = {
             "results": {
-                "euclidean_mds": metrics_for_artifact(euclidean_path),
-                "finsler_mds": metrics_for_artifact(finsler_path),
+                "euclidean_mds": claim_scores(euclidean_metrics),
+                "finsler_mds": claim_scores(finsler_metrics),
             }
         }
 
@@ -122,6 +161,10 @@ def main() -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with out_path.open("w", encoding="utf-8") as handle:
         json.dump(scores, handle, indent=2, sort_keys=True)
+        handle.write("\n")
+    details_path = out_path.with_name("details.json")
+    with details_path.open("w", encoding="utf-8") as handle:
+        json.dump(details, handle, indent=2, sort_keys=True)
         handle.write("\n")
 
 

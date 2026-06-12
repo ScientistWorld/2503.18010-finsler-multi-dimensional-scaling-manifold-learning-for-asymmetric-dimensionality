@@ -8,6 +8,7 @@
 - CPU job `215fb11e-2bf` ran `scripts/reproduce.sh` successfully inside the container and `python validate.py --compare` passed.
 - CPU job `fd4957cf-552` successfully regenerated `scoring/scores.json` with both the original depth-7 tree benchmark and an additional depth-5 tree benchmark.
 - Final local validation on 2026-06-12 confirmed `reference.json`, `scores.json`, import separation, artifact-based evaluation, and shared-path hygiene all pass.
+- Follow-up audit found that the previous `reference.json` used invented continuous targets for the qualitative Figure 5 tree result. The score contract has been repaired so `scores.json` contains binary checks of paper-stated qualitative claims, while continuous diagnostics are written to `scoring/details.json`.
 
 ## Results
 
@@ -17,8 +18,8 @@
 - `directed_tree_depth5_reconstruction`:
   - Euclidean SMACOF baseline: normalized stress `0.4949`, MAP@10 `0.6148`, asymmetry RMSE `1.6849`, symmetric RMSE `0.4496`, hierarchy alignment `0.0231`.
   - Finsler MDS: normalized stress `0.0254`, MAP@10 `0.5894`, asymmetry RMSE `0.0197`, symmetric RMSE `0.0481`, hierarchy alignment `0.9222`.
-- These results support the paper's central claim that a canonical Randers Finsler geometry can represent directed asymmetric distances that a symmetric Euclidean embedding cannot.
-- Current milestone: `core_claim_plus`, because the core directed-tree result is reproduced and repeated on an additional tree size.
+- These continuous diagnostics support the paper's central claim that a canonical Randers Finsler geometry can represent directed asymmetric distances that a symmetric Euclidean embedding cannot. The official score file now records the corresponding paper-claim pass/fail checks.
+- Current audited milestone before rerun: `core_claim`; the submitted CPU job will regenerate scores under the repaired evaluator before restoring `core_claim_plus`.
 
 ## Remaining
 
@@ -28,9 +29,9 @@
 ## Issues
 
 - The login-node Python environment does not have NumPy installed, so numerical experiments are run through scheduled jobs. Dependencies are declared in `environment/setup.sh` for the scheduled container job.
-- The tree visualization experiment in the paper is reported qualitatively rather than with a numeric table. `reference.json` includes paper Table 1 Cora numbers and a benchmark target entry for the packaged tree task.
+- The tree visualization experiment in the paper is reported qualitatively rather than with a numeric table. `reference.json` now encodes only qualitative pass/fail claim checks for the tree task and keeps the paper Table 1 Cora numbers as an unrun reference target.
 - CPU job `aa29f577-e55` failed before scoring because `scripts/evaluate.sh` still passed removed `--finsler` and `--euclidean` options. The script now calls the evaluator's default experiment suite.
-- Initial tree reference stress targets were too loose for validator consistency checks. They were corrected to benchmark-scale qualitative targets after re-reading the paper text confirming that Figure 5 reports no numeric stress values.
+- Initial tree reference stress targets were benchmark-scale values rather than paper-reported numbers. This audit replaced them with binary qualitative claim checks and moved continuous diagnostics out of `scores.json`.
 
 ## Deviations from Paper
 

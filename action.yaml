@@ -1,8 +1,8 @@
 # IMPORTANT: Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends. Sleeping blocks the entire pipeline.
-action: done
+action: submit
 gpus: 0
-test: false
-milestone: core_claim_plus
-notes: "Reproduced the Finsler MDS core claim on the directed-tree hierarchy benchmark and an additional depth-5 setting. Validation passes; full Table 1 graph representation-learning experiments remain future work."
+test: true
+milestone: core_claim
+notes: "CPU rerun to regenerate scores.json and details.json after fixing the qualitative Figure 5 scoring contract."

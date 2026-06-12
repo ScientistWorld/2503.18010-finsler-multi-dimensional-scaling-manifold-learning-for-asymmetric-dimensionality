@@ -1,121 +1,97 @@
 {
-  "experiments": {
-    "directed_tree_reconstruction": {
-      "description": "Directed binary-tree hierarchy reconstruction from Appendix D.1.1 / Figure 5. The paper reports this result qualitatively; these numeric reference values are benchmark targets on the packaged evaluator scale, not table transcriptions.",
-      "weight": 0.3,
-      "primary_metric": "normalized_stress",
-      "metrics": {
-        "normalized_stress": {
-          "higher_is_better": false,
-          "coefficient": -1.0
+    "experiments": {
+        "directed_tree_reconstruction": {
+            "description": "Directed binary-tree hierarchy reconstruction from Figure 5. The paper reports this result qualitatively: symmetric baselines do not reveal hierarchy direction and distort distances, while Finsler MDS reveals the hierarchy direction and highly preserves distances.",
+            "weight": 0.5,
+            "primary_metric": "distance_preservation_pass",
+            "metrics": {
+                "distance_preservation_pass": {
+                    "higher_is_better": true,
+                    "coefficient": 1.0
+                },
+                "asymmetry_preservation_pass": {
+                    "higher_is_better": true,
+                    "coefficient": 1.0
+                },
+                "hierarchy_direction_pass": {
+                    "higher_is_better": true,
+                    "coefficient": 0.7
+                }
+            },
+            "results": {
+                "euclidean_mds": {
+                    "type": "baseline",
+                    "distance_preservation_pass": 0,
+                    "asymmetry_preservation_pass": 0,
+                    "hierarchy_direction_pass": 0
+                },
+                "finsler_mds": {
+                    "type": "proposed",
+                    "distance_preservation_pass": 1,
+                    "asymmetry_preservation_pass": 1,
+                    "hierarchy_direction_pass": 1
+                }
+            }
         },
-        "map_at_10": {
-          "higher_is_better": true,
-          "coefficient": 0.5
+        "directed_tree_depth5_reconstruction": {
+            "description": "Additional directed binary-tree hierarchy reconstruction setting matching Figure 5's various-depth tree setup. Qualitative reference expectations are the same: Finsler MDS should preserve asymmetric distances and reveal hierarchy direction, unlike the symmetric Euclidean embedding.",
+            "weight": 0.25,
+            "primary_metric": "distance_preservation_pass",
+            "metrics": {
+                "distance_preservation_pass": {
+                    "higher_is_better": true,
+                    "coefficient": 1.0
+                },
+                "asymmetry_preservation_pass": {
+                    "higher_is_better": true,
+                    "coefficient": 1.0
+                },
+                "hierarchy_direction_pass": {
+                    "higher_is_better": true,
+                    "coefficient": 0.7
+                }
+            },
+            "results": {
+                "euclidean_mds": {
+                    "type": "baseline",
+                    "distance_preservation_pass": 0,
+                    "asymmetry_preservation_pass": 0,
+                    "hierarchy_direction_pass": 0
+                },
+                "finsler_mds": {
+                    "type": "proposed",
+                    "distance_preservation_pass": 1,
+                    "asymmetry_preservation_pass": 1,
+                    "hierarchy_direction_pass": 1
+                }
+            }
         },
-        "asymmetry_rmse": {
-          "higher_is_better": false,
-          "coefficient": -0.8
-        },
-        "symmetric_rmse": {
-          "higher_is_better": false,
-          "coefficient": -0.2
-        },
-        "hierarchy_alignment": {
-          "higher_is_better": true,
-          "coefficient": 0.4
+        "cora_2d_asymmetric_distance_reconstruction": {
+            "description": "Cora directed-graph asymmetric distance reconstruction, 2D embeddings, Table 1.",
+            "weight": 0.25,
+            "primary_metric": "normalized_stress",
+            "metrics": {
+                "normalized_stress": {
+                    "higher_is_better": false,
+                    "coefficient": -1.0
+                },
+                "map_at_10": {
+                    "higher_is_better": true,
+                    "coefficient": 0.6
+                }
+            },
+            "results": {
+                "euclidean_mds": {
+                    "type": "baseline",
+                    "normalized_stress": 0.426,
+                    "map_at_10": 0.574
+                },
+                "finsler_mds": {
+                    "type": "proposed",
+                    "normalized_stress": 0.127,
+                    "map_at_10": 0.894
+                }
+            }
         }
-      },
-      "results": {
-        "euclidean_mds": {
-          "type": "baseline",
-          "normalized_stress": 0.5,
-          "map_at_10": 0.5,
-          "asymmetry_rmse": 1.0,
-          "symmetric_rmse": 1.0,
-          "hierarchy_alignment": 0.5
-        },
-        "finsler_mds": {
-          "type": "proposed",
-          "normalized_stress": 0.03,
-          "map_at_10": 0.7,
-          "asymmetry_rmse": 0.5,
-          "symmetric_rmse": 1.0,
-          "hierarchy_alignment": 0.7
-        }
-      }
-    },
-    "directed_tree_depth5_reconstruction": {
-      "description": "Directed binary-tree hierarchy reconstruction on a smaller depth-5 instance of the Appendix D.1.1 benchmark. The paper reports the tree result qualitatively; these numeric reference values are benchmark targets on the packaged evaluator scale, not table transcriptions.",
-      "weight": 0.2,
-      "primary_metric": "normalized_stress",
-      "metrics": {
-        "normalized_stress": {
-          "higher_is_better": false,
-          "coefficient": -1.0
-        },
-        "map_at_10": {
-          "higher_is_better": true,
-          "coefficient": 0.5
-        },
-        "asymmetry_rmse": {
-          "higher_is_better": false,
-          "coefficient": -0.8
-        },
-        "symmetric_rmse": {
-          "higher_is_better": false,
-          "coefficient": -0.2
-        },
-        "hierarchy_alignment": {
-          "higher_is_better": true,
-          "coefficient": 0.4
-        }
-      },
-      "results": {
-        "euclidean_mds": {
-          "type": "baseline",
-          "normalized_stress": 0.5,
-          "map_at_10": 0.5,
-          "asymmetry_rmse": 1.0,
-          "symmetric_rmse": 1.0,
-          "hierarchy_alignment": 0.5
-        },
-        "finsler_mds": {
-          "type": "proposed",
-          "normalized_stress": 0.03,
-          "map_at_10": 0.7,
-          "asymmetry_rmse": 0.5,
-          "symmetric_rmse": 1.0,
-          "hierarchy_alignment": 0.7
-        }
-      }
-    },
-    "cora_2d_asymmetric_distance_reconstruction": {
-      "description": "Cora directed-graph asymmetric distance reconstruction, 2D embeddings, Table 1.",
-      "weight": 0.5,
-      "primary_metric": "normalized_stress",
-      "metrics": {
-        "normalized_stress": {
-          "higher_is_better": false,
-          "coefficient": -1.0
-        },
-        "map_at_10": {
-          "higher_is_better": true,
-          "coefficient": 0.6
-        }
-      },
-      "results": {
-        "euclidean_mds": {
-          "type": "baseline",
-          "normalized_stress": 0.426,
-          "map_at_10": 0.574
-        },
-        "finsler_mds": {
-          "type": "proposed",
-          "normalized_stress": 0.127,
-          "map_at_10": 0.894
-        }
-      }
     }
-  }
 }

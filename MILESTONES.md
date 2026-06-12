@@ -1,6 +1,6 @@
 # Reproduction Milestones
 
-**Current: core_claim_plus**
+**Current: core_claim**
 
 ## Progress Log
 
@@ -19,5 +19,10 @@
 - The Finsler embedding again reconstructed asymmetric distances far better than the symmetric Euclidean baseline.
 - `python validate.py --compare` passes for scoring structure, separation rules, and artifact-based evaluation.
 
+### [2026-06-12 04:00] - core_claim
+- Follow-up audit confirmed the implementation is the paper's Finsler SMACOF algorithm rather than a surrogate.
+- Found and fixed a scoring-integrity issue: continuous numeric targets for qualitative Figure 5 claims were moved out of `reference.json`.
+- A CPU rerun is being submitted to regenerate `scores.json` with the repaired qualitative claim-check evaluator.
+
 ## Stop Justification
-- Completed at milestone `core_claim_plus`. The packaged environment demonstrates the core Finsler MDS claim on the main hierarchy benchmark and one additional graph size. Full Table 1 graph representation-learning experiments remain future work.
+- Not stopped. A repaired scoring run is pending to restore `core_claim_plus`.
