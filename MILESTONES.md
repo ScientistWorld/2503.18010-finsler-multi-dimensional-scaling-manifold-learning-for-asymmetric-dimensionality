@@ -16,5 +16,10 @@
 - Continuation audit verified the method is a real implementation of canonical Randers Finsler SMACOF.
 - Fixed evaluator reusability by adding manifest-based artifact scoring for future methods.
 
-## Current Submission
-- Running a CPU test job after the evaluator fix to verify `scripts/reproduce.sh`, `validate.py --compare`, and manifest-mode scoring inside the container.
+### [2026-06-12 04:45] - core_claim_plus
+- CPU job `bfea18f8-f56` completed successfully after the evaluator fix.
+- Verified `scripts/reproduce.sh`, `python validate.py --compare`, and manifest-mode scoring inside the container.
+
+## Stop Justification
+- The environment is complete at `core_claim_plus`: it reproduces the paper's core directed-tree Finsler SMACOF claim and an additional tree-depth setting, with a reusable artifact-based evaluator and packaged scripts.
+- Remaining work toward `majority` would require implementing the larger neural directed-graph benchmark suite from Table 1; the current deliverable is a validated research gym for the central Finsler asymmetric-embedding claim.

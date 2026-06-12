@@ -12,6 +12,7 @@
 - CPU job `7d307bfa-ccd` reran the full reproduction under the repaired scoring contract and `python validate.py --compare` passed.
 - A final packaging pass moved the shared Isomap/classical-scaling initializer from `method/` to `data/`, so the Euclidean baseline no longer imports the proposed-method package. The optional unrun Cora reference entry now uses method labels matching the paper's neural directed-graph embedding setup.
 - Continuation audit confirmed the Finsler SMACOF implementation is faithful, then fixed a reusable-evaluation gap: `eval/tree_metrics.py` now supports a manifest of artifact paths and artifacts with precomputed `predicted_distances`, while preserving the default reproduction interface.
+- CPU job `bfea18f8-f56` reran the full reproduction after the reusable-evaluator fix; `scripts/reproduce.sh`, `python validate.py --compare`, and manifest-mode scoring all completed successfully.
 
 ## Results
 
@@ -24,6 +25,7 @@
 - These continuous diagnostics support the paper's central claim that a canonical Randers Finsler geometry can represent directed asymmetric distances that a symmetric Euclidean embedding cannot. The official score file now records the corresponding paper-claim pass/fail checks.
 - Official repaired scores: Euclidean MDS gets `0` on distance preservation, asymmetry preservation, and hierarchy direction checks; Finsler MDS gets `1` on all three checks for both depth-7 and depth-5 settings.
 - Current milestone: `core_claim_plus`, because the repaired scoring run confirms the core directed-tree result and repeats it on an additional tree size.
+- Final validation job `bfea18f8-f56` preserved the same official repaired scores and passed all structure checks.
 
 ## Remaining
 
@@ -37,6 +39,7 @@
 - CPU job `aa29f577-e55` failed before scoring because `scripts/evaluate.sh` still passed removed `--finsler` and `--euclidean` options. The script now calls the evaluator's default experiment suite.
 - Initial tree reference stress targets were benchmark-scale values rather than paper-reported numbers. This audit replaced them with binary qualitative claim checks and moved continuous diagnostics out of `scores.json`.
 - The continuation audit found that the previous evaluator was independent from `method/` but too hard-coded for future methods. This has been fixed with a JSON manifest interface and a `predicted_distances` artifact path; `scripts/run.sh` now tests that interface in the container.
+- The final CPU test completed successfully. Remaining work is expansion to the paper's larger neural graph benchmarks, not a known correctness bug in the packaged tree reproduction.
 
 ## Deviations from Paper
 
