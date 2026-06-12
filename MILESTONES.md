@@ -21,5 +21,4 @@
 - Verified `scripts/reproduce.sh`, `python validate.py --compare`, and manifest-mode scoring inside the container.
 
 ## Stop Justification
-- The environment is complete at `core_claim_plus`: it reproduces the paper's core directed-tree Finsler SMACOF claim and an additional tree-depth setting, with a reusable artifact-based evaluator and packaged scripts.
-- Remaining work toward `majority` would require implementing the larger neural directed-graph benchmark suite from Table 1; the current deliverable is a validated research gym for the central Finsler asymmetric-embedding claim.
+- Completed at milestone `core_claim_plus`.
