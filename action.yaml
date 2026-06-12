@@ -1,8 +1,8 @@
 # IMPORTANT: Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends. Sleeping blocks the entire pipeline.
-action: submit
+action: done
 gpus: 0
 test: true
 milestone: core_claim_plus
-notes: "CPU test after continuation audit: rerun reproduction, validate scores, and exercise manifest-mode evaluation; no GPU required."
+notes: "Completed at core_claim_plus: CPU job bfea18f8-f56 reran the reproduction, validate.py --compare, and manifest-mode scoring successfully."
