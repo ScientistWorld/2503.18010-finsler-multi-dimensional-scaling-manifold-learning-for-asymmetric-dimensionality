@@ -26,7 +26,7 @@ DEPTH_TO_EXPERIMENT = {
     5: "directed_tree_depth5_reconstruction",
 }
 NODE_COUNT_TO_DEPTH = {
-    (2**depth) - 1: depth
+    (2 ** (depth + 1)) - 1: depth
     for depth in DEPTH_TO_EXPERIMENT
 }
 
