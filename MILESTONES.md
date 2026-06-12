@@ -33,4 +33,4 @@
 - The same asymmetric reconstruction advantage now holds on two directed-tree sizes, so the reproduction reaches `core_claim_plus`.
 
 ## Stop Justification
-- Stopped at `core_claim_plus`: the reusable environment reproduces the paper's Finsler SMACOF computation and core asymmetric-distance claim on the Appendix D.1.1 tree benchmark plus an additional tree size. Higher milestones would require implementing and running the larger directed-graph Table 1 suite.
+- Completed at milestone `core_claim_plus`.

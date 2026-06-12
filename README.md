@@ -1,26 +1,114 @@
+# Overview
+
+- **Paper ID:** 2503.18010
+- **Title:** Finsler Multi-Dimensional Scaling: Manifold Learning for Asymmetric Dimensionality Reduction and Embedding
+- **Domain:** Manifold learning / dimensionality reduction / directed graph embedding
+- **TL;DR:** The paper extends MDS to asymmetric data by using a canonical Randers distance, enabling embeddings that preserve directed dissimilarities.
+
+## Short Summary
+
+Traditional MDS uses symmetric Euclidean or Riemannian distances, which cannot represent directed relationships. This paper defines Finsler MDS, using a canonical Randers space whose geodesics are still straight lines but whose distances depend on direction. It derives a SMACOF-style solver and also applies the same distance to neural directed-graph embeddings. Experiments show clearer asymmetric visualizations and better directed graph reconstruction/link prediction than Euclidean baselines.
+
+## Key Results
+
+- On Cora 2D directed-graph reconstruction, Table 1 reports distortion improving from `0.426` to `0.127` and MAP from `0.574` to `0.894` versus Euclidean embedding.
+- On the directed binary-tree visualization, the method reveals hierarchy direction while symmetric methods collapse or distort the structure.
+- Link prediction AUC in Table 2 is competitive or best across the reported directed graph datasets.
+
+---
+
 # Problem Definition
-
-What problem does this paper address? Write this so that someone with no knowledge of the paper can understand what needs to be solved and how success is measured.
-
-Do NOT describe the paper's method or solution here — only the problem itself. Think about if a future scientist agent try to solve this problem from scratch without knowing what approach the paper took. If you leak the solution, you compromise the benchmark.
 
 ## Research Question
 
-<!-- What problem or challenge does this paper tackle? What gap in existing work does it address? -->
+Given a set of objects with pairwise dissimilarities that can be asymmetric, find a low-dimensional embedding whose directed pairwise distances preserve those dissimilarities. The benchmark focuses on directed graph distances, where the shortest path from node `i` to node `j` may differ from the reverse path.
 
 ## Why It Matters
 
-<!-- Why is this problem important? What would a good solution enable? Make it short -->
+Many relationships are directional: hierarchy, road or current travel time, citations, links, and information flow. A useful low-dimensional representation should preserve both proximity and directionality so that visualization, reconstruction, and link analysis do not discard the signal carried by asymmetry.
 
 ## Success Criteria
 
-<!-- What would a successful solution look like? What properties should it have? This is about the goal, not the paper's specific approach. Make it short -->
+A successful system produces low-dimensional coordinates whose induced directed distances have low reconstruction error against the target directed shortest-path distances, preserve nearest-neighbour rankings, and retain the asymmetric component that a symmetric embedding cannot represent.
+
+---
+
+# Paper's Method
+
+## Key Contribution
+
+The paper generalizes multidimensional scaling to asymmetric dissimilarities by embedding data in a canonical Finsler, specifically Randers, space instead of a symmetric Riemannian/Euclidean space.
+
+## Approach
+
+The canonical embedding space keeps straight-line geodesics but assigns direction-dependent lengths:
+`d(x, y) = ||y - x||_2 + omega^T (y - x)`, with a constant drift vector `omega` of norm below one. The paper minimizes a Finsler stress objective and derives a SMACOF-style majorization update. For larger examples it uses a stabilized linear solve based on multiplying the update equation by `V^T` and solving with GMRES.
+
+The paper also presents a neural representation-learning version for larger directed graphs, using the same canonical distance in a Fermi-Dirac decoder for link prediction.
+
+## Main Claims
+
+Primary claim: low-dimensional embeddings with directed distances preserve asymmetric dissimilarities better than Euclidean embeddings.
+
+Secondary claims: the same framework supports intuitive visualizations of asymmetric manifolds, current maps, and graph hierarchies; it is compatible with robust MDS weighting schemes; and the representation-learning variant improves directed graph reconstruction and link prediction.
+
+---
+
+# Evaluation
+
+## Metrics
+
+- `normalized_stress`: square-root stress normalized by the squared target dissimilarities. Lower is better.
+- `map_at_10`: mean average precision of the top-10 nearest directed neighbours under the predicted distances. Higher is better.
+- `asymmetry_rmse`: RMSE between target and predicted antisymmetric distance components, `D_ij - D_ji`. Lower is better.
+- `symmetric_rmse`: RMSE between target and predicted symmetric distance components. Lower is better.
+- `hierarchy_alignment`: absolute Spearman correlation between the embedding's final coordinate and tree depth on the hierarchy benchmark. Higher is better.
+
+## Baselines and Targets
+
+The primary baseline is a Euclidean low-dimensional embedding optimized against the same directed dissimilarity matrix. The paper's Table 1 reports that on Cora with 2D embeddings, Euclidean reconstruction has distortion `0.426` and MAP `0.574`, while the proposed directed-distance embedding has distortion `0.127` and MAP `0.894`.
+
+## Evaluation Protocol
+
+For the packaged reproduction, run the fixed directed binary-tree benchmark from the paper's visualization experiments. Generate the graph, compute all-pairs directed shortest-path dissimilarities, run the baseline and proposed method with the same seed and embedding dimension, then evaluate only the saved output artifacts with `scripts/evaluate.sh`.
+
+---
+
+# Reproduction Log
+
+### Iteration 1: gpt-5.5
+- **Milestone**: `core_claim_plus` | **Status**: done
+- **Working time**: 14m | **GPU**: 0.0h
+- **Jobs**: 3 total (2 completed, 1 failed)
+
+<details>
+<summary>Progress Log</summary>
+
+### [2026-06-12 03:12] - none
+- Read the paper markdown and extracted the core Finsler MDS formulation, canonical Randers distance, Finsler SMACOF update, and Appendix D.1.1 directed-tree experiment.
+- Cloned the official code release into `method/upstream_finsler_mds` for reference.
+- Implemented the directed binary-tree data generator, Finsler SMACOF method, Euclidean SMACOF baseline, and method-independent evaluation code.
+- Static validation passes; first CPU test job is being submitted to execute the reproduction inside the container.
+
+### [2026-06-12 03:31] - core_claim
+- CPU job `215fb11e-2bf` completed successfully inside the container.
+- The paper's Finsler SMACOF algorithm ran end-to-end on the Appendix D.1.1 directed-tree benchmark.
+- Finsler MDS reduced normalized stress from `0.5028` to `0.0222` versus Euclidean SMACOF and reduced asymmetry RMSE from `1.8698` to `0.0188`, supporting the core asymmetric-embedding claim.
+- Added a second depth-5 tree setting for the next CPU job to test the same claim beyond one graph size.
+
+### [2026-06-12 03:42] - core_claim_plus
+- CPU job `fd4957cf-552` completed successfully inside the container and `python validate.py --compare` passed.
+- On the added depth-5 tree setting, Finsler MDS reduced normalized stress from `0.4949` to `0.0254` and asymmetry RMSE from `1.6849` to `0.0197` versus Euclidean SMACOF.
+- The same asymmetric reconstruction advantage now holds on two directed-tree sizes, so the reproduction reaches `core_claim_plus`.
+
+</details>
+
 
 ---
 
 # Reproduction Milestones
 
-**Current: none**
+**Current: core_claim_plus**
 
 ## Stop Justification
-- Completed at milestone `none`.
+- Completed at milestone `core_claim_plus`.
