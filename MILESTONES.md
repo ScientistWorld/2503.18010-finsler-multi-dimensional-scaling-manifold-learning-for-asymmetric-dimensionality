@@ -12,5 +12,5 @@
 - Added and scored a second directed-tree depth setting.
 - Confirmed the Finsler SMACOF implementation preserves asymmetric distances and hierarchy direction while the Euclidean SMACOF baseline fails those checks.
 
-## Stop Justification
-- Completed at milestone `core_claim_plus`.
+## Current Submission
+- Running one final CPU test job after packaging cleanup to verify the committed import layout inside the container.
