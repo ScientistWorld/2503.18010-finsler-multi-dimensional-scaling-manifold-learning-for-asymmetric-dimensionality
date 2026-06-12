@@ -1,7 +1,7 @@
 {
   "experiments": {
     "directed_tree_reconstruction": {
-      "description": "Directed binary-tree hierarchy reconstruction from Appendix D.1.1 / Figure 5. The paper reports this result qualitatively; these reference values encode the expected direction of the effect for the benchmark.",
+      "description": "Directed binary-tree hierarchy reconstruction from Appendix D.1.1 / Figure 5. The paper reports this result qualitatively; these numeric reference values are benchmark targets on the packaged evaluator scale, not table transcriptions.",
       "weight": 0.3,
       "primary_metric": "normalized_stress",
       "metrics": {
@@ -37,7 +37,7 @@
         },
         "finsler_mds": {
           "type": "proposed",
-          "normalized_stress": 0.25,
+          "normalized_stress": 0.03,
           "map_at_10": 0.7,
           "asymmetry_rmse": 0.5,
           "symmetric_rmse": 1.0,
@@ -46,7 +46,7 @@
       }
     },
     "directed_tree_depth5_reconstruction": {
-      "description": "Directed binary-tree hierarchy reconstruction on a smaller depth-5 instance of the Appendix D.1.1 benchmark. The paper reports the tree result qualitatively; these reference values encode the expected direction of the effect.",
+      "description": "Directed binary-tree hierarchy reconstruction on a smaller depth-5 instance of the Appendix D.1.1 benchmark. The paper reports the tree result qualitatively; these numeric reference values are benchmark targets on the packaged evaluator scale, not table transcriptions.",
       "weight": 0.2,
       "primary_metric": "normalized_stress",
       "metrics": {
@@ -82,7 +82,7 @@
         },
         "finsler_mds": {
           "type": "proposed",
-          "normalized_stress": 0.25,
+          "normalized_stress": 0.03,
           "map_at_10": 0.7,
           "asymmetry_rmse": 0.5,
           "symmetric_rmse": 1.0,

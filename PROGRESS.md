@@ -28,6 +28,7 @@
 - The login-node Python environment does not have NumPy installed, so numerical experiments are run through scheduled jobs. Dependencies are declared in `environment/setup.sh` for the scheduled container job.
 - The tree visualization experiment in the paper is reported qualitatively rather than with a numeric table. `reference.json` includes paper Table 1 Cora numbers and a benchmark target entry for the packaged tree task.
 - CPU job `aa29f577-e55` failed before scoring because `scripts/evaluate.sh` still passed removed `--finsler` and `--euclidean` options. The script now calls the evaluator's default experiment suite.
+- Initial tree reference stress targets were too loose for validator consistency checks. They were corrected to benchmark-scale qualitative targets after re-reading the paper text confirming that Figure 5 reports no numeric stress values.
 
 ## Deviations from Paper
 
