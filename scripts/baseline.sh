@@ -23,3 +23,10 @@ python -m baseline.run_tree_baseline \
   --max-iter 350 \
   --seed 0 \
   --output outputs/euclidean_tree
+
+python -m baseline.run_tree_baseline \
+  --depth 5 \
+  --dim 2 \
+  --max-iter 300 \
+  --seed 1 \
+  --output outputs/euclidean_tree_depth5

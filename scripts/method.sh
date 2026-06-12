@@ -18,4 +18,12 @@ python -m method.run_tree_experiment \
   --seed 0 \
   --output outputs/finsler_tree
 
+python -m method.run_tree_experiment \
+  --depth 5 \
+  --alpha 0.5 \
+  --dim 2 \
+  --max-iter 300 \
+  --seed 1 \
+  --output outputs/finsler_tree_depth5
+
 bash scripts/evaluate.sh

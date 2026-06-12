@@ -10,6 +10,18 @@ import numpy as np
 from scipy.stats import spearmanr
 
 
+DEFAULT_EXPERIMENTS = {
+    "directed_tree_reconstruction": {
+        "euclidean": "outputs/euclidean_tree/predictions.npz",
+        "finsler": "outputs/finsler_tree/predictions.npz",
+    },
+    "directed_tree_depth5_reconstruction": {
+        "euclidean": "outputs/euclidean_tree_depth5/predictions.npz",
+        "finsler": "outputs/finsler_tree_depth5/predictions.npz",
+    },
+}
+
+
 def _euclidean_distances(x: np.ndarray) -> np.ndarray:
     return np.linalg.norm(x[None, :, :] - x[:, None, :], axis=-1)
 
@@ -79,19 +91,33 @@ def metrics_for_artifact(path: Path) -> dict[str, float]:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--finsler", default="outputs/finsler_tree/predictions.npz")
-    parser.add_argument("--euclidean", default="outputs/euclidean_tree/predictions.npz")
+    parser.add_argument(
+        "--experiments",
+        nargs="*",
+        default=list(DEFAULT_EXPERIMENTS),
+        choices=list(DEFAULT_EXPERIMENTS),
+        help="Experiment artifact groups to score.",
+    )
     parser.add_argument("--output", default="scoring/scores.json")
     args = parser.parse_args()
 
-    scores = {
-        "directed_tree_reconstruction": {
+    scores = {}
+    for experiment in args.experiments:
+        paths = DEFAULT_EXPERIMENTS[experiment]
+        euclidean_path = Path(paths["euclidean"])
+        finsler_path = Path(paths["finsler"])
+        if not euclidean_path.exists() or not finsler_path.exists():
+            raise FileNotFoundError(
+                f"missing artifacts for {experiment}: "
+                f"{euclidean_path} and {finsler_path} must both exist"
+            )
+        scores[experiment] = {
             "results": {
-                "euclidean_mds": metrics_for_artifact(Path(args.euclidean)),
-                "finsler_mds": metrics_for_artifact(Path(args.finsler)),
+                "euclidean_mds": metrics_for_artifact(euclidean_path),
+                "finsler_mds": metrics_for_artifact(finsler_path),
             }
         }
-    }
+
     out_path = Path(args.output)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with out_path.open("w", encoding="utf-8") as handle:

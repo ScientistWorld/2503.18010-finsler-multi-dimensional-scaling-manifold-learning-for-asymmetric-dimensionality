@@ -5,21 +5,25 @@
 - Paper analysis is complete for the minimum SMACOF reproduction path.
 - The official code release is vendored under `method/upstream_finsler_mds`.
 - Local tracked code now implements the Appendix D.1.1 directed binary-tree benchmark, the paper's canonical Randers Finsler SMACOF update, a Euclidean SMACOF baseline, and an evaluator that reads saved artifacts.
-- `python validate.py --reference-only` passes before the first job submission.
+- CPU job `215fb11e-2bf` ran `scripts/reproduce.sh` successfully inside the container and `python validate.py --compare` passed.
+- The evaluator now supports both the original depth-7 tree benchmark and an additional depth-5 tree benchmark for a small `core_claim_plus` expansion.
 
 ## Results
 
-- No reproduced numbers yet. The first CPU test job will run `scripts/reproduce.sh` and write `scoring/scores.json`.
+- `directed_tree_reconstruction` (depth 7):
+  - Euclidean SMACOF baseline: normalized stress `0.5028`, MAP@10 `0.2669`, asymmetry RMSE `1.8698`, symmetric RMSE `0.5379`, hierarchy alignment `0.0082`.
+  - Finsler MDS: normalized stress `0.0222`, MAP@10 `0.2885`, asymmetry RMSE `0.0188`, symmetric RMSE `0.0466`, hierarchy alignment `0.9249`.
+- This supports the paper's central claim that a canonical Randers Finsler geometry can represent directed asymmetric distances that a symmetric Euclidean embedding cannot.
 
 ## Remaining
 
-- Run the CPU test job and inspect `scoring/scores.json`.
-- If the Finsler method improves directed-tree reconstruction and asymmetry preservation over the Euclidean baseline, update the milestone to `core_claim`.
-- If the first run is unstable, tune initialization or iterations while keeping the same Finsler SMACOF procedure.
+- Run the expanded CPU job that adds `directed_tree_depth5_reconstruction`.
+- If the depth-5 result shows the same stress/asymmetry advantage, update the milestone to `core_claim_plus`.
+- Full reproduction of Table 1 graph datasets remains future work; the packaged environment currently targets the paper's Appendix D.1.1 hierarchy benchmark plus one scaled setting.
 
 ## Issues
 
-- The login-node Python environment does not have NumPy installed, so no local numerical smoke test was run. Dependencies are declared in `environment/setup.sh` for the scheduled container job.
+- The login-node Python environment does not have NumPy installed, so numerical experiments are run through scheduled jobs. Dependencies are declared in `environment/setup.sh` for the scheduled container job.
 - The tree visualization experiment in the paper is reported qualitatively rather than with a numeric table. `reference.json` includes paper Table 1 Cora numbers and a benchmark target entry for the packaged tree task.
 
 ## Deviations from Paper

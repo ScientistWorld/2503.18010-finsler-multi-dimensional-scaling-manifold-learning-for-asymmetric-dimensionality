@@ -1,6 +1,6 @@
 # Reproduction Milestones
 
-**Current: none**
+**Current: core_claim**
 
 <!-- Milestone levels (update "Current" above as you progress):
   none             — just started, no meaningful progress yet
@@ -20,6 +20,12 @@
 - Cloned the official code release into `method/upstream_finsler_mds` for reference.
 - Implemented the directed binary-tree data generator, Finsler SMACOF method, Euclidean SMACOF baseline, and method-independent evaluation code.
 - Static validation passes; first CPU test job is being submitted to execute the reproduction inside the container.
+
+### [2026-06-12 03:31] - core_claim
+- CPU job `215fb11e-2bf` completed successfully inside the container.
+- The paper's Finsler SMACOF algorithm ran end-to-end on the Appendix D.1.1 directed-tree benchmark.
+- Finsler MDS reduced normalized stress from `0.5028` to `0.0222` versus Euclidean SMACOF and reduced asymmetry RMSE from `1.8698` to `0.0188`, supporting the core asymmetric-embedding claim.
+- Added a second depth-5 tree setting for the next CPU job to test the same claim beyond one graph size.
 
 ## Stop Justification
 - Not stopped.

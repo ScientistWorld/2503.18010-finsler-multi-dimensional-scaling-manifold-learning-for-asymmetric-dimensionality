@@ -30,5 +30,5 @@
 action: submit
 gpus: 0
 test: true
-milestone: none
-notes: "CPU smoke test: install dependencies, run Euclidean baseline and Finsler SMACOF on the directed-tree benchmark, evaluate scores, and validate."
+milestone: core_claim
+notes: "CPU expansion run: rerun the depth-7 directed-tree reproduction and add a depth-5 tree setting, then regenerate scores.json and validate."
