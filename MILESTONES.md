@@ -30,4 +30,4 @@
 - Continuous diagnostics are preserved in `scoring/details.json` for auditability without treating non-paper values as reference numbers.
 
 ## Stop Justification
-- Completed at milestone `core_claim_plus`. The packaged environment demonstrates the core Finsler MDS claim on the main hierarchy benchmark and one additional graph size with a repaired scoring contract.
+- Completed at milestone `core_claim_plus`.
