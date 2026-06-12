@@ -195,6 +195,32 @@ The paper reports the tree result qualitatively rather than as a numeric table. 
 
 </details>
 
+### Iteration 5: gpt-5.5 (designer_stage_2)
+- **Milestone**: `core_claim_plus` | **Status**: done
+- **Working time**: 6m | **GPU**: 0.0h
+- **Jobs**: 5 total (4 completed, 1 failed)
+
+<details>
+<summary>Progress Log</summary>
+
+### [2026-06-12 03:34] - core_claim
+- Reproduced the paper's directed binary-tree Finsler SMACOF hierarchy result in the scheduled container.
+- Verified the evaluator writes artifact-based `scores.json` and passes `python validate.py --compare`.
+
+### [2026-06-12 03:55] - core_claim_plus
+- Added and scored a second directed-tree depth setting.
+- Confirmed the Finsler SMACOF implementation preserves asymmetric distances and hierarchy direction while the Euclidean SMACOF baseline fails those checks.
+
+### [2026-06-12 04:20] - core_claim_plus
+- Continuation audit verified the method is a real implementation of canonical Randers Finsler SMACOF.
+- Fixed evaluator reusability by adding manifest-based artifact scoring for future methods.
+
+### [2026-06-12 04:45] - core_claim_plus
+- CPU job `bfea18f8-f56` completed successfully after the evaluator fix.
+- Verified `scripts/reproduce.sh`, `python validate.py --compare`, and manifest-mode scoring inside the container.
+
+</details>
+
 
 ---
 
