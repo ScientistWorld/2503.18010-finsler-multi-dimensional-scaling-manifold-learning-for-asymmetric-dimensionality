@@ -7,6 +7,7 @@
 - Local tracked code now implements the Appendix D.1.1 directed binary-tree benchmark, the paper's canonical Randers Finsler SMACOF update, a Euclidean SMACOF baseline, and an evaluator that reads saved artifacts.
 - CPU job `215fb11e-2bf` ran `scripts/reproduce.sh` successfully inside the container and `python validate.py --compare` passed.
 - CPU job `fd4957cf-552` successfully regenerated `scoring/scores.json` with both the original depth-7 tree benchmark and an additional depth-5 tree benchmark.
+- Final local validation on 2026-06-12 confirmed `reference.json`, `scores.json`, import separation, artifact-based evaluation, and shared-path hygiene all pass.
 
 ## Results
 
@@ -17,6 +18,7 @@
   - Euclidean SMACOF baseline: normalized stress `0.4949`, MAP@10 `0.6148`, asymmetry RMSE `1.6849`, symmetric RMSE `0.4496`, hierarchy alignment `0.0231`.
   - Finsler MDS: normalized stress `0.0254`, MAP@10 `0.5894`, asymmetry RMSE `0.0197`, symmetric RMSE `0.0481`, hierarchy alignment `0.9222`.
 - These results support the paper's central claim that a canonical Randers Finsler geometry can represent directed asymmetric distances that a symmetric Euclidean embedding cannot.
+- Current milestone: `core_claim_plus`, because the core directed-tree result is reproduced and repeated on an additional tree size.
 
 ## Remaining
 
