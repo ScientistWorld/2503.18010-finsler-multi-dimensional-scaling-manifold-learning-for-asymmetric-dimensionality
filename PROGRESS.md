@@ -9,6 +9,7 @@
 - CPU job `fd4957cf-552` successfully regenerated `scoring/scores.json` with both the original depth-7 tree benchmark and an additional depth-5 tree benchmark.
 - Final local validation on 2026-06-12 confirmed `reference.json`, `scores.json`, import separation, artifact-based evaluation, and shared-path hygiene all pass.
 - Follow-up audit found that the previous `reference.json` used invented continuous targets for the qualitative Figure 5 tree result. The score contract has been repaired so `scores.json` contains binary checks of paper-stated qualitative claims, while continuous diagnostics are written to `scoring/details.json`.
+- CPU job `7d307bfa-ccd` reran the full reproduction under the repaired scoring contract and `python validate.py --compare` passed.
 
 ## Results
 
@@ -19,7 +20,8 @@
   - Euclidean SMACOF baseline: normalized stress `0.4949`, MAP@10 `0.6148`, asymmetry RMSE `1.6849`, symmetric RMSE `0.4496`, hierarchy alignment `0.0231`.
   - Finsler MDS: normalized stress `0.0254`, MAP@10 `0.5894`, asymmetry RMSE `0.0197`, symmetric RMSE `0.0481`, hierarchy alignment `0.9222`.
 - These continuous diagnostics support the paper's central claim that a canonical Randers Finsler geometry can represent directed asymmetric distances that a symmetric Euclidean embedding cannot. The official score file now records the corresponding paper-claim pass/fail checks.
-- Current audited milestone before rerun: `core_claim`; the submitted CPU job will regenerate scores under the repaired evaluator before restoring `core_claim_plus`.
+- Official repaired scores: Euclidean MDS gets `0` on distance preservation, asymmetry preservation, and hierarchy direction checks; Finsler MDS gets `1` on all three checks for both depth-7 and depth-5 settings.
+- Current milestone: `core_claim_plus`, because the repaired scoring run confirms the core directed-tree result and repeats it on an additional tree size.
 
 ## Remaining
 

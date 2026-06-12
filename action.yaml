@@ -1,8 +1,8 @@
 # IMPORTANT: Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends. Sleeping blocks the entire pipeline.
-action: submit
+action: done
 gpus: 0
-test: true
-milestone: core_claim
-notes: "CPU rerun to regenerate scores.json and details.json after fixing the qualitative Figure 5 scoring contract."
+test: false
+milestone: core_claim_plus
+notes: "CPU job 7d307bfa-ccd reran the repaired scoring contract successfully. Finsler MDS passes the qualitative Figure 5 claim checks on depth-7 and depth-5 directed trees; Euclidean MDS fails them. Validation passes."
