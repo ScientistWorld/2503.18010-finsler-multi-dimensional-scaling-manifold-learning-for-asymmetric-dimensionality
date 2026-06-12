@@ -31,4 +31,4 @@ action: submit
 gpus: 0
 test: true
 milestone: core_claim
-notes: "CPU expansion run: rerun the depth-7 directed-tree reproduction and add a depth-5 tree setting, then regenerate scores.json and validate."
+notes: "Retry CPU expansion after fixing evaluate.sh CLI: rerun depth-7 and depth-5 tree settings, regenerate scores.json, and validate."

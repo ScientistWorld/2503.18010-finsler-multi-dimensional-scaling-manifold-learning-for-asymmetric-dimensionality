@@ -27,6 +27,4 @@ cd /home/user
 mkdir -p scoring
 
 python -m eval.tree_metrics \
-  --finsler outputs/finsler_tree/predictions.npz \
-  --euclidean outputs/euclidean_tree/predictions.npz \
   --output scoring/scores.json
