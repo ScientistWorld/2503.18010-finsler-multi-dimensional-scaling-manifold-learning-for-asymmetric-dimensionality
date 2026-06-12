@@ -63,19 +63,19 @@ Secondary claims: the same framework supports intuitive visualizations of asymme
 - `asymmetry_rmse`: RMSE between target and predicted antisymmetric distance components, `D_ij - D_ji`. Lower is better.
 - `symmetric_rmse`: RMSE between target and predicted symmetric distance components. Lower is better.
 - `hierarchy_alignment`: absolute Spearman correlation between the embedding's final coordinate and tree depth on the hierarchy benchmark. Higher is better.
-- `distance_preservation_pass`: binary Figure 5 claim check derived from normalized stress. Higher is better.
+- `distance_preservation_pass`: threshold-clearance score derived from normalized stress; zero means the reconstruction error did not clear the Figure 5 claim threshold. Higher is better.
 - `asymmetry_preservation_pass`: binary Figure 5 claim check derived from asymmetry RMSE. Higher is better.
 - `hierarchy_direction_pass`: binary Figure 5 claim check derived from hierarchy alignment. Higher is better.
 
 ## Baselines and Targets
 
-The primary baseline is a Euclidean low-dimensional embedding optimized against the same directed dissimilarity matrix. The paper's Table 1 reports that on Cora with 2D embeddings, Euclidean reconstruction has distortion `0.426` and MAP `0.574`, while the proposed directed-distance embedding has distortion `0.127` and MAP `0.894`.
+The reference baseline is a symmetric Euclidean low-dimensional embedding optimized against the same directed dissimilarity matrix. The paper's larger graph experiments report that directed-distance-preserving embeddings can substantially reduce distortion and improve directed-neighbour ranking compared with symmetric embeddings.
 
 ## Evaluation Protocol
 
-For the packaged reproduction, run the fixed directed binary-tree benchmark from the paper's visualization experiments. Generate the graph, compute all-pairs directed shortest-path dissimilarities, run the baseline and proposed method with the same seed and embedding dimension, then evaluate only the saved output artifacts with `scripts/evaluate.sh`.
+For the packaged reproduction, run the fixed directed binary-tree benchmark from the visualization experiments. Generate the graph, compute all-pairs directed shortest-path dissimilarities, run each candidate embedding method with the same seed and embedding dimension, then evaluate only the saved output artifacts with `scripts/evaluate.sh`.
 
-The paper reports the tree result qualitatively rather than as a numeric table. To avoid inventing continuous paper values, `scoring/scores.json` reports binary checks for the qualitative Figure 5 claims, while `scoring/details.json` records the continuous normalized stress, MAP@10, asymmetry RMSE, symmetric RMSE, and hierarchy alignment diagnostics.
+The paper reports the tree result qualitatively rather than as a numeric table. To avoid inventing continuous paper values, `scoring/reference.json` records the qualitative Figure 5 expectations as threshold checks. `scoring/scores.json` records artifact-derived continuous diagnostics plus those claim checks, and `scoring/details.json` keeps the same diagnostics with threshold metadata.
 
 ---
 
@@ -250,6 +250,32 @@ The paper reports the tree result qualitatively rather than as a numeric table. 
 ### Iteration 7: gpt-5.5 (packager)
 - **Milestone**: `core_claim_plus` | **Status**: done
 - **Working time**: 2m | **GPU**: 0.0h
+- **Jobs**: 10 total (5 completed, 5 failed)
+
+<details>
+<summary>Progress Log</summary>
+
+### [2026-06-12 03:34] - core_claim
+- Reproduced the paper's directed binary-tree Finsler SMACOF hierarchy result in the scheduled container.
+- Verified the evaluator writes artifact-based `scores.json` and passes `python validate.py --compare`.
+
+### [2026-06-12 03:55] - core_claim_plus
+- Added and scored a second directed-tree depth setting.
+- Confirmed the Finsler SMACOF implementation preserves asymmetric distances and hierarchy direction while the Euclidean SMACOF baseline fails those checks.
+
+### [2026-06-12 04:20] - core_claim_plus
+- Continuation audit verified the method is a real implementation of canonical Randers Finsler SMACOF.
+- Fixed evaluator reusability by adding manifest-based artifact scoring for future methods.
+
+### [2026-06-12 04:45] - core_claim_plus
+- CPU job `bfea18f8-f56` completed successfully after the evaluator fix.
+- Verified `scripts/reproduce.sh`, `python validate.py --compare`, and manifest-mode scoring inside the container.
+
+</details>
+
+### Iteration 8: gpt-5.5 (verifier)
+- **Milestone**: `core_claim_plus` | **Status**: done
+- **Working time**: 8m | **GPU**: 0.0h
 - **Jobs**: 10 total (5 completed, 5 failed)
 
 <details>
