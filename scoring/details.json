@@ -55,17 +55,17 @@
     "results": {
       "euclidean_mds": {
         "asymmetry_rmse": 1.8697782601213169,
-        "hierarchy_alignment": 0.008192415877538927,
-        "map_at_10": 0.2668649158981664,
-        "normalized_stress": 0.5028289743782987,
-        "symmetric_rmse": 0.537876712468764
+        "hierarchy_alignment": 0.03329078566626277,
+        "map_at_10": 0.27492298379170826,
+        "normalized_stress": 0.5028289813079168,
+        "symmetric_rmse": 0.5378767422751161
       },
       "finsler_mds": {
-        "asymmetry_rmse": 0.0188338132346336,
+        "asymmetry_rmse": 0.018833813244771368,
         "hierarchy_alignment": 0.9249155366842963,
         "map_at_10": 0.288538579293498,
-        "normalized_stress": 0.022153638153915977,
-        "symmetric_rmse": 0.0465775512406152
+        "normalized_stress": 0.022153638153409237,
+        "symmetric_rmse": 0.04657755123848144
       }
     }
   }
