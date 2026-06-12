@@ -15,6 +15,8 @@ from pathlib import Path
 import numpy as np
 from scipy.stats import spearmanr
 
+from data.directed_tree import make_directed_binary_tree
+
 
 SLICE = "train"
 SPLIT_SEED = 250318010
@@ -22,6 +24,10 @@ SPLIT_SEED = 250318010
 DEPTH_TO_EXPERIMENT = {
     7: "directed_tree_reconstruction",
     5: "directed_tree_depth5_reconstruction",
+}
+NODE_COUNT_TO_DEPTH = {
+    (2**depth) - 1: depth
+    for depth in DEPTH_TO_EXPERIMENT
 }
 
 CLAIM_THRESHOLDS = {
@@ -81,6 +87,18 @@ def _predicted_distances(
     return predicted, embedding
 
 
+def _target_for_node_count(node_count: int, path: Path) -> tuple[np.ndarray, np.ndarray]:
+    depth = NODE_COUNT_TO_DEPTH.get(node_count)
+    if depth is None:
+        expected = ", ".join(str(n) for n in sorted(NODE_COUNT_TO_DEPTH))
+        raise ValueError(
+            f"{path} has {node_count} nodes; expected one of the benchmark sizes: "
+            f"{expected}"
+        )
+    tree = make_directed_binary_tree(depth=depth)
+    return tree.distances, tree.depths
+
+
 def _source_indices(depths: np.ndarray) -> np.ndarray:
     selected: list[int] = []
     for depth in np.unique(depths):
@@ -120,18 +138,25 @@ def average_precision_from_distances(
     return float(np.mean(aps))
 
 
+def _safe_correlation(x: np.ndarray, y: np.ndarray) -> float:
+    if x.size < 2 or y.size < 2:
+        return 0.0
+    if np.allclose(x, x[0]) or np.allclose(y, y[0]):
+        return 0.0
+    corr = float(np.corrcoef(x, y)[0, 1])
+    return 0.0 if np.isnan(corr) else corr
+
+
 def metrics_for_artifact(path: Path) -> tuple[dict[str, float], dict[str, int | str]]:
     artifact = np.load(path, allow_pickle=False)
-    target = artifact["distances"]
-    depths = artifact["depths"] if "depths" in artifact else None
-    if depths is None:
-        raise ValueError(f"{path} must contain depths for source-node split scoring")
-
     predicted, embedding = _predicted_distances(artifact, path)
+    if predicted.ndim != 2 or predicted.shape[0] != predicted.shape[1]:
+        raise ValueError(f"{path} predicted distances must be a square matrix")
+    target, depths = _target_for_node_count(predicted.shape[0], path)
     if predicted.shape != target.shape:
         raise ValueError(
             f"{path} predicted_distances shape {predicted.shape} does not match "
-            f"target distances shape {target.shape}"
+            f"benchmark distances shape {target.shape}"
         )
 
     sources = _source_indices(depths)
@@ -142,6 +167,10 @@ def metrics_for_artifact(path: Path) -> tuple[dict[str, float], dict[str, int | 
 
     asym_error = float(
         np.sqrt(np.mean(((predicted - predicted.T) - (target - target.T))[mask] ** 2))
+    )
+    asymmetry_correlation = _safe_correlation(
+        (target - target.T)[mask],
+        (predicted - predicted.T)[mask],
     )
     sym_error = float(
         np.sqrt(
@@ -166,6 +195,7 @@ def metrics_for_artifact(path: Path) -> tuple[dict[str, float], dict[str, int | 
             target, predicted, sources, k=min(10, target.shape[0] - 1)
         ),
         "asymmetry_rmse": asym_error,
+        "asymmetry_correlation": asymmetry_correlation,
         "symmetric_rmse": sym_error,
         "hierarchy_alignment": hierarchy_alignment,
     }
@@ -195,11 +225,29 @@ def claim_scores(metrics: dict[str, float]) -> dict[str, float]:
     return scores
 
 
+def official_scores(metrics: dict[str, float]) -> dict[str, float]:
+    return {
+        "normalized_stress": metrics["normalized_stress"],
+        "map_at_10": metrics["map_at_10"],
+        "asymmetry_rmse": metrics["asymmetry_rmse"],
+        "asymmetry_correlation": metrics["asymmetry_correlation"],
+        "symmetric_rmse": metrics["symmetric_rmse"],
+        "hierarchy_alignment": metrics["hierarchy_alignment"],
+        **claim_scores(metrics),
+    }
+
+
 def _experiment_for_artifact(path: Path) -> str | None:
     with np.load(path, allow_pickle=False) as artifact:
-        if "depths" not in artifact:
+        if "predicted_distances" in artifact:
+            node_count = int(artifact["predicted_distances"].shape[0])
+        elif "embedding" in artifact:
+            node_count = int(artifact["embedding"].shape[0])
+        else:
             return None
-        max_depth = int(np.max(artifact["depths"]))
+    max_depth = NODE_COUNT_TO_DEPTH.get(node_count)
+    if max_depth is None:
+        return None
     return DEPTH_TO_EXPERIMENT.get(max_depth)
 
 
@@ -305,7 +353,7 @@ def main() -> None:
         }
         scores[experiment] = {
             "results": {
-                method_name: claim_scores(metrics)
+                method_name: official_scores(metrics)
                 for method_name, metrics in metric_results.items()
             }
         }
