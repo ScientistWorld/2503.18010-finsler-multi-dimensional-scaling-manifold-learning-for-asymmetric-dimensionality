@@ -13,6 +13,7 @@
 - A final packaging pass moved the shared Isomap/classical-scaling initializer from `method/` to `data/`, so the Euclidean baseline no longer imports the proposed-method package. The optional unrun Cora reference entry now uses method labels matching the paper's neural directed-graph embedding setup.
 - Continuation audit confirmed the Finsler SMACOF implementation is faithful, then fixed a reusable-evaluation gap: `eval/tree_metrics.py` now supports a manifest of artifact paths and artifacts with precomputed `predicted_distances`, while preserving the default reproduction interface.
 - CPU job `bfea18f8-f56` reran the full reproduction after the reusable-evaluator fix; `scripts/reproduce.sh`, `python validate.py --compare`, and manifest-mode scoring all completed successfully.
+- Final audit fixed `scripts/run.sh` so submitted runs refresh canonical `scoring/scores.json` before the split train/test score files.
 
 ## Results
 
@@ -40,6 +41,7 @@
 - Initial tree reference stress targets were benchmark-scale values rather than paper-reported numbers. This audit replaced them with binary qualitative claim checks and moved continuous diagnostics out of `scores.json`.
 - The continuation audit found that the previous evaluator was independent from `method/` but too hard-coded for future methods. This has been fixed with a JSON manifest interface and a `predicted_distances` artifact path; `scripts/run.sh` now tests that interface in the container.
 - The final CPU test completed successfully. Remaining work is expansion to the paper's larger neural graph benchmarks, not a known correctness bug in the packaged tree reproduction.
+- A side-agent compliance check found that `scripts/run.sh` refreshed only split scores; it now calls `scripts/evaluate.sh` as well.
 
 ## Deviations from Paper
 

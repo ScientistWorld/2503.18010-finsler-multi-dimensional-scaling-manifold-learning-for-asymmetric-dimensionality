@@ -65,5 +65,6 @@ cat > tmp/split_eval_manifest.json <<'JSON'
 }
 JSON
 
+bash scripts/evaluate.sh --manifest tmp/split_eval_manifest.json
 bash scripts/evaluate_train.sh --manifest tmp/split_eval_manifest.json
 bash scripts/evaluate_test.sh --manifest tmp/split_eval_manifest.json
