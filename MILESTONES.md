@@ -1,6 +1,6 @@
 # Reproduction Milestones
 
-**Current: core_claim**
+**Current: core_claim_plus**
 
 <!-- Milestone levels (update "Current" above as you progress):
   none             — just started, no meaningful progress yet
@@ -27,5 +27,10 @@
 - Finsler MDS reduced normalized stress from `0.5028` to `0.0222` versus Euclidean SMACOF and reduced asymmetry RMSE from `1.8698` to `0.0188`, supporting the core asymmetric-embedding claim.
 - Added a second depth-5 tree setting for the next CPU job to test the same claim beyond one graph size.
 
+### [2026-06-12 03:42] - core_claim_plus
+- CPU job `fd4957cf-552` completed successfully inside the container and `python validate.py --compare` passed.
+- On the added depth-5 tree setting, Finsler MDS reduced normalized stress from `0.4949` to `0.0254` and asymmetry RMSE from `1.6849` to `0.0197` versus Euclidean SMACOF.
+- The same asymmetric reconstruction advantage now holds on two directed-tree sizes, so the reproduction reaches `core_claim_plus`.
+
 ## Stop Justification
-- Not stopped.
+- Stopped at `core_claim_plus`: the reusable environment reproduces the paper's Finsler SMACOF computation and core asymmetric-distance claim on the Appendix D.1.1 tree benchmark plus an additional tree size. Higher milestones would require implementing and running the larger directed-graph Table 1 suite.

@@ -27,8 +27,6 @@
 #   milestone: core_claim
 #   notes: "Reproduced the core claim. Environment packaged."
 
-action: submit
-gpus: 0
-test: true
-milestone: core_claim
-notes: "Retry CPU expansion after fixing evaluate.sh CLI: rerun depth-7 and depth-5 tree settings, regenerate scores.json, and validate."
+action: done
+milestone: core_claim_plus
+notes: "Reproduced the core Finsler MDS asymmetric-distance claim on the Appendix D.1.1 directed-tree benchmark and an additional depth-5 tree setting; scores.json and validation pass."
