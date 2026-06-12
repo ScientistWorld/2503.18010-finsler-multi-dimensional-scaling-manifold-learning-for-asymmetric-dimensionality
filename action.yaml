@@ -1,5 +1,5 @@
-action: submit
+action: done
 gpus: 0
 test: false
 milestone: core_claim_plus
-notes: "Re-score after making distance_preservation_pass graded and replacing RNG splits with deterministic hash-stratified source rows."
+notes: "Stratified source-row split; 36 train metrics, 36 test metrics; primary distance score is graded from real-run normalized stress; no null scores."
