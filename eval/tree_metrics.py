@@ -58,6 +58,15 @@ def average_precision_from_distances(target: np.ndarray, predicted: np.ndarray, 
     return float(np.mean(aps))
 
 
+def _safe_correlation(x: np.ndarray, y: np.ndarray) -> float:
+    if x.size < 2 or y.size < 2:
+        return 0.0
+    if np.allclose(x, x[0]) or np.allclose(y, y[0]):
+        return 0.0
+    corr = float(np.corrcoef(x, y)[0, 1])
+    return 0.0 if np.isnan(corr) else corr
+
+
 def _artifact_text(artifact: np.lib.npyio.NpzFile, key: str, default: str = "") -> str:
     if key not in artifact:
         return default
@@ -108,6 +117,10 @@ def metrics_for_artifact(path: Path) -> dict[str, float]:
     asym_error = float(
         np.sqrt(np.mean(((predicted - predicted.T) - (target - target.T)) ** 2))
     )
+    asymmetry_correlation = _safe_correlation(
+        (target - target.T).ravel(),
+        (predicted - predicted.T).ravel(),
+    )
     sym_error = float(
         np.sqrt(np.mean(((0.5 * (predicted + predicted.T)) - (0.5 * (target + target.T))) ** 2))
     )
@@ -120,6 +133,7 @@ def metrics_for_artifact(path: Path) -> dict[str, float]:
         "normalized_stress": normalized_stress,
         "map_at_10": average_precision_from_distances(target, predicted, k=min(10, target.shape[0] - 1)),
         "asymmetry_rmse": asym_error,
+        "asymmetry_correlation": asymmetry_correlation,
         "symmetric_rmse": sym_error,
         "hierarchy_alignment": hierarchy_alignment,
     }
@@ -141,6 +155,9 @@ def claim_scores(metrics: dict[str, float]) -> dict[str, float]:
         if np.isnan(value):
             scores[claim] = 0.0
             continue
+        if claim == "distance_preservation_pass" and direction == "le":
+            scores[claim] = float(np.clip(1.0 - (value / threshold), 0.0, 1.0))
+            continue
         if direction == "le":
             passed = value <= threshold
         elif direction == "ge":
@@ -149,6 +166,18 @@ def claim_scores(metrics: dict[str, float]) -> dict[str, float]:
             raise ValueError(f"unknown threshold direction: {direction}")
         scores[claim] = float(passed)
     return scores
+
+
+def official_scores(metrics: dict[str, float]) -> dict[str, float]:
+    return {
+        "normalized_stress": metrics["normalized_stress"],
+        "map_at_10": metrics["map_at_10"],
+        "asymmetry_rmse": metrics["asymmetry_rmse"],
+        "asymmetry_correlation": metrics["asymmetry_correlation"],
+        "symmetric_rmse": metrics["symmetric_rmse"],
+        "hierarchy_alignment": metrics["hierarchy_alignment"],
+        **claim_scores(metrics),
+    }
 
 
 def load_manifest(path: Path | None) -> dict[str, dict[str, str]]:
@@ -213,7 +242,7 @@ def main() -> None:
         }
         scores[experiment] = {
             "results": {
-                method_name: claim_scores(metrics)
+                method_name: official_scores(metrics)
                 for method_name, metrics in metric_results.items()
             }
         }

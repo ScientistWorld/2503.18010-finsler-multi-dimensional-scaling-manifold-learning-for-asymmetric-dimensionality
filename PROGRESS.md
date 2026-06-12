@@ -24,7 +24,7 @@
   - Euclidean SMACOF baseline: normalized stress `0.4949`, MAP@10 `0.6148`, asymmetry RMSE `1.6849`, symmetric RMSE `0.4496`, hierarchy alignment `0.0231`.
   - Finsler MDS: normalized stress `0.0254`, MAP@10 `0.5894`, asymmetry RMSE `0.0197`, symmetric RMSE `0.0481`, hierarchy alignment `0.9222`.
 - These continuous diagnostics support the paper's central claim that a canonical Randers Finsler geometry can represent directed asymmetric distances that a symmetric Euclidean embedding cannot. The official score file now records the corresponding paper-claim pass/fail checks.
-- Official repaired scores: Euclidean MDS gets `0` on distance preservation, asymmetry preservation, and hierarchy direction checks; Finsler MDS gets `1` on all three checks for both depth-7 and depth-5 settings.
+- Official repaired scores: Euclidean MDS gets `0` on the qualitative distance, asymmetry, and hierarchy checks; Finsler MDS clears the asymmetry and hierarchy checks and receives graded distance-preservation scores of `0.7785` on depth 7 and `0.7458` on depth 5. Continuous stress, ranking, asymmetry, symmetry, and hierarchy diagnostics are also included in `scores.json`.
 - Current milestone: `core_claim_plus`, because the repaired scoring run confirms the core directed-tree result and repeats it on an additional tree size.
 - Final validation job `bfea18f8-f56` preserved the same official repaired scores and passed all structure checks.
 

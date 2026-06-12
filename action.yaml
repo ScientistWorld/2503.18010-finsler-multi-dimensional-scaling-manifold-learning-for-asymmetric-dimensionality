@@ -2,4 +2,4 @@ action: done
 gpus: 0
 test: false
 milestone: core_claim_plus
-notes: "Packaging audit passed; run.sh now refreshes canonical scores.json plus split scores. Final milestone core_claim_plus."
+notes: "Final verification passed; gym is ready at core_claim_plus with continuous artifact-based scores and clean method/eval separation."

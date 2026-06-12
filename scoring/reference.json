@@ -22,8 +22,8 @@
                 },
                 "asymmetry_correlation": {
                     "higher_is_better": true,
-                    "coefficient": 0.8,
-                    "description": "Correlation between predicted and target directional distance components."
+                    "coefficient": 0.0,
+                    "description": "Diagnostic correlation between predicted and target directional distance components. Reported for analysis but not scored because the full-tree benchmark has many tied antisymmetric values."
                 },
                 "symmetric_rmse": {
                     "higher_is_better": false,
@@ -88,8 +88,8 @@
                 },
                 "asymmetry_correlation": {
                     "higher_is_better": true,
-                    "coefficient": 0.8,
-                    "description": "Correlation between predicted and target directional distance components."
+                    "coefficient": 0.0,
+                    "description": "Diagnostic correlation between predicted and target directional distance components. Reported for analysis but not scored because the full-tree benchmark has many tied antisymmetric values."
                 },
                 "symmetric_rmse": {
                     "higher_is_better": false,
