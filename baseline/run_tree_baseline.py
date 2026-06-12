@@ -10,8 +10,8 @@ from pathlib import Path
 import numpy as np
 
 from baseline.euclidean_smacof import smacof
+from data.initialization import isomap_initialization
 from data.directed_tree import make_directed_binary_tree
-from method.finsler_smacof import isomap_initialization
 
 
 def main() -> None:

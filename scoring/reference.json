@@ -81,12 +81,12 @@
                 }
             },
             "results": {
-                "euclidean_mds": {
+                "euclidean_embedding": {
                     "type": "baseline",
                     "normalized_stress": 0.426,
                     "map_at_10": 0.574
                 },
-                "finsler_mds": {
+                "finsler_embedding": {
                     "type": "proposed",
                     "normalized_stress": 0.127,
                     "map_at_10": 0.894

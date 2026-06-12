@@ -12,7 +12,6 @@ from dataclasses import dataclass
 import numpy as np
 from scipy.sparse import csr_array
 from scipy.sparse.linalg import gmres
-from sklearn.decomposition import KernelPCA
 
 
 @dataclass
@@ -31,14 +30,6 @@ def canonical_randers_distances(x: np.ndarray, alpha: float) -> np.ndarray:
 def euclidean_distances(x: np.ndarray) -> np.ndarray:
     delta = x[None, :, :] - x[:, None, :]
     return np.linalg.norm(delta, axis=-1)
-
-
-def isomap_initialization(dissimilarities: np.ndarray, n_components: int) -> np.ndarray:
-    """Classical scaling on the symmetrised shortest-path matrix."""
-
-    d_sym = 0.5 * (dissimilarities + dissimilarities.T)
-    gram = -0.5 * d_sym**2
-    return KernelPCA(n_components=n_components, kernel="precomputed").fit_transform(gram)
 
 
 def finsler_stress(

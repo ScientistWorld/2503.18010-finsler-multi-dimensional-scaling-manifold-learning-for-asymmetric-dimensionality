@@ -9,8 +9,9 @@ from pathlib import Path
 
 import numpy as np
 
+from data.initialization import isomap_initialization
 from data.directed_tree import make_directed_binary_tree
-from method.finsler_smacof import isomap_initialization, smacof
+from method.finsler_smacof import smacof
 
 
 def main() -> None:
