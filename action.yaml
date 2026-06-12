@@ -2,4 +2,4 @@ action: submit
 gpus: 0
 test: false
 milestone: core_claim_plus
-notes: "Unconditionally regenerate deterministic prediction artifacts, then run split train/test evaluators to populate scores_train.json and scores_test.json."
+notes: "Regenerate deterministic artifacts and score train/test with an explicit two-method split manifest."

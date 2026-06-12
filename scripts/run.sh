@@ -45,5 +45,25 @@ python -m method.run_tree_experiment \
 
 find outputs -name predictions.npz -print
 
-bash scripts/evaluate_train.sh
-bash scripts/evaluate_test.sh
+mkdir -p tmp
+cat > tmp/split_eval_manifest.json <<'JSON'
+{
+  "experiments": {
+    "directed_tree_reconstruction": {
+      "results": {
+        "euclidean_mds": "outputs/euclidean_tree/predictions.npz",
+        "finsler_mds": "outputs/finsler_tree/predictions.npz"
+      }
+    },
+    "directed_tree_depth5_reconstruction": {
+      "results": {
+        "euclidean_mds": "outputs/euclidean_tree_depth5/predictions.npz",
+        "finsler_mds": "outputs/finsler_tree_depth5/predictions.npz"
+      }
+    }
+  }
+}
+JSON
+
+bash scripts/evaluate_train.sh --manifest tmp/split_eval_manifest.json
+bash scripts/evaluate_test.sh --manifest tmp/split_eval_manifest.json
