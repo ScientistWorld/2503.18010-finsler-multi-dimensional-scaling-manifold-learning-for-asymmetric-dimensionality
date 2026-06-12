@@ -10,5 +10,12 @@ set -e
 
 cd /home/user
 
-# TODO: run the paper's method
-# TODO: call scripts/evaluate.sh to score
+python -m method.run_tree_experiment \
+  --depth 7 \
+  --alpha 0.5 \
+  --dim 2 \
+  --max-iter 350 \
+  --seed 0 \
+  --output outputs/finsler_tree
+
+bash scripts/evaluate.sh

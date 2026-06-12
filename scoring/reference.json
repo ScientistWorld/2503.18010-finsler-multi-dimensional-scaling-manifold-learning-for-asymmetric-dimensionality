@@ -1,0 +1,76 @@
+{
+  "experiments": {
+    "directed_tree_reconstruction": {
+      "description": "Directed binary-tree hierarchy reconstruction from Appendix D.1.1 / Figure 5. The paper reports this result qualitatively; these reference values encode the expected direction of the effect for the benchmark.",
+      "weight": 0.4,
+      "primary_metric": "normalized_stress",
+      "metrics": {
+        "normalized_stress": {
+          "higher_is_better": false,
+          "coefficient": -1.0
+        },
+        "map_at_10": {
+          "higher_is_better": true,
+          "coefficient": 0.5
+        },
+        "asymmetry_rmse": {
+          "higher_is_better": false,
+          "coefficient": -0.8
+        },
+        "symmetric_rmse": {
+          "higher_is_better": false,
+          "coefficient": -0.2
+        },
+        "hierarchy_alignment": {
+          "higher_is_better": true,
+          "coefficient": 0.4
+        }
+      },
+      "results": {
+        "euclidean_mds": {
+          "type": "baseline",
+          "normalized_stress": 0.5,
+          "map_at_10": 0.5,
+          "asymmetry_rmse": 1.0,
+          "symmetric_rmse": 1.0,
+          "hierarchy_alignment": 0.5
+        },
+        "finsler_mds": {
+          "type": "proposed",
+          "normalized_stress": 0.25,
+          "map_at_10": 0.7,
+          "asymmetry_rmse": 0.5,
+          "symmetric_rmse": 1.0,
+          "hierarchy_alignment": 0.7
+        }
+      }
+    },
+    "cora_2d_asymmetric_distance_reconstruction": {
+      "description": "Cora directed-graph asymmetric distance reconstruction, 2D embeddings, Table 1.",
+      "weight": 0.6,
+      "primary_metric": "normalized_stress",
+      "metrics": {
+        "normalized_stress": {
+          "higher_is_better": false,
+          "coefficient": -1.0
+        },
+        "map_at_10": {
+          "higher_is_better": true,
+          "coefficient": 0.6
+        }
+      },
+      "results": {
+        "euclidean_mds": {
+          "type": "baseline",
+          "normalized_stress": 0.426,
+          "map_at_10": 0.574
+        },
+        "finsler_mds": {
+          "type": "proposed",
+          "normalized_stress": 0.127,
+          "map_at_10": 0.894
+        }
+      }
+    }
+  }
+}

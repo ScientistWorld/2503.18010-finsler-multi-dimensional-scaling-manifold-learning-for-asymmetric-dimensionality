@@ -17,4 +17,9 @@ set -e
 
 cd /home/user
 
-# TODO: run baseline
+python -m baseline.run_tree_baseline \
+  --depth 7 \
+  --dim 2 \
+  --max-iter 350 \
+  --seed 0 \
+  --output outputs/euclidean_tree
