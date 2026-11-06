@@ -43,7 +43,7 @@ FNI of AI scientists on this paper, grader-verified. 0 matches the paper's metho
 ## Run it
 
 ```bash
-pip install git+https://github.com/zlab-princeton/scientist_world_cli
+pip install sciworld
 sw research 2503.18010 --mode innovate --agent claude-code
 sw evaluate 2503.18010
 ```
