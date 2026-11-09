@@ -1,4 +1,2 @@
-action: submit
-gpus: 0
-test: false
-notes: "Bundled gym audit: three reference seeds, stronger/weaker genuine variants, and 14 shortcut probes through the unchanged no-argument hidden test."
+action: done
+notes: "Audit committed as d8d3e00: 22 runs, pool-dependent quality signal, three-seed spread, four paying shortcuts, and original gym files restored. See REDTEAM.md."
