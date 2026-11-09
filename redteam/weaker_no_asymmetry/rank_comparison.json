@@ -1,0 +1,105 @@
+{
+  "all_finite_attempts_cohort": {
+    "contributions": {
+      "directed_tree_depth5_reconstruction": {
+        "asymmetry_preservation_pass": -0.24615484515281796,
+        "asymmetry_rmse": -0.7239191566970021,
+        "distance_preservation_pass": -0.23480330867896604,
+        "hierarchy_alignment": -0.4312757070793159,
+        "hierarchy_direction_pass": -0.1924280941769456,
+        "map_at_10": 0.024418050947683168,
+        "normalized_stress": -0.5139737681211276,
+        "symmetric_rmse": -0.0962592952141394
+      },
+      "directed_tree_reconstruction": {
+        "asymmetry_preservation_pass": -0.36923226772922696,
+        "asymmetry_rmse": -1.0857806314552843,
+        "distance_preservation_pass": -0.3603966080805624,
+        "hierarchy_alignment": -0.667093331216569,
+        "hierarchy_direction_pass": -0.2886421412654183,
+        "map_at_10": -0.0267999030395293,
+        "normalized_stress": -0.7850448909487915,
+        "symmetric_rmse": -0.16375598210223874
+      }
+    },
+    "total": -6.161141880010253
+  },
+  "dominates_reference": false,
+  "metrics": {
+    "directed_tree_depth5_reconstruction": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.62271210908461,
+      "distance_preservation_pass": 0.0,
+      "hierarchy_alignment": 0.08362505304663,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.6118622220033058,
+      "normalized_stress": 0.4975373740289398,
+      "symmetric_rmse": 0.4149172692698224
+    },
+    "directed_tree_reconstruction": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.836562480811228,
+      "distance_preservation_pass": 0.0,
+      "hierarchy_alignment": 0.05388751128620033,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.2556682532245668,
+      "normalized_stress": 0.5043841766147868,
+      "symmetric_rmse": 0.518321258214401
+    }
+  },
+  "quality_cohort": {
+    "contributions": {
+      "directed_tree_depth5_reconstruction": {
+        "asymmetry_preservation_pass": -0.27712812921102037,
+        "asymmetry_rmse": -0.9764481929784754,
+        "distance_preservation_pass": -0.27506200055342755,
+        "hierarchy_alignment": -0.6047431568147635,
+        "hierarchy_direction_pass": -0.24189726272590545,
+        "map_at_10": 0.2781027089354651,
+        "normalized_stress": -1.2204258735432927,
+        "symmetric_rmse": -0.48689410753033496
+      },
+      "directed_tree_reconstruction": {
+        "asymmetry_preservation_pass": -0.41569219381653055,
+        "asymmetry_rmse": -1.4651961095516821,
+        "distance_preservation_pass": -0.41516455317245843,
+        "hierarchy_alignment": -0.9071147352221454,
+        "hierarchy_direction_pass": -0.3628458940888581,
+        "map_at_10": -0.8035814975370258,
+        "normalized_stress": -1.8323099530398335,
+        "symmetric_rmse": -0.7310239814643537
+      }
+    },
+    "total": -10.73742493231464
+  },
+  "quality_plus_this_attempt": {
+    "contributions": {
+      "directed_tree_depth5_reconstruction": {
+        "asymmetry_preservation_pass": -0.27712812921102037,
+        "asymmetry_rmse": -0.9764481929784754,
+        "distance_preservation_pass": -0.27506200055342755,
+        "hierarchy_alignment": -0.6047431568147635,
+        "hierarchy_direction_pass": -0.24189726272590545,
+        "map_at_10": 0.2781027089354651,
+        "normalized_stress": -1.2204258735432927,
+        "symmetric_rmse": -0.48689410753033496
+      },
+      "directed_tree_reconstruction": {
+        "asymmetry_preservation_pass": -0.41569219381653055,
+        "asymmetry_rmse": -1.4651961095516821,
+        "distance_preservation_pass": -0.41516455317245843,
+        "hierarchy_alignment": -0.9071147352221454,
+        "hierarchy_direction_pass": -0.3628458940888581,
+        "map_at_10": -0.8035814975370258,
+        "normalized_stress": -1.8323099530398335,
+        "symmetric_rmse": -0.7310239814643537
+      }
+    },
+    "total": -10.73742493231464
+  },
+  "ties_reference": false,
+  "ties_rescored_artifact_reference": false,
+  "valid_complete_finite_candidate": true
+}

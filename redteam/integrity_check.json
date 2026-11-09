@@ -1,0 +1,23 @@
+{
+  "start_commit": "e4d70f7",
+  "restored_tracked_problem_files": 52,
+  "changed_problem_files": [],
+  "restored_prediction_files": [
+    "euclidean_tree/predictions.npz",
+    "euclidean_tree/metadata.json",
+    "finsler_tree_depth5/predictions.npz",
+    "finsler_tree_depth5/metadata.json",
+    "euclidean_tree_depth5/predictions.npz",
+    "euclidean_tree_depth5/metadata.json",
+    "finsler_tree/predictions.npz",
+    "finsler_tree/metadata.json"
+  ],
+  "train_test_runs": 22,
+  "finite_complete_candidates": 18,
+  "unchanged_evaluator_sha256": {
+    "eval/test/evaluate.py": "1edb02427913bafc405844e412fc488c6b9d059ee97980fd7d77de0c578401db",
+    "scripts/evaluate_test.sh": "cfd9d136b83e7ddb68e841708ece39621e03239251c89b733b0ba08cccd42152"
+  },
+  "job": "6e015654-f37",
+  "validation": "Saved result analysis, syntax checks, restored-file checks; no new numerical experiments on the login node."
+}

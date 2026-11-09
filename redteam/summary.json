@@ -5,26 +5,26 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.002975882065256822,
-            "distance_preservation_pass": 0.0032724718077151607,
+            "asymmetry_rmse": -0.003190891317658839,
+            "distance_preservation_pass": 0.004475503279866239,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.032929130203320306,
-            "normalized_stress": 0.0011233749280972136,
-            "symmetric_rmse": 0.0007429599202639865
+            "map_at_10": 0.03751896601679814,
+            "normalized_stress": 0.0015363518681399783,
+            "symmetric_rmse": 0.0007941540917897797
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.007063968056866326,
-            "distance_preservation_pass": 0.004888611597171819,
+            "asymmetry_rmse": -0.006867079408961762,
+            "distance_preservation_pass": 0.004550747938009583,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.004519019643142951,
-            "normalized_stress": 0.001718904684371503,
-            "symmetric_rmse": 0.00139057925269435
+            "map_at_10": -0.010520489043724091,
+            "normalized_stress": 0.0016001070636423864,
+            "symmetric_rmse": 0.0012929531060809959
           }
         },
-        "total": 0.03150716262836824
+        "total": 0.03119032359398241
       },
       "dominates_reference": false,
       "metrics": {
@@ -55,53 +55,54 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.004013976751762218,
-            "distance_preservation_pass": 0.003833560298826652,
+            "asymmetry_rmse": -0.004303988963815719,
+            "distance_preservation_pass": 0.005242860045582111,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.37503731694445164,
-            "normalized_stress": 0.0026674431906349243,
-            "symmetric_rmse": 0.003758003905004767
+            "map_at_10": 0.42731199587079366,
+            "normalized_stress": 0.0036480530467514496,
+            "symmetric_rmse": 0.004016951785314456
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.009532402968954735,
-            "distance_preservation_pass": 0.0056315131826097774,
+            "asymmetry_rmse": -0.009266713498570642,
+            "distance_preservation_pass": 0.005242305815103295,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.13550051158318777,
-            "normalized_stress": 0.00401195676554775,
-            "symmetric_rmse": 0.006207692499512369
+            "map_at_10": -0.3154515271233668,
+            "normalized_stress": 0.0037346808220073296,
+            "symmetric_rmse": 0.00577187908081381
           }
         },
-        "total": 0.25210059548268315
+        "total": 0.125946496880613
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.004013976751762218,
-            "distance_preservation_pass": 0.003833560298826652,
+            "asymmetry_rmse": -0.004303988963815719,
+            "distance_preservation_pass": 0.005242860045582111,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.37503731694445164,
-            "normalized_stress": 0.0026674431906349243,
-            "symmetric_rmse": 0.003758003905004767
+            "map_at_10": 0.42731199587079366,
+            "normalized_stress": 0.0036480530467514496,
+            "symmetric_rmse": 0.004016951785314456
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.009532402968954735,
-            "distance_preservation_pass": 0.0056315131826097774,
+            "asymmetry_rmse": -0.009266713498570642,
+            "distance_preservation_pass": 0.005242305815103295,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.13550051158318777,
-            "normalized_stress": 0.00401195676554775,
-            "symmetric_rmse": 0.006207692499512369
+            "map_at_10": -0.3154515271233668,
+            "normalized_stress": 0.0037346808220073296,
+            "symmetric_rmse": 0.00577187908081381
           }
         },
-        "total": 0.25210059548268315
+        "total": 0.125946496880613
       },
       "ties_reference": false,
+      "ties_rescored_artifact_reference": false,
       "valid_complete_finite_candidate": true
     },
     "better_long_smacof": {
@@ -109,26 +110,26 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.00036469783305984944,
-            "distance_preservation_pass": 0.00041435511222176697,
+            "asymmetry_rmse": 0.00014968858065783237,
+            "distance_preservation_pass": 0.0016173865843728459,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.009848578540468342,
-            "normalized_stress": 0.00014223992497092115,
-            "symmetric_rmse": -2.6386155811556038e-05
+            "map_at_10": 0.014438414353946176,
+            "normalized_stress": 0.0005552168650136861,
+            "symmetric_rmse": 2.4808015714237176e-05
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 2.679445727986471e-07,
-            "distance_preservation_pass": 1.4641150719351463e-05,
+            "asymmetry_rmse": 0.00019715659247736194,
+            "distance_preservation_pass": -0.0003232225084428841,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.0118723058694953,
-            "normalized_stress": 5.14803478570212e-06,
-            "symmetric_rmse": 2.5112592377906144e-05
+            "map_at_10": -0.017873775270076442,
+            "normalized_stress": -0.00011364958594341431,
+            "symmetric_rmse": -7.251355423544783e-05
           }
         },
-        "total": -0.0010836508921302182
+        "total": -0.0014004899265160488
       },
       "dominates_reference": false,
       "metrics": {
@@ -159,53 +160,54 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.0004919175529202159,
-            "distance_preservation_pass": 0.00048539923371816214,
+            "asymmetry_rmse": 0.00020190534086671512,
+            "distance_preservation_pass": 0.0018946989804736218,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.1121676900886231,
-            "normalized_stress": 0.0003377473627106555,
-            "symmetric_rmse": -0.00013346517607929485
+            "map_at_10": 0.16444236901496515,
+            "normalized_stress": 0.0013183572188271812,
+            "symmetric_rmse": 0.000125482704230394
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 3.615751969289327e-07,
-            "distance_preservation_pass": 1.6866104341834968e-05,
+            "asymmetry_rmse": 0.0002660510455810188,
+            "distance_preservation_pass": -0.00037234126316464794,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.35598506889203346,
-            "normalized_stress": 1.201561271870322e-05,
-            "symmetric_rmse": 0.00011210526192274814
+            "map_at_10": -0.5359360844322125,
+            "normalized_stress": -0.0002652603308217155,
+            "symmetric_rmse": -0.0003237081567758111
           }
         },
-        "total": -0.24249443127596046
+        "total": -0.3686485298780307
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.0004919175529202159,
-            "distance_preservation_pass": 0.00048539923371816214,
+            "asymmetry_rmse": 0.00020190534086671512,
+            "distance_preservation_pass": 0.0018946989804736218,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.1121676900886231,
-            "normalized_stress": 0.0003377473627106555,
-            "symmetric_rmse": -0.00013346517607929485
+            "map_at_10": 0.16444236901496515,
+            "normalized_stress": 0.0013183572188271812,
+            "symmetric_rmse": 0.000125482704230394
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 3.615751969289327e-07,
-            "distance_preservation_pass": 1.6866104341834968e-05,
+            "asymmetry_rmse": 0.0002660510455810188,
+            "distance_preservation_pass": -0.00037234126316464794,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.35598506889203346,
-            "normalized_stress": 1.201561271870322e-05,
-            "symmetric_rmse": 0.00011210526192274814
+            "map_at_10": -0.5359360844322125,
+            "normalized_stress": -0.0002652603308217155,
+            "symmetric_rmse": -0.0003237081567758111
           }
         },
-        "total": -0.24249443127596046
+        "total": -0.3686485298780307
       },
       "ties_reference": false,
+      "ties_rescored_artifact_reference": false,
       "valid_complete_finite_candidate": true
     },
     "reference_saved": {
@@ -213,26 +215,26 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00021500925240201704,
+            "distance_preservation_pass": 0.0012030314721510789,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": 0.004589835813477835,
+            "normalized_stress": 0.00041297694004276494,
+            "symmetric_rmse": 5.119417152579321e-05
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.00019688864790456327,
+            "distance_preservation_pass": -0.0003378636591622356,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": -0.00600146940058114,
+            "normalized_stress": -0.00011879762072911643,
+            "symmetric_rmse": -9.762614661335396e-05
           }
         },
-        "total": 0.0
+        "total": -0.0003168390343858279
       },
       "dominates_reference": false,
       "metrics": {
@@ -263,53 +265,54 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00029001221205350076,
+            "distance_preservation_pass": 0.0014092997467554595,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": 0.05227467892634206,
+            "normalized_stress": 0.0009806098561165255,
+            "symmetric_rmse": 0.00025894788030968885
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.0002656894703840898,
+            "distance_preservation_pass": -0.00038920736750648285,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": -0.17995101554017906,
+            "normalized_stress": -0.0002772759435404187,
+            "symmetric_rmse": -0.0004358134186985592
           }
         },
-        "total": 0.0
+        "total": -0.12615409860207016
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00029001221205350076,
+            "distance_preservation_pass": 0.0014092997467554595,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": 0.05227467892634206,
+            "normalized_stress": 0.0009806098561165255,
+            "symmetric_rmse": 0.00025894788030968885
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.0002656894703840898,
+            "distance_preservation_pass": -0.00038920736750648285,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": -0.17995101554017906,
+            "normalized_stress": -0.0002772759435404187,
+            "symmetric_rmse": -0.0004358134186985592
           }
         },
-        "total": 0.0
+        "total": -0.12615409860207016
       },
-      "ties_reference": true,
+      "ties_reference": false,
+      "ties_rescored_artifact_reference": true,
       "valid_complete_finite_candidate": true
     },
     "reference_seed0": {
@@ -317,26 +320,26 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00021500925240201704,
+            "distance_preservation_pass": 0.0012030314721510789,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": 0.004589835813477835,
+            "normalized_stress": 0.00041297694004276494,
+            "symmetric_rmse": 5.119417152579321e-05
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.00032013420127388403,
-            "distance_preservation_pass": 0.00011364023728390287,
+            "asymmetry_rmse": -0.00012324555336932076,
+            "distance_preservation_pass": -0.0002242234218783327,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.017690226208181604,
-            "normalized_stress": 3.9957507835829274e-05,
-            "symmetric_rmse": 7.036466690595348e-05
+            "map_at_10": -0.023691695608762744,
+            "normalized_stress": -7.884011289328715e-05,
+            "symmetric_rmse": -2.726147970740048e-05
           }
         },
-        "total": -0.0177863979974298
+        "total": -0.01810323703181563
       },
       "dominates_reference": false,
       "metrics": {
@@ -367,53 +370,54 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00029001221205350076,
+            "distance_preservation_pass": 0.0014092997467554595,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": 0.05227467892634206,
+            "normalized_stress": 0.0009806098561165255,
+            "symmetric_rmse": 0.00025894788030968885
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0004320019833216627,
-            "distance_preservation_pass": 0.00013090966251224343,
+            "asymmetry_rmse": -0.00016631251293757284,
+            "distance_preservation_pass": -0.00025829770499423947,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.5304324589223958,
-            "normalized_stress": 9.326159580221117e-05,
-            "symmetric_rmse": 0.00031411529701484985
+            "map_at_10": -0.7103834744625749,
+            "normalized_stress": -0.00018401434773820756,
+            "symmetric_rmse": -0.00012169812168370936
           }
         },
-        "total": -0.5303261743503881
+        "total": -0.6564802729524584
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00029001221205350076,
+            "distance_preservation_pass": 0.0014092997467554595,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": 0.05227467892634206,
+            "normalized_stress": 0.0009806098561165255,
+            "symmetric_rmse": 0.00025894788030968885
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0004320019833216627,
-            "distance_preservation_pass": 0.00013090966251224343,
+            "asymmetry_rmse": -0.00016631251293757284,
+            "distance_preservation_pass": -0.00025829770499423947,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.5304324589223958,
-            "normalized_stress": 9.326159580221117e-05,
-            "symmetric_rmse": 0.00031411529701484985
+            "map_at_10": -0.7103834744625749,
+            "normalized_stress": -0.00018401434773820756,
+            "symmetric_rmse": -0.00012169812168370936
           }
         },
-        "total": -0.5303261743503881
+        "total": -0.6564802729524584
       },
       "ties_reference": false,
+      "ties_rescored_artifact_reference": false,
       "valid_complete_finite_candidate": true
     },
     "reference_seed1": {
@@ -421,26 +425,26 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.0004861867980580514,
-            "distance_preservation_pass": 1.1038736434587125e-05,
+            "asymmetry_rmse": 0.0002711775456560343,
+            "distance_preservation_pass": 0.001214070208585666,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.017383779546187927,
-            "normalized_stress": 3.7893801618795984e-06,
-            "symmetric_rmse": -7.394093325321693e-05
+            "map_at_10": 0.021973615359665757,
+            "normalized_stress": 0.00041676632020464454,
+            "symmetric_rmse": -2.2746761727423727e-05
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.00011331460905389604,
-            "distance_preservation_pass": -0.00026525336224529335,
+            "asymmetry_rmse": 8.357403885066724e-05,
+            "distance_preservation_pass": -0.0006031170214075289,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.02386619551182425,
-            "normalized_stress": -9.326681775507429e-05,
-            "symmetric_rmse": 7.102394568155225e-05
+            "map_at_10": -0.029867664912405386,
+            "normalized_stress": -0.00021206443848419072,
+            "symmetric_rmse": -2.6602200931801715e-05
           }
         },
-        "total": -0.006456152827607732
+        "total": -0.006772991861993562
       },
       "dominates_reference": false,
       "metrics": {
@@ -471,53 +475,54 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.000655786238037733,
-            "distance_preservation_pass": 1.2931406053698185e-05,
+            "asymmetry_rmse": 0.0003657740259842322,
+            "distance_preservation_pass": 0.0014222311528091578,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.19798779983258644,
-            "normalized_stress": 8.997847518863346e-06,
-            "symmetric_rmse": -0.0003740044494009232
+            "map_at_10": 0.2502624787589285,
+            "normalized_stress": 0.0009896077036353889,
+            "symmetric_rmse": -0.00011505656909123439
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.00015291129674933408,
-            "distance_preservation_pass": -0.0003055627915050816,
+            "asymmetry_rmse": 0.00011277817363475575,
+            "distance_preservation_pass": -0.0006947701590115644,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.7156157655352477,
-            "normalized_stress": -0.00021768655580247872,
-            "symmetric_rmse": 0.00031705838702747767
+            "map_at_10": -0.8955667810754268,
+            "normalized_stress": -0.0004949624993428974,
+            "symmetric_rmse": -0.00011875503167108157
           }
         },
-        "total": -0.5176833569174814
+        "total": -0.6438374555195515
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.000655786238037733,
-            "distance_preservation_pass": 1.2931406053698185e-05,
+            "asymmetry_rmse": 0.0003657740259842322,
+            "distance_preservation_pass": 0.0014222311528091578,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.19798779983258644,
-            "normalized_stress": 8.997847518863346e-06,
-            "symmetric_rmse": -0.0003740044494009232
+            "map_at_10": 0.2502624787589285,
+            "normalized_stress": 0.0009896077036353889,
+            "symmetric_rmse": -0.00011505656909123439
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.00015291129674933408,
-            "distance_preservation_pass": -0.0003055627915050816,
+            "asymmetry_rmse": 0.00011277817363475575,
+            "distance_preservation_pass": -0.0006947701590115644,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.7156157655352477,
-            "normalized_stress": -0.00021768655580247872,
-            "symmetric_rmse": 0.00031705838702747767
+            "map_at_10": -0.8955667810754268,
+            "normalized_stress": -0.0004949624993428974,
+            "symmetric_rmse": -0.00011875503167108157
           }
         },
-        "total": -0.5176833569174814
+        "total": -0.6438374555195515
       },
       "ties_reference": false,
+      "ties_rescored_artifact_reference": false,
       "valid_complete_finite_candidate": true
     },
     "reference_seed2": {
@@ -525,26 +530,26 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.0001714771457328562,
-            "distance_preservation_pass": -0.0004119142708521606,
+            "asymmetry_rmse": -4.353210666916085e-05,
+            "distance_preservation_pass": 0.0007911172012989182,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.011646347878046135,
-            "normalized_stress": -0.00014140203234443122,
-            "symmetric_rmse": -9.99993761429265e-05
+            "map_at_10": 0.016236183691523968,
+            "normalized_stress": 0.0002715749076983337,
+            "symmetric_rmse": -4.880520461713328e-05
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.00013444275303568537,
-            "distance_preservation_pass": -8.913144077865739e-05,
+            "asymmetry_rmse": 6.244589486887792e-05,
+            "distance_preservation_pass": -0.00042699509994089296,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.004741896770586623,
-            "normalized_stress": -3.13398698247748e-05,
-            "symmetric_rmse": 4.007885102559178e-05
+            "map_at_10": -0.010743366171167763,
+            "normalized_stress": -0.00015013749055389124,
+            "symmetric_rmse": -5.7547295587762196e-05
           }
         },
-        "total": 0.006207777361239324
+        "total": 0.005890938326853494
       },
       "dominates_reference": false,
       "metrics": {
@@ -575,53 +580,54 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.0002312945410257127,
-            "distance_preservation_pass": -0.0004825398927917724,
+            "asymmetry_rmse": -5.871767102778809e-05,
+            "distance_preservation_pass": 0.0009267598539636871,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.1326428919748301,
-            "normalized_stress": -0.00033575779455748383,
-            "symmetric_rmse": -0.0005058120038421868
+            "map_at_10": 0.18491757090117214,
+            "normalized_stress": 0.0006448520615590417,
+            "symmetric_rmse": -0.0002468641235324979
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0001814224650897323,
-            "distance_preservation_pass": -0.00010267636807563095,
+            "asymmetry_rmse": 8.426700529435752e-05,
+            "distance_preservation_pass": -0.0004918837355821138,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.14218336918807414,
-            "normalized_stress": -7.314786207640376e-05,
-            "symmetric_rmse": 0.00017891621956718883
+            "map_at_10": -0.32213438472825323,
+            "normalized_stress": -0.0003504238056168225,
+            "symmetric_rmse": -0.0002568971991313704
           }
         },
-        "total": -0.010811622839084354
+        "total": -0.1369657214411546
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.0002312945410257127,
-            "distance_preservation_pass": -0.0004825398927917724,
+            "asymmetry_rmse": -5.871767102778809e-05,
+            "distance_preservation_pass": 0.0009267598539636871,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.1326428919748301,
-            "normalized_stress": -0.00033575779455748383,
-            "symmetric_rmse": -0.0005058120038421868
+            "map_at_10": 0.18491757090117214,
+            "normalized_stress": 0.0006448520615590417,
+            "symmetric_rmse": -0.0002468641235324979
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0001814224650897323,
-            "distance_preservation_pass": -0.00010267636807563095,
+            "asymmetry_rmse": 8.426700529435752e-05,
+            "distance_preservation_pass": -0.0004918837355821138,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.14218336918807414,
-            "normalized_stress": -7.314786207640376e-05,
-            "symmetric_rmse": 0.00017891621956718883
+            "map_at_10": -0.32213438472825323,
+            "normalized_stress": -0.0003504238056168225,
+            "symmetric_rmse": -0.0002568971991313704
           }
         },
-        "total": -0.010811622839084354
+        "total": -0.1369657214411546
       },
       "ties_reference": false,
+      "ties_rescored_artifact_reference": false,
       "valid_complete_finite_candidate": true
     },
     "shortcut_answer_copy": {
@@ -629,26 +635,26 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.008963311265190545,
-            "distance_preservation_pass": 0.08155856223530022,
+            "asymmetry_rmse": 0.008748302012788528,
+            "distance_preservation_pass": 0.0827615937074513,
             "hierarchy_alignment": 0.042067625805843244,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.273904623630507,
-            "normalized_stress": 0.027997443330386385,
-            "symmetric_rmse": 0.01277475412816541
+            "map_at_10": 0.2784944594439848,
+            "normalized_stress": 0.02841042027042915,
+            "symmetric_rmse": 0.012825948299691204
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.011068011161505424,
-            "distance_preservation_pass": 0.10293968306771778,
+            "asymmetry_rmse": 0.011264899809409987,
+            "distance_preservation_pass": 0.10260181940855555,
             "hierarchy_alignment": 0.05825887620893511,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.524351211939669,
-            "normalized_stress": 0.036195042276458395,
-            "symmetric_rmse": 0.01624064318664608
+            "map_at_10": 0.5183497425390879,
+            "normalized_stress": 0.03607624465572928,
+            "symmetric_rmse": 0.016143017040032726
           }
         },
-        "total": 1.1963197882363246
+        "total": 1.1960029492019388
       },
       "dominates_reference": true,
       "metrics": {
@@ -679,80 +685,81 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.012090036583549306,
-            "distance_preservation_pass": 0.09554235592725505,
+            "asymmetry_rmse": 0.011800024371495806,
+            "distance_preservation_pass": 0.09695165567401051,
             "hierarchy_alignment": 0.05898804039256764,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 3.1195617530980906,
-            "normalized_stress": 0.0664796656031152,
-            "symmetric_rmse": 0.06461664295708369
+            "map_at_10": 3.171836432024433,
+            "normalized_stress": 0.06746027545923174,
+            "symmetric_rmse": 0.06487559083739339
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.014935619981152889,
-            "distance_preservation_pass": 0.11858299042306805,
+            "asymmetry_rmse": 0.015201309451536976,
+            "distance_preservation_pass": 0.11819378305556157,
             "hierarchy_alignment": 0.07922052671435147,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 15.72240509618031,
-            "normalized_stress": 0.08447992844549111,
-            "symmetric_rmse": 0.0724999446825194
+            "map_at_10": 15.54245408064013,
+            "normalized_stress": 0.08420265250195068,
+            "symmetric_rmse": 0.07206413126382084
           }
         },
-        "total": 19.509402600988555
+        "total": 19.383248502386483
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.01265015907622559,
-            "distance_preservation_pass": 0.09220226425154576,
-            "hierarchy_alignment": 0.0610493766838432,
+            "asymmetry_rmse": 0.012346710811931933,
+            "distance_preservation_pass": 0.09356229589823155,
+            "hierarchy_alignment": 0.061049376683843186,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.5352197361384461,
-            "normalized_stress": 0.06910889792024706,
-            "symmetric_rmse": 0.06616640355378532
+            "map_at_10": 0.5441884445904884,
+            "normalized_stress": 0.07012829032890516,
+            "symmetric_rmse": 0.06643156202014742
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.015631915563205655,
-            "distance_preservation_pass": 0.11635917494187949,
-            "hierarchy_alignment": 0.08216550410983037,
+            "asymmetry_rmse": 0.0159099914229502,
+            "distance_preservation_pass": 0.11597726647420817,
+            "hierarchy_alignment": 0.08216550410983038,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.7465101104405093,
-            "normalized_stress": 0.08795606760439646,
-            "symmetric_rmse": 0.0748347483960245
+            "map_at_10": 0.7379659181453102,
+            "normalized_stress": 0.08766738244469192,
+            "symmetric_rmse": 0.07438489994884655
           }
         },
-        "total": 1.9598543586799386
+        "total": 1.9617776428793852
       },
       "ties_reference": false,
+      "ties_rescored_artifact_reference": false,
       "valid_complete_finite_candidate": true
     },
     "shortcut_constant": {
       "all_finite_attempts_cohort": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
-            "asymmetry_preservation_pass": -0.246154845152818,
-            "asymmetry_rmse": -0.7237041474446001,
-            "distance_preservation_pass": -0.2360063401511171,
+            "asymmetry_preservation_pass": -0.24615484515281796,
+            "asymmetry_rmse": -0.7239191566970021,
+            "distance_preservation_pass": -0.23480330867896604,
             "hierarchy_alignment": -0.47447130234672374,
             "hierarchy_direction_pass": -0.1924280941769456,
-            "map_at_10": -0.24293402447297785,
-            "normalized_stress": -1.062140135680931,
-            "symmetric_rmse": -0.4281819474064239
+            "map_at_10": -0.23834418865949997,
+            "normalized_stress": -1.061727158740888,
+            "symmetric_rmse": -0.4281307532348981
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.36923226772922696,
-            "asymmetry_rmse": -1.085977520103189,
-            "distance_preservation_pass": -0.3600587444214002,
+            "asymmetry_rmse": -1.0857806314552843,
+            "distance_preservation_pass": -0.3603966080805624,
             "hierarchy_alignment": -0.7084070499660697,
             "hierarchy_direction_pass": -0.2886421412654183,
-            "map_at_10": -0.1537988881307906,
-            "normalized_stress": -1.5917726333067417,
-            "symmetric_rmse": -0.6428277638805782
+            "map_at_10": -0.15980035753137173,
+            "normalized_stress": -1.591891430927471,
+            "symmetric_rmse": -0.6429253900271915
           }
         },
-        "total": -8.80673784563595
+        "total": -8.807054684670337
       },
       "dominates_reference": false,
       "metrics": {
@@ -783,53 +790,54 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": -0.27712812921102037,
-            "asymmetry_rmse": -0.9761581807664218,
-            "distance_preservation_pass": -0.276471300300183,
+            "asymmetry_rmse": -0.9764481929784754,
+            "distance_preservation_pass": -0.27506200055342755,
             "hierarchy_alignment": -0.6653128578522045,
             "hierarchy_direction_pass": -0.24189726272590545,
-            "map_at_10": -2.766830589520905,
-            "normalized_stress": -2.522041752543882,
-            "symmetric_rmse": -2.165809199820823
+            "map_at_10": -2.7145559105945627,
+            "normalized_stress": -2.5210611426877656,
+            "symmetric_rmse": -2.165550251940513
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.41569219381653055,
-            "asymmetry_rmse": -1.4654617990220664,
-            "distance_preservation_pass": -0.41477534580495196,
+            "asymmetry_rmse": -1.4651961095516821,
+            "distance_preservation_pass": -0.41516455317245843,
             "hierarchy_alignment": -0.9632932057461282,
             "hierarchy_direction_pass": -0.3628458940888581,
-            "map_at_10": -4.611581641223761,
-            "normalized_stress": -3.715228100471289,
-            "symmetric_rmse": -2.869650960625171
+            "map_at_10": -4.791532656763941,
+            "normalized_stress": -3.7155053764148285,
+            "symmetric_rmse": -2.8700867740438696
           }
         },
-        "total": -24.710178413540103
+        "total": -24.83633251214217
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": -0.2545584412271571,
-            "asymmetry_rmse": -0.7837036667806392,
-            "distance_preservation_pass": -0.25395860370206075,
+            "asymmetry_rmse": -0.7839365016208073,
+            "distance_preservation_pass": -0.2526640613915385,
             "hierarchy_alignment": -0.503277442329147,
             "hierarchy_direction_pass": -0.1924280941769456,
-            "map_at_10": -0.4700570237404262,
-            "normalized_stress": -1.2184095926714849,
-            "symmetric_rmse": -0.5116826869342105
+            "map_at_10": -0.4611760752334351,
+            "normalized_stress": -1.2179358556866964,
+            "symmetric_rmse": -0.5116215092703684
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.38183766184073564,
-            "asymmetry_rmse": -1.176332086795904,
-            "distance_preservation_pass": -0.3810004491472545,
+            "asymmetry_rmse": -1.176118816788221,
+            "distance_preservation_pass": -0.3813579636025643,
             "hierarchy_alignment": -0.7428483850349146,
             "hierarchy_direction_pass": -0.2886421412654183,
-            "map_at_10": -0.8139925160234994,
-            "normalized_stress": -1.822955485664362,
-            "symmetric_rmse": -0.7652065856666929
+            "map_at_10": -0.845755757205469,
+            "normalized_stress": -1.8230915369884397,
+            "symmetric_rmse": -0.7653227974648126
           }
         },
-        "total": -10.560890863000852
+        "total": -10.58257304112667
       },
       "ties_reference": false,
+      "ties_rescored_artifact_reference": false,
       "valid_complete_finite_candidate": true
     },
     "shortcut_empty": {
@@ -841,26 +849,26 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.008963311265190545,
-            "distance_preservation_pass": 0.08155856223530022,
+            "asymmetry_rmse": 0.008748302012788528,
+            "distance_preservation_pass": 0.0827615937074513,
             "hierarchy_alignment": 0.042067625805843244,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.273904623630507,
-            "normalized_stress": 0.027997443330386385,
-            "symmetric_rmse": 0.01277475412816541
+            "map_at_10": 0.2784944594439848,
+            "normalized_stress": 0.02841042027042915,
+            "symmetric_rmse": 0.012825948299691204
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.011068011161505424,
-            "distance_preservation_pass": 0.10293968306771778,
+            "asymmetry_rmse": 0.011264899809409987,
+            "distance_preservation_pass": 0.10260181940855555,
             "hierarchy_alignment": 0.05825887620893511,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.524351211939669,
-            "normalized_stress": 0.036195042276458395,
-            "symmetric_rmse": 0.01624064318664608
+            "map_at_10": 0.5183497425390879,
+            "normalized_stress": 0.03607624465572928,
+            "symmetric_rmse": 0.016143017040032726
           }
         },
-        "total": 1.1963197882363246
+        "total": 1.1960029492019388
       },
       "dominates_reference": true,
       "metrics": {
@@ -891,80 +899,81 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.012090036583549306,
-            "distance_preservation_pass": 0.09554235592725505,
+            "asymmetry_rmse": 0.011800024371495806,
+            "distance_preservation_pass": 0.09695165567401051,
             "hierarchy_alignment": 0.05898804039256764,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 3.1195617530980906,
-            "normalized_stress": 0.0664796656031152,
-            "symmetric_rmse": 0.06461664295708369
+            "map_at_10": 3.171836432024433,
+            "normalized_stress": 0.06746027545923174,
+            "symmetric_rmse": 0.06487559083739339
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.014935619981152889,
-            "distance_preservation_pass": 0.11858299042306805,
+            "asymmetry_rmse": 0.015201309451536976,
+            "distance_preservation_pass": 0.11819378305556157,
             "hierarchy_alignment": 0.07922052671435147,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 15.72240509618031,
-            "normalized_stress": 0.08447992844549111,
-            "symmetric_rmse": 0.0724999446825194
+            "map_at_10": 15.54245408064013,
+            "normalized_stress": 0.08420265250195068,
+            "symmetric_rmse": 0.07206413126382084
           }
         },
-        "total": 19.509402600988555
+        "total": 19.383248502386483
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.01265015907622559,
-            "distance_preservation_pass": 0.09220226425154576,
-            "hierarchy_alignment": 0.0610493766838432,
+            "asymmetry_rmse": 0.012346710811931933,
+            "distance_preservation_pass": 0.09356229589823155,
+            "hierarchy_alignment": 0.061049376683843186,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.5352197361384461,
-            "normalized_stress": 0.06910889792024706,
-            "symmetric_rmse": 0.06616640355378532
+            "map_at_10": 0.5441884445904884,
+            "normalized_stress": 0.07012829032890516,
+            "symmetric_rmse": 0.06643156202014742
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": 0.015631915563205655,
-            "distance_preservation_pass": 0.11635917494187949,
-            "hierarchy_alignment": 0.08216550410983037,
+            "asymmetry_rmse": 0.0159099914229502,
+            "distance_preservation_pass": 0.11597726647420817,
+            "hierarchy_alignment": 0.08216550410983038,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.7465101104405093,
-            "normalized_stress": 0.08795606760439646,
-            "symmetric_rmse": 0.0748347483960245
+            "map_at_10": 0.7379659181453102,
+            "normalized_stress": 0.08766738244469192,
+            "symmetric_rmse": 0.07438489994884655
           }
         },
-        "total": 1.9598543586799386
+        "total": 1.9617776428793852
       },
       "ties_reference": false,
+      "ties_rescored_artifact_reference": false,
       "valid_complete_finite_candidate": true
     },
     "shortcut_forged_targets": {
       "all_finite_attempts_cohort": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
-            "asymmetry_preservation_pass": -0.246154845152818,
-            "asymmetry_rmse": -0.7237041474446001,
-            "distance_preservation_pass": -0.2360063401511171,
+            "asymmetry_preservation_pass": -0.24615484515281796,
+            "asymmetry_rmse": -0.7239191566970021,
+            "distance_preservation_pass": -0.23480330867896604,
             "hierarchy_alignment": -0.47447130234672374,
             "hierarchy_direction_pass": -0.1924280941769456,
-            "map_at_10": -0.24293402447297785,
-            "normalized_stress": -1.062140135680931,
-            "symmetric_rmse": -0.4281819474064239
+            "map_at_10": -0.23834418865949997,
+            "normalized_stress": -1.061727158740888,
+            "symmetric_rmse": -0.4281307532348981
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.36923226772922696,
-            "asymmetry_rmse": -1.085977520103189,
-            "distance_preservation_pass": -0.3600587444214002,
+            "asymmetry_rmse": -1.0857806314552843,
+            "distance_preservation_pass": -0.3603966080805624,
             "hierarchy_alignment": -0.7084070499660697,
             "hierarchy_direction_pass": -0.2886421412654183,
-            "map_at_10": -0.1537988881307906,
-            "normalized_stress": -1.5917726333067417,
-            "symmetric_rmse": -0.6428277638805782
+            "map_at_10": -0.15980035753137173,
+            "normalized_stress": -1.591891430927471,
+            "symmetric_rmse": -0.6429253900271915
           }
         },
-        "total": -8.80673784563595
+        "total": -8.807054684670337
       },
       "dominates_reference": false,
       "metrics": {
@@ -995,53 +1004,54 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": -0.27712812921102037,
-            "asymmetry_rmse": -0.9761581807664218,
-            "distance_preservation_pass": -0.276471300300183,
+            "asymmetry_rmse": -0.9764481929784754,
+            "distance_preservation_pass": -0.27506200055342755,
             "hierarchy_alignment": -0.6653128578522045,
             "hierarchy_direction_pass": -0.24189726272590545,
-            "map_at_10": -2.766830589520905,
-            "normalized_stress": -2.522041752543882,
-            "symmetric_rmse": -2.165809199820823
+            "map_at_10": -2.7145559105945627,
+            "normalized_stress": -2.5210611426877656,
+            "symmetric_rmse": -2.165550251940513
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.41569219381653055,
-            "asymmetry_rmse": -1.4654617990220664,
-            "distance_preservation_pass": -0.41477534580495196,
+            "asymmetry_rmse": -1.4651961095516821,
+            "distance_preservation_pass": -0.41516455317245843,
             "hierarchy_alignment": -0.9632932057461282,
             "hierarchy_direction_pass": -0.3628458940888581,
-            "map_at_10": -4.611581641223761,
-            "normalized_stress": -3.715228100471289,
-            "symmetric_rmse": -2.869650960625171
+            "map_at_10": -4.791532656763941,
+            "normalized_stress": -3.7155053764148285,
+            "symmetric_rmse": -2.8700867740438696
           }
         },
-        "total": -24.710178413540103
+        "total": -24.83633251214217
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": -0.2545584412271571,
-            "asymmetry_rmse": -0.7837036667806392,
-            "distance_preservation_pass": -0.25395860370206075,
+            "asymmetry_rmse": -0.7839365016208073,
+            "distance_preservation_pass": -0.2526640613915385,
             "hierarchy_alignment": -0.503277442329147,
             "hierarchy_direction_pass": -0.1924280941769456,
-            "map_at_10": -0.4700570237404262,
-            "normalized_stress": -1.2184095926714849,
-            "symmetric_rmse": -0.5116826869342105
+            "map_at_10": -0.4611760752334351,
+            "normalized_stress": -1.2179358556866964,
+            "symmetric_rmse": -0.5116215092703684
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.38183766184073564,
-            "asymmetry_rmse": -1.176332086795904,
-            "distance_preservation_pass": -0.3810004491472545,
+            "asymmetry_rmse": -1.176118816788221,
+            "distance_preservation_pass": -0.3813579636025643,
             "hierarchy_alignment": -0.7428483850349146,
             "hierarchy_direction_pass": -0.2886421412654183,
-            "map_at_10": -0.8139925160234994,
-            "normalized_stress": -1.822955485664362,
-            "symmetric_rmse": -0.7652065856666929
+            "map_at_10": -0.845755757205469,
+            "normalized_stress": -1.8230915369884397,
+            "symmetric_rmse": -0.7653227974648126
           }
         },
-        "total": -10.560890863000852
+        "total": -10.58257304112667
       },
       "ties_reference": false,
+      "ties_rescored_artifact_reference": false,
       "valid_complete_finite_candidate": true
     },
     "shortcut_hierarchy_field": {
@@ -1049,28 +1059,28 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00021500925240201704,
+            "distance_preservation_pass": 0.0012030314721510789,
             "hierarchy_alignment": 0.042067625805843244,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": 0.004589835813477835,
+            "normalized_stress": 0.00041297694004276494,
+            "symmetric_rmse": 5.119417152579321e-05
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.00019688864790456327,
+            "distance_preservation_pass": -0.0003378636591622356,
             "hierarchy_alignment": 0.05825887620893511,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": -0.00600146940058114,
+            "normalized_stress": -0.00011879762072911643,
+            "symmetric_rmse": -9.762614661335396e-05
           }
         },
-        "total": 0.10032650201477836
+        "total": 0.10000966298039253
       },
-      "dominates_reference": true,
+      "dominates_reference": false,
       "metrics": {
         "directed_tree_depth5_reconstruction": {
           "asymmetry_correlation": 0.9999262702317434,
@@ -1099,53 +1109,54 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00029001221205350076,
+            "distance_preservation_pass": 0.0014092997467554595,
             "hierarchy_alignment": 0.05898804039256764,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": 0.05227467892634206,
+            "normalized_stress": 0.0009806098561165255,
+            "symmetric_rmse": 0.00025894788030968885
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.0002656894703840898,
+            "distance_preservation_pass": -0.00038920736750648285,
             "hierarchy_alignment": 0.07922052671435147,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": -0.17995101554017906,
+            "normalized_stress": -0.0002772759435404187,
+            "symmetric_rmse": -0.0004358134186985592
           }
         },
-        "total": 0.1382085671069191
+        "total": 0.012054468504848911
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
-            "hierarchy_alignment": 0.0610493766838432,
+            "asymmetry_rmse": -0.00030404422233893617,
+            "distance_preservation_pass": 0.0014683390870111027,
+            "hierarchy_alignment": 0.061049376683843186,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": 0.051508785662068506,
+            "normalized_stress": 0.0010290123717951421,
+            "symmetric_rmse": 0.00027217163920633015
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
-            "hierarchy_alignment": 0.08216550410983037,
+            "asymmetry_rmse": 0.0002785239180479985,
+            "distance_preservation_pass": -0.00040550298238110303,
+            "hierarchy_alignment": 0.08216550410983038,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": -0.17208985135877283,
+            "normalized_stress": -0.00029094438340740897,
+            "symmetric_rmse": -0.00045804997167276447
           }
         },
-        "total": 0.14321488079367356
+        "total": 0.02422332055322961
       },
       "ties_reference": false,
+      "ties_rescored_artifact_reference": false,
       "valid_complete_finite_candidate": true
     },
     "shortcut_impossible_diagonal": {
@@ -1153,26 +1164,26 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00021500925240201704,
+            "distance_preservation_pass": 0.0012030314721510789,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": 0.004589835813477835,
+            "normalized_stress": 0.00041297694004276494,
+            "symmetric_rmse": 5.119417152579321e-05
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.00019688864790456327,
+            "distance_preservation_pass": -0.0003378636591622356,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": -0.00600146940058114,
+            "normalized_stress": -0.00011879762072911643,
+            "symmetric_rmse": -9.762614661335396e-05
           }
         },
-        "total": 0.0
+        "total": -0.0003168390343858279
       },
       "dominates_reference": false,
       "metrics": {
@@ -1203,53 +1214,54 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00029001221205350076,
+            "distance_preservation_pass": 0.0014092997467554595,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": 0.05227467892634206,
+            "normalized_stress": 0.0009806098561165255,
+            "symmetric_rmse": 0.00025894788030968885
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.0002656894703840898,
+            "distance_preservation_pass": -0.00038920736750648285,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": -0.17995101554017906,
+            "normalized_stress": -0.0002772759435404187,
+            "symmetric_rmse": -0.0004358134186985592
           }
         },
-        "total": 0.0
+        "total": -0.12615409860207016
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00030404422233893617,
+            "distance_preservation_pass": 0.0014683390870111027,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": 0.051508785662068506,
+            "normalized_stress": 0.0010290123717951421,
+            "symmetric_rmse": 0.00027217163920633015
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.0002785239180479985,
+            "distance_preservation_pass": -0.00040550298238110303,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": -0.17208985135877283,
+            "normalized_stress": -0.00029094438340740897,
+            "symmetric_rmse": -0.00045804997167276447
           }
         },
-        "total": 0.0
+        "total": -0.11899156024044394
       },
-      "ties_reference": true,
+      "ties_reference": false,
+      "ties_rescored_artifact_reference": true,
       "valid_complete_finite_candidate": true
     },
     "shortcut_inf": {
@@ -1261,26 +1273,26 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00021500925240201704,
+            "distance_preservation_pass": 0.0012030314721510789,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": 0.004589835813477835,
+            "normalized_stress": 0.00041297694004276494,
+            "symmetric_rmse": 5.119417152579321e-05
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.00019688864790456327,
+            "distance_preservation_pass": -0.0003378636591622356,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": -0.00600146940058114,
+            "normalized_stress": -0.00011879762072911643,
+            "symmetric_rmse": -9.762614661335396e-05
           }
         },
-        "total": 0.0
+        "total": -0.0003168390343858279
       },
       "dominates_reference": false,
       "metrics": {
@@ -1311,53 +1323,54 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00029001221205350076,
+            "distance_preservation_pass": 0.0014092997467554595,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": 0.05227467892634206,
+            "normalized_stress": 0.0009806098561165255,
+            "symmetric_rmse": 0.00025894788030968885
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.0002656894703840898,
+            "distance_preservation_pass": -0.00038920736750648285,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": -0.17995101554017906,
+            "normalized_stress": -0.0002772759435404187,
+            "symmetric_rmse": -0.0004358134186985592
           }
         },
-        "total": 0.0
+        "total": -0.12615409860207016
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00030404422233893617,
+            "distance_preservation_pass": 0.0014683390870111027,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": 0.051508785662068506,
+            "normalized_stress": 0.0010290123717951421,
+            "symmetric_rmse": 0.00027217163920633015
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": 0.0,
-            "asymmetry_rmse": -0.0,
-            "distance_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.0002785239180479985,
+            "distance_preservation_pass": -0.00040550298238110303,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.0,
-            "normalized_stress": -0.0,
-            "symmetric_rmse": -0.0
+            "map_at_10": -0.17208985135877283,
+            "normalized_stress": -0.00029094438340740897,
+            "symmetric_rmse": -0.00045804997167276447
           }
         },
-        "total": 0.0
+        "total": -0.11899156024044394
       },
-      "ties_reference": true,
+      "ties_reference": false,
+      "ties_rescored_artifact_reference": true,
       "valid_complete_finite_candidate": true
     },
     "shortcut_nan": {
@@ -1368,27 +1381,27 @@
       "all_finite_attempts_cohort": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
-            "asymmetry_preservation_pass": -0.246154845152818,
-            "asymmetry_rmse": -0.7237041474446001,
-            "distance_preservation_pass": -0.2360063401511171,
+            "asymmetry_preservation_pass": -0.24615484515281796,
+            "asymmetry_rmse": -0.7239191566970021,
+            "distance_preservation_pass": -0.23480330867896604,
             "hierarchy_alignment": -0.47447130234672374,
             "hierarchy_direction_pass": -0.1924280941769456,
-            "map_at_10": -0.24293402447297785,
-            "normalized_stress": -1.062140135680931,
-            "symmetric_rmse": -0.4281819474064239
+            "map_at_10": -0.23834418865949997,
+            "normalized_stress": -1.061727158740888,
+            "symmetric_rmse": -0.4281307532348981
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.36923226772922696,
-            "asymmetry_rmse": -1.085977520103189,
-            "distance_preservation_pass": -0.3600587444214002,
+            "asymmetry_rmse": -1.0857806314552843,
+            "distance_preservation_pass": -0.3603966080805624,
             "hierarchy_alignment": -0.7084070499660697,
             "hierarchy_direction_pass": -0.2886421412654183,
-            "map_at_10": -0.1537988881307906,
-            "normalized_stress": -1.5917726333067417,
-            "symmetric_rmse": -0.6428277638805782
+            "map_at_10": -0.15980035753137173,
+            "normalized_stress": -1.591891430927471,
+            "symmetric_rmse": -0.6429253900271915
           }
         },
-        "total": -8.80673784563595
+        "total": -8.807054684670337
       },
       "dominates_reference": false,
       "metrics": {
@@ -1419,80 +1432,81 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": -0.27712812921102037,
-            "asymmetry_rmse": -0.9761581807664218,
-            "distance_preservation_pass": -0.276471300300183,
+            "asymmetry_rmse": -0.9764481929784754,
+            "distance_preservation_pass": -0.27506200055342755,
             "hierarchy_alignment": -0.6653128578522045,
             "hierarchy_direction_pass": -0.24189726272590545,
-            "map_at_10": -2.766830589520905,
-            "normalized_stress": -2.522041752543882,
-            "symmetric_rmse": -2.165809199820823
+            "map_at_10": -2.7145559105945627,
+            "normalized_stress": -2.5210611426877656,
+            "symmetric_rmse": -2.165550251940513
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.41569219381653055,
-            "asymmetry_rmse": -1.4654617990220664,
-            "distance_preservation_pass": -0.41477534580495196,
+            "asymmetry_rmse": -1.4651961095516821,
+            "distance_preservation_pass": -0.41516455317245843,
             "hierarchy_alignment": -0.9632932057461282,
             "hierarchy_direction_pass": -0.3628458940888581,
-            "map_at_10": -4.611581641223761,
-            "normalized_stress": -3.715228100471289,
-            "symmetric_rmse": -2.869650960625171
+            "map_at_10": -4.791532656763941,
+            "normalized_stress": -3.7155053764148285,
+            "symmetric_rmse": -2.8700867740438696
           }
         },
-        "total": -24.710178413540103
+        "total": -24.83633251214217
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": -0.2545584412271571,
-            "asymmetry_rmse": -0.7837036667806392,
-            "distance_preservation_pass": -0.25395860370206075,
+            "asymmetry_rmse": -0.7839365016208073,
+            "distance_preservation_pass": -0.2526640613915385,
             "hierarchy_alignment": -0.503277442329147,
             "hierarchy_direction_pass": -0.1924280941769456,
-            "map_at_10": -0.4700570237404262,
-            "normalized_stress": -1.2184095926714849,
-            "symmetric_rmse": -0.5116826869342105
+            "map_at_10": -0.4611760752334351,
+            "normalized_stress": -1.2179358556866964,
+            "symmetric_rmse": -0.5116215092703684
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.38183766184073564,
-            "asymmetry_rmse": -1.176332086795904,
-            "distance_preservation_pass": -0.3810004491472545,
+            "asymmetry_rmse": -1.176118816788221,
+            "distance_preservation_pass": -0.3813579636025643,
             "hierarchy_alignment": -0.7428483850349146,
             "hierarchy_direction_pass": -0.2886421412654183,
-            "map_at_10": -0.8139925160234994,
-            "normalized_stress": -1.822955485664362,
-            "symmetric_rmse": -0.7652065856666929
+            "map_at_10": -0.845755757205469,
+            "normalized_stress": -1.8230915369884397,
+            "symmetric_rmse": -0.7653227974648126
           }
         },
-        "total": -10.560890863000852
+        "total": -10.58257304112667
       },
       "ties_reference": false,
+      "ties_rescored_artifact_reference": false,
       "valid_complete_finite_candidate": true
     },
     "shortcut_symmetric_depth": {
       "all_finite_attempts_cohort": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
-            "asymmetry_preservation_pass": -0.246154845152818,
-            "asymmetry_rmse": -0.7237041474446001,
-            "distance_preservation_pass": -0.2360063401511171,
+            "asymmetry_preservation_pass": -0.24615484515281796,
+            "asymmetry_rmse": -0.7239191566970021,
+            "distance_preservation_pass": -0.23480330867896604,
             "hierarchy_alignment": 0.042067625805843244,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.26092644675163545,
-            "normalized_stress": -0.42756749168589003,
-            "symmetric_rmse": 0.01277475412816541
+            "map_at_10": 0.2655162825651132,
+            "normalized_stress": -0.4271545147458473,
+            "symmetric_rmse": 0.012825948299691204
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.36923226772922696,
-            "asymmetry_rmse": -1.085977520103189,
-            "distance_preservation_pass": -0.3600587444214002,
+            "asymmetry_rmse": -1.0857806314552843,
+            "distance_preservation_pass": -0.3603966080805624,
             "hierarchy_alignment": 0.05825887620893511,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.5208068143983351,
-            "normalized_stress": -0.660841066131282,
-            "symmetric_rmse": 0.01624064318664608
+            "map_at_10": 0.5148053449977539,
+            "normalized_stress": -0.6609598637520111,
+            "symmetric_rmse": 0.016143017040032726
           }
         },
-        "total": -3.1984672623399635
+        "total": -3.1987841013743483
       },
       "dominates_reference": false,
       "metrics": {
@@ -1523,80 +1537,81 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": -0.27712812921102037,
-            "asymmetry_rmse": -0.9761581807664218,
-            "distance_preservation_pass": -0.276471300300183,
+            "asymmetry_rmse": -0.9764481929784754,
+            "distance_preservation_pass": -0.27506200055342755,
             "hierarchy_alignment": 0.05898804039256764,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 2.9717503591915575,
-            "normalized_stress": -1.0152549836288367,
-            "symmetric_rmse": 0.06461664295708369
+            "map_at_10": 3.024025038117899,
+            "normalized_stress": -1.0142743737727202,
+            "symmetric_rmse": 0.06487559083739339
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.41569219381653055,
-            "asymmetry_rmse": -1.4654617990220664,
-            "distance_preservation_pass": -0.41477534580495196,
+            "asymmetry_rmse": -1.4651961095516821,
+            "distance_preservation_pass": -0.41516455317245843,
             "hierarchy_alignment": 0.07922052671435147,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 15.616128133911804,
-            "normalized_stress": -1.5424158246369482,
-            "symmetric_rmse": 0.0724999446825194
+            "map_at_10": 15.436177118371624,
+            "normalized_stress": -1.542693100580488,
+            "symmetric_rmse": 0.07206413126382084
           }
         },
-        "total": 12.479845890662924
+        "total": 12.353691792060854
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": -0.2545584412271571,
-            "asymmetry_rmse": -0.7837036667806392,
-            "distance_preservation_pass": -0.25395860370206075,
-            "hierarchy_alignment": 0.0610493766838432,
+            "asymmetry_rmse": -0.7839365016208073,
+            "distance_preservation_pass": -0.2526640613915385,
+            "hierarchy_alignment": 0.061049376683843186,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.5361986769714604,
-            "normalized_stress": -0.8826409815678375,
-            "symmetric_rmse": 0.06616640355378532
+            "map_at_10": 0.5456306986056859,
+            "normalized_stress": -0.8817884603195851,
+            "symmetric_rmse": 0.06643156202014742
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.38183766184073564,
-            "asymmetry_rmse": -1.176332086795904,
-            "distance_preservation_pass": -0.3810004491472545,
-            "hierarchy_alignment": 0.08216550410983037,
+            "asymmetry_rmse": -1.176118816788221,
+            "distance_preservation_pass": -0.3813579636025643,
+            "hierarchy_alignment": 0.08216550410983038,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.7463909242536181,
-            "normalized_stress": -1.3343771752088334,
-            "symmetric_rmse": 0.0748347483960245
+            "map_at_10": 0.7377899571215838,
+            "normalized_stress": -1.334617052604011,
+            "symmetric_rmse": 0.07438489994884655
           }
         },
-        "total": -3.8816034323018602
+        "total": -3.8794269609046834
       },
       "ties_reference": false,
+      "ties_rescored_artifact_reference": false,
       "valid_complete_finite_candidate": true
     },
     "shortcut_task_failure": {
       "all_finite_attempts_cohort": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
-            "asymmetry_preservation_pass": -0.246154845152818,
-            "asymmetry_rmse": -0.04280104877523753,
-            "distance_preservation_pass": -0.01220312679718141,
+            "asymmetry_preservation_pass": -0.24615484515281796,
+            "asymmetry_rmse": -0.043016058027639546,
+            "distance_preservation_pass": -0.011000095325030332,
             "hierarchy_alignment": 0.042067625805843244,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.273904623630507,
-            "normalized_stress": -0.004189092372323973,
-            "symmetric_rmse": 0.01277475412816541
+            "map_at_10": 0.2784944594439848,
+            "normalized_stress": -0.0037761154322812083,
+            "symmetric_rmse": 0.012825948299691204
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.36923226772922696,
-            "asymmetry_rmse": -0.0592007927010935,
-            "distance_preservation_pass": -0.024037861056065972,
+            "asymmetry_rmse": -0.05900390405318893,
+            "distance_preservation_pass": -0.024375724715228208,
             "hierarchy_alignment": 0.05825887620893511,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.524351211939669,
-            "normalized_stress": -0.008452050474913425,
-            "symmetric_rmse": 0.01624064318664608
+            "map_at_10": 0.5183497425390879,
+            "normalized_stress": -0.00857084809564254,
+            "symmetric_rmse": 0.016143017040032726
           }
         },
-        "total": 0.16132664984090517
+        "total": 0.1610098108065194
       },
       "dominates_reference": false,
       "metrics": {
@@ -1627,53 +1642,54 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": -0.27712812921102037,
-            "asymmetry_rmse": -0.05773159384930716,
-            "distance_preservation_pass": -0.014295439398723214,
+            "asymmetry_rmse": -0.058021606061360656,
+            "distance_preservation_pass": -0.012886139651967755,
             "hierarchy_alignment": 0.05898804039256764,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 3.1195617530980906,
-            "normalized_stress": -0.009946960399430691,
-            "symmetric_rmse": 0.06461664295708369
+            "map_at_10": 3.171836432024433,
+            "normalized_stress": -0.008966350543314166,
+            "symmetric_rmse": 0.06487559083739339
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.41569219381653055,
-            "asymmetry_rmse": -0.07988793374565742,
-            "distance_preservation_pass": -0.02769079292314658,
+            "asymmetry_rmse": -0.07962224427527331,
+            "distance_preservation_pass": -0.028080000290653065,
             "hierarchy_alignment": 0.07922052671435147,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 15.72240509618031,
-            "normalized_stress": -0.01972724921508868,
-            "symmetric_rmse": 0.0724999446825194
+            "map_at_10": 15.54245408064013,
+            "normalized_stress": -0.02000452515862909,
+            "symmetric_rmse": 0.07206413126382084
           }
         },
-        "total": 18.215191711466016
+        "total": 18.089037612863944
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": -0.2545584412271571,
-            "asymmetry_rmse": -0.060968574803150336,
-            "distance_preservation_pass": -0.014992758405987086,
-            "hierarchy_alignment": 0.0610493766838432,
+            "asymmetry_rmse": -0.06127484785167492,
+            "distance_preservation_pass": -0.013514714252506185,
+            "hierarchy_alignment": 0.061049376683843186,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.5352197361384461,
-            "normalized_stress": -0.010450070604415836,
-            "symmetric_rmse": 0.06616640355378532
+            "map_at_10": 0.5441884445904884,
+            "normalized_stress": -0.009419862196992172,
+            "symmetric_rmse": 0.06643156202014742
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.38183766184073564,
-            "asymmetry_rmse": -0.08432588464881109,
-            "distance_preservation_pass": -0.029088834570155143,
-            "hierarchy_alignment": 0.08216550410983037,
+            "asymmetry_rmse": -0.08404543554239981,
+            "distance_preservation_pass": -0.02949769208313081,
+            "hierarchy_alignment": 0.08216550410983038,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.7465101104405093,
-            "normalized_stress": -0.02073133405297816,
-            "symmetric_rmse": 0.0748347483960245
+            "map_at_10": 0.7379659181453102,
+            "normalized_stress": -0.021022722890201063,
+            "symmetric_rmse": 0.07438489994884655
           }
         },
-        "total": 0.7089923191690486
+        "total": 0.7110143276136686
       },
       "ties_reference": false,
+      "ties_rescored_artifact_reference": false,
       "valid_complete_finite_candidate": true
     },
     "shortcut_train_filter": {
@@ -1684,27 +1700,27 @@
       "all_finite_attempts_cohort": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
-            "asymmetry_preservation_pass": -0.246154845152818,
-            "asymmetry_rmse": -0.1482233935449628,
-            "distance_preservation_pass": -0.2360063401511171,
+            "asymmetry_preservation_pass": -0.24615484515281796,
+            "asymmetry_rmse": -0.14843840279736487,
+            "distance_preservation_pass": -0.23480330867896604,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.04268109433330891,
-            "normalized_stress": -0.081676648065681,
-            "symmetric_rmse": -0.007034487850428922
+            "map_at_10": 0.04727093014678674,
+            "normalized_stress": -0.08126367112563825,
+            "symmetric_rmse": -0.006983293678903127
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.36923226772922696,
-            "asymmetry_rmse": -0.22085537584564935,
-            "distance_preservation_pass": -0.3600587444214002,
+            "asymmetry_rmse": -0.22065848719774472,
+            "distance_preservation_pass": -0.3603966080805624,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.008665313198585774,
-            "normalized_stress": -0.12720606880147772,
-            "symmetric_rmse": -0.01306964654895279
+            "map_at_10": -0.014666782599166914,
+            "normalized_stress": -0.12732486642220683,
+            "symmetric_rmse": -0.013167272695566144
           }
         },
-        "total": -1.7755020369769918
+        "total": -1.7758188760113776
       },
       "dominates_reference": false,
       "metrics": {
@@ -1735,80 +1751,81 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": -0.27712812921102037,
-            "asymmetry_rmse": -0.1999290437961078,
-            "distance_preservation_pass": -0.276471300300183,
+            "asymmetry_rmse": -0.2002190560081613,
+            "distance_preservation_pass": -0.27506200055342755,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.48610464364476885,
-            "normalized_stress": -0.19394043187852983,
-            "symmetric_rmse": -0.03558150593403133
+            "map_at_10": 0.5383793225711109,
+            "normalized_stress": -0.1929598220224133,
+            "symmetric_rmse": -0.035322558053721635
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.41569219381653055,
-            "asymmetry_rmse": -0.29803113823176236,
-            "distance_preservation_pass": -0.41477534580495196,
+            "asymmetry_rmse": -0.29776544876137817,
+            "distance_preservation_pass": -0.41516455317245843,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.2598250205038507,
-            "normalized_stress": -0.29690142390496926,
-            "symmetric_rmse": -0.058344281130336184
+            "map_at_10": -0.43977603604402976,
+            "normalized_stress": -0.29717869984850964,
+            "symmetric_rmse": -0.05878009454903474
           }
         },
-        "total": -2.240515170867505
+        "total": -2.3666692694695746
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": -0.27712812921102037,
-            "asymmetry_rmse": -0.1999290437961078,
-            "distance_preservation_pass": -0.276471300300183,
+            "asymmetry_rmse": -0.2002190560081613,
+            "distance_preservation_pass": -0.27506200055342755,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": 0.48610464364476885,
-            "normalized_stress": -0.19394043187852983,
-            "symmetric_rmse": -0.03558150593403133
+            "map_at_10": 0.5383793225711109,
+            "normalized_stress": -0.1929598220224133,
+            "symmetric_rmse": -0.035322558053721635
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.41569219381653055,
-            "asymmetry_rmse": -0.29803113823176236,
-            "distance_preservation_pass": -0.41477534580495196,
+            "asymmetry_rmse": -0.29776544876137817,
+            "distance_preservation_pass": -0.41516455317245843,
             "hierarchy_alignment": 0.0,
             "hierarchy_direction_pass": 0.0,
-            "map_at_10": -0.2598250205038507,
-            "normalized_stress": -0.29690142390496926,
-            "symmetric_rmse": -0.058344281130336184
+            "map_at_10": -0.43977603604402976,
+            "normalized_stress": -0.29717869984850964,
+            "symmetric_rmse": -0.05878009454903474
           }
         },
-        "total": -2.240515170867505
+        "total": -2.3666692694695746
       },
       "ties_reference": false,
+      "ties_rescored_artifact_reference": false,
       "valid_complete_finite_candidate": true
     },
     "weaker_no_asymmetry": {
       "all_finite_attempts_cohort": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
-            "asymmetry_preservation_pass": -0.246154845152818,
-            "asymmetry_rmse": -0.7237041474446001,
-            "distance_preservation_pass": -0.2360063401511171,
+            "asymmetry_preservation_pass": -0.24615484515281796,
+            "asymmetry_rmse": -0.7239191566970021,
+            "distance_preservation_pass": -0.23480330867896604,
             "hierarchy_alignment": -0.4312757070793159,
             "hierarchy_direction_pass": -0.1924280941769456,
-            "map_at_10": 0.019828215134205338,
-            "normalized_stress": -0.5143867450611703,
-            "symmetric_rmse": -0.0963104893856652
+            "map_at_10": 0.024418050947683168,
+            "normalized_stress": -0.5139737681211276,
+            "symmetric_rmse": -0.0962592952141394
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.36923226772922696,
-            "asymmetry_rmse": -1.085977520103189,
-            "distance_preservation_pass": -0.3600587444214002,
+            "asymmetry_rmse": -1.0857806314552843,
+            "distance_preservation_pass": -0.3603966080805624,
             "hierarchy_alignment": -0.667093331216569,
             "hierarchy_direction_pass": -0.2886421412654183,
-            "map_at_10": -0.020798433638948163,
-            "normalized_stress": -0.7849260933280624,
-            "symmetric_rmse": -0.1636583559556254
+            "map_at_10": -0.0267999030395293,
+            "normalized_stress": -0.7850448909487915,
+            "symmetric_rmse": -0.16375598210223874
           }
         },
-        "total": -6.160825040975866
+        "total": -6.161141880010253
       },
       "dominates_reference": false,
       "metrics": {
@@ -1839,53 +1856,54 @@
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": -0.27712812921102037,
-            "asymmetry_rmse": -0.9761581807664218,
-            "distance_preservation_pass": -0.276471300300183,
+            "asymmetry_rmse": -0.9764481929784754,
+            "distance_preservation_pass": -0.27506200055342755,
             "hierarchy_alignment": -0.6047431568147635,
             "hierarchy_direction_pass": -0.24189726272590545,
-            "map_at_10": 0.22582803000912308,
-            "normalized_stress": -1.2214064833994092,
-            "symmetric_rmse": -0.4871530554106447
+            "map_at_10": 0.2781027089354651,
+            "normalized_stress": -1.2204258735432927,
+            "symmetric_rmse": -0.48689410753033496
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.41569219381653055,
-            "asymmetry_rmse": -1.4654617990220664,
-            "distance_preservation_pass": -0.41477534580495196,
+            "asymmetry_rmse": -1.4651961095516821,
+            "distance_preservation_pass": -0.41516455317245843,
             "hierarchy_alignment": -0.9071147352221454,
             "hierarchy_direction_pass": -0.3628458940888581,
-            "map_at_10": -0.6236304819968468,
-            "normalized_stress": -1.8320326770962934,
-            "symmetric_rmse": -0.7305881680456551
+            "map_at_10": -0.8035814975370258,
+            "normalized_stress": -1.8323099530398335,
+            "symmetric_rmse": -0.7310239814643537
           }
         },
-        "total": -10.611270833712572
+        "total": -10.73742493231464
       },
       "quality_plus_this_attempt": {
         "contributions": {
           "directed_tree_depth5_reconstruction": {
             "asymmetry_preservation_pass": -0.27712812921102037,
-            "asymmetry_rmse": -0.9761581807664218,
-            "distance_preservation_pass": -0.276471300300183,
+            "asymmetry_rmse": -0.9764481929784754,
+            "distance_preservation_pass": -0.27506200055342755,
             "hierarchy_alignment": -0.6047431568147635,
             "hierarchy_direction_pass": -0.24189726272590545,
-            "map_at_10": 0.22582803000912308,
-            "normalized_stress": -1.2214064833994092,
-            "symmetric_rmse": -0.4871530554106447
+            "map_at_10": 0.2781027089354651,
+            "normalized_stress": -1.2204258735432927,
+            "symmetric_rmse": -0.48689410753033496
           },
           "directed_tree_reconstruction": {
             "asymmetry_preservation_pass": -0.41569219381653055,
-            "asymmetry_rmse": -1.4654617990220664,
-            "distance_preservation_pass": -0.41477534580495196,
+            "asymmetry_rmse": -1.4651961095516821,
+            "distance_preservation_pass": -0.41516455317245843,
             "hierarchy_alignment": -0.9071147352221454,
             "hierarchy_direction_pass": -0.3628458940888581,
-            "map_at_10": -0.6236304819968468,
-            "normalized_stress": -1.8320326770962934,
-            "symmetric_rmse": -0.7305881680456551
+            "map_at_10": -0.8035814975370258,
+            "normalized_stress": -1.8323099530398335,
+            "symmetric_rmse": -0.7310239814643537
           }
         },
-        "total": -10.611270833712572
+        "total": -10.73742493231464
       },
       "ties_reference": false,
+      "ties_rescored_artifact_reference": false,
       "valid_complete_finite_candidate": true
     }
   },
@@ -1948,6 +1966,30 @@
   "rank_definition": "sum(weight * abs(coefficient) * oriented_delta / population_std); reference=0",
   "reference": {
     "directed_tree_depth5_reconstruction": {
+      "asymmetry_correlation": 0.999930923057301,
+      "asymmetry_preservation_pass": 1.0,
+      "asymmetry_rmse": 0.019375741943118332,
+      "distance_preservation_pass": 0.7393868368780065,
+      "hierarchy_alignment": 0.9185586535436917,
+      "hierarchy_direction_pass": 1.0,
+      "map_at_10": 0.5745601832428603,
+      "normalized_stress": 0.02606131631219935,
+      "symmetric_rmse": 0.048784851854220525
+    },
+    "directed_tree_reconstruction": {
+      "asymmetry_correlation": 0.9999474545998791,
+      "asymmetry_preservation_pass": 1.0,
+      "asymmetry_rmse": 0.01885855395282421,
+      "distance_preservation_pass": 0.7783970456120674,
+      "hierarchy_alignment": 0.9240100880710896,
+      "hierarchy_direction_pass": 1.0,
+      "map_at_10": 0.29226007494656836,
+      "normalized_stress": 0.022160295438793273,
+      "symmetric_rmse": 0.0465109252606186
+    }
+  },
+  "rescored_artifact_reference": {
+    "directed_tree_depth5_reconstruction": {
       "asymmetry_correlation": 0.9999262702317434,
       "asymmetry_preservation_pass": 1.0,
       "asymmetry_rmse": 0.019851944500349935,
@@ -1986,7 +2028,7 @@
         "max": 0.999933298826335,
         "min": 0.9999262702317434,
         "range": 7.028594591562687e-06,
-        "std": 2.9002473767986704e-06
+        "std": 2.900247376798671e-06
       },
       "asymmetry_preservation_pass": {
         "max": 1.0,
@@ -2054,13 +2096,13 @@
         "max": 0.019064879171599745,
         "min": 0.018718642764319525,
         "range": 0.00034623640728021973,
-        "std": 0.00015555216355596837
+        "std": 0.0001555521635559684
       },
       "distance_preservation_pass": {
         "max": 0.7779127601187141,
         "min": 0.7770944126319117,
         "range": 0.0008183474868024287,
-        "std": 0.0003343643117448147
+        "std": 0.00033436431174481467
       },
       "hierarchy_alignment": {
         "max": 0.9240100880710896,
@@ -2090,28 +2132,29 @@
         "max": 0.04667672933289304,
         "min": 0.046587570969177206,
         "range": 8.915836371583413e-05,
-        "std": 4.158916948349213e-05
+        "std": 4.1589169483492126e-05
       }
     }
   },
-  "seed_rank_max": -0.010811622839084354,
-  "seed_rank_min": -0.5303261743503881,
+  "seed_rank_max": -0.1369657214411546,
+  "seed_rank_min": -0.6564802729524584,
   "seed_rank_spread": 0.5195145515113038,
+  "seed_rank_spread_all_finite": 0.023994175358669125,
   "standard_deviations": {
     "all_finite_attempts_cohort": {
       "directed_tree_depth5_reconstruction": {
-        "asymmetry_preservation_pass": 0.4874980215217845,
+        "asymmetry_preservation_pass": 0.48749802152178456,
         "asymmetry_rmse": 0.7087360967573109,
         "distance_preservation_pass": 0.37787551174021855,
         "hierarchy_alignment": 0.3871925020546122,
         "hierarchy_direction_pass": 0.41573970964154905,
-        "map_at_10": 0.24442271066018728,
+        "map_at_10": 0.2444227106601873,
         "normalized_stress": 0.36692616390930544,
         "symmetric_rmse": 0.6085769343747637
       },
       "directed_tree_reconstruction": {
-        "asymmetry_preservation_pass": 0.4874980215217845,
-        "asymmetry_rmse": 0.803567368596928,
+        "asymmetry_preservation_pass": 0.48749802152178456,
+        "asymmetry_rmse": 0.8035673685969281,
         "distance_preservation_pass": 0.3887702188885525,
         "hierarchy_alignment": 0.3913047257711565,
         "hierarchy_direction_pass": 0.41573970964154905,
@@ -2133,12 +2176,12 @@
       },
       "directed_tree_reconstruction": {
         "asymmetry_preservation_pass": 0.4330127018922193,
-        "asymmetry_rmse": 0.5954819830630036,
+        "asymmetry_rmse": 0.5954819830630037,
         "distance_preservation_pass": 0.3374841785974202,
         "hierarchy_alignment": 0.2877659935394401,
         "hierarchy_direction_pass": 0.33071891388307384,
         "map_at_10": 0.010928620482424345,
-        "normalized_stress": 0.1579068695367754,
+        "normalized_stress": 0.15790686953677543,
         "symmetric_rmse": 0.15489844762969562
       }
     }

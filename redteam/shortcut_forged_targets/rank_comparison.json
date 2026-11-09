@@ -1,0 +1,105 @@
+{
+  "all_finite_attempts_cohort": {
+    "contributions": {
+      "directed_tree_depth5_reconstruction": {
+        "asymmetry_preservation_pass": -0.24615484515281796,
+        "asymmetry_rmse": -0.7239191566970021,
+        "distance_preservation_pass": -0.23480330867896604,
+        "hierarchy_alignment": -0.47447130234672374,
+        "hierarchy_direction_pass": -0.1924280941769456,
+        "map_at_10": -0.23834418865949997,
+        "normalized_stress": -1.061727158740888,
+        "symmetric_rmse": -0.4281307532348981
+      },
+      "directed_tree_reconstruction": {
+        "asymmetry_preservation_pass": -0.36923226772922696,
+        "asymmetry_rmse": -1.0857806314552843,
+        "distance_preservation_pass": -0.3603966080805624,
+        "hierarchy_alignment": -0.7084070499660697,
+        "hierarchy_direction_pass": -0.2886421412654183,
+        "map_at_10": -0.15980035753137173,
+        "normalized_stress": -1.591891430927471,
+        "symmetric_rmse": -0.6429253900271915
+      }
+    },
+    "total": -8.807054684670337
+  },
+  "dominates_reference": false,
+  "metrics": {
+    "directed_tree_depth5_reconstruction": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.62271210908461,
+      "distance_preservation_pass": 0.0,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.21045560410374747,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.6772254850745496
+    },
+    "directed_tree_reconstruction": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.836562480811228,
+      "distance_preservation_pass": 0.0,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.07407323355108693,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.8988941996852702
+    }
+  },
+  "quality_cohort": {
+    "contributions": {
+      "directed_tree_depth5_reconstruction": {
+        "asymmetry_preservation_pass": -0.27712812921102037,
+        "asymmetry_rmse": -0.9764481929784754,
+        "distance_preservation_pass": -0.27506200055342755,
+        "hierarchy_alignment": -0.6653128578522045,
+        "hierarchy_direction_pass": -0.24189726272590545,
+        "map_at_10": -2.7145559105945627,
+        "normalized_stress": -2.5210611426877656,
+        "symmetric_rmse": -2.165550251940513
+      },
+      "directed_tree_reconstruction": {
+        "asymmetry_preservation_pass": -0.41569219381653055,
+        "asymmetry_rmse": -1.4651961095516821,
+        "distance_preservation_pass": -0.41516455317245843,
+        "hierarchy_alignment": -0.9632932057461282,
+        "hierarchy_direction_pass": -0.3628458940888581,
+        "map_at_10": -4.791532656763941,
+        "normalized_stress": -3.7155053764148285,
+        "symmetric_rmse": -2.8700867740438696
+      }
+    },
+    "total": -24.83633251214217
+  },
+  "quality_plus_this_attempt": {
+    "contributions": {
+      "directed_tree_depth5_reconstruction": {
+        "asymmetry_preservation_pass": -0.2545584412271571,
+        "asymmetry_rmse": -0.7839365016208073,
+        "distance_preservation_pass": -0.2526640613915385,
+        "hierarchy_alignment": -0.503277442329147,
+        "hierarchy_direction_pass": -0.1924280941769456,
+        "map_at_10": -0.4611760752334351,
+        "normalized_stress": -1.2179358556866964,
+        "symmetric_rmse": -0.5116215092703684
+      },
+      "directed_tree_reconstruction": {
+        "asymmetry_preservation_pass": -0.38183766184073564,
+        "asymmetry_rmse": -1.176118816788221,
+        "distance_preservation_pass": -0.3813579636025643,
+        "hierarchy_alignment": -0.7428483850349146,
+        "hierarchy_direction_pass": -0.2886421412654183,
+        "map_at_10": -0.845755757205469,
+        "normalized_stress": -1.8230915369884397,
+        "symmetric_rmse": -0.7653227974648126
+      }
+    },
+    "total": -10.58257304112667
+  },
+  "ties_reference": false,
+  "ties_rescored_artifact_reference": false,
+  "valid_complete_finite_candidate": true
+}

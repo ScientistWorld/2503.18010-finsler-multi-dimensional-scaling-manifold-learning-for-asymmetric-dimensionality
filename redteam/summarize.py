@@ -6,9 +6,9 @@ We therefore retain raw scores and report explicitly named finite cohorts.
 from __future__ import annotations
 
 import json
+import math
 from pathlib import Path
-
-import numpy as np
+from statistics import pstdev
 
 from redteam.audit import CASES, HERE, dump
 
@@ -29,13 +29,16 @@ def proposed(scores):
 def main():
     contract = json.loads((HERE / 'rank_contract.json').read_text())['experiments']
     raw = {name: load(name) for name in CASES}
-    reference = proposed(raw['reference_saved'])
+    # The user ranks against the starting scores_test.json, not a rescore of
+    # cached artifacts (which turns out to differ from the published file).
+    reference = proposed(json.loads((HERE / 'reference_saved/published_scores_test.json').read_text()))
+    artifact_reference = proposed(raw['reference_saved'])
     valid = {}
     for name, scores in raw.items():
         if scores is None:
             continue
         values = proposed(scores)
-        if all(e in values and all(m in values[e] and np.isfinite(values[e][m])
+        if all(e in values and all(m in values[e] and math.isfinite(values[e][m])
                                  for m, spec in exp['metrics'].items() if abs(spec['coefficient']) > 0)
                for e, exp in contract.items()):
             valid[name] = values
@@ -45,7 +48,7 @@ def main():
     }
     deviations = {}
     for name, members in cohorts.items():
-        deviations[name] = {e: {m: float(np.std([valid[n][e][m] for n in members]))
+        deviations[name] = {e: {m: pstdev([valid[n][e][m] for n in members])
                                for m, spec in exp['metrics'].items() if abs(spec['coefficient']) > 0}
                             for e, exp in contract.items()}
 
@@ -77,7 +80,7 @@ def main():
             # The quality cohort cannot normalize a newly changing saturated
             # binary metric. Include this candidate for an honest comparison.
             members = list(dict.fromkeys(cohorts['quality_cohort'] + [case]))
-            sd = {e: {m: float(np.std([valid[n][e][m] for n in members]))
+            sd = {e: {m: pstdev([valid[n][e][m] for n in members])
                       for m, spec in exp['metrics'].items() if abs(spec['coefficient']) > 0}
                   for e, exp in contract.items()}
             row['quality_plus_this_attempt'] = gain(valid[case], sd)
@@ -87,9 +90,14 @@ def main():
                       if abs(spec['coefficient']) > 0]
             row['dominates_reference'] = all(v >= -1e-12 for v in deltas) and any(v > 1e-10 for v in deltas)
             row['ties_reference'] = all(abs(v) <= 1e-12 for v in deltas)
+            row['ties_rescored_artifact_reference'] = all(
+                abs(valid[case][e][m] - artifact_reference[e][m]) <= 1e-12
+                for e, exp in contract.items() for m, spec in exp['metrics'].items()
+                if abs(spec['coefficient']) > 0)
         else:
             row['reason'] = 'Missing candidate/experiments, evaluation failure, or nonfinite scored metrics; no valid rank claimed.'
         rows[case] = row
+        dump(HERE / case / 'rank_comparison.json', row)
 
     seed_cases = ['reference_seed0', 'reference_seed1', 'reference_seed2']
     seed_spread = {}
@@ -97,8 +105,9 @@ def main():
         seed_spread[e] = {}
         for m in exp['metrics']:
             vals = [valid[n][e][m] for n in seed_cases]
-            seed_spread[e][m] = dict(min=min(vals), max=max(vals), range=max(vals)-min(vals), std=float(np.std(vals)))
+            seed_spread[e][m] = dict(min=min(vals), max=max(vals), range=max(vals)-min(vals), std=pstdev(vals))
     seed_ranks = [rows[n]['quality_cohort']['total'] for n in seed_cases]
+    seed_ranks_all = [rows[n]['all_finite_attempts_cohort']['total'] for n in seed_cases]
     bounds = {'normalized_stress': 0., 'map_at_10': 1., 'asymmetry_rmse': 0.,
               'symmetric_rmse': 0., 'hierarchy_alignment': 1., 'distance_preservation_pass': 1.,
               'asymmetry_preservation_pass': 1., 'hierarchy_direction_pass': 1.}
@@ -106,9 +115,11 @@ def main():
     baseline = {e: raw['reference_saved'][e]['results']['euclidean_mds'] for e in contract}
     report = dict(rank_definition='sum(weight * abs(coefficient) * oriented_delta / population_std); reference=0',
                   cohort_members=cohorts, standard_deviations=deviations, attempts=rows,
-                  reference=reference, baseline=baseline, saturated_scored_metrics=saturated,
+                  reference=reference, rescored_artifact_reference=artifact_reference,
+                  baseline=baseline, saturated_scored_metrics=saturated,
                   seed_metrics=seed_spread, seed_rank_min=min(seed_ranks), seed_rank_max=max(seed_ranks),
-                  seed_rank_spread=max(seed_ranks)-min(seed_ranks))
+                  seed_rank_spread=max(seed_ranks)-min(seed_ranks),
+                  seed_rank_spread_all_finite=max(seed_ranks_all)-min(seed_ranks_all))
     dump(HERE / 'summary.json', report)
     lines = ['| Attempt | Rank gain (quality cohort + attempt) | Stress d7 / d5 | MAP d7 / d5 | Status |',
              '|---|---:|---|---|---|']

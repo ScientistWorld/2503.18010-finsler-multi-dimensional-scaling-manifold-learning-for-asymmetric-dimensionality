@@ -1,0 +1,105 @@
+{
+  "all_finite_attempts_cohort": {
+    "contributions": {
+      "directed_tree_depth5_reconstruction": {
+        "asymmetry_preservation_pass": -0.24615484515281796,
+        "asymmetry_rmse": -0.043016058027639546,
+        "distance_preservation_pass": -0.011000095325030332,
+        "hierarchy_alignment": 0.042067625805843244,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.2784944594439848,
+        "normalized_stress": -0.0037761154322812083,
+        "symmetric_rmse": 0.012825948299691204
+      },
+      "directed_tree_reconstruction": {
+        "asymmetry_preservation_pass": -0.36923226772922696,
+        "asymmetry_rmse": -0.05900390405318893,
+        "distance_preservation_pass": -0.024375724715228208,
+        "hierarchy_alignment": 0.05825887620893511,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.5183497425390879,
+        "normalized_stress": -0.00857084809564254,
+        "symmetric_rmse": 0.016143017040032726
+      }
+    },
+    "total": 0.1610098108065194
+  },
+  "dominates_reference": false,
+  "metrics": {
+    "directed_tree_depth5_reconstruction": {
+      "asymmetry_correlation": 0.9999999999999991,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 0.11464772026935344,
+      "distance_preservation_pass": 0.7047479481268647,
+      "hierarchy_alignment": 0.9999999999999998,
+      "hierarchy_direction_pass": 1.0,
+      "map_at_10": 1.0,
+      "normalized_stress": 0.02952520518731353,
+      "symmetric_rmse": 0.0
+    },
+    "directed_tree_reconstruction": {
+      "asymmetry_correlation": 1.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 0.1176369121131714,
+      "distance_preservation_pass": 0.7257495132059208,
+      "hierarchy_alignment": 1.0,
+      "hierarchy_direction_pass": 1.0,
+      "map_at_10": 1.0,
+      "normalized_stress": 0.027425048679407916,
+      "symmetric_rmse": 0.0
+    }
+  },
+  "quality_cohort": {
+    "contributions": {
+      "directed_tree_depth5_reconstruction": {
+        "asymmetry_preservation_pass": -0.27712812921102037,
+        "asymmetry_rmse": -0.058021606061360656,
+        "distance_preservation_pass": -0.012886139651967755,
+        "hierarchy_alignment": 0.05898804039256764,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 3.171836432024433,
+        "normalized_stress": -0.008966350543314166,
+        "symmetric_rmse": 0.06487559083739339
+      },
+      "directed_tree_reconstruction": {
+        "asymmetry_preservation_pass": -0.41569219381653055,
+        "asymmetry_rmse": -0.07962224427527331,
+        "distance_preservation_pass": -0.028080000290653065,
+        "hierarchy_alignment": 0.07922052671435147,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 15.54245408064013,
+        "normalized_stress": -0.02000452515862909,
+        "symmetric_rmse": 0.07206413126382084
+      }
+    },
+    "total": 18.089037612863944
+  },
+  "quality_plus_this_attempt": {
+    "contributions": {
+      "directed_tree_depth5_reconstruction": {
+        "asymmetry_preservation_pass": -0.2545584412271571,
+        "asymmetry_rmse": -0.06127484785167492,
+        "distance_preservation_pass": -0.013514714252506185,
+        "hierarchy_alignment": 0.061049376683843186,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.5441884445904884,
+        "normalized_stress": -0.009419862196992172,
+        "symmetric_rmse": 0.06643156202014742
+      },
+      "directed_tree_reconstruction": {
+        "asymmetry_preservation_pass": -0.38183766184073564,
+        "asymmetry_rmse": -0.08404543554239981,
+        "distance_preservation_pass": -0.02949769208313081,
+        "hierarchy_alignment": 0.08216550410983038,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.7379659181453102,
+        "normalized_stress": -0.021022722890201063,
+        "symmetric_rmse": 0.07438489994884655
+      }
+    },
+    "total": 0.7110143276136686
+  },
+  "ties_reference": false,
+  "ties_rescored_artifact_reference": false,
+  "valid_complete_finite_candidate": true
+}

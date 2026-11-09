@@ -1,0 +1,4 @@
+{
+  "reason": "Missing candidate/experiments, evaluation failure, or nonfinite scored metrics; no valid rank claimed.",
+  "valid_complete_finite_candidate": false
+}
