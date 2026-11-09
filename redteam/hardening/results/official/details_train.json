@@ -1,0 +1,564 @@
+{
+  "claim_thresholds": {
+    "asymmetry_preservation_pass": [
+      "asymmetry_rmse",
+      0.1,
+      "le"
+    ],
+    "distance_preservation_pass": [
+      "normalized_stress",
+      0.1,
+      "le"
+    ],
+    "hierarchy_direction_pass": [
+      "hierarchy_alignment",
+      0.8,
+      "ge"
+    ]
+  },
+  "gate": {
+    "asymmetry_rmse": [
+      0.1,
+      "le"
+    ],
+    "distortion": [
+      0.1,
+      "le"
+    ],
+    "hierarchy_alignment": [
+      0.8,
+      "ge"
+    ],
+    "normalized_stress": [
+      0.1,
+      "le"
+    ]
+  },
+  "instance_ids": {
+    "directed_tree_depth5_reconstruction": [
+      "d5_00",
+      "d5_01",
+      "d5_02",
+      "d5_03",
+      "d5_04",
+      "d5_05",
+      "d5_06",
+      "d5_07",
+      "d5_08",
+      "d5_09",
+      "d5_10",
+      "d5_11"
+    ],
+    "directed_tree_reconstruction": [
+      "d7_00",
+      "d7_01",
+      "d7_02",
+      "d7_03",
+      "d7_04",
+      "d7_05",
+      "d7_06",
+      "d7_07"
+    ]
+  },
+  "instances": "family",
+  "methods": {
+    "euclidean_mds": {
+      "eligible": false,
+      "experiments": {
+        "directed_tree_depth5_reconstruction": {
+          "per_instance": {
+            "d5_00": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.4245673897950784,
+              "distortion": 0.2630140417250821,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9764745500395096,
+              "normalized_stress": 0.465721362140525,
+              "symmetric_rmse": 0.38399315174901605
+            },
+            "d5_01": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.5454977319840904,
+              "distortion": 0.30222783373139334,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9661218756175711,
+              "normalized_stress": 0.47210071608665316,
+              "symmetric_rmse": 0.41023627953709946
+            },
+            "d5_02": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.495781861244143,
+              "distortion": 0.2969131815901818,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9741871829253027,
+              "normalized_stress": 0.46933269114216464,
+              "symmetric_rmse": 0.41014199955635094
+            },
+            "d5_03": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.6630018741756065,
+              "distortion": 0.3386356265702171,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9661218756175711,
+              "normalized_stress": 0.45656710977722037,
+              "symmetric_rmse": 0.4045297464816102
+            },
+            "d5_04": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.5168115545429663,
+              "distortion": 0.3025995337820416,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9684417779374734,
+              "normalized_stress": 0.4647358010368551,
+              "symmetric_rmse": 0.4088443965775149
+            },
+            "d5_05": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.4433346328055883,
+              "distortion": 0.28024879955919374,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9661218756175711,
+              "normalized_stress": 0.468955318286127,
+              "symmetric_rmse": 0.42848671721753034
+            },
+            "d5_06": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.4943593948796596,
+              "distortion": 0.3054446541790306,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9782192699660477,
+              "normalized_stress": 0.48149533627125823,
+              "symmetric_rmse": 0.4005188468881545
+            },
+            "d5_07": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.419092758188254,
+              "distortion": 0.2668025788350397,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9783467519117114,
+              "normalized_stress": 0.46938230281722865,
+              "symmetric_rmse": 0.4014509438786356
+            },
+            "d5_08": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.4462857447337374,
+              "distortion": 0.27991184342803516,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9853700060992768,
+              "normalized_stress": 0.48577128961424926,
+              "symmetric_rmse": 0.4335557051569534
+            },
+            "d5_09": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.4635901258764925,
+              "distortion": 0.2863283665841445,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9695526342497949,
+              "normalized_stress": 0.46962893748157464,
+              "symmetric_rmse": 0.42075392569399206
+            },
+            "d5_10": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.4574743640611492,
+              "distortion": 0.2773995263865549,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9661218756175712,
+              "normalized_stress": 0.46501577834673696,
+              "symmetric_rmse": 0.3834463598556463
+            },
+            "d5_11": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.467059956145554,
+              "distortion": 0.2948896254750345,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9876899084191791,
+              "normalized_stress": 0.46947703953584785,
+              "symmetric_rmse": 0.39753849858647694
+            }
+          },
+          "raw_mean": {
+            "asymmetry_correlation": 0.0,
+            "asymmetry_rmse": 1.48640478236936,
+            "distortion": 0.2912013009871624,
+            "hierarchy_alignment": 0.0,
+            "map_at_10": 0.9735641320015483,
+            "normalized_stress": 0.46984864021137,
+            "symmetric_rmse": 0.4069580475982484
+          }
+        },
+        "directed_tree_reconstruction": {
+          "per_instance": {
+            "d7_00": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.5557085723848245,
+              "distortion": 0.309694934437034,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9980952976818876,
+              "normalized_stress": 0.47969027343894843,
+              "symmetric_rmse": 0.4588908682036465
+            },
+            "d7_01": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.5509923270585066,
+              "distortion": 0.2915586861279472,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9922032627845524,
+              "normalized_stress": 0.47598010814197583,
+              "symmetric_rmse": 0.44275550267554536
+            },
+            "d7_02": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.6180296864813009,
+              "distortion": 0.31438871451672534,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9963855309186449,
+              "normalized_stress": 0.48627630567533253,
+              "symmetric_rmse": 0.47112129485490806
+            },
+            "d7_03": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.7214190500109905,
+              "distortion": 0.3743528090995048,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9916301104466941,
+              "normalized_stress": 0.4819997356337941,
+              "symmetric_rmse": 0.4923666633049061
+            },
+            "d7_04": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.5266148021075316,
+              "distortion": 0.2749857013518738,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.991630110446694,
+              "normalized_stress": 0.46469774724323293,
+              "symmetric_rmse": 0.45684713815065775
+            },
+            "d7_05": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.735747328560366,
+              "distortion": 0.31809041735150945,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9941878300097612,
+              "normalized_stress": 0.4860922567930845,
+              "symmetric_rmse": 0.5290470392892707
+            },
+            "d7_06": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.5985411083534902,
+              "distortion": 0.29185758886958496,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 0.9941878300097613,
+              "normalized_stress": 0.48235293496938314,
+              "symmetric_rmse": 0.47989208365024866
+            },
+            "d7_07": {
+              "asymmetry_correlation": 0.0,
+              "asymmetry_rmse": 1.748292003771762,
+              "distortion": 0.355203326386573,
+              "hierarchy_alignment": 0.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.48063690619994615,
+              "symmetric_rmse": 0.4926203235692718
+            }
+          },
+          "raw_mean": {
+            "asymmetry_correlation": 0.0,
+            "asymmetry_rmse": 1.6319181098410964,
+            "distortion": 0.3162665222675941,
+            "hierarchy_alignment": 0.0,
+            "map_at_10": 0.9947899965372494,
+            "normalized_stress": 0.4797157835119622,
+            "symmetric_rmse": 0.4779426142123069
+          }
+        }
+      },
+      "failure_reasons": [
+        "d7_00: normalized_stress=0.4797 fails <= 0.1",
+        "d7_00: distortion=0.3097 fails <= 0.1",
+        "d7_00: asymmetry_rmse=1.556 fails <= 0.1",
+        "d7_00: hierarchy_alignment=0 fails >= 0.8",
+        "d7_01: normalized_stress=0.476 fails <= 0.1",
+        "d7_01: distortion=0.2916 fails <= 0.1",
+        "d7_01: asymmetry_rmse=1.551 fails <= 0.1",
+        "d7_01: hierarchy_alignment=0 fails >= 0.8",
+        "d7_02: normalized_stress=0.4863 fails <= 0.1",
+        "d7_02: distortion=0.3144 fails <= 0.1",
+        "d7_02: asymmetry_rmse=1.618 fails <= 0.1",
+        "d7_02: hierarchy_alignment=0 fails >= 0.8",
+        "d7_03: normalized_stress=0.482 fails <= 0.1",
+        "d7_03: distortion=0.3744 fails <= 0.1",
+        "d7_03: asymmetry_rmse=1.721 fails <= 0.1",
+        "d7_03: hierarchy_alignment=0 fails >= 0.8",
+        "d7_04: normalized_stress=0.4647 fails <= 0.1",
+        "d7_04: distortion=0.275 fails <= 0.1",
+        "d7_04: asymmetry_rmse=1.527 fails <= 0.1",
+        "d7_04: hierarchy_alignment=0 fails >= 0.8",
+        "d7_05: normalized_stress=0.4861 fails <= 0.1",
+        "d7_05: distortion=0.3181 fails <= 0.1",
+        "d7_05: asymmetry_rmse=1.736 fails <= 0.1",
+        "d7_05: hierarchy_alignment=0 fails >= 0.8",
+        "d7_06: normalized_stress=0.4824 fails <= 0.1",
+        "d7_06: distortion=0.2919 fails <= 0.1",
+        "d7_06: asymmetry_rmse=1.599 fails <= 0.1",
+        "d7_06: hierarchy_alignment=0 fails >= 0.8",
+        "d7_07: normalized_stress=0.4806 fails <= 0.1",
+        "d7_07: distortion=0.3552 fails <= 0.1",
+        "d7_07: asymmetry_rmse=1.748 fails <= 0.1",
+        "d7_07: hierarchy_alignment=0 fails >= 0.8",
+        "d5_00: normalized_stress=0.4657 fails <= 0.1",
+        "d5_00: distortion=0.263 fails <= 0.1",
+        "d5_00: asymmetry_rmse=1.425 fails <= 0.1",
+        "d5_00: hierarchy_alignment=0 fails >= 0.8",
+        "d5_01: normalized_stress=0.4721 fails <= 0.1",
+        "d5_01: distortion=0.3022 fails <= 0.1",
+        "d5_01: asymmetry_rmse=1.545 fails <= 0.1",
+        "d5_01: hierarchy_alignment=0 fails >= 0.8",
+        "d5_02: normalized_stress=0.4693 fails <= 0.1",
+        "d5_02: distortion=0.2969 fails <= 0.1",
+        "d5_02: asymmetry_rmse=1.496 fails <= 0.1",
+        "d5_02: hierarchy_alignment=0 fails >= 0.8",
+        "d5_03: normalized_stress=0.4566 fails <= 0.1",
+        "d5_03: distortion=0.3386 fails <= 0.1",
+        "d5_03: asymmetry_rmse=1.663 fails <= 0.1",
+        "d5_03: hierarchy_alignment=0 fails >= 0.8",
+        "d5_04: normalized_stress=0.4647 fails <= 0.1",
+        "d5_04: distortion=0.3026 fails <= 0.1"
+      ],
+      "n_failure_reasons": 80,
+      "source": "frozen Euclidean SMACOF inside the evaluator"
+    },
+    "finsler_mds": {
+      "eligible": true,
+      "experiments": {
+        "directed_tree_depth5_reconstruction": {
+          "per_instance": {
+            "d5_00": {
+              "asymmetry_correlation": 0.9998625004754951,
+              "asymmetry_rmse": 0.023651792336576487,
+              "distortion": 0.008645908937313436,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02212259083875152,
+              "symmetric_rmse": 0.03657387491739496
+            },
+            "d5_01": {
+              "asymmetry_correlation": 0.999903007320921,
+              "asymmetry_rmse": 0.02160786002658566,
+              "distortion": 0.00883018040536189,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.020802199997467085,
+              "symmetric_rmse": 0.03700549761716766
+            },
+            "d5_02": {
+              "asymmetry_correlation": 0.9998850900995119,
+              "asymmetry_rmse": 0.02402283516984585,
+              "distortion": 0.013223004157755288,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.028138775762972485,
+              "symmetric_rmse": 0.04970907951837494
+            },
+            "d5_03": {
+              "asymmetry_correlation": 0.9999320481281818,
+              "asymmetry_rmse": 0.02023223917052756,
+              "distortion": 0.010445606475763022,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.021567240226160845,
+              "symmetric_rmse": 0.04249243555764933
+            },
+            "d5_04": {
+              "asymmetry_correlation": 0.9999050707233539,
+              "asymmetry_rmse": 0.021425524934971362,
+              "distortion": 0.011431684017873327,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.025172814540325193,
+              "symmetric_rmse": 0.045422436234763566
+            },
+            "d5_05": {
+              "asymmetry_correlation": 0.9997860978735282,
+              "asymmetry_rmse": 0.030396945083142553,
+              "distortion": 0.015435556613427668,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.034435570487546724,
+              "symmetric_rmse": 0.05972580050950741
+            },
+            "d5_06": {
+              "asymmetry_correlation": 0.9998220199837206,
+              "asymmetry_rmse": 0.028322746327017378,
+              "distortion": 0.010820914880145315,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.027730677259418187,
+              "symmetric_rmse": 0.04672592418368703
+            },
+            "d5_07": {
+              "asymmetry_correlation": 0.9997833624697149,
+              "asymmetry_rmse": 0.02960048491491772,
+              "distortion": 0.013556500130123652,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03262615515313097,
+              "symmetric_rmse": 0.05469947393222918
+            },
+            "d5_08": {
+              "asymmetry_correlation": 0.9997993790320293,
+              "asymmetry_rmse": 0.029382237716825167,
+              "distortion": 0.01438001502865596,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.032744287990464,
+              "symmetric_rmse": 0.05490262974322329
+            },
+            "d5_09": {
+              "asymmetry_correlation": 0.9998021977442909,
+              "asymmetry_rmse": 0.02947313093281366,
+              "distortion": 0.015485035056959189,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 0.9968633482919197,
+              "normalized_stress": 0.03410831589219013,
+              "symmetric_rmse": 0.05951030144942241
+            },
+            "d5_10": {
+              "asymmetry_correlation": 0.9998355530679678,
+              "asymmetry_rmse": 0.026432317781100688,
+              "distortion": 0.009280004000887111,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.022965157123917678,
+              "symmetric_rmse": 0.03845985502878061
+            },
+            "d5_11": {
+              "asymmetry_correlation": 0.9998904938969997,
+              "asymmetry_rmse": 0.02219804726861863,
+              "distortion": 0.011631885670787007,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02622552762380246,
+              "symmetric_rmse": 0.04526565127269728
+            }
+          },
+          "raw_mean": {
+            "asymmetry_correlation": 0.9998505684013096,
+            "asymmetry_rmse": 0.025562180138578555,
+            "distortion": 0.01193052461458774,
+            "hierarchy_alignment": 1.0,
+            "map_at_10": 0.9997386123576599,
+            "normalized_stress": 0.027386609408012273,
+            "symmetric_rmse": 0.04754107999707482
+          }
+        },
+        "directed_tree_reconstruction": {
+          "per_instance": {
+            "d7_00": {
+              "asymmetry_correlation": 0.9997262668364812,
+              "asymmetry_rmse": 0.03675084296529641,
+              "distortion": 0.016542986865309976,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03344924277839731,
+              "symmetric_rmse": 0.06023539947896165
+            },
+            "d7_01": {
+              "asymmetry_correlation": 0.999935631710246,
+              "asymmetry_rmse": 0.017799591598335354,
+              "distortion": 0.009539254300638315,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.01972165033027426,
+              "symmetric_rmse": 0.035913532278778436
+            },
+            "d7_02": {
+              "asymmetry_correlation": 0.9999375623555752,
+              "asymmetry_rmse": 0.01844165352428431,
+              "distortion": 0.009136306470371695,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.018966267387673832,
+              "symmetric_rmse": 0.0353310365662216
+            },
+            "d7_03": {
+              "asymmetry_correlation": 0.9999125978584563,
+              "asymmetry_rmse": 0.023991764475714647,
+              "distortion": 0.014024449934707243,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.025061245012146283,
+              "symmetric_rmse": 0.05014193823630726
+            },
+            "d7_04": {
+              "asymmetry_correlation": 0.9997999142939774,
+              "asymmetry_rmse": 0.03076795145442003,
+              "distortion": 0.015551733496320615,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.032132263710693165,
+              "symmetric_rmse": 0.05955639357573885
+            },
+            "d7_05": {
+              "asymmetry_correlation": 0.9998804364830132,
+              "asymmetry_rmse": 0.027156106300504065,
+              "distortion": 0.013197875928969758,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.025376961721313734,
+              "symmetric_rmse": 0.05129629624905241
+            },
+            "d7_06": {
+              "asymmetry_correlation": 0.9998019254807072,
+              "asymmetry_rmse": 0.031824160997525705,
+              "distortion": 0.010811594134671313,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.023510977796147428,
+              "symmetric_rmse": 0.04256397783766889
+            },
+            "d7_07": {
+              "asymmetry_correlation": 0.9999177508082228,
+              "asymmetry_rmse": 0.022978645199129705,
+              "distortion": 0.012524678635892997,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 0.9994939700822054,
+              "normalized_stress": 0.02308497541765164,
+              "symmetric_rmse": 0.04680356800627349
+            }
+          },
+          "raw_mean": {
+            "asymmetry_correlation": 0.999864010728335,
+            "asymmetry_rmse": 0.02621383956440128,
+            "distortion": 0.01266610997086024,
+            "hierarchy_alignment": 1.0,
+            "map_at_10": 0.9999367462602757,
+            "normalized_stress": 0.025162948019287208,
+            "symmetric_rmse": 0.047730267778625324
+          }
+        }
+      },
+      "failure_reasons": [],
+      "n_failure_reasons": 0,
+      "run": {
+        "card": "outputs/finsler_mds/method.json",
+        "command": [
+          "python",
+          "-m",
+          "method.embed",
+          "--alpha",
+          "0.5",
+          "--max-iter",
+          "500",
+          "--eps",
+          "1e-5"
+        ],
+        "launch_error": null,
+        "log_tail": "",
+        "returncode": 0,
+        "runtime_seconds_info_only": 2.1,
+        "timed_out": false
+      }
+    }
+  },
+  "slice": "train"
+}
