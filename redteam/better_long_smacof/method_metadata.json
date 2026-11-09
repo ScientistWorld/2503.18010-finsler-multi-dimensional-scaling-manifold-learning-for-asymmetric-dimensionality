@@ -1,0 +1,19 @@
+{
+  "case": "better_long_smacof",
+  "dimensions": 2,
+  "mode": "improve",
+  "seeds": {
+    "5": {
+      "eps": 1e-10,
+      "max_iter": 2000,
+      "n_iter": 2000,
+      "seed": 1
+    },
+    "7": {
+      "eps": 1e-10,
+      "max_iter": 2000,
+      "n_iter": 2000,
+      "seed": 0
+    }
+  }
+}

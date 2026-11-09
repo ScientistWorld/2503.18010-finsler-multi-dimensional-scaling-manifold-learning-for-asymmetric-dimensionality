@@ -1,0 +1,2146 @@
+{
+  "attempts": {
+    "better_lbfgs": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.002975882065256822,
+            "distance_preservation_pass": 0.0032724718077151607,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.032929130203320306,
+            "normalized_stress": 0.0011233749280972136,
+            "symmetric_rmse": 0.0007429599202639865
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.007063968056866326,
+            "distance_preservation_pass": 0.004888611597171819,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.004519019643142951,
+            "normalized_stress": 0.001718904684371503,
+            "symmetric_rmse": 0.00139057925269435
+          }
+        },
+        "total": 0.03150716262836824
+      },
+      "dominates_reference": false,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 0.9998979241316407,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.026442928998288075,
+          "distance_preservation_pass": 0.7534800293127939,
+          "hierarchy_alignment": 0.9185586535436917,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.6318757293365681,
+          "normalized_stress": 0.024651997068720607,
+          "symmetric_rmse": 0.04576420271295428
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 0.9998928026083952,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.03035472255825244,
+          "distance_preservation_pass": 0.7882259082341041,
+          "hierarchy_alignment": 0.9240100880710896,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.2778956998610164,
+          "normalized_stress": 0.02117740917658959,
+          "symmetric_rmse": 0.042785695637600374
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.004013976751762218,
+            "distance_preservation_pass": 0.003833560298826652,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.37503731694445164,
+            "normalized_stress": 0.0026674431906349243,
+            "symmetric_rmse": 0.003758003905004767
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.009532402968954735,
+            "distance_preservation_pass": 0.0056315131826097774,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.13550051158318777,
+            "normalized_stress": 0.00401195676554775,
+            "symmetric_rmse": 0.006207692499512369
+          }
+        },
+        "total": 0.25210059548268315
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.004013976751762218,
+            "distance_preservation_pass": 0.003833560298826652,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.37503731694445164,
+            "normalized_stress": 0.0026674431906349243,
+            "symmetric_rmse": 0.003758003905004767
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.009532402968954735,
+            "distance_preservation_pass": 0.0056315131826097774,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.13550051158318777,
+            "normalized_stress": 0.00401195676554775,
+            "symmetric_rmse": 0.006207692499512369
+          }
+        },
+        "total": 0.25210059548268315
+      },
+      "ties_reference": false,
+      "valid_complete_finite_candidate": true
+    },
+    "better_long_smacof": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.00036469783305984944,
+            "distance_preservation_pass": 0.00041435511222176697,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.009848578540468342,
+            "normalized_stress": 0.00014223992497092115,
+            "symmetric_rmse": -2.6386155811556038e-05
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 2.679445727986471e-07,
+            "distance_preservation_pass": 1.4641150719351463e-05,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.0118723058694953,
+            "normalized_stress": 5.14803478570212e-06,
+            "symmetric_rmse": 2.5112592377906144e-05
+          }
+        },
+        "total": -0.0010836508921302182
+      },
+      "dominates_reference": false,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 0.9999312454305623,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.019044211629416538,
+          "distance_preservation_pass": 0.744479926738437,
+          "hierarchy_alignment": 0.9185586535436917,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.5966169105805258,
+          "normalized_stress": 0.025552007326156295,
+          "symmetric_rmse": 0.04869049194077495
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 0.999949405922123,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.018528494360702186,
+          "distance_preservation_pass": 0.7776989384711949,
+          "hierarchy_alignment": 0.9240100880710896,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.2678557329899176,
+          "normalized_stress": 0.022230106152880517,
+          "symmetric_rmse": 0.046719849806325445
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.0004919175529202159,
+            "distance_preservation_pass": 0.00048539923371816214,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.1121676900886231,
+            "normalized_stress": 0.0003377473627106555,
+            "symmetric_rmse": -0.00013346517607929485
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 3.615751969289327e-07,
+            "distance_preservation_pass": 1.6866104341834968e-05,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.35598506889203346,
+            "normalized_stress": 1.201561271870322e-05,
+            "symmetric_rmse": 0.00011210526192274814
+          }
+        },
+        "total": -0.24249443127596046
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.0004919175529202159,
+            "distance_preservation_pass": 0.00048539923371816214,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.1121676900886231,
+            "normalized_stress": 0.0003377473627106555,
+            "symmetric_rmse": -0.00013346517607929485
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 3.615751969289327e-07,
+            "distance_preservation_pass": 1.6866104341834968e-05,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.35598506889203346,
+            "normalized_stress": 1.201561271870322e-05,
+            "symmetric_rmse": 0.00011210526192274814
+          }
+        },
+        "total": -0.24249443127596046
+      },
+      "ties_reference": false,
+      "valid_complete_finite_candidate": true
+    },
+    "reference_saved": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          }
+        },
+        "total": 0.0
+      },
+      "dominates_reference": false,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 0.9999262702317434,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.019851944500349935,
+          "distance_preservation_pass": 0.7431751379878289,
+          "hierarchy_alignment": 0.9185586535436917,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.5815718089367069,
+          "normalized_stress": 0.025682486201217113,
+          "symmetric_rmse": 0.04859012940443913
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 0.9999491451976765,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.018528942926359048,
+          "distance_preservation_pass": 0.7776673160080285,
+          "hierarchy_alignment": 0.9240100880710896,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.28406584013712893,
+          "normalized_stress": 0.022233268399197145,
+          "symmetric_rmse": 0.04679220368567109
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          }
+        },
+        "total": 0.0
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          }
+        },
+        "total": 0.0
+      },
+      "ties_reference": true,
+      "valid_complete_finite_candidate": true
+    },
+    "reference_seed0": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00032013420127388403,
+            "distance_preservation_pass": 0.00011364023728390287,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.017690226208181604,
+            "normalized_stress": 3.9957507835829274e-05,
+            "symmetric_rmse": 7.036466690595348e-05
+          }
+        },
+        "total": -0.0177863979974298
+      },
+      "dominates_reference": false,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 0.9999262702317434,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.019851944500349935,
+          "distance_preservation_pass": 0.7431751379878289,
+          "hierarchy_alignment": 0.9185586535436917,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.5815718089367069,
+          "normalized_stress": 0.025682486201217113,
+          "symmetric_rmse": 0.04859012940443913
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 0.9999464268470203,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.019064879171599745,
+          "distance_preservation_pass": 0.7779127601187141,
+          "hierarchy_alignment": 0.9240100880710896,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.2599121108241206,
+          "normalized_stress": 0.022208723988128592,
+          "symmetric_rmse": 0.04658947046948633
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0004320019833216627,
+            "distance_preservation_pass": 0.00013090966251224343,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.5304324589223958,
+            "normalized_stress": 9.326159580221117e-05,
+            "symmetric_rmse": 0.00031411529701484985
+          }
+        },
+        "total": -0.5303261743503881
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0004320019833216627,
+            "distance_preservation_pass": 0.00013090966251224343,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.5304324589223958,
+            "normalized_stress": 9.326159580221117e-05,
+            "symmetric_rmse": 0.00031411529701484985
+          }
+        },
+        "total": -0.5303261743503881
+      },
+      "ties_reference": false,
+      "valid_complete_finite_candidate": true
+    },
+    "reference_seed1": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.0004861867980580514,
+            "distance_preservation_pass": 1.1038736434587125e-05,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.017383779546187927,
+            "normalized_stress": 3.7893801618795984e-06,
+            "symmetric_rmse": -7.394093325321693e-05
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00011331460905389604,
+            "distance_preservation_pass": -0.00026525336224529335,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.02386619551182425,
+            "normalized_stress": -9.326681775507429e-05,
+            "symmetric_rmse": 7.102394568155225e-05
+          }
+        },
+        "total": -0.006456152827607732
+      },
+      "dominates_reference": false,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 0.999933298826335,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.018775137833004316,
+          "distance_preservation_pass": 0.7432098985559887,
+          "hierarchy_alignment": 0.9185586535436917,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.6081279996754467,
+          "normalized_stress": 0.025679010144401132,
+          "symmetric_rmse": 0.048871371569964454
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 0.9999480787696489,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.018718642764319525,
+          "distance_preservation_pass": 0.7770944126319117,
+          "hierarchy_alignment": 0.9240100880710896,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.25147961883390274,
+          "normalized_stress": 0.02229055873680883,
+          "symmetric_rmse": 0.046587570969177206
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.000655786238037733,
+            "distance_preservation_pass": 1.2931406053698185e-05,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.19798779983258644,
+            "normalized_stress": 8.997847518863346e-06,
+            "symmetric_rmse": -0.0003740044494009232
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00015291129674933408,
+            "distance_preservation_pass": -0.0003055627915050816,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.7156157655352477,
+            "normalized_stress": -0.00021768655580247872,
+            "symmetric_rmse": 0.00031705838702747767
+          }
+        },
+        "total": -0.5176833569174814
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.000655786238037733,
+            "distance_preservation_pass": 1.2931406053698185e-05,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.19798779983258644,
+            "normalized_stress": 8.997847518863346e-06,
+            "symmetric_rmse": -0.0003740044494009232
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00015291129674933408,
+            "distance_preservation_pass": -0.0003055627915050816,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.7156157655352477,
+            "normalized_stress": -0.00021768655580247872,
+            "symmetric_rmse": 0.00031705838702747767
+          }
+        },
+        "total": -0.5176833569174814
+      },
+      "ties_reference": false,
+      "valid_complete_finite_candidate": true
+    },
+    "reference_seed2": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.0001714771457328562,
+            "distance_preservation_pass": -0.0004119142708521606,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.011646347878046135,
+            "normalized_stress": -0.00014140203234443122,
+            "symmetric_rmse": -9.99993761429265e-05
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.00013444275303568537,
+            "distance_preservation_pass": -8.913144077865739e-05,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.004741896770586623,
+            "normalized_stress": -3.13398698247748e-05,
+            "symmetric_rmse": 4.007885102559178e-05
+          }
+        },
+        "total": 0.006207777361239324
+      },
+      "dominates_reference": false,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 0.9999288897662995,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.019472156866131844,
+          "distance_preservation_pass": 0.7418780353554009,
+          "hierarchy_alignment": 0.9185586535436917,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.5993632584219791,
+          "normalized_stress": 0.025812196464459917,
+          "symmetric_rmse": 0.04897048761551695
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 0.9999479528167031,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.01875401336236699,
+          "distance_preservation_pass": 0.7774748068427987,
+          "hierarchy_alignment": 0.9240100880710896,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.2775913898005919,
+          "normalized_stress": 0.022252519315720132,
+          "symmetric_rmse": 0.04667672933289304
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.0002312945410257127,
+            "distance_preservation_pass": -0.0004825398927917724,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.1326428919748301,
+            "normalized_stress": -0.00033575779455748383,
+            "symmetric_rmse": -0.0005058120038421868
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0001814224650897323,
+            "distance_preservation_pass": -0.00010267636807563095,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.14218336918807414,
+            "normalized_stress": -7.314786207640376e-05,
+            "symmetric_rmse": 0.00017891621956718883
+          }
+        },
+        "total": -0.010811622839084354
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.0002312945410257127,
+            "distance_preservation_pass": -0.0004825398927917724,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.1326428919748301,
+            "normalized_stress": -0.00033575779455748383,
+            "symmetric_rmse": -0.0005058120038421868
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0001814224650897323,
+            "distance_preservation_pass": -0.00010267636807563095,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.14218336918807414,
+            "normalized_stress": -7.314786207640376e-05,
+            "symmetric_rmse": 0.00017891621956718883
+          }
+        },
+        "total": -0.010811622839084354
+      },
+      "ties_reference": false,
+      "valid_complete_finite_candidate": true
+    },
+    "shortcut_answer_copy": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.008963311265190545,
+            "distance_preservation_pass": 0.08155856223530022,
+            "hierarchy_alignment": 0.042067625805843244,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.273904623630507,
+            "normalized_stress": 0.027997443330386385,
+            "symmetric_rmse": 0.01277475412816541
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.011068011161505424,
+            "distance_preservation_pass": 0.10293968306771778,
+            "hierarchy_alignment": 0.05825887620893511,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.524351211939669,
+            "normalized_stress": 0.036195042276458395,
+            "symmetric_rmse": 0.01624064318664608
+          }
+        },
+        "total": 1.1963197882363246
+      },
+      "dominates_reference": true,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 1.0,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.0,
+          "distance_preservation_pass": 1.0,
+          "hierarchy_alignment": 0.9999999999999998,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 1.0,
+          "normalized_stress": 0.0,
+          "symmetric_rmse": 0.0
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 1.0,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.0,
+          "distance_preservation_pass": 1.0,
+          "hierarchy_alignment": 1.0,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 1.0,
+          "normalized_stress": 0.0,
+          "symmetric_rmse": 0.0
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.012090036583549306,
+            "distance_preservation_pass": 0.09554235592725505,
+            "hierarchy_alignment": 0.05898804039256764,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 3.1195617530980906,
+            "normalized_stress": 0.0664796656031152,
+            "symmetric_rmse": 0.06461664295708369
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.014935619981152889,
+            "distance_preservation_pass": 0.11858299042306805,
+            "hierarchy_alignment": 0.07922052671435147,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 15.72240509618031,
+            "normalized_stress": 0.08447992844549111,
+            "symmetric_rmse": 0.0724999446825194
+          }
+        },
+        "total": 19.509402600988555
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.01265015907622559,
+            "distance_preservation_pass": 0.09220226425154576,
+            "hierarchy_alignment": 0.0610493766838432,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.5352197361384461,
+            "normalized_stress": 0.06910889792024706,
+            "symmetric_rmse": 0.06616640355378532
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.015631915563205655,
+            "distance_preservation_pass": 0.11635917494187949,
+            "hierarchy_alignment": 0.08216550410983037,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.7465101104405093,
+            "normalized_stress": 0.08795606760439646,
+            "symmetric_rmse": 0.0748347483960245
+          }
+        },
+        "total": 1.9598543586799386
+      },
+      "ties_reference": false,
+      "valid_complete_finite_candidate": true
+    },
+    "shortcut_constant": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.246154845152818,
+            "asymmetry_rmse": -0.7237041474446001,
+            "distance_preservation_pass": -0.2360063401511171,
+            "hierarchy_alignment": -0.47447130234672374,
+            "hierarchy_direction_pass": -0.1924280941769456,
+            "map_at_10": -0.24293402447297785,
+            "normalized_stress": -1.062140135680931,
+            "symmetric_rmse": -0.4281819474064239
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.36923226772922696,
+            "asymmetry_rmse": -1.085977520103189,
+            "distance_preservation_pass": -0.3600587444214002,
+            "hierarchy_alignment": -0.7084070499660697,
+            "hierarchy_direction_pass": -0.2886421412654183,
+            "map_at_10": -0.1537988881307906,
+            "normalized_stress": -1.5917726333067417,
+            "symmetric_rmse": -0.6428277638805782
+          }
+        },
+        "total": -8.80673784563595
+      },
+      "dominates_reference": false,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 0.0,
+          "asymmetry_preservation_pass": 0.0,
+          "asymmetry_rmse": 1.62271210908461,
+          "distance_preservation_pass": 0.0,
+          "hierarchy_alignment": 0.0,
+          "hierarchy_direction_pass": 0.0,
+          "map_at_10": 0.21045560410374747,
+          "normalized_stress": 1.0,
+          "symmetric_rmse": 1.6772254850745496
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 0.0,
+          "asymmetry_preservation_pass": 0.0,
+          "asymmetry_rmse": 1.836562480811228,
+          "distance_preservation_pass": 0.0,
+          "hierarchy_alignment": 0.0,
+          "hierarchy_direction_pass": 0.0,
+          "map_at_10": 0.07407323355108693,
+          "normalized_stress": 1.0,
+          "symmetric_rmse": 1.8988941996852702
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.27712812921102037,
+            "asymmetry_rmse": -0.9761581807664218,
+            "distance_preservation_pass": -0.276471300300183,
+            "hierarchy_alignment": -0.6653128578522045,
+            "hierarchy_direction_pass": -0.24189726272590545,
+            "map_at_10": -2.766830589520905,
+            "normalized_stress": -2.522041752543882,
+            "symmetric_rmse": -2.165809199820823
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.41569219381653055,
+            "asymmetry_rmse": -1.4654617990220664,
+            "distance_preservation_pass": -0.41477534580495196,
+            "hierarchy_alignment": -0.9632932057461282,
+            "hierarchy_direction_pass": -0.3628458940888581,
+            "map_at_10": -4.611581641223761,
+            "normalized_stress": -3.715228100471289,
+            "symmetric_rmse": -2.869650960625171
+          }
+        },
+        "total": -24.710178413540103
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.2545584412271571,
+            "asymmetry_rmse": -0.7837036667806392,
+            "distance_preservation_pass": -0.25395860370206075,
+            "hierarchy_alignment": -0.503277442329147,
+            "hierarchy_direction_pass": -0.1924280941769456,
+            "map_at_10": -0.4700570237404262,
+            "normalized_stress": -1.2184095926714849,
+            "symmetric_rmse": -0.5116826869342105
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.38183766184073564,
+            "asymmetry_rmse": -1.176332086795904,
+            "distance_preservation_pass": -0.3810004491472545,
+            "hierarchy_alignment": -0.7428483850349146,
+            "hierarchy_direction_pass": -0.2886421412654183,
+            "map_at_10": -0.8139925160234994,
+            "normalized_stress": -1.822955485664362,
+            "symmetric_rmse": -0.7652065856666929
+          }
+        },
+        "total": -10.560890863000852
+      },
+      "ties_reference": false,
+      "valid_complete_finite_candidate": true
+    },
+    "shortcut_empty": {
+      "reason": "Missing candidate/experiments, evaluation failure, or nonfinite scored metrics; no valid rank claimed.",
+      "valid_complete_finite_candidate": false
+    },
+    "shortcut_fixed_generator": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.008963311265190545,
+            "distance_preservation_pass": 0.08155856223530022,
+            "hierarchy_alignment": 0.042067625805843244,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.273904623630507,
+            "normalized_stress": 0.027997443330386385,
+            "symmetric_rmse": 0.01277475412816541
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.011068011161505424,
+            "distance_preservation_pass": 0.10293968306771778,
+            "hierarchy_alignment": 0.05825887620893511,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.524351211939669,
+            "normalized_stress": 0.036195042276458395,
+            "symmetric_rmse": 0.01624064318664608
+          }
+        },
+        "total": 1.1963197882363246
+      },
+      "dominates_reference": true,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 1.0,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.0,
+          "distance_preservation_pass": 1.0,
+          "hierarchy_alignment": 0.9999999999999998,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 1.0,
+          "normalized_stress": 0.0,
+          "symmetric_rmse": 0.0
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 1.0,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.0,
+          "distance_preservation_pass": 1.0,
+          "hierarchy_alignment": 1.0,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 1.0,
+          "normalized_stress": 0.0,
+          "symmetric_rmse": 0.0
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.012090036583549306,
+            "distance_preservation_pass": 0.09554235592725505,
+            "hierarchy_alignment": 0.05898804039256764,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 3.1195617530980906,
+            "normalized_stress": 0.0664796656031152,
+            "symmetric_rmse": 0.06461664295708369
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.014935619981152889,
+            "distance_preservation_pass": 0.11858299042306805,
+            "hierarchy_alignment": 0.07922052671435147,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 15.72240509618031,
+            "normalized_stress": 0.08447992844549111,
+            "symmetric_rmse": 0.0724999446825194
+          }
+        },
+        "total": 19.509402600988555
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.01265015907622559,
+            "distance_preservation_pass": 0.09220226425154576,
+            "hierarchy_alignment": 0.0610493766838432,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.5352197361384461,
+            "normalized_stress": 0.06910889792024706,
+            "symmetric_rmse": 0.06616640355378532
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": 0.015631915563205655,
+            "distance_preservation_pass": 0.11635917494187949,
+            "hierarchy_alignment": 0.08216550410983037,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.7465101104405093,
+            "normalized_stress": 0.08795606760439646,
+            "symmetric_rmse": 0.0748347483960245
+          }
+        },
+        "total": 1.9598543586799386
+      },
+      "ties_reference": false,
+      "valid_complete_finite_candidate": true
+    },
+    "shortcut_forged_targets": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.246154845152818,
+            "asymmetry_rmse": -0.7237041474446001,
+            "distance_preservation_pass": -0.2360063401511171,
+            "hierarchy_alignment": -0.47447130234672374,
+            "hierarchy_direction_pass": -0.1924280941769456,
+            "map_at_10": -0.24293402447297785,
+            "normalized_stress": -1.062140135680931,
+            "symmetric_rmse": -0.4281819474064239
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.36923226772922696,
+            "asymmetry_rmse": -1.085977520103189,
+            "distance_preservation_pass": -0.3600587444214002,
+            "hierarchy_alignment": -0.7084070499660697,
+            "hierarchy_direction_pass": -0.2886421412654183,
+            "map_at_10": -0.1537988881307906,
+            "normalized_stress": -1.5917726333067417,
+            "symmetric_rmse": -0.6428277638805782
+          }
+        },
+        "total": -8.80673784563595
+      },
+      "dominates_reference": false,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 0.0,
+          "asymmetry_preservation_pass": 0.0,
+          "asymmetry_rmse": 1.62271210908461,
+          "distance_preservation_pass": 0.0,
+          "hierarchy_alignment": 0.0,
+          "hierarchy_direction_pass": 0.0,
+          "map_at_10": 0.21045560410374747,
+          "normalized_stress": 1.0,
+          "symmetric_rmse": 1.6772254850745496
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 0.0,
+          "asymmetry_preservation_pass": 0.0,
+          "asymmetry_rmse": 1.836562480811228,
+          "distance_preservation_pass": 0.0,
+          "hierarchy_alignment": 0.0,
+          "hierarchy_direction_pass": 0.0,
+          "map_at_10": 0.07407323355108693,
+          "normalized_stress": 1.0,
+          "symmetric_rmse": 1.8988941996852702
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.27712812921102037,
+            "asymmetry_rmse": -0.9761581807664218,
+            "distance_preservation_pass": -0.276471300300183,
+            "hierarchy_alignment": -0.6653128578522045,
+            "hierarchy_direction_pass": -0.24189726272590545,
+            "map_at_10": -2.766830589520905,
+            "normalized_stress": -2.522041752543882,
+            "symmetric_rmse": -2.165809199820823
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.41569219381653055,
+            "asymmetry_rmse": -1.4654617990220664,
+            "distance_preservation_pass": -0.41477534580495196,
+            "hierarchy_alignment": -0.9632932057461282,
+            "hierarchy_direction_pass": -0.3628458940888581,
+            "map_at_10": -4.611581641223761,
+            "normalized_stress": -3.715228100471289,
+            "symmetric_rmse": -2.869650960625171
+          }
+        },
+        "total": -24.710178413540103
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.2545584412271571,
+            "asymmetry_rmse": -0.7837036667806392,
+            "distance_preservation_pass": -0.25395860370206075,
+            "hierarchy_alignment": -0.503277442329147,
+            "hierarchy_direction_pass": -0.1924280941769456,
+            "map_at_10": -0.4700570237404262,
+            "normalized_stress": -1.2184095926714849,
+            "symmetric_rmse": -0.5116826869342105
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.38183766184073564,
+            "asymmetry_rmse": -1.176332086795904,
+            "distance_preservation_pass": -0.3810004491472545,
+            "hierarchy_alignment": -0.7428483850349146,
+            "hierarchy_direction_pass": -0.2886421412654183,
+            "map_at_10": -0.8139925160234994,
+            "normalized_stress": -1.822955485664362,
+            "symmetric_rmse": -0.7652065856666929
+          }
+        },
+        "total": -10.560890863000852
+      },
+      "ties_reference": false,
+      "valid_complete_finite_candidate": true
+    },
+    "shortcut_hierarchy_field": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.042067625805843244,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.05825887620893511,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          }
+        },
+        "total": 0.10032650201477836
+      },
+      "dominates_reference": true,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 0.9999262702317434,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.019851944500349935,
+          "distance_preservation_pass": 0.7431751379878289,
+          "hierarchy_alignment": 0.9999999999999998,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.5815718089367069,
+          "normalized_stress": 0.025682486201217113,
+          "symmetric_rmse": 0.04859012940443913
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 0.9999491451976765,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.018528942926359048,
+          "distance_preservation_pass": 0.7776673160080285,
+          "hierarchy_alignment": 1.0,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.28406584013712893,
+          "normalized_stress": 0.022233268399197145,
+          "symmetric_rmse": 0.04679220368567109
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.05898804039256764,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.07922052671435147,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          }
+        },
+        "total": 0.1382085671069191
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0610493766838432,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.08216550410983037,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          }
+        },
+        "total": 0.14321488079367356
+      },
+      "ties_reference": false,
+      "valid_complete_finite_candidate": true
+    },
+    "shortcut_impossible_diagonal": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          }
+        },
+        "total": 0.0
+      },
+      "dominates_reference": false,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 0.9999262702317434,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.019851944500349935,
+          "distance_preservation_pass": 0.7431751379878289,
+          "hierarchy_alignment": 0.9185586535436917,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.5815718089367069,
+          "normalized_stress": 0.025682486201217113,
+          "symmetric_rmse": 0.04859012940443913
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 0.9999491451976765,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.018528942926359048,
+          "distance_preservation_pass": 0.7776673160080285,
+          "hierarchy_alignment": 0.9240100880710896,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.28406584013712893,
+          "normalized_stress": 0.022233268399197145,
+          "symmetric_rmse": 0.04679220368567109
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          }
+        },
+        "total": 0.0
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          }
+        },
+        "total": 0.0
+      },
+      "ties_reference": true,
+      "valid_complete_finite_candidate": true
+    },
+    "shortcut_inf": {
+      "reason": "Missing candidate/experiments, evaluation failure, or nonfinite scored metrics; no valid rank claimed.",
+      "valid_complete_finite_candidate": false
+    },
+    "shortcut_move_baseline": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          }
+        },
+        "total": 0.0
+      },
+      "dominates_reference": false,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 0.9999262702317434,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.019851944500349935,
+          "distance_preservation_pass": 0.7431751379878289,
+          "hierarchy_alignment": 0.9185586535436917,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.5815718089367069,
+          "normalized_stress": 0.025682486201217113,
+          "symmetric_rmse": 0.04859012940443913
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 0.9999491451976765,
+          "asymmetry_preservation_pass": 1.0,
+          "asymmetry_rmse": 0.018528942926359048,
+          "distance_preservation_pass": 0.7776673160080285,
+          "hierarchy_alignment": 0.9240100880710896,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.28406584013712893,
+          "normalized_stress": 0.022233268399197145,
+          "symmetric_rmse": 0.04679220368567109
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          }
+        },
+        "total": 0.0
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": 0.0,
+            "asymmetry_rmse": -0.0,
+            "distance_preservation_pass": 0.0,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.0,
+            "normalized_stress": -0.0,
+            "symmetric_rmse": -0.0
+          }
+        },
+        "total": 0.0
+      },
+      "ties_reference": true,
+      "valid_complete_finite_candidate": true
+    },
+    "shortcut_nan": {
+      "reason": "Missing candidate/experiments, evaluation failure, or nonfinite scored metrics; no valid rank claimed.",
+      "valid_complete_finite_candidate": false
+    },
+    "shortcut_score_fields": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.246154845152818,
+            "asymmetry_rmse": -0.7237041474446001,
+            "distance_preservation_pass": -0.2360063401511171,
+            "hierarchy_alignment": -0.47447130234672374,
+            "hierarchy_direction_pass": -0.1924280941769456,
+            "map_at_10": -0.24293402447297785,
+            "normalized_stress": -1.062140135680931,
+            "symmetric_rmse": -0.4281819474064239
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.36923226772922696,
+            "asymmetry_rmse": -1.085977520103189,
+            "distance_preservation_pass": -0.3600587444214002,
+            "hierarchy_alignment": -0.7084070499660697,
+            "hierarchy_direction_pass": -0.2886421412654183,
+            "map_at_10": -0.1537988881307906,
+            "normalized_stress": -1.5917726333067417,
+            "symmetric_rmse": -0.6428277638805782
+          }
+        },
+        "total": -8.80673784563595
+      },
+      "dominates_reference": false,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 0.0,
+          "asymmetry_preservation_pass": 0.0,
+          "asymmetry_rmse": 1.62271210908461,
+          "distance_preservation_pass": 0.0,
+          "hierarchy_alignment": 0.0,
+          "hierarchy_direction_pass": 0.0,
+          "map_at_10": 0.21045560410374747,
+          "normalized_stress": 1.0,
+          "symmetric_rmse": 1.6772254850745496
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 0.0,
+          "asymmetry_preservation_pass": 0.0,
+          "asymmetry_rmse": 1.836562480811228,
+          "distance_preservation_pass": 0.0,
+          "hierarchy_alignment": 0.0,
+          "hierarchy_direction_pass": 0.0,
+          "map_at_10": 0.07407323355108693,
+          "normalized_stress": 1.0,
+          "symmetric_rmse": 1.8988941996852702
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.27712812921102037,
+            "asymmetry_rmse": -0.9761581807664218,
+            "distance_preservation_pass": -0.276471300300183,
+            "hierarchy_alignment": -0.6653128578522045,
+            "hierarchy_direction_pass": -0.24189726272590545,
+            "map_at_10": -2.766830589520905,
+            "normalized_stress": -2.522041752543882,
+            "symmetric_rmse": -2.165809199820823
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.41569219381653055,
+            "asymmetry_rmse": -1.4654617990220664,
+            "distance_preservation_pass": -0.41477534580495196,
+            "hierarchy_alignment": -0.9632932057461282,
+            "hierarchy_direction_pass": -0.3628458940888581,
+            "map_at_10": -4.611581641223761,
+            "normalized_stress": -3.715228100471289,
+            "symmetric_rmse": -2.869650960625171
+          }
+        },
+        "total": -24.710178413540103
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.2545584412271571,
+            "asymmetry_rmse": -0.7837036667806392,
+            "distance_preservation_pass": -0.25395860370206075,
+            "hierarchy_alignment": -0.503277442329147,
+            "hierarchy_direction_pass": -0.1924280941769456,
+            "map_at_10": -0.4700570237404262,
+            "normalized_stress": -1.2184095926714849,
+            "symmetric_rmse": -0.5116826869342105
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.38183766184073564,
+            "asymmetry_rmse": -1.176332086795904,
+            "distance_preservation_pass": -0.3810004491472545,
+            "hierarchy_alignment": -0.7428483850349146,
+            "hierarchy_direction_pass": -0.2886421412654183,
+            "map_at_10": -0.8139925160234994,
+            "normalized_stress": -1.822955485664362,
+            "symmetric_rmse": -0.7652065856666929
+          }
+        },
+        "total": -10.560890863000852
+      },
+      "ties_reference": false,
+      "valid_complete_finite_candidate": true
+    },
+    "shortcut_symmetric_depth": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.246154845152818,
+            "asymmetry_rmse": -0.7237041474446001,
+            "distance_preservation_pass": -0.2360063401511171,
+            "hierarchy_alignment": 0.042067625805843244,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.26092644675163545,
+            "normalized_stress": -0.42756749168589003,
+            "symmetric_rmse": 0.01277475412816541
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.36923226772922696,
+            "asymmetry_rmse": -1.085977520103189,
+            "distance_preservation_pass": -0.3600587444214002,
+            "hierarchy_alignment": 0.05825887620893511,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.5208068143983351,
+            "normalized_stress": -0.660841066131282,
+            "symmetric_rmse": 0.01624064318664608
+          }
+        },
+        "total": -3.1984672623399635
+      },
+      "dominates_reference": false,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 0.0,
+          "asymmetry_preservation_pass": 0.0,
+          "asymmetry_rmse": 1.62271210908461,
+          "distance_preservation_pass": 0.0,
+          "hierarchy_alignment": 0.9999999999999998,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.9801739926739927,
+          "normalized_stress": 0.4178967350427858,
+          "symmetric_rmse": 0.0
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 0.0,
+          "asymmetry_preservation_pass": 0.0,
+          "asymmetry_rmse": 1.836562480811228,
+          "distance_preservation_pass": 0.0,
+          "hierarchy_alignment": 1.0,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.9951605808889273,
+          "normalized_stress": 0.4281633590532045,
+          "symmetric_rmse": 0.0
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.27712812921102037,
+            "asymmetry_rmse": -0.9761581807664218,
+            "distance_preservation_pass": -0.276471300300183,
+            "hierarchy_alignment": 0.05898804039256764,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 2.9717503591915575,
+            "normalized_stress": -1.0152549836288367,
+            "symmetric_rmse": 0.06461664295708369
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.41569219381653055,
+            "asymmetry_rmse": -1.4654617990220664,
+            "distance_preservation_pass": -0.41477534580495196,
+            "hierarchy_alignment": 0.07922052671435147,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 15.616128133911804,
+            "normalized_stress": -1.5424158246369482,
+            "symmetric_rmse": 0.0724999446825194
+          }
+        },
+        "total": 12.479845890662924
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.2545584412271571,
+            "asymmetry_rmse": -0.7837036667806392,
+            "distance_preservation_pass": -0.25395860370206075,
+            "hierarchy_alignment": 0.0610493766838432,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.5361986769714604,
+            "normalized_stress": -0.8826409815678375,
+            "symmetric_rmse": 0.06616640355378532
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.38183766184073564,
+            "asymmetry_rmse": -1.176332086795904,
+            "distance_preservation_pass": -0.3810004491472545,
+            "hierarchy_alignment": 0.08216550410983037,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.7463909242536181,
+            "normalized_stress": -1.3343771752088334,
+            "symmetric_rmse": 0.0748347483960245
+          }
+        },
+        "total": -3.8816034323018602
+      },
+      "ties_reference": false,
+      "valid_complete_finite_candidate": true
+    },
+    "shortcut_task_failure": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.246154845152818,
+            "asymmetry_rmse": -0.04280104877523753,
+            "distance_preservation_pass": -0.01220312679718141,
+            "hierarchy_alignment": 0.042067625805843244,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.273904623630507,
+            "normalized_stress": -0.004189092372323973,
+            "symmetric_rmse": 0.01277475412816541
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.36923226772922696,
+            "asymmetry_rmse": -0.0592007927010935,
+            "distance_preservation_pass": -0.024037861056065972,
+            "hierarchy_alignment": 0.05825887620893511,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.524351211939669,
+            "normalized_stress": -0.008452050474913425,
+            "symmetric_rmse": 0.01624064318664608
+          }
+        },
+        "total": 0.16132664984090517
+      },
+      "dominates_reference": false,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 0.9999999999999991,
+          "asymmetry_preservation_pass": 0.0,
+          "asymmetry_rmse": 0.11464772026935344,
+          "distance_preservation_pass": 0.7047479481268647,
+          "hierarchy_alignment": 0.9999999999999998,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 1.0,
+          "normalized_stress": 0.02952520518731353,
+          "symmetric_rmse": 0.0
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 1.0,
+          "asymmetry_preservation_pass": 0.0,
+          "asymmetry_rmse": 0.1176369121131714,
+          "distance_preservation_pass": 0.7257495132059208,
+          "hierarchy_alignment": 1.0,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 1.0,
+          "normalized_stress": 0.027425048679407916,
+          "symmetric_rmse": 0.0
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.27712812921102037,
+            "asymmetry_rmse": -0.05773159384930716,
+            "distance_preservation_pass": -0.014295439398723214,
+            "hierarchy_alignment": 0.05898804039256764,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 3.1195617530980906,
+            "normalized_stress": -0.009946960399430691,
+            "symmetric_rmse": 0.06461664295708369
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.41569219381653055,
+            "asymmetry_rmse": -0.07988793374565742,
+            "distance_preservation_pass": -0.02769079292314658,
+            "hierarchy_alignment": 0.07922052671435147,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 15.72240509618031,
+            "normalized_stress": -0.01972724921508868,
+            "symmetric_rmse": 0.0724999446825194
+          }
+        },
+        "total": 18.215191711466016
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.2545584412271571,
+            "asymmetry_rmse": -0.060968574803150336,
+            "distance_preservation_pass": -0.014992758405987086,
+            "hierarchy_alignment": 0.0610493766838432,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.5352197361384461,
+            "normalized_stress": -0.010450070604415836,
+            "symmetric_rmse": 0.06616640355378532
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.38183766184073564,
+            "asymmetry_rmse": -0.08432588464881109,
+            "distance_preservation_pass": -0.029088834570155143,
+            "hierarchy_alignment": 0.08216550410983037,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.7465101104405093,
+            "normalized_stress": -0.02073133405297816,
+            "symmetric_rmse": 0.0748347483960245
+          }
+        },
+        "total": 0.7089923191690486
+      },
+      "ties_reference": false,
+      "valid_complete_finite_candidate": true
+    },
+    "shortcut_train_filter": {
+      "reason": "Missing candidate/experiments, evaluation failure, or nonfinite scored metrics; no valid rank claimed.",
+      "valid_complete_finite_candidate": false
+    },
+    "weaker_5steps": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.246154845152818,
+            "asymmetry_rmse": -0.1482233935449628,
+            "distance_preservation_pass": -0.2360063401511171,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.04268109433330891,
+            "normalized_stress": -0.081676648065681,
+            "symmetric_rmse": -0.007034487850428922
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.36923226772922696,
+            "asymmetry_rmse": -0.22085537584564935,
+            "distance_preservation_pass": -0.3600587444214002,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.008665313198585774,
+            "normalized_stress": -0.12720606880147772,
+            "symmetric_rmse": -0.01306964654895279
+          }
+        },
+        "total": -1.7755020369769918
+      },
+      "dominates_reference": false,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 0.9997441390621737,
+          "asymmetry_preservation_pass": 0.0,
+          "asymmetry_rmse": 0.34813716134153655,
+          "distance_preservation_pass": 0.0,
+          "hierarchy_alignment": 0.9185586535436917,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.6467732387547727,
+          "normalized_stress": 0.10060573409049392,
+          "symmetric_rmse": 0.07534654847263009
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 0.9998122798380183,
+          "asymmetry_preservation_pass": 0.0,
+          "asymmetry_rmse": 0.3882626371113048,
+          "distance_preservation_pass": 0.0,
+          "hierarchy_alignment": 0.9240100880710896,
+          "hierarchy_direction_pass": 1.0,
+          "map_at_10": 0.272234469133276,
+          "normalized_stress": 0.10037122574893854,
+          "symmetric_rmse": 0.08444819774883616
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.27712812921102037,
+            "asymmetry_rmse": -0.1999290437961078,
+            "distance_preservation_pass": -0.276471300300183,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.48610464364476885,
+            "normalized_stress": -0.19394043187852983,
+            "symmetric_rmse": -0.03558150593403133
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.41569219381653055,
+            "asymmetry_rmse": -0.29803113823176236,
+            "distance_preservation_pass": -0.41477534580495196,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.2598250205038507,
+            "normalized_stress": -0.29690142390496926,
+            "symmetric_rmse": -0.058344281130336184
+          }
+        },
+        "total": -2.240515170867505
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.27712812921102037,
+            "asymmetry_rmse": -0.1999290437961078,
+            "distance_preservation_pass": -0.276471300300183,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": 0.48610464364476885,
+            "normalized_stress": -0.19394043187852983,
+            "symmetric_rmse": -0.03558150593403133
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.41569219381653055,
+            "asymmetry_rmse": -0.29803113823176236,
+            "distance_preservation_pass": -0.41477534580495196,
+            "hierarchy_alignment": 0.0,
+            "hierarchy_direction_pass": 0.0,
+            "map_at_10": -0.2598250205038507,
+            "normalized_stress": -0.29690142390496926,
+            "symmetric_rmse": -0.058344281130336184
+          }
+        },
+        "total": -2.240515170867505
+      },
+      "ties_reference": false,
+      "valid_complete_finite_candidate": true
+    },
+    "weaker_no_asymmetry": {
+      "all_finite_attempts_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.246154845152818,
+            "asymmetry_rmse": -0.7237041474446001,
+            "distance_preservation_pass": -0.2360063401511171,
+            "hierarchy_alignment": -0.4312757070793159,
+            "hierarchy_direction_pass": -0.1924280941769456,
+            "map_at_10": 0.019828215134205338,
+            "normalized_stress": -0.5143867450611703,
+            "symmetric_rmse": -0.0963104893856652
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.36923226772922696,
+            "asymmetry_rmse": -1.085977520103189,
+            "distance_preservation_pass": -0.3600587444214002,
+            "hierarchy_alignment": -0.667093331216569,
+            "hierarchy_direction_pass": -0.2886421412654183,
+            "map_at_10": -0.020798433638948163,
+            "normalized_stress": -0.7849260933280624,
+            "symmetric_rmse": -0.1636583559556254
+          }
+        },
+        "total": -6.160825040975866
+      },
+      "dominates_reference": false,
+      "metrics": {
+        "directed_tree_depth5_reconstruction": {
+          "asymmetry_correlation": 0.0,
+          "asymmetry_preservation_pass": 0.0,
+          "asymmetry_rmse": 1.62271210908461,
+          "distance_preservation_pass": 0.0,
+          "hierarchy_alignment": 0.08362505304663,
+          "hierarchy_direction_pass": 0.0,
+          "map_at_10": 0.6118622220033058,
+          "normalized_stress": 0.4975373740289398,
+          "symmetric_rmse": 0.4149172692698224
+        },
+        "directed_tree_reconstruction": {
+          "asymmetry_correlation": 0.0,
+          "asymmetry_preservation_pass": 0.0,
+          "asymmetry_rmse": 1.836562480811228,
+          "distance_preservation_pass": 0.0,
+          "hierarchy_alignment": 0.05388751128620033,
+          "hierarchy_direction_pass": 0.0,
+          "map_at_10": 0.2556682532245668,
+          "normalized_stress": 0.5043841766147868,
+          "symmetric_rmse": 0.518321258214401
+        }
+      },
+      "quality_cohort": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.27712812921102037,
+            "asymmetry_rmse": -0.9761581807664218,
+            "distance_preservation_pass": -0.276471300300183,
+            "hierarchy_alignment": -0.6047431568147635,
+            "hierarchy_direction_pass": -0.24189726272590545,
+            "map_at_10": 0.22582803000912308,
+            "normalized_stress": -1.2214064833994092,
+            "symmetric_rmse": -0.4871530554106447
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.41569219381653055,
+            "asymmetry_rmse": -1.4654617990220664,
+            "distance_preservation_pass": -0.41477534580495196,
+            "hierarchy_alignment": -0.9071147352221454,
+            "hierarchy_direction_pass": -0.3628458940888581,
+            "map_at_10": -0.6236304819968468,
+            "normalized_stress": -1.8320326770962934,
+            "symmetric_rmse": -0.7305881680456551
+          }
+        },
+        "total": -10.611270833712572
+      },
+      "quality_plus_this_attempt": {
+        "contributions": {
+          "directed_tree_depth5_reconstruction": {
+            "asymmetry_preservation_pass": -0.27712812921102037,
+            "asymmetry_rmse": -0.9761581807664218,
+            "distance_preservation_pass": -0.276471300300183,
+            "hierarchy_alignment": -0.6047431568147635,
+            "hierarchy_direction_pass": -0.24189726272590545,
+            "map_at_10": 0.22582803000912308,
+            "normalized_stress": -1.2214064833994092,
+            "symmetric_rmse": -0.4871530554106447
+          },
+          "directed_tree_reconstruction": {
+            "asymmetry_preservation_pass": -0.41569219381653055,
+            "asymmetry_rmse": -1.4654617990220664,
+            "distance_preservation_pass": -0.41477534580495196,
+            "hierarchy_alignment": -0.9071147352221454,
+            "hierarchy_direction_pass": -0.3628458940888581,
+            "map_at_10": -0.6236304819968468,
+            "normalized_stress": -1.8320326770962934,
+            "symmetric_rmse": -0.7305881680456551
+          }
+        },
+        "total": -10.611270833712572
+      },
+      "ties_reference": false,
+      "valid_complete_finite_candidate": true
+    }
+  },
+  "baseline": {
+    "directed_tree_depth5_reconstruction": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.62271210908461,
+      "distance_preservation_pass": 0.0,
+      "hierarchy_alignment": 0.08362505304663,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.6118622220033058,
+      "normalized_stress": 0.4975373740289398,
+      "symmetric_rmse": 0.4149172692698224
+    },
+    "directed_tree_reconstruction": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.836562480811228,
+      "distance_preservation_pass": 0.0,
+      "hierarchy_alignment": 0.05388751128620033,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.2556682532245668,
+      "normalized_stress": 0.5043841766147868,
+      "symmetric_rmse": 0.518321258214401
+    }
+  },
+  "cohort_members": {
+    "all_finite_attempts_cohort": [
+      "reference_saved",
+      "reference_seed0",
+      "reference_seed1",
+      "reference_seed2",
+      "better_long_smacof",
+      "better_lbfgs",
+      "weaker_5steps",
+      "weaker_no_asymmetry",
+      "shortcut_answer_copy",
+      "shortcut_hierarchy_field",
+      "shortcut_fixed_generator",
+      "shortcut_move_baseline",
+      "shortcut_score_fields",
+      "shortcut_forged_targets",
+      "shortcut_constant",
+      "shortcut_symmetric_depth",
+      "shortcut_task_failure",
+      "shortcut_impossible_diagonal"
+    ],
+    "quality_cohort": [
+      "reference_saved",
+      "reference_seed0",
+      "reference_seed1",
+      "reference_seed2",
+      "better_long_smacof",
+      "better_lbfgs",
+      "weaker_5steps",
+      "weaker_no_asymmetry"
+    ]
+  },
+  "rank_definition": "sum(weight * abs(coefficient) * oriented_delta / population_std); reference=0",
+  "reference": {
+    "directed_tree_depth5_reconstruction": {
+      "asymmetry_correlation": 0.9999262702317434,
+      "asymmetry_preservation_pass": 1.0,
+      "asymmetry_rmse": 0.019851944500349935,
+      "distance_preservation_pass": 0.7431751379878289,
+      "hierarchy_alignment": 0.9185586535436917,
+      "hierarchy_direction_pass": 1.0,
+      "map_at_10": 0.5815718089367069,
+      "normalized_stress": 0.025682486201217113,
+      "symmetric_rmse": 0.04859012940443913
+    },
+    "directed_tree_reconstruction": {
+      "asymmetry_correlation": 0.9999491451976765,
+      "asymmetry_preservation_pass": 1.0,
+      "asymmetry_rmse": 0.018528942926359048,
+      "distance_preservation_pass": 0.7776673160080285,
+      "hierarchy_alignment": 0.9240100880710896,
+      "hierarchy_direction_pass": 1.0,
+      "map_at_10": 0.28406584013712893,
+      "normalized_stress": 0.022233268399197145,
+      "symmetric_rmse": 0.04679220368567109
+    }
+  },
+  "saturated_scored_metrics": {
+    "directed_tree_depth5_reconstruction": [
+      "asymmetry_preservation_pass",
+      "hierarchy_direction_pass"
+    ],
+    "directed_tree_reconstruction": [
+      "asymmetry_preservation_pass",
+      "hierarchy_direction_pass"
+    ]
+  },
+  "seed_metrics": {
+    "directed_tree_depth5_reconstruction": {
+      "asymmetry_correlation": {
+        "max": 0.999933298826335,
+        "min": 0.9999262702317434,
+        "range": 7.028594591562687e-06,
+        "std": 2.9002473767986704e-06
+      },
+      "asymmetry_preservation_pass": {
+        "max": 1.0,
+        "min": 1.0,
+        "range": 0.0,
+        "std": 0.0
+      },
+      "asymmetry_rmse": {
+        "max": 0.019851944500349935,
+        "min": 0.018775137833004316,
+        "range": 0.0010768066673456193,
+        "std": 0.0004459181263275167
+      },
+      "distance_preservation_pass": {
+        "max": 0.7432098985559887,
+        "min": 0.7418780353554009,
+        "range": 0.0013318632005878683,
+        "std": 0.0006198156644636449
+      },
+      "hierarchy_alignment": {
+        "max": 0.9185586535436917,
+        "min": 0.9185586535436917,
+        "range": 0.0,
+        "std": 0.0
+      },
+      "hierarchy_direction_pass": {
+        "max": 1.0,
+        "min": 1.0,
+        "range": 0.0,
+        "std": 0.0
+      },
+      "map_at_10": {
+        "max": 0.6081279996754467,
+        "min": 0.5815718089367069,
+        "range": 0.026556190738739827,
+        "std": 0.011048316264780707
+      },
+      "normalized_stress": {
+        "max": 0.025812196464459917,
+        "min": 0.025679010144401132,
+        "range": 0.00013318632005878545,
+        "std": 6.198156644636525e-05
+      },
+      "symmetric_rmse": {
+        "max": 0.04897048761551695,
+        "min": 0.04859012940443913,
+        "range": 0.0003803582110778192,
+        "std": 0.00016110504333427815
+      }
+    },
+    "directed_tree_reconstruction": {
+      "asymmetry_correlation": {
+        "max": 0.9999480787696489,
+        "min": 0.9999464268470203,
+        "range": 1.6519226285760524e-06,
+        "std": 7.507992769396201e-07
+      },
+      "asymmetry_preservation_pass": {
+        "max": 1.0,
+        "min": 1.0,
+        "range": 0.0,
+        "std": 0.0
+      },
+      "asymmetry_rmse": {
+        "max": 0.019064879171599745,
+        "min": 0.018718642764319525,
+        "range": 0.00034623640728021973,
+        "std": 0.00015555216355596837
+      },
+      "distance_preservation_pass": {
+        "max": 0.7779127601187141,
+        "min": 0.7770944126319117,
+        "range": 0.0008183474868024287,
+        "std": 0.0003343643117448147
+      },
+      "hierarchy_alignment": {
+        "max": 0.9240100880710896,
+        "min": 0.9240100880710896,
+        "range": 0.0,
+        "std": 0.0
+      },
+      "hierarchy_direction_pass": {
+        "max": 1.0,
+        "min": 1.0,
+        "range": 0.0,
+        "std": 0.0
+      },
+      "map_at_10": {
+        "max": 0.2775913898005919,
+        "min": 0.25147961883390274,
+        "range": 0.026111770966689152,
+        "std": 0.010880606648272161
+      },
+      "normalized_stress": {
+        "max": 0.02229055873680883,
+        "min": 0.022208723988128592,
+        "range": 8.183474868023871e-05,
+        "std": 3.3436431174479716e-05
+      },
+      "symmetric_rmse": {
+        "max": 0.04667672933289304,
+        "min": 0.046587570969177206,
+        "range": 8.915836371583413e-05,
+        "std": 4.158916948349213e-05
+      }
+    }
+  },
+  "seed_rank_max": -0.010811622839084354,
+  "seed_rank_min": -0.5303261743503881,
+  "seed_rank_spread": 0.5195145515113038,
+  "standard_deviations": {
+    "all_finite_attempts_cohort": {
+      "directed_tree_depth5_reconstruction": {
+        "asymmetry_preservation_pass": 0.4874980215217845,
+        "asymmetry_rmse": 0.7087360967573109,
+        "distance_preservation_pass": 0.37787551174021855,
+        "hierarchy_alignment": 0.3871925020546122,
+        "hierarchy_direction_pass": 0.41573970964154905,
+        "map_at_10": 0.24442271066018728,
+        "normalized_stress": 0.36692616390930544,
+        "symmetric_rmse": 0.6085769343747637
+      },
+      "directed_tree_reconstruction": {
+        "asymmetry_preservation_pass": 0.4874980215217845,
+        "asymmetry_rmse": 0.803567368596928,
+        "distance_preservation_pass": 0.3887702188885525,
+        "hierarchy_alignment": 0.3913047257711565,
+        "hierarchy_direction_pass": 0.41573970964154905,
+        "map_at_10": 0.32768914127513993,
+        "normalized_stress": 0.36855768637117264,
+        "symmetric_rmse": 0.6914830130493274
+      }
+    },
+    "quality_cohort": {
+      "directed_tree_depth5_reconstruction": {
+        "asymmetry_preservation_pass": 0.4330127018922193,
+        "asymmetry_rmse": 0.5254427640654022,
+        "distance_preservation_pass": 0.3225688035673496,
+        "hierarchy_alignment": 0.2761283335208725,
+        "hierarchy_direction_pass": 0.33071891388307384,
+        "map_at_10": 0.02146087042631523,
+        "normalized_stress": 0.15452837175530945,
+        "symmetric_rmse": 0.12031607259253292
+      },
+      "directed_tree_reconstruction": {
+        "asymmetry_preservation_pass": 0.4330127018922193,
+        "asymmetry_rmse": 0.5954819830630036,
+        "distance_preservation_pass": 0.3374841785974202,
+        "hierarchy_alignment": 0.2877659935394401,
+        "hierarchy_direction_pass": 0.33071891388307384,
+        "map_at_10": 0.010928620482424345,
+        "normalized_stress": 0.1579068695367754,
+        "symmetric_rmse": 0.15489844762969562
+      }
+    }
+  }
+}

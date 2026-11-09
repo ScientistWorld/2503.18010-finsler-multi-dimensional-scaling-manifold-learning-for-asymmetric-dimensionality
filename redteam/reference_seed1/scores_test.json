@@ -1,0 +1,54 @@
+{
+  "directed_tree_depth5_reconstruction": {
+    "results": {
+      "euclidean_mds": {
+        "asymmetry_correlation": 0.0,
+        "asymmetry_preservation_pass": 0.0,
+        "asymmetry_rmse": 1.62271210908461,
+        "distance_preservation_pass": 0.0,
+        "hierarchy_alignment": 0.08362505304663,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.6118622220033058,
+        "normalized_stress": 0.4975373740289398,
+        "symmetric_rmse": 0.4149172692698224
+      },
+      "finsler_mds": {
+        "asymmetry_correlation": 0.999933298826335,
+        "asymmetry_preservation_pass": 1.0,
+        "asymmetry_rmse": 0.018775137833004316,
+        "distance_preservation_pass": 0.7432098985559887,
+        "hierarchy_alignment": 0.9185586535436917,
+        "hierarchy_direction_pass": 1.0,
+        "map_at_10": 0.6081279996754467,
+        "normalized_stress": 0.025679010144401132,
+        "symmetric_rmse": 0.048871371569964454
+      }
+    }
+  },
+  "directed_tree_reconstruction": {
+    "results": {
+      "euclidean_mds": {
+        "asymmetry_correlation": 0.0,
+        "asymmetry_preservation_pass": 0.0,
+        "asymmetry_rmse": 1.836562480811228,
+        "distance_preservation_pass": 0.0,
+        "hierarchy_alignment": 0.05388751128620033,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.2556682532245668,
+        "normalized_stress": 0.5043841766147868,
+        "symmetric_rmse": 0.518321258214401
+      },
+      "finsler_mds": {
+        "asymmetry_correlation": 0.9999480787696489,
+        "asymmetry_preservation_pass": 1.0,
+        "asymmetry_rmse": 0.018718642764319525,
+        "distance_preservation_pass": 0.7770944126319117,
+        "hierarchy_alignment": 0.9240100880710896,
+        "hierarchy_direction_pass": 1.0,
+        "map_at_10": 0.25147961883390274,
+        "normalized_stress": 0.02229055873680883,
+        "symmetric_rmse": 0.046587570969177206
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "case": "reference_seed0",
+  "dimensions": 2,
+  "mode": "improve",
+  "seeds": {
+    "5": {
+      "eps": 1e-05,
+      "max_iter": 300,
+      "n_iter": 153,
+      "seed": 1
+    },
+    "7": {
+      "eps": 1e-05,
+      "max_iter": 350,
+      "n_iter": 219,
+      "seed": 0
+    }
+  }
+}

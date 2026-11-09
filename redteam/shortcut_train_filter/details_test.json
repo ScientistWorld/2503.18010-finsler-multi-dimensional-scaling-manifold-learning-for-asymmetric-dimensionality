@@ -1,0 +1,51 @@
+{
+  "experiments": {
+    "directed_tree_depth5_reconstruction": {
+      "_thresholds": {
+        "asymmetry_preservation_pass": [
+          "asymmetry_rmse",
+          0.1,
+          "le"
+        ],
+        "distance_preservation_pass": [
+          "normalized_stress",
+          0.1,
+          "le"
+        ],
+        "hierarchy_direction_pass": [
+          "hierarchy_alignment",
+          0.8,
+          "ge"
+        ]
+      },
+      "results": {},
+      "slice": "test",
+      "split": {}
+    },
+    "directed_tree_reconstruction": {
+      "_thresholds": {
+        "asymmetry_preservation_pass": [
+          "asymmetry_rmse",
+          0.1,
+          "le"
+        ],
+        "distance_preservation_pass": [
+          "normalized_stress",
+          0.1,
+          "le"
+        ],
+        "hierarchy_direction_pass": [
+          "hierarchy_alignment",
+          0.8,
+          "ge"
+        ]
+      },
+      "results": {},
+      "slice": "test",
+      "split": {}
+    }
+  },
+  "slice": "test",
+  "split_seed": 250318010,
+  "split_style": "stratified_source_node_half_complement"
+}

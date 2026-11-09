@@ -1,0 +1,22 @@
+{
+  "5": {
+    "final_stress": 8.63868674533893,
+    "gradient_check": 2.1280437412229958e-09,
+    "initial_stress": 9.551962100874217,
+    "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "n_iter": 441,
+    "success": true
+  },
+  "7": {
+    "final_stress": 132.71168960911683,
+    "gradient_check": 2.32125216825807e-08,
+    "initial_stress": 146.83597030085053,
+    "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "n_iter": 2000,
+    "success": false
+  },
+  "case": "better_lbfgs",
+  "dimensions": 2,
+  "mode": "improve",
+  "seeds": {}
+}

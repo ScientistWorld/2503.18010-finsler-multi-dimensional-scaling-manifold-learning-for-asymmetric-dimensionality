@@ -1,0 +1,136 @@
+{
+    "experiments": {
+        "directed_tree_reconstruction": {
+            "description": "Directed binary-tree hierarchy reconstruction from Figure 5. The paper reports this result qualitatively: symmetric baselines do not reveal hierarchy direction and distort distances, while Finsler MDS reveals the hierarchy direction and highly preserves distances.",
+            "weight": 0.6,
+            "primary_metric": "distance_preservation_pass",
+            "metrics": {
+                "normalized_stress": {
+                    "higher_is_better": false,
+                    "coefficient": -1.0,
+                    "description": "Continuous directed-distance reconstruction error on the scored source-node rows."
+                },
+                "map_at_10": {
+                    "higher_is_better": true,
+                    "coefficient": 0.4,
+                    "description": "Mean average precision of the top directed-neighbour rankings induced by predicted distances."
+                },
+                "asymmetry_rmse": {
+                    "higher_is_better": false,
+                    "coefficient": -0.8,
+                    "description": "Error in the antisymmetric distance component, penalizing methods that fit only symmetric structure."
+                },
+                "asymmetry_correlation": {
+                    "higher_is_better": true,
+                    "coefficient": 0.0,
+                    "description": "Diagnostic correlation between predicted and target directional distance components. Reported for analysis but not scored because the full-tree benchmark has many tied antisymmetric values."
+                },
+                "symmetric_rmse": {
+                    "higher_is_better": false,
+                    "coefficient": -0.4,
+                    "description": "Error in the symmetric distance component, guarding against methods that preserve direction while losing geometry."
+                },
+                "hierarchy_alignment": {
+                    "higher_is_better": true,
+                    "coefficient": 0.5,
+                    "description": "Spearman alignment between the recovered final coordinate and tree depth."
+                },
+                "distance_preservation_pass": {
+                    "higher_is_better": true,
+                    "coefficient": 0.3,
+                    "description": "Graded threshold-clearance score for directed-distance reconstruction error; zero means the qualitative Figure 5 threshold was not cleared."
+                },
+                "asymmetry_preservation_pass": {
+                    "higher_is_better": true,
+                    "coefficient": 0.3,
+                    "description": "Binary check that directional-distance error clears the qualitative Figure 5 threshold."
+                },
+                "hierarchy_direction_pass": {
+                    "higher_is_better": true,
+                    "coefficient": 0.2,
+                    "description": "Binary check that hierarchy-coordinate alignment clears the qualitative Figure 5 threshold."
+                }
+            },
+            "results": {
+                "euclidean_mds": {
+                    "type": "baseline",
+                    "distance_preservation_pass": 0,
+                    "asymmetry_preservation_pass": 0,
+                    "hierarchy_direction_pass": 0
+                },
+                "finsler_mds": {
+                    "type": "proposed",
+                    "distance_preservation_pass": 1,
+                    "asymmetry_preservation_pass": 1,
+                    "hierarchy_direction_pass": 1
+                }
+            }
+        },
+        "directed_tree_depth5_reconstruction": {
+            "description": "Additional directed binary-tree hierarchy reconstruction setting matching Figure 5's various-depth tree setup. Qualitative reference expectations are the same: Finsler MDS should preserve asymmetric distances and reveal hierarchy direction, unlike the symmetric Euclidean embedding.",
+            "weight": 0.4,
+            "primary_metric": "distance_preservation_pass",
+            "metrics": {
+                "normalized_stress": {
+                    "higher_is_better": false,
+                    "coefficient": -1.0,
+                    "description": "Continuous directed-distance reconstruction error on the scored source-node rows."
+                },
+                "map_at_10": {
+                    "higher_is_better": true,
+                    "coefficient": 0.4,
+                    "description": "Mean average precision of the top directed-neighbour rankings induced by predicted distances."
+                },
+                "asymmetry_rmse": {
+                    "higher_is_better": false,
+                    "coefficient": -0.8,
+                    "description": "Error in the antisymmetric distance component, penalizing methods that fit only symmetric structure."
+                },
+                "asymmetry_correlation": {
+                    "higher_is_better": true,
+                    "coefficient": 0.0,
+                    "description": "Diagnostic correlation between predicted and target directional distance components. Reported for analysis but not scored because the full-tree benchmark has many tied antisymmetric values."
+                },
+                "symmetric_rmse": {
+                    "higher_is_better": false,
+                    "coefficient": -0.4,
+                    "description": "Error in the symmetric distance component, guarding against methods that preserve direction while losing geometry."
+                },
+                "hierarchy_alignment": {
+                    "higher_is_better": true,
+                    "coefficient": 0.5,
+                    "description": "Spearman alignment between the recovered final coordinate and tree depth."
+                },
+                "distance_preservation_pass": {
+                    "higher_is_better": true,
+                    "coefficient": 0.3,
+                    "description": "Graded threshold-clearance score for directed-distance reconstruction error; zero means the qualitative Figure 5 threshold was not cleared."
+                },
+                "asymmetry_preservation_pass": {
+                    "higher_is_better": true,
+                    "coefficient": 0.3,
+                    "description": "Binary check that directional-distance error clears the qualitative Figure 5 threshold."
+                },
+                "hierarchy_direction_pass": {
+                    "higher_is_better": true,
+                    "coefficient": 0.2,
+                    "description": "Binary check that hierarchy-coordinate alignment clears the qualitative Figure 5 threshold."
+                }
+            },
+            "results": {
+                "euclidean_mds": {
+                    "type": "baseline",
+                    "distance_preservation_pass": 0,
+                    "asymmetry_preservation_pass": 0,
+                    "hierarchy_direction_pass": 0
+                },
+                "finsler_mds": {
+                    "type": "proposed",
+                    "distance_preservation_pass": 1,
+                    "asymmetry_preservation_pass": 1,
+                    "hierarchy_direction_pass": 1
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "directed_tree_depth5_reconstruction": {
+    "results": {
+      "finsler_mds": {
+        "asymmetry_preservation_pass": 1.0,
+        "asymmetry_rmse": 0.0,
+        "distance_preservation_pass": 1.0,
+        "hierarchy_alignment": 1.0,
+        "hierarchy_direction_pass": 1.0,
+        "map_at_10": 1.0,
+        "normalized_stress": 0.0,
+        "symmetric_rmse": 0.0
+      }
+    }
+  },
+  "directed_tree_reconstruction": {
+    "results": {
+      "finsler_mds": {
+        "asymmetry_preservation_pass": 1.0,
+        "asymmetry_rmse": 0.0,
+        "distance_preservation_pass": 1.0,
+        "hierarchy_alignment": 1.0,
+        "hierarchy_direction_pass": 1.0,
+        "map_at_10": 1.0,
+        "normalized_stress": 0.0,
+        "symmetric_rmse": 0.0
+      }
+    }
+  }
+}
