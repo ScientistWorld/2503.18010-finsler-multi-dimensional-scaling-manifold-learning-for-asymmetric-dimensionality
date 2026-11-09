@@ -1,54 +1,59 @@
 {
     "experiments": {
         "directed_tree_reconstruction": {
-            "description": "Directed binary-tree hierarchy reconstruction from Figure 5. The paper reports this result qualitatively: symmetric baselines do not reveal hierarchy direction and distort distances, while Finsler MDS reveals the hierarchy direction and highly preserves distances.",
+            "description": "Directed binary-tree hierarchy reconstruction (Figure 5 / Appendix D.1.1), depth 7 (255 nodes), 2D embedding. The paper reports this result qualitatively: symmetric embeddings neither reveal the hierarchy direction nor preserve the distances, while Finsler MDS reveals the direction and highly preserves all distances. scores.json scores the exact paper tree; scores_train.json / scores_test.json score visible / hidden trees of the same topology with per-level edge weights drawn around the paper's (0.5, 1.5, 0.1) and shuffled node labels. A method that returns an invalid output or misses a claim threshold on any instance is scored as failed (every metric set to the value of the empty prediction).",
             "weight": 0.6,
             "primary_metric": "distance_preservation_pass",
             "metrics": {
                 "normalized_stress": {
                     "higher_is_better": false,
                     "coefficient": -1.0,
-                    "description": "Continuous directed-distance reconstruction error on the scored source-node rows."
+                    "description": "Global directed-distance reconstruction error: sqrt(sum (d_pred - D)^2 / sum D^2) over all ordered node pairs, with d_pred computed by the evaluator from the submitted 2D coordinates and drift. Mean over the experiment's instances."
+                },
+                "distortion": {
+                    "higher_is_better": false,
+                    "coefficient": -1.0,
+                    "description": "The paper's Table 1 distortion: mean over ordered node pairs of (d_pred - D)^2 / D (stress with weights 1/D), which emphasises the short distances that carry local structure. Mean over instances."
                 },
                 "map_at_10": {
                     "higher_is_better": true,
-                    "coefficient": 0.4,
-                    "description": "Mean average precision of the top directed-neighbour rankings induced by predicted distances."
+                    "coefficient": 0.0,
+                    "description": "Diagnostic only. Tie-aware mean average precision of the 10 nearest directed neighbours. Every target distance is tied within a tree level, so this is 1.0 for any embedding that keeps levels apart, including a degenerate one that collapses each level to a point; it cannot rank methods on this benchmark."
                 },
                 "asymmetry_rmse": {
                     "higher_is_better": false,
-                    "coefficient": -0.8,
-                    "description": "Error in the antisymmetric distance component, penalizing methods that fit only symmetric structure."
+                    "coefficient": -0.2,
+                    "description": "Constraint: RMSE of the antisymmetric part, (d_ij - d_ji) - (D_ij - D_ji), over ordered pairs. Must stay <= 0.10 on every instance (eligibility gate); its small continuous weight rewards direction accuracy beyond the gate."
                 },
                 "asymmetry_correlation": {
                     "higher_is_better": true,
                     "coefficient": 0.0,
-                    "description": "Diagnostic correlation between predicted and target directional distance components. Reported for analysis but not scored because the full-tree benchmark has many tied antisymmetric values."
+                    "description": "Diagnostic only. Correlation between predicted and target antisymmetric components."
                 },
                 "symmetric_rmse": {
                     "higher_is_better": false,
-                    "coefficient": -0.4,
-                    "description": "Error in the symmetric distance component, guarding against methods that preserve direction while losing geometry."
+                    "coefficient": -0.3,
+                    "description": "RMSE of the symmetric part, (d_ij + d_ji)/2 - (D_ij + D_ji)/2, the component a direction-only fit cannot reduce."
                 },
                 "hierarchy_alignment": {
                     "higher_is_better": true,
-                    "coefficient": 0.5,
-                    "description": "Spearman alignment between the recovered final coordinate and tree depth."
+                    "coefficient": 0.0,
+                    "description": "Diagnostic and gate. Signed concordance, over pairs of nodes on different tree levels, between the hierarchy and each node's uphill potential (total incoming minus total outgoing predicted distance); 1 = every shallower node sits uphill, 0 for symmetric distances. Must be >= 0.80 on every instance."
                 },
                 "distance_preservation_pass": {
                     "higher_is_better": true,
                     "coefficient": 0.3,
-                    "description": "Graded threshold-clearance score for directed-distance reconstruction error; zero means the qualitative Figure 5 threshold was not cleared."
+                    "description": "Figure 5 claim check, graded: clip(1 - normalized_stress / 0.10, 0, 1) averaged over instances; 0 when the method is not eligible."
                 },
                 "asymmetry_preservation_pass": {
                     "higher_is_better": true,
                     "coefficient": 0.3,
-                    "description": "Binary check that directional-distance error clears the qualitative Figure 5 threshold."
+                    "description": "Figure 5 claim check: fraction of instances with asymmetry_rmse <= 0.10 (1 for every eligible method, 0 when not eligible)."
                 },
                 "hierarchy_direction_pass": {
                     "higher_is_better": true,
                     "coefficient": 0.2,
-                    "description": "Binary check that hierarchy-coordinate alignment clears the qualitative Figure 5 threshold."
+                    "description": "Figure 5 claim check: fraction of instances with hierarchy_alignment >= 0.80 (1 for every eligible method, 0 when not eligible)."
                 }
             },
             "results": {
@@ -67,54 +72,59 @@
             }
         },
         "directed_tree_depth5_reconstruction": {
-            "description": "Additional directed binary-tree hierarchy reconstruction setting matching Figure 5's various-depth tree setup. Qualitative reference expectations are the same: Finsler MDS should preserve asymmetric distances and reveal hierarchy direction, unlike the symmetric Euclidean embedding.",
+            "description": "The same directed hierarchy reconstruction on depth-5 trees (63 nodes), matching Figure 5's various-depth trees. Qualitative expectations, instance families and the eligibility rule are the same as for the depth-7 experiment.",
             "weight": 0.4,
             "primary_metric": "distance_preservation_pass",
             "metrics": {
                 "normalized_stress": {
                     "higher_is_better": false,
                     "coefficient": -1.0,
-                    "description": "Continuous directed-distance reconstruction error on the scored source-node rows."
+                    "description": "Global directed-distance reconstruction error: sqrt(sum (d_pred - D)^2 / sum D^2) over all ordered node pairs, with d_pred computed by the evaluator from the submitted 2D coordinates and drift. Mean over the experiment's instances."
+                },
+                "distortion": {
+                    "higher_is_better": false,
+                    "coefficient": -1.0,
+                    "description": "The paper's Table 1 distortion: mean over ordered node pairs of (d_pred - D)^2 / D (stress with weights 1/D), which emphasises the short distances that carry local structure. Mean over instances."
                 },
                 "map_at_10": {
                     "higher_is_better": true,
-                    "coefficient": 0.4,
-                    "description": "Mean average precision of the top directed-neighbour rankings induced by predicted distances."
+                    "coefficient": 0.0,
+                    "description": "Diagnostic only. Tie-aware mean average precision of the 10 nearest directed neighbours. Every target distance is tied within a tree level, so this is 1.0 for any embedding that keeps levels apart, including a degenerate one that collapses each level to a point; it cannot rank methods on this benchmark."
                 },
                 "asymmetry_rmse": {
                     "higher_is_better": false,
-                    "coefficient": -0.8,
-                    "description": "Error in the antisymmetric distance component, penalizing methods that fit only symmetric structure."
+                    "coefficient": -0.2,
+                    "description": "Constraint: RMSE of the antisymmetric part, (d_ij - d_ji) - (D_ij - D_ji), over ordered pairs. Must stay <= 0.10 on every instance (eligibility gate); its small continuous weight rewards direction accuracy beyond the gate."
                 },
                 "asymmetry_correlation": {
                     "higher_is_better": true,
                     "coefficient": 0.0,
-                    "description": "Diagnostic correlation between predicted and target directional distance components. Reported for analysis but not scored because the full-tree benchmark has many tied antisymmetric values."
+                    "description": "Diagnostic only. Correlation between predicted and target antisymmetric components."
                 },
                 "symmetric_rmse": {
                     "higher_is_better": false,
-                    "coefficient": -0.4,
-                    "description": "Error in the symmetric distance component, guarding against methods that preserve direction while losing geometry."
+                    "coefficient": -0.3,
+                    "description": "RMSE of the symmetric part, (d_ij + d_ji)/2 - (D_ij + D_ji)/2, the component a direction-only fit cannot reduce."
                 },
                 "hierarchy_alignment": {
                     "higher_is_better": true,
-                    "coefficient": 0.5,
-                    "description": "Spearman alignment between the recovered final coordinate and tree depth."
+                    "coefficient": 0.0,
+                    "description": "Diagnostic and gate. Signed concordance, over pairs of nodes on different tree levels, between the hierarchy and each node's uphill potential (total incoming minus total outgoing predicted distance); 1 = every shallower node sits uphill, 0 for symmetric distances. Must be >= 0.80 on every instance."
                 },
                 "distance_preservation_pass": {
                     "higher_is_better": true,
                     "coefficient": 0.3,
-                    "description": "Graded threshold-clearance score for directed-distance reconstruction error; zero means the qualitative Figure 5 threshold was not cleared."
+                    "description": "Figure 5 claim check, graded: clip(1 - normalized_stress / 0.10, 0, 1) averaged over instances; 0 when the method is not eligible."
                 },
                 "asymmetry_preservation_pass": {
                     "higher_is_better": true,
                     "coefficient": 0.3,
-                    "description": "Binary check that directional-distance error clears the qualitative Figure 5 threshold."
+                    "description": "Figure 5 claim check: fraction of instances with asymmetry_rmse <= 0.10 (1 for every eligible method, 0 when not eligible)."
                 },
                 "hierarchy_direction_pass": {
                     "higher_is_better": true,
                     "coefficient": 0.2,
-                    "description": "Binary check that hierarchy-coordinate alignment clears the qualitative Figure 5 threshold."
+                    "description": "Figure 5 claim check: fraction of instances with hierarchy_alignment >= 0.80 (1 for every eligible method, 0 when not eligible)."
                 }
             },
             "results": {
@@ -131,6 +141,46 @@
                     "hierarchy_direction_pass": 1
                 }
             }
+        }
+    },
+    "_setup_note": "The paper reports the tree experiment only qualitatively (Figure 5); the per-experiment 'results' encode those qualitative claims as pass checks (1 = claim holds, 0 = it does not) and are unchanged. The gym scores continuous quantities the paper uses (stress and the Table 1 distortion) on the paper's trees and on per-level-jittered trees of the same sizes; no paper number exists on that scale. The paper's quantitative digraph reconstruction numbers (Table 1, real graphs, neural representation learning) are kept below for context only; this gym does not include those datasets.",
+    "_paper_table1_2d_reconstruction": {
+        "note": "Paper Table 1, embedding dimension 2: distortion (lower is better) and MAP (higher is better), Euclidean vs Finsler. Not on this gym's scale.",
+        "Cora": {
+            "distortion_euclidean": 0.426,
+            "distortion_finsler": 0.127,
+            "map_euclidean": 0.574,
+            "map_finsler": 0.894
+        },
+        "Citeseer": {
+            "distortion_euclidean": 0.386,
+            "distortion_finsler": 0.194,
+            "map_euclidean": 0.394,
+            "map_finsler": 0.691
+        },
+        "Gr-QC": {
+            "distortion_euclidean": 0.247,
+            "distortion_finsler": 0.012,
+            "map_euclidean": 0.289,
+            "map_finsler": 0.986
+        },
+        "Chameleon": {
+            "distortion_euclidean": 0.483,
+            "distortion_finsler": 0.261,
+            "map_euclidean": 0.488,
+            "map_finsler": 0.798
+        },
+        "Squirrel": {
+            "distortion_euclidean": 0.592,
+            "distortion_finsler": 0.226,
+            "map_euclidean": 0.395,
+            "map_finsler": 0.812
+        },
+        "Arxiv-Year": {
+            "distortion_euclidean": 0.489,
+            "distortion_finsler": 0.242,
+            "map_euclidean": 0.321,
+            "map_finsler": 0.742
         }
     }
 }

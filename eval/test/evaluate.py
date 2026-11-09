@@ -1,8 +1,16 @@
-"""Held-out test-slice scoring for directed-tree reconstruction artifacts.
+"""Held-out (test) slice evaluator for the directed-hierarchy embedding gym.
 
-This evaluator is method-agnostic and scores the complementary source-node
-half held out from eval/train/.  When scoring/scores_train.json exists, this
-module evaluates exactly the method entries present there.
+Runs every method registered on disk (``outputs/**/method.json``) on hidden
+directed-tree instances drawn from the per-level hierarchy family and scores
+the two-dimensional embeddings it returns. The instance seeds live only in this
+file. Nothing a method writes is trusted except its coordinates and its drift
+vector; every distance and every metric is recomputed here, and the frozen
+Euclidean SMACOF baseline is always scored under the name ``euclidean_mds``.
+
+The method interface, metrics, eligibility gate and failure values are the
+same as on the visible slice: a method that returns an invalid output for any
+instance, or misses any claim threshold in ``GATE`` on any instance, is scored
+as failed (every metric replaced by the value of the empty prediction).
 """
 
 from __future__ import annotations
@@ -10,412 +18,565 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
+import tempfile
+import time
 from pathlib import Path
 
 import numpy as np
-from scipy.stats import spearmanr
-
-from data.directed_tree import make_directed_binary_tree
+from scipy.sparse import csr_matrix
+from scipy.sparse.csgraph import shortest_path
 
 
 SLICE = "test"
-SPLIT_SEED = 250318010
+WORKSPACE = Path(__file__).resolve().parents[2]
+CARD_ROOT = WORKSPACE / "outputs"
+EMBEDDING_DIM = 2
+METHOD_TIMEOUT_SECONDS = 3600
+BASELINE_NAME = "euclidean_mds"
+MAP_K = 10
 
-DEPTH_TO_EXPERIMENT = {
-    7: "directed_tree_reconstruction",
-    5: "directed_tree_depth5_reconstruction",
+EXPERIMENTS = {
+    "directed_tree_reconstruction": {"depth": 7, "tag": "d7"},
+    "directed_tree_depth5_reconstruction": {"depth": 5, "tag": "d5"},
 }
-NODE_COUNT_TO_DEPTH = {
-    (2 ** (depth + 1)) - 1: depth
-    for depth in DEPTH_TO_EXPERIMENT
+# Hidden instance stream. The test slice is larger than the visible one to
+# keep the measurement noise of paired comparisons small.
+HIDDEN_ENTROPY = 0x6A1F93C257D0B8E41C36D2A9
+N_INSTANCES = {
+    "directed_tree_reconstruction": 12,
+    "directed_tree_depth5_reconstruction": 20,
 }
+
+# Per-level hierarchy family around the paper's weights (0.5, 1.5, 0.1).
+PAPER_DOWN, PAPER_UP, PAPER_SAME = 0.5, 1.5, 0.1
+SCALE_RANGE = (0.8, 1.2)
+UP_DOWN_RATIO_RANGE = (2.5, 3.0)
+SAME_DEPTH_RANGE = (0.6, 1.4)
 
 CLAIM_THRESHOLDS = {
     "distance_preservation_pass": ("normalized_stress", 0.10, "le"),
     "asymmetry_preservation_pass": ("asymmetry_rmse", 0.10, "le"),
     "hierarchy_direction_pass": ("hierarchy_alignment", 0.80, "ge"),
 }
+# Every instance must satisfy all of these for the method to be eligible.
+GATE = {
+    "normalized_stress": (0.10, "le"),
+    "distortion": (0.10, "le"),
+    "asymmetry_rmse": (0.10, "le"),
+    "hierarchy_alignment": (0.80, "ge"),
+}
+RAW_METRICS = (
+    "normalized_stress",
+    "distortion",
+    "map_at_10",
+    "asymmetry_rmse",
+    "asymmetry_correlation",
+    "symmetric_rmse",
+    "hierarchy_alignment",
+)
 
 
-def _artifact_text(artifact: np.lib.npyio.NpzFile, key: str, default: str = "") -> str:
-    if key not in artifact:
-        return default
-    value = artifact[key]
-    if value.shape == ():
-        return str(value.item())
-    return str(value)
+class InvalidOutput(Exception):
+    """A method output that cannot be scored."""
 
 
-def _safe_name(value: str) -> str:
-    value = re.sub(r"[^A-Za-z0-9_.-]+", "_", value.strip())
-    return value.strip("._-") or "method"
+# --------------------------------------------------------------------------
+# Instances
+# --------------------------------------------------------------------------
 
 
-def _euclidean_distances(x: np.ndarray) -> np.ndarray:
-    return np.linalg.norm(x[None, :, :] - x[:, None, :], axis=-1)
+def _tree_distances(depth, down, up, same):
+    n = 2 ** (depth + 1) - 1
+    levels = np.floor(np.log2(np.arange(n) + 1)).astype(np.int64)
+    adjacency = np.zeros((n, n), dtype=np.float64)
+    for node in range(n):
+        for child in (2 * node + 1, 2 * node + 2):
+            if child < n:
+                adjacency[node, child] = down[levels[child] - 1]
+                adjacency[child, node] = up[levels[child] - 1]
+    for level in range(1, depth + 1):
+        nodes = np.flatnonzero(levels == level)
+        rows, cols = np.meshgrid(nodes, nodes, indexing="ij")
+        mask = rows != cols
+        adjacency[rows[mask], cols[mask]] = same[level - 1]
+    distances = shortest_path(csr_matrix(adjacency), directed=True, unweighted=False)
+    if not np.isfinite(distances).all():
+        raise RuntimeError("benchmark tree is not strongly connected")
+    return distances, levels
 
 
-def _randers_distances(x: np.ndarray, alpha: float) -> np.ndarray:
-    delta = x[None, :, :] - x[:, None, :]
-    return np.linalg.norm(delta, axis=-1) + alpha * delta[..., -1]
+def _family_tree(depth, seed):
+    rng = np.random.default_rng(seed)
+    scale = rng.uniform(*SCALE_RANGE, size=depth)
+    ratio = rng.uniform(*UP_DOWN_RATIO_RANGE, size=depth)
+    same = PAPER_SAME * rng.uniform(*SAME_DEPTH_RANGE, size=depth)
+    down = PAPER_DOWN * scale
+    distances, levels = _tree_distances(depth, down, ratio * down, same)
+    order = rng.permutation(distances.shape[0])
+    return distances[np.ix_(order, order)], levels[order]
 
 
-def _predicted_distances(
-    artifact: np.lib.npyio.NpzFile, path: Path
-) -> tuple[np.ndarray, np.ndarray | None]:
-    if "predicted_distances" in artifact:
-        predicted = artifact["predicted_distances"]
-        embedding = artifact["embedding"] if "embedding" in artifact else None
-        return predicted, embedding
-
-    if "embedding" not in artifact:
-        raise ValueError(f"{path} must contain either predicted_distances or embedding")
-
-    embedding = artifact["embedding"]
-    alpha = float(artifact["alpha"]) if "alpha" in artifact else 0.0
-    distance_family = _artifact_text(artifact, "distance_family")
-    method = _artifact_text(artifact, "method")
-    if distance_family in {"randers", "finsler"} or method == "finsler_mds":
-        predicted = _randers_distances(embedding, alpha)
-    elif distance_family == "euclidean" or method == "euclidean_mds":
-        predicted = _euclidean_distances(embedding)
-    else:
-        raise ValueError(
-            f"{path} must specify distance_family='randers'/'euclidean', "
-            "method='finsler_mds'/'euclidean_mds', or predicted_distances"
-        )
-    return predicted, embedding
+def _hidden_seeds() -> dict[str, list[int]]:
+    total = sum(N_INSTANCES.values())
+    state = np.random.SeedSequence(HIDDEN_ENTROPY).generate_state(total, dtype=np.uint32)
+    seeds: dict[str, list[int]] = {}
+    offset = 0
+    for experiment in EXPERIMENTS:
+        count = N_INSTANCES[experiment]
+        seeds[experiment] = [int(s) for s in state[offset : offset + count]]
+        offset += count
+    return seeds
 
 
-def _target_for_node_count(node_count: int, path: Path) -> tuple[np.ndarray, np.ndarray]:
-    depth = NODE_COUNT_TO_DEPTH.get(node_count)
-    if depth is None:
-        expected = ", ".join(str(n) for n in sorted(NODE_COUNT_TO_DEPTH))
-        raise ValueError(
-            f"{path} has {node_count} nodes; expected one of the benchmark sizes: "
-            f"{expected}"
-        )
-    tree = make_directed_binary_tree(depth=depth)
-    return tree.distances, tree.depths
-
-
-def _source_indices(depths: np.ndarray) -> np.ndarray:
-    selected: list[int] = []
-    for depth in np.unique(depths):
-        nodes = np.flatnonzero(depths == depth)
-        order = np.argsort(
-            ((nodes + 1) * 1103515245 + SPLIT_SEED + int(depth) * 12345)
-            % (2**31 - 1)
-        )
-        permuted = nodes[order]
-        cutoff = (len(permuted) + 1) // 2
-        selected.extend(int(node) for node in permuted[cutoff:])
-    return np.array(sorted(selected), dtype=np.int64)
-
-
-def _source_mask(target: np.ndarray, source_indices: np.ndarray) -> np.ndarray:
-    mask = np.zeros_like(target, dtype=bool)
-    mask[source_indices, :] = True
-    np.fill_diagonal(mask, False)
-    return mask
-
-
-def average_precision_from_distances(
-    target: np.ndarray, predicted: np.ndarray, source_indices: np.ndarray, k: int = 10
-) -> float:
-    aps = []
-    for i in source_indices:
-        relevant = np.argsort(target[i])[1 : k + 1]
-        relevant_set = set(int(j) for j in relevant)
-        ranked = [int(j) for j in np.argsort(predicted[i]) if j != i]
-        hits = 0
-        precision_sum = 0.0
-        for rank, node in enumerate(ranked, start=1):
-            if node in relevant_set:
-                hits += 1
-                precision_sum += hits / rank
-                if hits == k:
-                    break
-        aps.append(precision_sum / k)
-    return float(np.mean(aps))
-
-
-def _safe_correlation(x: np.ndarray, y: np.ndarray) -> float:
-    if x.size < 2 or y.size < 2:
-        return 0.0
-    if np.allclose(x, x[0]) or np.allclose(y, y[0]):
-        return 0.0
-    corr = float(np.corrcoef(x, y)[0, 1])
-    return 0.0 if np.isnan(corr) else corr
-
-
-def metrics_for_artifact(path: Path) -> tuple[dict[str, float], dict[str, int | str]]:
-    artifact = np.load(path, allow_pickle=False)
-    predicted, embedding = _predicted_distances(artifact, path)
-    if predicted.ndim != 2 or predicted.shape[0] != predicted.shape[1]:
-        raise ValueError(f"{path} predicted distances must be a square matrix")
-    target, depths = _target_for_node_count(predicted.shape[0], path)
-    if predicted.shape != target.shape:
-        raise ValueError(
-            f"{path} predicted_distances shape {predicted.shape} does not match "
-            f"benchmark distances shape {target.shape}"
-        )
-
-    sources = _source_indices(depths)
-    mask = _source_mask(target, sources)
-    raw_stress = float(np.sum((predicted[mask] - target[mask]) ** 2))
-    denom = float(np.sum(target[mask] ** 2))
-    normalized_stress = float(np.sqrt(raw_stress / denom))
-
-    asym_error = float(
-        np.sqrt(np.mean(((predicted - predicted.T) - (target - target.T))[mask] ** 2))
-    )
-    asymmetry_correlation = _safe_correlation(
-        (target - target.T)[mask],
-        (predicted - predicted.T)[mask],
-    )
-    sym_error = float(
-        np.sqrt(
-            np.mean(
-                (
-                    (0.5 * (predicted + predicted.T))
-                    - (0.5 * (target + target.T))
-                )[mask]
-                ** 2
+def build_instances() -> dict[str, list[dict]]:
+    seeds = _hidden_seeds()
+    instances: dict[str, list[dict]] = {}
+    for exp_index, (experiment, spec) in enumerate(EXPERIMENTS.items()):
+        items = []
+        for k, seed in enumerate(seeds[experiment]):
+            distances, levels = _family_tree(spec["depth"], seed)
+            items.append(
+                {
+                    "id": f"{spec['tag']}_{k:02d}",
+                    "distances": distances,
+                    "depths": levels,
+                    "method_seed": 100 * exp_index + k,
+                }
             )
-        )
-    )
-    if embedding is not None and len(sources) >= 3 and np.unique(depths[sources]).size > 1:
-        rho = spearmanr(embedding[sources, -1], -depths[sources]).statistic
-        hierarchy_alignment = float(0.0 if np.isnan(rho) else abs(rho))
-    else:
-        hierarchy_alignment = 0.0
+        instances[experiment] = items
+    return instances
 
-    metrics = {
-        "normalized_stress": normalized_stress,
-        "map_at_10": average_precision_from_distances(
-            target, predicted, sources, k=min(10, target.shape[0] - 1)
-        ),
-        "asymmetry_rmse": asym_error,
-        "asymmetry_correlation": asymmetry_correlation,
-        "symmetric_rmse": sym_error,
-        "hierarchy_alignment": hierarchy_alignment,
+
+# --------------------------------------------------------------------------
+# Metrics
+# --------------------------------------------------------------------------
+
+
+def randers_distances(embedding: np.ndarray, drift: np.ndarray) -> np.ndarray:
+    delta = embedding[None, :, :] - embedding[:, None, :]  # delta[i, j] = x_j - x_i
+    return np.linalg.norm(delta, axis=-1) + delta @ drift
+
+
+def _rms(values: np.ndarray) -> float:
+    return float(np.sqrt(np.mean(values**2)))
+
+
+def map_at_k(target: np.ndarray, predicted: np.ndarray, k: int = MAP_K) -> float:
+    """Tie-aware MAP of the k nearest directed neighbours.
+
+    Every node tied with the k-th nearest target distance counts as relevant;
+    exact ties in the predicted ranking are broken pessimistically.
+    """
+
+    n = target.shape[0]
+    k = min(k, n - 1)
+    aps = np.empty(n)
+    for i in range(n):
+        keep = np.arange(n) != i
+        t = target[i, keep]
+        p = predicted[i, keep]
+        kth = np.partition(t, k - 1)[k - 1]
+        relevant = t <= kth + 1e-9 * max(1.0, abs(kth))
+        order = np.lexsort((relevant.astype(np.int8), p))
+        hits = relevant[order]
+        precision = np.cumsum(hits) / np.arange(1, hits.size + 1)
+        aps[i] = precision[hits].sum() / hits.sum()
+    return float(aps.mean())
+
+
+def hierarchy_alignment(predicted: np.ndarray, depths: np.ndarray) -> float:
+    """Signed agreement between the predicted uphill potential and the hierarchy.
+
+    Each node's potential is the total cost of reaching it minus the total cost
+    of leaving it under the predicted distances. Over all pairs of nodes on
+    different levels, +1 if the shallower node has the higher potential, -1 if
+    lower, 0 if tied; symmetric distances give 0.
+    """
+
+    potential = predicted.sum(axis=0) - predicted.sum(axis=1)
+    tol = 1e-9 * predicted.shape[0] * max(float(np.mean(np.abs(predicted))), 1e-12)
+    dh = potential[:, None] - potential[None, :]
+    dd = depths[None, :] - depths[:, None]
+    cross = dd != 0
+    sign_h = np.where(np.abs(dh) <= tol, 0.0, np.sign(dh))
+    return float(np.sum(sign_h[cross] * np.sign(dd[cross])) / np.count_nonzero(cross))
+
+
+def _correlation(x: np.ndarray, y: np.ndarray) -> float:
+    if np.ptp(x) == 0 or np.ptp(y) == 0:
+        return 0.0
+    value = float(np.corrcoef(x, y)[0, 1])
+    return 0.0 if not np.isfinite(value) else value
+
+
+def instance_metrics(target: np.ndarray, depths: np.ndarray, predicted: np.ndarray) -> dict:
+    off = ~np.eye(target.shape[0], dtype=bool)
+    err = (predicted - target)[off]
+    t = target[off]
+    anti_target = (target - target.T)[off]
+    anti_pred = (predicted - predicted.T)[off]
+    sym_err = (0.5 * (predicted + predicted.T) - 0.5 * (target + target.T))[off]
+    return {
+        "normalized_stress": float(np.sqrt(np.sum(err**2) / np.sum(t**2))),
+        "distortion": float(np.mean(err**2 / t)),
+        "map_at_10": map_at_k(target, predicted),
+        "asymmetry_rmse": _rms(anti_pred - anti_target),
+        "asymmetry_correlation": _correlation(anti_target, anti_pred),
+        "symmetric_rmse": _rms(sym_err),
+        "hierarchy_alignment": hierarchy_alignment(predicted, depths),
     }
-    split_info = {
-        "slice": SLICE,
-        "split_seed": SPLIT_SEED,
-        "source_node_count": int(len(sources)),
-        "total_node_count": int(target.shape[0]),
+
+
+def floor_metrics(target: np.ndarray) -> dict:
+    """Metrics of the empty (all-zero) prediction: the failure value."""
+
+    off = ~np.eye(target.shape[0], dtype=bool)
+    return {
+        "normalized_stress": 1.0,
+        "distortion": float(np.mean(target[off])),
+        "map_at_10": 0.0,
+        "asymmetry_rmse": _rms((target - target.T)[off]),
+        "asymmetry_correlation": 0.0,
+        "symmetric_rmse": _rms((0.5 * (target + target.T))[off]),
+        "hierarchy_alignment": 0.0,
+        "distance_preservation_pass": 0.0,
+        "asymmetry_preservation_pass": 0.0,
+        "hierarchy_direction_pass": 0.0,
     }
-    return metrics, split_info
 
 
-def claim_scores(metrics: dict[str, float]) -> dict[str, float]:
+def claim_scores(metrics: dict) -> dict:
     scores = {}
-    for claim, (metric_name, threshold, direction) in CLAIM_THRESHOLDS.items():
-        value = metrics[metric_name]
-        if np.isnan(value):
-            scores[claim] = 0.0
-            continue
-        if claim == "distance_preservation_pass" and direction == "le":
-            scores[claim] = float(np.clip(1.0 - (value / threshold), 0.0, 1.0))
-            continue
-        if direction == "le":
-            passed = value <= threshold
-        elif direction == "ge":
-            passed = value >= threshold
+    for claim, (metric, threshold, direction) in CLAIM_THRESHOLDS.items():
+        value = metrics[metric]
+        if claim == "distance_preservation_pass":
+            scores[claim] = float(np.clip(1.0 - value / threshold, 0.0, 1.0))
+        elif direction == "le":
+            scores[claim] = float(value <= threshold)
         else:
-            raise ValueError(f"unknown threshold direction: {direction}")
-        scores[claim] = float(passed)
+            scores[claim] = float(value >= threshold)
     return scores
 
 
-def official_scores(metrics: dict[str, float]) -> dict[str, float]:
-    return {
-        "normalized_stress": metrics["normalized_stress"],
-        "map_at_10": metrics["map_at_10"],
-        "asymmetry_rmse": metrics["asymmetry_rmse"],
-        "asymmetry_correlation": metrics["asymmetry_correlation"],
-        "symmetric_rmse": metrics["symmetric_rmse"],
-        "hierarchy_alignment": metrics["hierarchy_alignment"],
-        **claim_scores(metrics),
-    }
+def gate_failures(metrics: dict) -> list[str]:
+    failures = []
+    for metric, (threshold, direction) in GATE.items():
+        value = metrics[metric]
+        ok = value <= threshold if direction == "le" else value >= threshold
+        if not ok:
+            symbol = "<=" if direction == "le" else ">="
+            failures.append(f"{metric}={value:.4g} fails {symbol} {threshold}")
+    return failures
 
 
-def _experiment_for_artifact(path: Path) -> str | None:
-    with np.load(path, allow_pickle=False) as artifact:
-        if "predicted_distances" in artifact:
-            node_count = int(artifact["predicted_distances"].shape[0])
-        elif "embedding" in artifact:
-            node_count = int(artifact["embedding"].shape[0])
-        else:
-            return None
-    max_depth = NODE_COUNT_TO_DEPTH.get(node_count)
-    if max_depth is None:
-        return None
-    return DEPTH_TO_EXPERIMENT.get(max_depth)
+# --------------------------------------------------------------------------
+# Reading method outputs
+# --------------------------------------------------------------------------
 
 
-def _method_name_for_artifact(path: Path, used_names: set[str]) -> str:
-    with np.load(path, allow_pickle=False) as artifact:
-        base = _artifact_text(artifact, "method", default=path.parent.name)
-    name = _safe_name(base)
-    if name not in used_names:
-        return name
-    parent_name = _safe_name(path.parent.name)
-    candidate = f"{name}__{parent_name}"
-    index = 2
-    while candidate in used_names:
-        candidate = f"{name}__{parent_name}_{index}"
-        index += 1
-    return candidate
-
-
-def discover_manifest() -> dict[str, dict[str, str]]:
-    manifest: dict[str, dict[str, str]] = {}
-    for path in sorted(Path("outputs").glob("**/predictions.npz")):
-        experiment = _experiment_for_artifact(path)
-        if experiment is None:
-            continue
-        experiment_results = manifest.setdefault(experiment, {})
-        method_name = _method_name_for_artifact(path, set(experiment_results))
-        experiment_results[method_name] = str(path)
-    if not manifest:
-        raise FileNotFoundError(
-            "no directed-tree prediction artifacts found under outputs/**/predictions.npz"
+def read_prediction(path: Path, n_nodes: int) -> np.ndarray:
+    if not path.is_file():
+        raise InvalidOutput("missing output file")
+    try:
+        with np.load(path, allow_pickle=False) as data:
+            if "embedding" not in data.files:
+                raise InvalidOutput("output has no 'embedding'")
+            embedding = np.asarray(data["embedding"], dtype=np.float64)
+            if "drift" in data.files:
+                drift = np.asarray(data["drift"], dtype=np.float64).reshape(-1)
+            elif "alpha" in data.files:
+                alpha = np.asarray(data["alpha"], dtype=np.float64)
+                if alpha.size != 1:
+                    raise InvalidOutput("'alpha' must be a scalar")
+                drift = np.array([0.0, float(alpha.reshape(()))])
+            else:
+                raise InvalidOutput("output has neither 'drift' nor 'alpha'")
+    except InvalidOutput:
+        raise
+    except Exception as exc:  # unreadable, pickled or non-numeric content
+        raise InvalidOutput(f"unreadable output ({type(exc).__name__}: {exc})") from None
+    if embedding.shape != (n_nodes, EMBEDDING_DIM):
+        raise InvalidOutput(
+            f"embedding shape {embedding.shape} != ({n_nodes}, {EMBEDDING_DIM})"
         )
-    return manifest
+    if drift.shape != (EMBEDDING_DIM,):
+        raise InvalidOutput(f"drift shape {drift.shape} != ({EMBEDDING_DIM},)")
+    if not np.all(np.isfinite(embedding)) or not np.all(np.isfinite(drift)):
+        raise InvalidOutput("non-finite embedding or drift")
+    if float(np.linalg.norm(drift)) >= 1.0:
+        raise InvalidOutput(f"drift norm {np.linalg.norm(drift):.4g} is not < 1")
+    with np.errstate(over="ignore", invalid="ignore"):
+        predicted = randers_distances(embedding, drift)
+    if not np.all(np.isfinite(predicted)):
+        raise InvalidOutput("embedding produces non-finite distances")
+    return predicted
 
 
-def load_manifest(path: Path | None) -> dict[str, dict[str, str]]:
-    if path is None:
-        return discover_manifest()
-    with path.open("r", encoding="utf-8") as handle:
-        manifest = json.load(handle)
-    if "experiments" in manifest:
-        manifest = manifest["experiments"]
-    normalized: dict[str, dict[str, str]] = {}
-    for experiment, spec in manifest.items():
-        if "results" in spec:
-            spec = spec["results"]
-        normalized[experiment] = {
-            method_name: str(artifact_path)
-            for method_name, artifact_path in spec.items()
-        }
-    return normalized
+# --------------------------------------------------------------------------
+# Frozen Euclidean SMACOF baseline (always scored, never read from disk)
+# --------------------------------------------------------------------------
 
 
-def load_train_keys(path: Path) -> dict[str, set[str]]:
-    if not path.exists():
-        return {}
-    with path.open("r", encoding="utf-8") as handle:
-        train_scores = json.load(handle)
-    keys: dict[str, set[str]] = {}
-    for experiment, spec in train_scores.items():
-        results = spec.get("results", {})
-        keys[experiment] = set(results)
-    return keys
+def _classical_scaling(dissimilarities: np.ndarray, n_components: int) -> np.ndarray:
+    d_sym = 0.5 * (dissimilarities + dissimilarities.T)
+    n = d_sym.shape[0]
+    centering = np.eye(n) - 1.0 / n
+    gram = -0.5 * centering @ (d_sym**2) @ centering
+    eigvals, eigvecs = np.linalg.eigh(0.5 * (gram + gram.T))
+    order = np.argsort(eigvals)[::-1][:n_components]
+    eigvecs = eigvecs[:, order]
+    signs = np.sign(eigvecs[np.argmax(np.abs(eigvecs), axis=0), np.arange(n_components)])
+    signs[signs == 0] = 1.0
+    return eigvecs * signs * np.sqrt(np.clip(eigvals[order], 0.0, None))
 
 
-def restrict_to_train_keys(
-    manifest: dict[str, dict[str, str]], train_keys: dict[str, set[str]]
-) -> dict[str, dict[str, str]]:
-    if not train_keys:
-        return manifest
-    restricted: dict[str, dict[str, str]] = {}
-    for experiment, method_names in train_keys.items():
-        if experiment not in manifest:
-            raise KeyError(
-                f"{experiment} is present in scoring/scores_train.json but has no test artifacts"
+def _euclidean_smacof_baseline(dissimilarities: np.ndarray, seed: int) -> np.ndarray:
+    n = dissimilarities.shape[0]
+    rng = np.random.default_rng(seed)
+    x = _classical_scaling(dissimilarities, EMBEDDING_DIM)
+    x = x + 0.05 * rng.standard_normal(x.shape)
+    old_stress = None
+    for _ in range(500):
+        dist = np.linalg.norm(x[None, :, :] - x[:, None, :], axis=-1)
+        stress = float(np.sum((dist - dissimilarities) ** 2))
+        if old_stress is not None and abs(1.0 - stress / max(old_stress, 1e-12)) < 1e-5:
+            break
+        old_stress = stress
+        dist[dist <= 1e-12] = 1e-12
+        b = -dissimilarities / dist
+        np.fill_diagonal(b, 0.0)
+        np.fill_diagonal(b, -b.sum(axis=1))
+        x = b @ x / n
+        x -= x.mean(axis=0, keepdims=True)
+    return randers_distances(x, np.zeros(EMBEDDING_DIM))
+
+
+# --------------------------------------------------------------------------
+# Method discovery and execution
+# --------------------------------------------------------------------------
+
+
+def _safe_name(value: str) -> str:
+    value = re.sub(r"[^A-Za-z0-9_.-]+", "_", str(value).strip())
+    return value.strip("._-") or "method"
+
+
+def discover_cards() -> list[dict]:
+    cards: list[dict] = []
+    used = {BASELINE_NAME}
+    if not CARD_ROOT.is_dir():
+        return cards
+    for path in sorted(CARD_ROOT.glob("**/method.json")):
+        rel = str(path.relative_to(WORKSPACE))
+        error = None
+        command = None
+        name = path.parent.name
+        try:
+            spec = json.loads(path.read_text(encoding="utf-8"))
+            if not isinstance(spec, dict):
+                raise ValueError("card must be a JSON object")
+            command = spec.get("command")
+            if (
+                not isinstance(command, list)
+                or not command
+                or not all(isinstance(part, str) and part for part in command)
+            ):
+                raise ValueError("'command' must be a non-empty list of strings")
+            if isinstance(spec.get("name"), str) and spec["name"].strip():
+                name = spec["name"]
+        except Exception as exc:
+            error = f"invalid method card: {exc}"
+            command = None
+        base = _safe_name(name)
+        unique = base
+        if unique in used:
+            unique = f"{base}__{_safe_name(path.parent.name)}"
+            index = 2
+            while unique in used:
+                unique = f"{base}__{_safe_name(path.parent.name)}_{index}"
+                index += 1
+        used.add(unique)
+        cards.append({"name": unique, "card": rel, "command": command, "error": error})
+    return cards
+
+
+def run_card(card: dict, instances: dict[str, list[dict]], scratch: Path) -> dict:
+    inst_dir = scratch / "instances"
+    out_dir = scratch / "embeddings"
+    inst_dir.mkdir(parents=True)
+    out_dir.mkdir(parents=True)
+    entries = []
+    for items in instances.values():
+        for item in items:
+            filename = f"{item['id']}.npz"
+            np.savez(
+                inst_dir / filename,
+                dissimilarities=item["distances"],
+                seed=np.array(item["method_seed"], dtype=np.int64),
             )
-        missing = sorted(method_names - set(manifest[experiment]))
-        if missing:
-            raise KeyError(
-                f"{experiment} is missing test artifacts for train-scored methods: "
-                + ", ".join(missing)
-            )
-        restricted[experiment] = {
-            method_name: manifest[experiment][method_name]
-            for method_name in sorted(method_names)
+            entries.append({"id": item["id"], "file": filename})
+    (inst_dir / "index.json").write_text(
+        json.dumps({"embedding_dim": EMBEDDING_DIM, "instances": entries}, indent=1)
+    )
+    command = list(card["command"]) + [
+        "--instances",
+        str(inst_dir),
+        "--output",
+        str(out_dir),
+    ]
+    record = {"returncode": None, "timed_out": False, "launch_error": None}
+    start = time.monotonic()
+    try:
+        proc = subprocess.run(
+            command,
+            cwd=WORKSPACE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            timeout=METHOD_TIMEOUT_SECONDS,
+        )
+        record["returncode"] = proc.returncode
+        log = proc.stdout or b""
+    except subprocess.TimeoutExpired as exc:
+        record["timed_out"] = True
+        log = exc.stdout or b""
+    except OSError as exc:
+        record["launch_error"] = f"{type(exc).__name__}: {exc}"
+        log = b""
+    record["runtime_seconds_info_only"] = round(time.monotonic() - start, 2)
+    record["log_tail"] = log[-4000:].decode("utf-8", errors="replace")
+    record["output_dir"] = out_dir
+    return record
+
+
+def _no_output(item: dict) -> np.ndarray:
+    raise InvalidOutput("no output (method card unusable)")
+
+
+def score_method(instances: dict[str, list[dict]], predict, run_failure: str | None) -> dict:
+    """Score one method; ``predict(item)`` returns predicted distances or raises."""
+
+    reasons: list[str] = []
+    if run_failure:
+        reasons.append(run_failure)
+    raw: dict[str, list] = {}
+    for experiment, items in instances.items():
+        rows = []
+        for item in items:
+            try:
+                predicted = predict(item)
+            except InvalidOutput as exc:
+                reasons.append(f"{item['id']}: {exc}")
+                rows.append(None)
+                continue
+            metrics = instance_metrics(item["distances"], item["depths"], predicted)
+            rows.append(metrics)
+            reasons.extend(f"{item['id']}: {failure}" for failure in gate_failures(metrics))
+        raw[experiment] = rows
+    eligible = not reasons
+
+    scores: dict[str, dict] = {}
+    details: dict[str, dict] = {}
+    for experiment, items in instances.items():
+        rows = raw[experiment]
+        if eligible:
+            per_instance = [row | claim_scores(row) for row in rows]
+        else:
+            per_instance = [floor_metrics(item["distances"]) for item in items]
+        scores[experiment] = {
+            name: float(np.mean([row[name] for row in per_instance]))
+            for name in per_instance[0]
         }
-    return restricted
+        complete = all(row is not None for row in rows)
+        details[experiment] = {
+            "raw_mean": (
+                {name: float(np.mean([row[name] for row in rows])) for name in RAW_METRICS}
+                if complete
+                else None
+            ),
+            "per_instance": {item["id"]: row for item, row in zip(items, rows)},
+        }
+    return {"eligible": eligible, "failure_reasons": reasons, "scores": scores, "details": details}
+
+
+def evaluate() -> tuple[dict, dict]:
+    instances = build_instances()
+    results: dict[str, dict] = {}
+
+    baseline = score_method(
+        instances,
+        lambda item: _euclidean_smacof_baseline(item["distances"], item["method_seed"]),
+        None,
+    )
+    baseline["source"] = "frozen Euclidean SMACOF inside the evaluator"
+    results[BASELINE_NAME] = baseline
+
+    for card in discover_cards():
+        print(f"[eval:{SLICE}] running {card['name']} ({card['card']})", flush=True)
+        if card["error"]:
+            result = score_method(instances, _no_output, card["error"])
+            result["run"] = {"card": card["card"]}
+        else:
+            with tempfile.TemporaryDirectory(prefix=f"gym_{SLICE}_") as tmp:
+                run = run_card(card, instances, Path(tmp))
+                failure = None
+                if run["launch_error"]:
+                    failure = f"command could not start: {run['launch_error']}"
+                elif run["timed_out"]:
+                    failure = f"command exceeded {METHOD_TIMEOUT_SECONDS} s"
+                elif run["returncode"] != 0:
+                    failure = f"command exited with status {run['returncode']}"
+                out_dir = run.pop("output_dir")
+                result = score_method(
+                    instances,
+                    lambda item: read_prediction(
+                        out_dir / f"{item['id']}.npz", item["distances"].shape[0]
+                    ),
+                    failure,
+                )
+            result["run"] = {"card": card["card"], "command": card["command"], **run}
+        results[card["name"]] = result
+        status = "eligible" if result["eligible"] else "FAILED"
+        print(f"[eval:{SLICE}]   -> {status}", flush=True)
+
+    scores = {
+        experiment: {
+            "results": {name: result["scores"][experiment] for name, result in results.items()}
+        }
+        for experiment in instances
+    }
+    details = {
+        "slice": SLICE,
+        "instances": "hidden_family",
+        "instance_ids": {exp: [item["id"] for item in items] for exp, items in instances.items()},
+        "gate": {metric: list(rule) for metric, rule in GATE.items()},
+        "claim_thresholds": {k: list(v) for k, v in CLAIM_THRESHOLDS.items()},
+        "methods": {
+            name: {
+                "eligible": result["eligible"],
+                "failure_reasons": result["failure_reasons"][:50],
+                "n_failure_reasons": len(result["failure_reasons"]),
+                "experiments": result["details"],
+                **({"run": result["run"]} if "run" in result else {}),
+                **({"source": result["source"]} if "source" in result else {}),
+            }
+            for name, result in results.items()
+        },
+    }
+    return scores, details
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--manifest",
-        type=Path,
-        help=(
-            "Optional JSON mapping experiments to method artifact paths. "
-            "Accepted shapes: {experiment: {method: path}} or "
-            "{experiments: {experiment: {results: {method: path}}}}."
-        ),
-    )
-    parser.add_argument(
-        "--experiments",
-        nargs="*",
-        default=None,
-        help="Experiment artifact groups to score.",
-    )
-    parser.add_argument("--output", default="scoring/scores_test.json")
-    parser.add_argument(
-        "--train-scores",
-        type=Path,
-        default=Path("scoring/scores_train.json"),
-        help="Train-slice score file whose method keys define the test method set.",
-    )
+    parser = argparse.ArgumentParser(description="Hidden test-slice evaluator.")
+    parser.add_argument("--output", type=Path, default=Path("scoring/scores_test.json"))
+    parser.add_argument("--details", type=Path, default=None)
     args = parser.parse_args()
 
-    manifest = restrict_to_train_keys(
-        load_manifest(args.manifest), load_train_keys(args.train_scores)
-    )
-    experiments = args.experiments if args.experiments is not None else list(manifest)
-    scores = {}
-    details = {
-        "slice": SLICE,
-        "split_seed": SPLIT_SEED,
-        "split_style": "stratified_source_node_half_complement",
-        "experiments": {},
-    }
-    for experiment in experiments:
-        if experiment not in manifest:
-            raise KeyError(f"{experiment} is not present in the evaluation manifest")
-        result_paths = {name: Path(path) for name, path in manifest[experiment].items()}
-        missing = [str(path) for path in result_paths.values() if not path.exists()]
-        if missing:
-            raise FileNotFoundError(
-                f"missing artifacts for {experiment}: {', '.join(missing)}"
-            )
-
-        metric_results = {}
-        split_results = {}
-        for method_name, path in result_paths.items():
-            metrics, split_info = metrics_for_artifact(path)
-            metric_results[method_name] = metrics
-            split_results[method_name] = split_info
-        details["experiments"][experiment] = {
-            "slice": SLICE,
-            "results": metric_results,
-            "split": split_results,
-            "_thresholds": CLAIM_THRESHOLDS,
-        }
-        scores[experiment] = {
-            "results": {
-                method_name: official_scores(metrics)
-                for method_name, metrics in metric_results.items()
-            }
-        }
-
-    out_path = Path(args.output)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    with out_path.open("w", encoding="utf-8") as handle:
-        json.dump(scores, handle, indent=2, sort_keys=True)
-        handle.write("\n")
-    details_path = out_path.with_name("details_test.json")
-    with details_path.open("w", encoding="utf-8") as handle:
-        json.dump(details, handle, indent=2, sort_keys=True)
-        handle.write("\n")
+    scores, details = evaluate()
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(json.dumps(scores, indent=2, sort_keys=True) + "\n")
+    details_path = args.details or args.output.with_name(f"details_{SLICE}.json")
+    details_path.write_text(json.dumps(details, indent=2, sort_keys=True) + "\n")
 
 
 if __name__ == "__main__":

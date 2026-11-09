@@ -1,24 +1,16 @@
 #!/bin/bash
-# Evaluation script — the standard way to evaluate work in this environment.
+# Paper-setting evaluation: runs every registered method (outputs/**/method.json)
+# on the exact Appendix D.1.1 directed trees (depth 7 and depth 5) and writes
+# scoring/scores.json and scoring/details.json.
 #
-# This script must be SELF-CONTAINED using only code in eval/.
-# Do NOT import from method/ — evaluate.sh must work even when the
-# paper's method code is hidden from a scientist agent.
+# This script is SELF-CONTAINED: it only uses code in eval/ and never imports
+# method/. A method takes part by writing a method card, see
+# briefing/evaluation.md for the interface:
+#   outputs/<name>/method.json = {"name": "<name>", "command": ["python", "-m", "..."]}
+# The frozen Euclidean SMACOF baseline (euclidean_mds) is always included.
 #
-# Design it so that anyone following the same output format can run
-# this script to evaluate their results.
-#
-# OUTPUT CONTRACT: This script MUST write scoring/scores.json containing
-# a JSON dict nested by experiment, e.g.:
-#   {"imagenet_classification": {"top1_accuracy": 82.1, "top5_accuracy": 94.8}}
-# Experiment and metric names must match the keys in scoring/reference.json.
-# This file is read by the system for automated comparison.
-#
-# Example usage:
-#   ./evaluate.sh <method_and_run_name>                             # evaluate with defaults
-#   ./evaluate.sh <method_and_run_name> checkpoints/epoch_10.pt     # evaluate a specific checkpoint
-#
-# Called from run.sh after training, or independently.
+# Usage:
+#   bash scripts/evaluate.sh
 
 set -e
 
@@ -26,6 +18,7 @@ cd /home/user
 
 mkdir -p scoring
 
-python -m eval.tree_metrics \
+python -m eval.train.evaluate \
+  --instances paper \
   --output scoring/scores.json \
-  "$@"
+  --details scoring/details.json

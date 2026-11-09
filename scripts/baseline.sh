@@ -1,32 +1,16 @@
 #!/bin/bash
-# Run a baseline method from the paper.
+# Euclidean SMACOF baseline (symmetric 2D embedding of the directed distances).
 #
-# Baselines are simple reference methods the paper compares against. 
-# Implement this only if applicable, i.e. the paper has baselines.
-# You do not need to implement all baselines to begin — 
-# just enough to validate that the evaluation pipeline works 
-# and provide a reference point. You can decide to expand more baselines later.
-# Each baseline must be actually run and scored through evaluate.sh
-# so the numbers are verified, not self-reported.
-# You can decide what this baseline script should do yourself.
+# Every evaluator scores its own frozen copy of this baseline under the name
+# `euclidean_mds`, so it cannot be altered by editing baseline/. baseline/embed.py
+# is the public copy and doubles as a template for the method interface.
+# Running the paper-setting evaluation therefore runs and scores the baseline.
 #
 # Usage:
-#   bash scripts/baseline.sh <name>
+#   bash scripts/baseline.sh
 
 set -e
 
 cd /home/user
 
-python -m baseline.run_tree_baseline \
-  --depth 7 \
-  --dim 2 \
-  --max-iter 350 \
-  --seed 0 \
-  --output outputs/euclidean_tree
-
-python -m baseline.run_tree_baseline \
-  --depth 5 \
-  --dim 2 \
-  --max-iter 300 \
-  --seed 1 \
-  --output outputs/euclidean_tree_depth5
+bash scripts/evaluate.sh

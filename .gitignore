@@ -68,7 +68,12 @@ docker_*.tar.xz
 # Swarm/worker artifacts
 trajectory/
 .empty_*/
-outputs/
+# Method outputs are generated, except the reference method card that the
+# evaluators discover (outputs/finsler_mds/method.json).
+outputs/*
+!outputs/finsler_mds/
+outputs/finsler_mds/*
+!outputs/finsler_mds/method.json
 logs/
 .venv/
 venv/

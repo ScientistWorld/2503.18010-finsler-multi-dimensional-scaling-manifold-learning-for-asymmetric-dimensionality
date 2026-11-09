@@ -1,7 +1,10 @@
 #!/bin/bash
-# Run the paper's proposed method.
+# Register the paper's method (Finsler MDS: canonical Randers SMACOF, alpha 0.5,
+# Isomap initialisation, uniform weights) with the evaluators and score it on
+# the paper's exact trees.
 #
-# This script trains/runs the paper's method using code in method/.
+# The evaluators run the registered command on every instance themselves, so
+# registering is all a method needs to do.
 #
 # Usage:
 #   bash scripts/method.sh
@@ -10,20 +13,13 @@ set -e
 
 cd /home/user
 
-python -m method.run_tree_experiment \
-  --depth 7 \
-  --alpha 0.5 \
-  --dim 2 \
-  --max-iter 350 \
-  --seed 0 \
-  --output outputs/finsler_tree
-
-python -m method.run_tree_experiment \
-  --depth 5 \
-  --alpha 0.5 \
-  --dim 2 \
-  --max-iter 300 \
-  --seed 1 \
-  --output outputs/finsler_tree_depth5
+mkdir -p outputs/finsler_mds
+cat > outputs/finsler_mds/method.json <<'JSON'
+{
+  "name": "finsler_mds",
+  "command": ["python", "-m", "method.embed", "--alpha", "0.5", "--max-iter", "500", "--eps", "1e-5"],
+  "description": "Finsler SMACOF in the 2D canonical Randers space (alpha 0.5), Isomap initialisation, uniform weights."
+}
+JSON
 
 bash scripts/evaluate.sh
