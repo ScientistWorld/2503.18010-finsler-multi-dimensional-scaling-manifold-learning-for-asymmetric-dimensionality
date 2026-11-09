@@ -1,2 +1,8 @@
-action: done
-notes: "Audit committed as d8d3e00: 22 runs, pool-dependent quality signal, three-seed spread, four paying shortcuts, and original gym files restored. See REDTEAM.md."
+# Once you set action to 'submit' or 'done', STOP immediately.
+# Do NOT sleep, poll, or wait for jobs. The system reads this file
+# only after your turn ends.
+action: pending
+gpus: 0
+test: false
+milestone: core_claim_plus
+notes: ""
