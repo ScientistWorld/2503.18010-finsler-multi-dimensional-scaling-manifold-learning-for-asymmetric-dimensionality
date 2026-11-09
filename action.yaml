@@ -1,8 +1,6 @@
 # Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends.
-action: submit
-gpus: 0
-test: false
+action: done
 milestone: core_claim_plus
-notes: "Hardening check: reference on hardened train/test/paper slices, audit of better/weaker variants and shortcuts through evaluate_*.sh, final reference-only scoring + validate."
+notes: "Hardened: methods run on hidden jittered trees, scores recomputed from 2D embeddings with an eligibility gate; all paying shortcuts now fail; corrected-majorization SMACOF beats the reference by 177x seed noise; see HARDENING.md."

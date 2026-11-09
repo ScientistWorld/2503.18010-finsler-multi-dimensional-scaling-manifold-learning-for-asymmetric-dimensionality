@@ -21,15 +21,35 @@ Traditional MDS uses symmetric Euclidean or Riemannian distances, which cannot r
 
 ## Research Question
 
-Given a set of objects with pairwise dissimilarities that can be asymmetric, find a low-dimensional embedding whose directed pairwise distances preserve those dissimilarities. The benchmark focuses on directed graph distances, where the shortest path from node `i` to node `j` may differ from the reverse path.
+Given a set of objects with pairwise dissimilarities that can be asymmetric, find a low-dimensional embedding whose directed pairwise distances preserve those dissimilarities. The benchmark uses directed graph distances, where the shortest path from node `i` to node `j` may differ from the reverse path.
+
+## The Benchmark Graphs
+
+Each instance is a complete binary tree (depth 7: 255 nodes, or depth 5: 63 nodes) whose directed edges model a hierarchy: moving down a level (parent to child) is cheap, moving up (child to parent) costs about 2.5-3 times more, and all nodes on the same level are linked by short undirected edges. Directed shortest-path distances on this graph form the dissimilarity matrix `D` (row = source node).
+
+- The paper's exact setting uses weights 0.5 (down), 1.5 (up) and 0.1 (same level) on every level.
+- The train and test instances keep the same topology but draw each level's weights around those values (down-edge scale in [0.8, 1.2] x 0.5, up/down ratio in [2.5, 3.0], same-level weight in [0.6, 1.4] x 0.1) and shuffle the node labels, so node indices carry no information. `data/directed_tree.py` (`sample_hierarchy_instance`) generates trees from this family for development.
+
+A method receives only `D` (and a seed). It does not receive the tree, the levels or the edge weights.
+
+## What a Solution Returns
+
+Two-dimensional coordinates `x_i` for every node and one constant drift vector `w` with `||w|| < 1`. Directed distances are then read off as
+
+    d(i -> j) = ||x_j - x_i|| + w . (x_j - x_i)
+
+which is the ordinary Euclidean plane when `w = 0`. The evaluator computes every distance from these coordinates itself.
 
 ## Why It Matters
 
-Many relationships are directional: hierarchy, road or current travel time, citations, links, and information flow. A useful low-dimensional representation should preserve both proximity and directionality so that visualization, reconstruction, and link analysis do not discard the signal carried by asymmetry.
+Many relationships are directional: hierarchy, travel time against a current, citations, links, information flow. A useful low-dimensional representation should preserve both proximity and direction, so that visualisation and reconstruction do not discard the signal carried by asymmetry.
 
 ## Success Criteria
 
-A successful system produces low-dimensional coordinates whose induced directed distances have low reconstruction error against the target directed shortest-path distances, preserve nearest-neighbour rankings, and retain the asymmetric component that a symmetric embedding cannot represent.
+A successful method produces, on every instance, coordinates whose induced directed distances
+- reproduce the target distances globally and locally (low stress and low distortion),
+- retain the asymmetric component that a symmetric embedding cannot represent, and
+- place nodes so that the direction of the hierarchy can be read from the geometry.
 
 ---
 
@@ -56,26 +76,53 @@ Secondary claims: the same framework supports intuitive visualizations of asymme
 
 # Evaluation
 
-## Metrics
+## How Methods Are Evaluated
 
-- `normalized_stress`: square-root stress normalized by the squared target dissimilarities. Lower is better.
-- `map_at_10`: mean average precision of the top-10 nearest directed neighbours under the predicted distances. Higher is better.
-- `asymmetry_rmse`: RMSE between target and predicted antisymmetric distance components, `D_ij - D_ji`. Lower is better.
-- `symmetric_rmse`: RMSE between target and predicted symmetric distance components. Lower is better.
-- `hierarchy_alignment`: absolute Spearman correlation between the embedding's final coordinate and tree depth on the hierarchy benchmark. Higher is better.
-- `distance_preservation_pass`: threshold-clearance score derived from normalized stress; zero means the reconstruction error did not clear the Figure 5 claim threshold. Higher is better.
-- `asymmetry_preservation_pass`: binary Figure 5 claim check derived from asymmetry RMSE. Higher is better.
-- `hierarchy_direction_pass`: binary Figure 5 claim check derived from hierarchy alignment. Higher is better.
+The evaluators **run your method** on the instances themselves; they never read results you computed in advance.
+
+1. Register the method with a card anywhere under `outputs/`, e.g. `outputs/my_method/method.json`:
+
+   ```json
+   {"name": "my_method", "command": ["python", "-m", "my_package.embed", "--some-flag"]}
+   ```
+
+2. The evaluator appends `--instances <dir> --output <dir>` and runs the command from the workspace root (no network, one CPU, at most 3600 s for all instances of a slice).
+3. `<instances>/index.json` lists `{"id", "file"}` entries; each instance file (`.npz`) holds `dissimilarities` (N x N directed distances, row = source) and an integer `seed`.
+4. For every instance the method writes `<output>/<id>.npz` with
+   - `embedding`: finite array of shape (N, 2), and
+   - `drift`: 2-vector with norm < 1 (or `alpha`: a scalar, meaning drift `(0, alpha)`).
+
+   Everything else in the file is ignored. Predicted directed distances are `d(i -> j) = ||x_j - x_i|| + drift . (x_j - x_i)`.
+
+`baseline/embed.py` is a complete example of the interface.
+
+Scripts (no arguments):
+- `bash scripts/evaluate.sh`: the paper's exact trees (depth 7 and depth 5), written to `scoring/scores.json`.
+- `bash scripts/evaluate_train.sh`: the visible instance family (8 depth-7 and 12 depth-5 trees), written to `scoring/scores_train.json`.
+- `bash scripts/evaluate_test.sh`: hidden instances from the same family (more of them), written to `scoring/scores_test.json`.
+
+Every score file also contains `euclidean_mds`, a symmetric Euclidean SMACOF baseline that the evaluator runs from its own frozen copy.
+
+## Metrics (per instance, averaged over the experiment's instances)
+
+- `normalized_stress` (lower is better): `sqrt(sum (d - D)^2 / sum D^2)` over all ordered node pairs. Global reconstruction error.
+- `distortion` (lower is better): mean over ordered pairs of `(d - D)^2 / D`, the distortion measure of the paper's digraph experiments. It weights short distances, so it reflects local structure.
+- `symmetric_rmse` (lower is better): RMSE of `(d_ij + d_ji)/2` against `(D_ij + D_ji)/2`.
+- `asymmetry_rmse` (lower is better): RMSE of `d_ij - d_ji` against `D_ij - D_ji`.
+- `distance_preservation_pass` (higher is better): `clip(1 - normalized_stress / 0.10, 0, 1)`.
+- `asymmetry_preservation_pass`, `hierarchy_direction_pass` (higher is better): fraction of instances meeting `asymmetry_rmse <= 0.10` and `hierarchy_alignment >= 0.80`.
+- Diagnostics, reported but not weighted:
+  - `map_at_10`: tie-aware MAP of the 10 nearest directed neighbours.
+  - `asymmetry_correlation`.
+  - `hierarchy_alignment`: signed agreement, over pairs of nodes on different levels, between the hierarchy and each node's uphill potential (total incoming minus total outgoing predicted distance). It is 0 for symmetric distances.
+
+## Eligibility
+
+A method is eligible only if, on **every** instance of **both** experiments, it returns a valid output (right shape, finite, drift norm < 1, command exited with status 0) and meets all of: `normalized_stress <= 0.10`, `distortion <= 0.10`, `asymmetry_rmse <= 0.10`, `hierarchy_alignment >= 0.80`. A method that is not eligible is scored as failed: every metric of every experiment takes the value of the empty (all-zero) prediction, which is worse than any eligible value.
 
 ## Baselines and Targets
 
-The reference baseline is a symmetric Euclidean low-dimensional embedding optimized against the same directed dissimilarity matrix. The paper's larger graph experiments report that directed-distance-preserving embeddings can substantially reduce distortion and improve directed-neighbour ranking compared with symmetric embeddings.
-
-## Evaluation Protocol
-
-For the packaged reproduction, run the fixed directed binary-tree benchmark from the visualization experiments. Generate the graph, compute all-pairs directed shortest-path dissimilarities, run each candidate embedding method with the same seed and embedding dimension, then evaluate only the saved output artifacts with `scripts/evaluate.sh`.
-
-The paper reports the tree result qualitatively rather than as a numeric table. To avoid inventing continuous paper values, `scoring/reference.json` records the qualitative Figure 5 expectations as threshold checks. `scoring/scores.json` records artifact-derived continuous diagnostics plus those claim checks, and `scoring/details.json` keeps the same diagnostics with threshold metadata.
+The symmetric Euclidean baseline cannot represent direction. Its raw stress is about 0.48 and its asymmetry RMSE about 1.5-1.9, so it is not eligible. The paper reports the tree experiment qualitatively. `scoring/reference.json` therefore encodes those qualitative claims as pass checks and keeps the paper's quantitative digraph numbers (other datasets) under `_paper_table1_2d_reconstruction` for context only.
 
 ---
 
@@ -329,6 +376,32 @@ The paper reports the tree result qualitatively rather than as a numeric table. 
 - **Milestone**: `core_claim_plus` | **Status**: done
 - **Working time**: 6m | **GPU**: 0.0h
 - **Jobs**: 11 total (6 completed, 5 failed)
+
+<details>
+<summary>Progress Log</summary>
+
+### [2026-06-12 03:34] - core_claim
+- Reproduced the paper's directed binary-tree Finsler SMACOF hierarchy result in the scheduled container.
+- Verified the evaluator writes artifact-based `scores.json` and passes `python validate.py --compare`.
+
+### [2026-06-12 03:55] - core_claim_plus
+- Added and scored a second directed-tree depth setting.
+- Confirmed the Finsler SMACOF implementation preserves asymmetric distances and hierarchy direction while the Euclidean SMACOF baseline fails those checks.
+
+### [2026-06-12 04:20] - core_claim_plus
+- Continuation audit verified the method is a real implementation of canonical Randers Finsler SMACOF.
+- Fixed evaluator reusability by adding manifest-based artifact scoring for future methods.
+
+### [2026-06-12 04:45] - core_claim_plus
+- CPU job `bfea18f8-f56` completed successfully after the evaluator fix.
+- Verified `scripts/reproduce.sh`, `python validate.py --compare`, and manifest-mode scoring inside the container.
+
+</details>
+
+### Iteration 11: claude-opus-5-5 (hardener)
+- **Milestone**: `core_claim_plus` | **Status**: done
+- **Working time**: 32m | **GPU**: 0.0h
+- **Jobs**: 12 total (7 completed, 5 failed)
 
 <details>
 <summary>Progress Log</summary>

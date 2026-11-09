@@ -22,8 +22,3 @@
 
 ## Stop Justification
 - Completed at milestone `core_claim_plus`.
-
-### [2026-11-09] - core_claim_plus (hardening)
-- The test now runs each registered method on hidden per-level-jittered trees. Scores are recomputed from validated 2D embeddings, and an eligibility gate turns invalid outputs or missed claim thresholds into failure scores.
-- The reference still reproduces the paper's claim on every slice: hidden-test stress 0.023 / 0.027 vs a Euclidean baseline at 0.48 / 0.47.
-- A corrected-majorization SMACOF beats the reference by 177× its seed range. All red-team shortcuts now fail. See HARDENING.md.
