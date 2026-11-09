@@ -1,3 +1,5 @@
+> **Superseded (2026-11-09):** the evaluation design described below (artifact files, source-row split of the public trees) was replaced by the hardened design in `HARDENING.md` and `briefing/evaluation.md` (methods are run on hidden instances; scores are recomputed from 2D embeddings with an eligibility gate).
+
 # Design Notes
 
 ## Checks Performed

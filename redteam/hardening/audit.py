@@ -239,9 +239,13 @@ def summarize() -> None:
     attempts = [m for m in methods if m != BASELINE]
     shortcut_names = [m for m in methods if m.startswith("shortcut_")]
 
+    eligible = [m for m in genuine if details and details["methods"].get(m, {}).get("eligible")]
+
     def ranks_for(method: str) -> dict:
         pool_g = genuine if method in genuine else genuine + [method]
+        pool_e = eligible if method in eligible else eligible + [method]
         return {
+            "rank_eligible_pool": rank(test, contract, pool_e, method, reference),
             "rank_genuine_pool": rank(test, contract, pool_g, method, reference),
             "rank_all_pool": rank(test, contract, attempts if method in attempts else attempts + [method], method, reference),
         }
@@ -265,7 +269,7 @@ def summarize() -> None:
         present = [m for m in members if m in table]
         if not present:
             continue
-        for pool in ("rank_genuine_pool", "rank_all_pool"):
+        for pool in ("rank_eligible_pool", "rank_genuine_pool", "rank_all_pool"):
             vals = [table[m][pool] for m in present]
             seed.setdefault(group, {})[pool] = {
                 "values": vals, "mean": sum(vals) / len(vals), "range": max(vals) - min(vals), "std": _std(vals),
@@ -282,7 +286,7 @@ def summarize() -> None:
         members = SEED_GROUPS[group]
         if not all(m in table for m in members + PAIRED_REFERENCE):
             continue
-        for pool in ("rank_genuine_pool", "rank_all_pool"):
+        for pool in ("rank_eligible_pool", "rank_genuine_pool", "rank_all_pool"):
             diffs = [table[b][pool] - table[r][pool] for b, r in zip(members, PAIRED_REFERENCE)]
             paired.setdefault(group, {})[pool] = {"paired_differences": diffs, "min": min(diffs), "mean": sum(diffs) / len(diffs)}
 
@@ -313,7 +317,7 @@ def summarize() -> None:
     )
     summary = {
         "contract": {exp: {"weight": c["weight"], "metrics": {m: list(v) for m, v in c["metrics"].items()}} for exp, c in contract.items()},
-        "pools": {"genuine": genuine, "all_attempts": attempts},
+        "pools": {"eligible_genuine": eligible, "genuine": genuine, "all_attempts": attempts},
         "methods": table,
         "seed_spread": seed,
         "paired_better_minus_reference": paired,
@@ -324,16 +328,16 @@ def summarize() -> None:
     _dump(RESULTS / "summary.json", summary)
 
     lines = [
-        "| Attempt | Eligible | Rank (genuine pool) | Rank (all pool) | Stress d7 / d5 | Distortion d7 / d5 | Asym RMSE d7 / d5 | Sym RMSE d7 / d5 |",
-        "|---|---|---:|---:|---|---|---|---|",
+        "| Attempt | Eligible | Rank (eligible pool) | Rank (genuine pool) | Rank (all pool) | Stress d7 / d5 | Distortion d7 / d5 | Asym RMSE d7 / d5 | Sym RMSE d7 / d5 |",
+        "|---|---|---:|---:|---:|---|---|---|---|",
     ]
-    exps = list(test)
+    exps = ["directed_tree_reconstruction", "directed_tree_depth5_reconstruction"]
     for method in [REFERENCE] + [m for m in methods if m != REFERENCE]:
         row = table[method]
         def pair(metric):
             return " / ".join(f"{row['test'][e][metric]:.6f}" for e in exps)
         lines.append(
-            f"| {method} | {row['eligible']} | {row['rank_genuine_pool']:+.4f} | {row['rank_all_pool']:+.4f} | "
+            f"| {method} | {row['eligible']} | {row['rank_eligible_pool']:+.4f} | {row['rank_genuine_pool']:+.4f} | {row['rank_all_pool']:+.4f} | "
             f"{pair('normalized_stress')} | {pair('distortion')} | {pair('asymmetry_rmse')} | {pair('symmetric_rmse')} |"
         )
     (RESULTS / "results_table.md").write_text("\n".join(lines) + "\n")

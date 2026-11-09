@@ -1,16 +1,16 @@
 # Research Direction
 
 ## Research Problem
-The benchmark asks how to embed asymmetric dissimilarity data in low dimensions while preserving both proximity and direction. Improvements should address directed distance reconstruction, not general graph drawing aesthetics alone.
+Embed asymmetric dissimilarity data in two dimensions while preserving both proximity and direction. Improvements should reduce directed-distance reconstruction error (global stress and local distortion) while keeping the asymmetric component and the hierarchy direction intact on every instance.
 
 ## Core Contribution
-The paper's core contribution is to use direction-dependent metric geometry for MDS-style embeddings. Future work should remain in the family of asymmetric metric embeddings or closely related directed-distance-preserving objectives.
+The paper's contribution is to use a direction-dependent metric geometry for MDS-style embeddings. Future work should stay within asymmetric metric embeddings of this kind, i.e. two coordinates per node plus one global drift, and improve how such embeddings are found.
 
 ## Approach Scope
-A scientist may improve the optimization procedure, initialization, weighting scheme, distance parameterization, or regularization, as long as the submitted artifact induces directed pairwise distances from low-dimensional coordinates.
+A scientist may improve the optimisation procedure (update rules, convergence, restarts), initialisation, weighting scheme, the choice of drift, or regularisation, as long as the method is a command that embeds unseen instances from their dissimilarity matrices alone.
 
 ## Out of Bounds
-- Replacing the benchmark with node classifiers, link classifiers, or graph neural networks that do not produce directed metric distances between all embedded node pairs.
-- Using graph layout algorithms whose coordinates are not evaluated through a directed distance function.
-- Increasing embedding dimensionality for the primary benchmark.
-- Changing the benchmark graph or evaluation metrics to make the task easier.
+- Returning distances that are not induced by the submitted 2D coordinates and drift.
+- Using more than two coordinates per node, per-node drift, or drift norm >= 1.
+- Precomputing answers for specific instances, or using information other than the provided dissimilarities and seed.
+- Changing the benchmark graphs, instance families, instance counts or evaluation code.

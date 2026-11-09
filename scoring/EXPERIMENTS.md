@@ -1,9 +1,9 @@
 # Experiment Overview
 
 ## directed_tree_reconstruction
-This experiment tests whether a two-dimensional representation can preserve directed graph distances on a hierarchical graph where moving down the hierarchy is cheaper than moving up. It measures overall distance reconstruction, directed-neighbour ranking quality, preservation of asymmetric distance components, and whether the recovered coordinate system reflects the hierarchy ordering.
+Tests whether a two-dimensional representation can preserve directed graph distances on a 255-node hierarchy in which moving down a level is cheap, moving up is expensive and nodes on a level are close to each other. It measures how well all directed distances are reproduced (globally and for short, local distances), whether the directional (asymmetric) part of the distances is kept, and whether the direction of the hierarchy can be read from the geometry. It is scored on the paper's exact tree (`scores.json`), on visible trees with per-level weights drawn around the paper's (`scores_train.json`), and on hidden trees from the same family (`scores_test.json`). A method must solve every instance to be ranked; otherwise it is scored as failed.
 
 ## directed_tree_depth5_reconstruction
-This experiment repeats the same directed-distance reconstruction test on a smaller hierarchy. It is intended to show whether the benchmark behavior persists when the graph size changes, using the same metrics and evaluation rules as the main directed-tree experiment.
+The same measurement on 63-node (depth-5) hierarchies. It checks that the behaviour holds when the graph size changes, using the same metrics, instance families and eligibility rule.
 
-The reference values for these experiments encode qualitative Figure 5 expectations as threshold checks because the paper does not publish numeric tree scores. The reproduced `scores.json` also includes continuous artifact-derived diagnostics so future agents can improve reconstruction quality instead of merely matching saturated pass/fail checks.
+The paper reports these experiments qualitatively. The reference file encodes the qualitative claims as pass checks, and the scored continuous quantities (stress and distortion) are the measures the paper uses for directed-distance reconstruction elsewhere.
