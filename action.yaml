@@ -5,4 +5,4 @@ action: submit
 gpus: 0
 test: false
 milestone: core_claim_plus
-notes: "Calibration job: the previous job showed 2D Finsler SMACOF losing to Euclidean on the new Cora/Citeseer experiments (asymmetry error > 1). Measures reference vs Euclidean SMACOF for the paper's dims 2/5/10 and drifts 0.1-0.5 on the visible citation instances and whole graphs, to redesign the experiment."
+notes: "Restart-safe audit job: official reproduction steps are already certified for the current code (skipped), then the chunked, resumable hardening audit (variants + shortcuts through evaluate_train.sh / evaluate_test.sh, 2D trees + 10D Cora/Citeseer), isolated tamper cases, summary, validate."
