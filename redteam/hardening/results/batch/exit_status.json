@@ -32,6 +32,7 @@
       "key": "0a9f5db80385acc47eb252def60607cdc62da5f2731f4dd17ddef49a10de60aa"
     },
     "test_02": {
+      "attempts": 1,
       "cards": [
         "shortcut_wrong_dim",
         "probe_hybrid",
@@ -47,6 +48,7 @@
       "key": "280e802e9a9be5d48dada8e454ecfe04ed6754af75621a044c547c11d304ff1b"
     },
     "test_03": {
+      "attempts": 1,
       "cards": [
         "shortcut_bad_card",
         "shortcut_crash",
@@ -154,7 +156,7 @@
   },
   "test_consistency": {
     "euclidean_mds": true,
-    "finsler_mds": false
+    "finsler_mds": true
   },
   "train_consistency": {
     "euclidean_mds": true,

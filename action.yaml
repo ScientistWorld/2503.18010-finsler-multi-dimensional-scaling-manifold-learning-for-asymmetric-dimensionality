@@ -5,4 +5,4 @@ action: submit
 gpus: 0
 test: false
 milestone: core_claim_plus
-notes: "Restart-safe audit job: official reproduction steps are already certified for the current code (skipped), then the chunked, resumable hardening audit (variants + shortcuts through evaluate_train.sh / evaluate_test.sh, 2D trees + 10D Cora/Citeseer), isolated tamper cases, summary, validate."
+notes: "Resume the audit: rerun the two hidden-slice chunks that ran out of space in the container /tmp (now TMPDIR on the workspace, with an invariant check), re-merge, summarize, validate. Official steps, other chunks and isolated cases are skipped (stamped)."

@@ -9214,7 +9214,7 @@
         "launch_error": null,
         "log_tail": "d7_00 hybrid {}\nd7_01 hybrid {}\nd7_02 hybrid {}\nd7_03 hybrid {}\nd7_04 hybrid {}\nd7_05 hybrid {}\nd7_06 hybrid {}\nd7_07 hybrid {}\nd7_08 hybrid {}\nd7_09 hybrid {}\nd7_10 hybrid {}\nd7_11 hybrid {}\nd5_00 hybrid {}\nd5_01 hybrid {}\nd5_02 hybrid {}\nd5_03 hybrid {}\nd5_04 hybrid {}\nd5_05 hybrid {}\nd5_06 hybrid {}\nd5_07 hybrid {}\nd5_08 hybrid {}\nd5_09 hybrid {}\nd5_10 hybrid {}\nd5_11 hybrid {}\nd5_12 hybrid {}\nd5_13 hybrid {}\nd5_14 hybrid {}\nd5_15 hybrid {}\nd5_16 hybrid {}\nd5_17 hybrid {}\nd5_18 hybrid {}\nd5_19 hybrid {}\ncora_00 hybrid {}\ncora_01 hybrid {}\ncora_02 hybrid {}\ncora_03 hybrid {}\ncora_04 hybrid {}\ncora_05 hybrid {}\ncora_06 hybrid {}\ncora_07 hybrid {}\ncora_08 hybrid {}\ncora_09 hybrid {}\nciteseer_00 hybrid {}\nciteseer_01 hybrid {}\nciteseer_02 hybrid {}\nciteseer_03 hybrid {}\nciteseer_04 hybrid {}\nciteseer_05 hybrid {}\nciteseer_06 hybrid {}\nciteseer_07 hybrid {}\nciteseer_08 hybrid {}\nciteseer_09 hybrid {}\n",
         "returncode": 0,
-        "runtime_seconds_info_only": 2.62,
+        "runtime_seconds_info_only": 3.46,
         "timed_out": false
       }
     },
@@ -9748,139 +9748,492 @@
         "launch_error": null,
         "log_tail": "d7_00 level_collapse {}\nd7_01 level_collapse {}\nd7_02 level_collapse {}\nd7_03 level_collapse {}\nd7_04 level_collapse {}\nd7_05 level_collapse {}\nd7_06 level_collapse {}\nd7_07 level_collapse {}\nd7_08 level_collapse {}\nd7_09 level_collapse {}\nd7_10 level_collapse {}\nd7_11 level_collapse {}\nd5_00 level_collapse {}\nd5_01 level_collapse {}\nd5_02 level_collapse {}\nd5_03 level_collapse {}\nd5_04 level_collapse {}\nd5_05 level_collapse {}\nd5_06 level_collapse {}\nd5_07 level_collapse {}\nd5_08 level_collapse {}\nd5_09 level_collapse {}\nd5_10 level_collapse {}\nd5_11 level_collapse {}\nd5_12 level_collapse {}\nd5_13 level_collapse {}\nd5_14 level_collapse {}\nd5_15 level_collapse {}\nd5_16 level_collapse {}\nd5_17 level_collapse {}\nd5_18 level_collapse {}\nd5_19 level_collapse {}\ncora_00 level_collapse {}\ncora_01 level_collapse {}\ncora_02 level_collapse {}\ncora_03 level_collapse {}\ncora_04 level_collapse {}\ncora_05 level_collapse {}\ncora_06 level_collapse {}\ncora_07 level_collapse {}\ncora_08 level_collapse {}\ncora_09 level_collapse {}\nciteseer_00 level_collapse {}\nciteseer_01 level_collapse {}\nciteseer_02 level_collapse {}\nciteseer_03 level_collapse {}\nciteseer_04 level_collapse {}\nciteseer_05 level_collapse {}\nciteseer_06 level_collapse {}\nciteseer_07 level_collapse {}\nciteseer_08 level_collapse {}\nciteseer_09 level_collapse {}\n",
         "returncode": 0,
-        "runtime_seconds_info_only": 2.07,
+        "runtime_seconds_info_only": 2.89,
         "timed_out": false
       }
     },
     "ref_seed1": {
-      "eligible": false,
+      "eligible": true,
       "experiments": {
         "citeseer_digraph_reconstruction": {
           "per_instance": {
-            "citeseer_00": null,
-            "citeseer_01": null,
-            "citeseer_02": null,
-            "citeseer_03": null,
-            "citeseer_04": null,
-            "citeseer_05": null,
-            "citeseer_06": null,
-            "citeseer_07": null,
-            "citeseer_08": null,
-            "citeseer_09": null
+            "citeseer_00": {
+              "asymmetry_error": 0.49948618548696755,
+              "distortion": 0.14180925352571555,
+              "map": 0.46124689451265416,
+              "normalized_stress": 0.11025500076556452,
+              "symmetric_error": 0.09577101454073995
+            },
+            "citeseer_01": {
+              "asymmetry_error": 0.43776262266380006,
+              "distortion": 0.12980025819791025,
+              "map": 0.5064512262746377,
+              "normalized_stress": 0.08729213743382354,
+              "symmetric_error": 0.07377242277224894
+            },
+            "citeseer_02": {
+              "asymmetry_error": 0.4167418353949478,
+              "distortion": 0.13255020290800304,
+              "map": 0.46199053231345777,
+              "normalized_stress": 0.09180657235816318,
+              "symmetric_error": 0.07996630376229526
+            },
+            "citeseer_03": {
+              "asymmetry_error": 0.3648242201151792,
+              "distortion": 0.1368772145345497,
+              "map": 0.49054993848085965,
+              "normalized_stress": 0.08326371605453818,
+              "symmetric_error": 0.07174405535442879
+            },
+            "citeseer_04": {
+              "asymmetry_error": 0.4538118336937522,
+              "distortion": 0.14694213361126207,
+              "map": 0.4855518128694785,
+              "normalized_stress": 0.11933166844003333,
+              "symmetric_error": 0.10547472328705328
+            },
+            "citeseer_05": {
+              "asymmetry_error": 0.4406037807131992,
+              "distortion": 0.11883383180100865,
+              "map": 0.503212755840629,
+              "normalized_stress": 0.06657852942907215,
+              "symmetric_error": 0.05473369462843749
+            },
+            "citeseer_06": {
+              "asymmetry_error": 0.2935988669339505,
+              "distortion": 0.10377822996280336,
+              "map": 0.46961984973517484,
+              "normalized_stress": 0.05853416779615837,
+              "symmetric_error": 0.053371148873646974
+            },
+            "citeseer_07": {
+              "asymmetry_error": 0.4886246203810974,
+              "distortion": 0.12938205271347888,
+              "map": 0.5094627799220107,
+              "normalized_stress": 0.079460970403102,
+              "symmetric_error": 0.06514437932737223
+            },
+            "citeseer_08": {
+              "asymmetry_error": 0.28996692045461947,
+              "distortion": 0.12649559200753843,
+              "map": 0.49934970211325547,
+              "normalized_stress": 0.07864283679712995,
+              "symmetric_error": 0.07132148865638874
+            },
+            "citeseer_09": {
+              "asymmetry_error": 0.42745339067907434,
+              "distortion": 0.12126262151152929,
+              "map": 0.4863017373783082,
+              "normalized_stress": 0.07952363706239618,
+              "symmetric_error": 0.06748969915919127
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_error": 0.4112874276516588,
+            "distortion": 0.12877313907737992,
+            "map": 0.4873737229440465,
+            "normalized_stress": 0.08546892365399814,
+            "symmetric_error": 0.0738788930361803
+          }
         },
         "cora_digraph_reconstruction": {
           "per_instance": {
-            "cora_00": null,
-            "cora_01": null,
-            "cora_02": null,
-            "cora_03": null,
-            "cora_04": null,
-            "cora_05": null,
-            "cora_06": null,
-            "cora_07": null,
-            "cora_08": null,
-            "cora_09": null
+            "cora_00": {
+              "asymmetry_error": 0.420671723065623,
+              "distortion": 0.14119337751181935,
+              "map": 0.47911170551857557,
+              "normalized_stress": 0.09889967328985906,
+              "symmetric_error": 0.08527719802422948
+            },
+            "cora_01": {
+              "asymmetry_error": 0.3874795899010292,
+              "distortion": 0.13697896597055123,
+              "map": 0.4017976207564799,
+              "normalized_stress": 0.11169133617665802,
+              "symmetric_error": 0.09816603884933169
+            },
+            "cora_02": {
+              "asymmetry_error": 0.21128433405013394,
+              "distortion": 0.12886939207766526,
+              "map": 0.5025254214142173,
+              "normalized_stress": 0.13197981924575708,
+              "symmetric_error": 0.1292288692623859
+            },
+            "cora_03": {
+              "asymmetry_error": 0.23300881043158767,
+              "distortion": 0.12549682091770187,
+              "map": 0.49048774311799803,
+              "normalized_stress": 0.12522609908240265,
+              "symmetric_error": 0.1215437857640918
+            },
+            "cora_04": {
+              "asymmetry_error": 0.4794695732727538,
+              "distortion": 0.14945701895862518,
+              "map": 0.4953806209030472,
+              "normalized_stress": 0.104392417125382,
+              "symmetric_error": 0.08777863074052827
+            },
+            "cora_05": {
+              "asymmetry_error": 0.45672109066666544,
+              "distortion": 0.12282240938532003,
+              "map": 0.3770073673038699,
+              "normalized_stress": 0.1000518245163557,
+              "symmetric_error": 0.08541600581231693
+            },
+            "cora_06": {
+              "asymmetry_error": 0.47768512674271824,
+              "distortion": 0.1528368971722435,
+              "map": 0.5041222177346008,
+              "normalized_stress": 0.10456493916596997,
+              "symmetric_error": 0.08881283662366005
+            },
+            "cora_07": {
+              "asymmetry_error": 0.4275716293416729,
+              "distortion": 0.11638337928499029,
+              "map": 0.3285276331537407,
+              "normalized_stress": 0.09375939449260497,
+              "symmetric_error": 0.08184453998250259
+            },
+            "cora_08": {
+              "asymmetry_error": 0.5125554179119304,
+              "distortion": 0.14667527363636562,
+              "map": 0.43645266028642943,
+              "normalized_stress": 0.11065495861205096,
+              "symmetric_error": 0.09198953001183649
+            },
+            "cora_09": {
+              "asymmetry_error": 0.399849505585895,
+              "distortion": 0.13322245707812366,
+              "map": 0.438201860817735,
+              "normalized_stress": 0.11106844990876405,
+              "symmetric_error": 0.09765412864305677
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_error": 0.40062968009700095,
+            "distortion": 0.1353935991993406,
+            "map": 0.44536148510066936,
+            "normalized_stress": 0.10922889116158045,
+            "symmetric_error": 0.096771156371394
+          }
         },
         "directed_tree_depth5_reconstruction": {
           "per_instance": {
-            "d5_00": null,
-            "d5_01": null,
-            "d5_02": null,
-            "d5_03": null,
-            "d5_04": null,
-            "d5_05": null,
-            "d5_06": null,
-            "d5_07": null,
-            "d5_08": null,
-            "d5_09": null,
-            "d5_10": null,
-            "d5_11": null,
-            "d5_12": null,
-            "d5_13": null,
-            "d5_14": null,
-            "d5_15": null,
-            "d5_16": null,
-            "d5_17": null,
-            "d5_18": null,
-            "d5_19": null
+            "d5_00": {
+              "asymmetry_correlation": 0.9998944035166779,
+              "asymmetry_rmse": 0.021667506523217344,
+              "distortion": 0.009538234397127834,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02330185260246541,
+              "symmetric_rmse": 0.041507115927601944
+            },
+            "d5_01": {
+              "asymmetry_correlation": 0.99981882826658,
+              "asymmetry_rmse": 0.02773595218440202,
+              "distortion": 0.009840339493150572,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.024629526187975863,
+              "symmetric_rmse": 0.04134795992276132
+            },
+            "d5_02": {
+              "asymmetry_correlation": 0.9999103931735007,
+              "asymmetry_rmse": 0.019610633445077342,
+              "distortion": 0.008820074606049937,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02175678370986297,
+              "symmetric_rmse": 0.03740221795899617
+            },
+            "d5_03": {
+              "asymmetry_correlation": 0.9998405308527314,
+              "asymmetry_rmse": 0.02542454592490066,
+              "distortion": 0.013651939652182709,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.031260618737840556,
+              "symmetric_rmse": 0.050172468666176404
+            },
+            "d5_04": {
+              "asymmetry_correlation": 0.999901871454709,
+              "asymmetry_rmse": 0.02337732374123308,
+              "distortion": 0.013004600872999265,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.027207527991134434,
+              "symmetric_rmse": 0.051934660608836246
+            },
+            "d5_05": {
+              "asymmetry_correlation": 0.9998386525436066,
+              "asymmetry_rmse": 0.02641921682630497,
+              "distortion": 0.012795714746125519,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.030246593030344236,
+              "symmetric_rmse": 0.050120330914242034
+            },
+            "d5_06": {
+              "asymmetry_correlation": 0.9998414106013467,
+              "asymmetry_rmse": 0.026922150418326924,
+              "distortion": 0.014682651642760978,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03266998814588172,
+              "symmetric_rmse": 0.0572003246888365
+            },
+            "d5_07": {
+              "asymmetry_correlation": 0.9998705483786082,
+              "asymmetry_rmse": 0.025210799269935667,
+              "distortion": 0.013461325958934633,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.0291207452234209,
+              "symmetric_rmse": 0.05157760276482844
+            },
+            "d5_08": {
+              "asymmetry_correlation": 0.9998915682744569,
+              "asymmetry_rmse": 0.023853292260135953,
+              "distortion": 0.012674745472341048,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02638461222701732,
+              "symmetric_rmse": 0.04963959715087482
+            },
+            "d5_09": {
+              "asymmetry_correlation": 0.999833422838327,
+              "asymmetry_rmse": 0.028061138520043414,
+              "distortion": 0.014953855398612817,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.0318001116279488,
+              "symmetric_rmse": 0.056789926642659395
+            },
+            "d5_10": {
+              "asymmetry_correlation": 0.9999093326604276,
+              "asymmetry_rmse": 0.02164272963607206,
+              "distortion": 0.011139297696976132,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.023838042032607056,
+              "symmetric_rmse": 0.044196551691951434
+            },
+            "d5_11": {
+              "asymmetry_correlation": 0.9998936043351363,
+              "asymmetry_rmse": 0.02370819684682802,
+              "distortion": 0.012352242704773376,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.025907539950927448,
+              "symmetric_rmse": 0.04682105857913748
+            },
+            "d5_12": {
+              "asymmetry_correlation": 0.999814633588886,
+              "asymmetry_rmse": 0.02793491326146045,
+              "distortion": 0.014535771768057985,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.033900991779417286,
+              "symmetric_rmse": 0.05666962938692642
+            },
+            "d5_13": {
+              "asymmetry_correlation": 0.999799271240359,
+              "asymmetry_rmse": 0.02602169753552165,
+              "distortion": 0.00919278228426187,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.027228778345008125,
+              "symmetric_rmse": 0.042108572719992125
+            },
+            "d5_14": {
+              "asymmetry_correlation": 0.9998665758526378,
+              "asymmetry_rmse": 0.025817790952597553,
+              "distortion": 0.01388761965404637,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.030072280972175423,
+              "symmetric_rmse": 0.05366943140758057
+            },
+            "d5_15": {
+              "asymmetry_correlation": 0.9999134087898701,
+              "asymmetry_rmse": 0.01725571482493227,
+              "distortion": 0.00818073434097821,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02261147440778413,
+              "symmetric_rmse": 0.03354806876909737
+            },
+            "d5_16": {
+              "asymmetry_correlation": 0.9999140673379553,
+              "asymmetry_rmse": 0.02176768244999662,
+              "distortion": 0.008552511279283368,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.01985207269085807,
+              "symmetric_rmse": 0.03743381861763061
+            },
+            "d5_17": {
+              "asymmetry_correlation": 0.9998783761798523,
+              "asymmetry_rmse": 0.026349647500789785,
+              "distortion": 0.013949902520639504,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02721799265719899,
+              "symmetric_rmse": 0.05194853912723675
+            },
+            "d5_18": {
+              "asymmetry_correlation": 0.9999246925806331,
+              "asymmetry_rmse": 0.018610397495175207,
+              "distortion": 0.008573335349273447,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02003531146975921,
+              "symmetric_rmse": 0.03597045068095975
+            },
+            "d5_19": {
+              "asymmetry_correlation": 0.9998276028185845,
+              "asymmetry_rmse": 0.024943989447535835,
+              "distortion": 0.01275147114225559,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03170234614052391,
+              "symmetric_rmse": 0.05012137240439995
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_correlation": 0.9998691597642443,
+            "asymmetry_rmse": 0.024116765953224338,
+            "distortion": 0.011826957549041558,
+            "hierarchy_alignment": 1.0,
+            "map_at_10": 1.0,
+            "normalized_stress": 0.027037259496507593,
+            "symmetric_rmse": 0.04700898493153628
+          }
         },
         "directed_tree_reconstruction": {
           "per_instance": {
-            "d7_00": null,
-            "d7_01": null,
-            "d7_02": null,
-            "d7_03": null,
-            "d7_04": null,
-            "d7_05": null,
-            "d7_06": null,
-            "d7_07": null,
-            "d7_08": null,
-            "d7_09": null,
-            "d7_10": null,
-            "d7_11": null
+            "d7_00": {
+              "asymmetry_correlation": 0.9998315461744868,
+              "asymmetry_rmse": 0.02854026285416241,
+              "distortion": 0.01532401056090005,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.0306163260908343,
+              "symmetric_rmse": 0.05617373690403052
+            },
+            "d7_01": {
+              "asymmetry_correlation": 0.9998436108139825,
+              "asymmetry_rmse": 0.028283937915294818,
+              "distortion": 0.01247076005140408,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.027529282532977532,
+              "symmetric_rmse": 0.05037883667067553
+            },
+            "d7_02": {
+              "asymmetry_correlation": 0.9998691381167438,
+              "asymmetry_rmse": 0.026239101699350276,
+              "distortion": 0.01164085480335664,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.023711046171797874,
+              "symmetric_rmse": 0.044898106571293665
+            },
+            "d7_03": {
+              "asymmetry_correlation": 0.9998684310410126,
+              "asymmetry_rmse": 0.026198657561999277,
+              "distortion": 0.011916988031039865,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.023334206438926038,
+              "symmetric_rmse": 0.043816667845240985
+            },
+            "d7_04": {
+              "asymmetry_correlation": 0.9999362554545379,
+              "asymmetry_rmse": 0.019211505975470743,
+              "distortion": 0.00847000363533107,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.01807842277825009,
+              "symmetric_rmse": 0.034863907724491126
+            },
+            "d7_05": {
+              "asymmetry_correlation": 0.9999415396467196,
+              "asymmetry_rmse": 0.01784842390396721,
+              "distortion": 0.00872132103932759,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.017827836701136548,
+              "symmetric_rmse": 0.03380526606046834
+            },
+            "d7_06": {
+              "asymmetry_correlation": 0.999886107632778,
+              "asymmetry_rmse": 0.02350309315410235,
+              "distortion": 0.010450783674798141,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02225887865921046,
+              "symmetric_rmse": 0.039927535740965345
+            },
+            "d7_07": {
+              "asymmetry_correlation": 0.9999193329074374,
+              "asymmetry_rmse": 0.021556432140940912,
+              "distortion": 0.010208535463632146,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.020808385357788794,
+              "symmetric_rmse": 0.04035439506059561
+            },
+            "d7_08": {
+              "asymmetry_correlation": 0.9999006724801354,
+              "asymmetry_rmse": 0.023611863161557115,
+              "distortion": 0.013301012940104651,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.025003361538771356,
+              "symmetric_rmse": 0.04848616845313574
+            },
+            "d7_09": {
+              "asymmetry_correlation": 0.9999039996571272,
+              "asymmetry_rmse": 0.025910434785033302,
+              "distortion": 0.010665656773369999,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02184085675122387,
+              "symmetric_rmse": 0.045817057109876505
+            },
+            "d7_10": {
+              "asymmetry_correlation": 0.9999094281704447,
+              "asymmetry_rmse": 0.022960983810931448,
+              "distortion": 0.012072675849581466,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.022686418608584946,
+              "symmetric_rmse": 0.044519577569957496
+            },
+            "d7_11": {
+              "asymmetry_correlation": 0.9999283452017935,
+              "asymmetry_rmse": 0.019477110859483893,
+              "distortion": 0.010476453463360898,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.0212933800738795,
+              "symmetric_rmse": 0.04026125514825152
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_correlation": 0.9998948672747666,
+            "asymmetry_rmse": 0.023611817318524478,
+            "distortion": 0.011309921357183885,
+            "hierarchy_alignment": 1.0,
+            "map_at_10": 1.0,
+            "normalized_stress": 0.022915700141948447,
+            "symmetric_rmse": 0.043608542571581865
+          }
         }
       },
-      "failure_reasons": [
-        "command exited with status 1",
-        "d7_00: unreadable output (EOFError: No data left in file)",
-        "d7_01: missing output file",
-        "d7_02: missing output file",
-        "d7_03: missing output file",
-        "d7_04: missing output file",
-        "d7_05: missing output file",
-        "d7_06: missing output file",
-        "d7_07: missing output file",
-        "d7_08: missing output file",
-        "d7_09: missing output file",
-        "d7_10: missing output file",
-        "d7_11: missing output file",
-        "d5_00: missing output file",
-        "d5_01: missing output file",
-        "d5_02: missing output file",
-        "d5_03: missing output file",
-        "d5_04: missing output file",
-        "d5_05: missing output file",
-        "d5_06: missing output file",
-        "d5_07: missing output file",
-        "d5_08: missing output file",
-        "d5_09: missing output file",
-        "d5_10: missing output file",
-        "d5_11: missing output file",
-        "d5_12: missing output file",
-        "d5_13: missing output file",
-        "d5_14: missing output file",
-        "d5_15: missing output file",
-        "d5_16: missing output file",
-        "d5_17: missing output file",
-        "d5_18: missing output file",
-        "d5_19: missing output file",
-        "cora_00: missing output file",
-        "cora_01: missing output file",
-        "cora_02: missing output file",
-        "cora_03: missing output file",
-        "cora_04: missing output file",
-        "cora_05: missing output file",
-        "cora_06: missing output file",
-        "cora_07: missing output file",
-        "cora_08: missing output file",
-        "cora_09: missing output file",
-        "citeseer_00: missing output file",
-        "citeseer_01: missing output file",
-        "citeseer_02: missing output file",
-        "citeseer_03: missing output file",
-        "citeseer_04: missing output file",
-        "citeseer_05: missing output file",
-        "citeseer_06: missing output file"
-      ],
-      "n_failure_reasons": 53,
+      "failure_reasons": [],
+      "n_failure_reasons": 0,
       "run": {
         "card": "outputs/audit/ref_seed1/method.json",
         "command": [
@@ -9897,9 +10250,9 @@
           "1"
         ],
         "launch_error": null,
-        "log_tail": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 785, in _savez\n    with zipf.open(fname, 'w', force_zip64=True) as fid:\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1234, in close\n    self._fileobj.seek(self._zinfo.header_offset)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1925, in close\n    self.fp.seek(self.start_dir)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/home/user/method/embed.py\", line 96, in <module>\n    main()\n  File \"/home/user/method/embed.py\", line 87, in main\n    np.savez_compressed(\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 753, in savez_compressed\n    _savez(file, args, kwds, True, allow_pickle=allow_pickle)\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 790, in _savez\n    zipf.close()\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1930, in close\n    self._fpclose(fp)\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 2030, in _fpclose\n    fp.close()\nOSError: [Errno 28] No space left on device\n",
-        "returncode": 1,
-        "runtime_seconds_info_only": 1.65,
+        "log_tail": "",
+        "returncode": 0,
+        "runtime_seconds_info_only": 57.07,
         "timed_out": false
       }
     },
@@ -10403,67 +10756,367 @@
         "launch_error": null,
         "log_tail": "",
         "returncode": 0,
-        "runtime_seconds_info_only": 64.27,
+        "runtime_seconds_info_only": 56.41,
         "timed_out": false
       }
     },
     "ref_seed3": {
-      "eligible": false,
+      "eligible": true,
       "experiments": {
         "citeseer_digraph_reconstruction": {
           "per_instance": {
-            "citeseer_00": null,
-            "citeseer_01": null,
-            "citeseer_02": null,
-            "citeseer_03": null,
-            "citeseer_04": null,
-            "citeseer_05": null,
-            "citeseer_06": null,
-            "citeseer_07": null,
-            "citeseer_08": null,
-            "citeseer_09": null
+            "citeseer_00": {
+              "asymmetry_error": 0.49948746572194697,
+              "distortion": 0.1420112787776282,
+              "map": 0.4618635919720136,
+              "normalized_stress": 0.11031429261300037,
+              "symmetric_error": 0.09584004143656705
+            },
+            "citeseer_01": {
+              "asymmetry_error": 0.43777270137868185,
+              "distortion": 0.12968285441387842,
+              "map": 0.5084952688012904,
+              "normalized_stress": 0.0872578399544305,
+              "symmetric_error": 0.07373064812825562
+            },
+            "citeseer_02": {
+              "asymmetry_error": 0.4167358772849415,
+              "distortion": 0.13214264349971308,
+              "map": 0.46218487788876766,
+              "normalized_stress": 0.09171011413144657,
+              "symmetric_error": 0.07985456337563333
+            },
+            "citeseer_03": {
+              "asymmetry_error": 0.36482639946653983,
+              "distortion": 0.13719155778194725,
+              "map": 0.4878209115184808,
+              "normalized_stress": 0.08329261278022888,
+              "symmetric_error": 0.07177790763242663
+            },
+            "citeseer_04": {
+              "asymmetry_error": 0.45418632588208757,
+              "distortion": 0.14682349555033583,
+              "map": 0.46166813730712647,
+              "normalized_stress": 0.11781483643514339,
+              "symmetric_error": 0.1037007000912965
+            },
+            "citeseer_05": {
+              "asymmetry_error": 0.4406076698900719,
+              "distortion": 0.11940496844992506,
+              "map": 0.4940233192362054,
+              "normalized_stress": 0.06666356923717474,
+              "symmetric_error": 0.05483765201694055
+            },
+            "citeseer_06": {
+              "asymmetry_error": 0.29359663187306495,
+              "distortion": 0.10348358345092078,
+              "map": 0.4755085523329445,
+              "normalized_stress": 0.0585571841640839,
+              "symmetric_error": 0.053396652722248195
+            },
+            "citeseer_07": {
+              "asymmetry_error": 0.4886205755143985,
+              "distortion": 0.12957757729868952,
+              "map": 0.503348868660047,
+              "normalized_stress": 0.07947462552132344,
+              "symmetric_error": 0.06516145316483163
+            },
+            "citeseer_08": {
+              "asymmetry_error": 0.2899581443612815,
+              "distortion": 0.12668739346748534,
+              "map": 0.49300006926938156,
+              "normalized_stress": 0.07863486679312952,
+              "symmetric_error": 0.07131307950183721
+            },
+            "citeseer_09": {
+              "asymmetry_error": 0.42742881001180494,
+              "distortion": 0.12002101691320126,
+              "map": 0.49683855930445153,
+              "normalized_stress": 0.07965403038265498,
+              "symmetric_error": 0.06764639034961488
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_error": 0.41132206013848194,
+            "distortion": 0.12870263696037246,
+            "map": 0.4844752156290708,
+            "normalized_stress": 0.08533739720126163,
+            "symmetric_error": 0.07372590884196516
+          }
         },
         "cora_digraph_reconstruction": {
           "per_instance": {
-            "cora_00": null,
-            "cora_01": null,
-            "cora_02": null,
-            "cora_03": null,
-            "cora_04": null,
-            "cora_05": null,
-            "cora_06": null,
-            "cora_07": null,
-            "cora_08": null,
-            "cora_09": null
+            "cora_00": {
+              "asymmetry_error": 0.42070895726766766,
+              "distortion": 0.14152235531789914,
+              "map": 0.4723153876912237,
+              "normalized_stress": 0.09885065386357335,
+              "symmetric_error": 0.08521673120177109
+            },
+            "cora_01": {
+              "asymmetry_error": 0.3874774846303907,
+              "distortion": 0.13697279119673741,
+              "map": 0.3931336048783093,
+              "normalized_stress": 0.1116311439455444,
+              "symmetric_error": 0.09809630671224503
+            },
+            "cora_02": {
+              "asymmetry_error": 0.21128582623168107,
+              "distortion": 0.1289706270932047,
+              "map": 0.5037736162137478,
+              "normalized_stress": 0.13205203471071147,
+              "symmetric_error": 0.12930450299116455
+            },
+            "cora_03": {
+              "asymmetry_error": 0.2330057317734492,
+              "distortion": 0.1257937900020382,
+              "map": 0.4941911663149303,
+              "normalized_stress": 0.12534866047729887,
+              "symmetric_error": 0.12167316533305045
+            },
+            "cora_04": {
+              "asymmetry_error": 0.4794814593239751,
+              "distortion": 0.14966135238098657,
+              "map": 0.4845434998343661,
+              "normalized_stress": 0.10432916409943511,
+              "symmetric_error": 0.08770135173018928
+            },
+            "cora_05": {
+              "asymmetry_error": 0.4567309335216258,
+              "distortion": 0.1228069402673781,
+              "map": 0.36976298804102214,
+              "normalized_stress": 0.09998337277970804,
+              "symmetric_error": 0.08533399805891147
+            },
+            "cora_06": {
+              "asymmetry_error": 0.47768513194977846,
+              "distortion": 0.15285694051761492,
+              "map": 0.5067477412741835,
+              "normalized_stress": 0.10456849384117778,
+              "symmetric_error": 0.08881708002539883
+            },
+            "cora_07": {
+              "asymmetry_error": 0.42757288302140195,
+              "distortion": 0.1167620212165812,
+              "map": 0.3233518684311185,
+              "normalized_stress": 0.09381818198534256,
+              "symmetric_error": 0.08191260970950452
+            },
+            "cora_08": {
+              "asymmetry_error": 0.5131914643635226,
+              "distortion": 0.14347991997059206,
+              "map": 0.4011712015358499,
+              "normalized_stress": 0.10650764230958727,
+              "symmetric_error": 0.08682152992118893
+            },
+            "cora_09": {
+              "asymmetry_error": 0.3998537351086626,
+              "distortion": 0.13316535864808063,
+              "map": 0.4392627185080572,
+              "normalized_stress": 0.11104470708605285,
+              "symmetric_error": 0.0976262822561391
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_error": 0.4006993607192156,
+            "distortion": 0.13519920966111126,
+            "map": 0.4388253792722808,
+            "normalized_stress": 0.10881340550984317,
+            "symmetric_error": 0.09625035579395633
+          }
         },
         "directed_tree_depth5_reconstruction": {
           "per_instance": {
-            "d5_00": null,
-            "d5_01": null,
-            "d5_02": null,
-            "d5_03": null,
-            "d5_04": null,
-            "d5_05": null,
-            "d5_06": null,
-            "d5_07": null,
-            "d5_08": null,
-            "d5_09": null,
-            "d5_10": null,
-            "d5_11": null,
-            "d5_12": null,
-            "d5_13": null,
-            "d5_14": null,
-            "d5_15": null,
-            "d5_16": null,
-            "d5_17": null,
-            "d5_18": null,
-            "d5_19": null
+            "d5_00": {
+              "asymmetry_correlation": 0.9998958820773717,
+              "asymmetry_rmse": 0.021524913188333276,
+              "distortion": 0.009529539149538694,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.023301952481238692,
+              "symmetric_rmse": 0.04152584961023447
+            },
+            "d5_01": {
+              "asymmetry_correlation": 0.9998189657903044,
+              "asymmetry_rmse": 0.0276958381091112,
+              "distortion": 0.009863634890702662,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.024640857693208874,
+              "symmetric_rmse": 0.04137584083420547
+            },
+            "d5_02": {
+              "asymmetry_correlation": 0.9999103675614291,
+              "asymmetry_rmse": 0.01961781254345321,
+              "distortion": 0.008798328304564673,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02177648924786409,
+              "symmetric_rmse": 0.03743748063271459
+            },
+            "d5_03": {
+              "asymmetry_correlation": 0.9998436934013515,
+              "asymmetry_rmse": 0.025282883455534894,
+              "distortion": 0.013679892682987591,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03129074542278194,
+              "symmetric_rmse": 0.050241798804651586
+            },
+            "d5_04": {
+              "asymmetry_correlation": 0.9998991699855301,
+              "asymmetry_rmse": 0.023852318998467226,
+              "distortion": 0.01299858512193388,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.027229899666579706,
+              "symmetric_rmse": 0.05192554981528638
+            },
+            "d5_05": {
+              "asymmetry_correlation": 0.9998421080799583,
+              "asymmetry_rmse": 0.02615463164311415,
+              "distortion": 0.012840901703113196,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03027948231336722,
+              "symmetric_rmse": 0.05021325372542064
+            },
+            "d5_06": {
+              "asymmetry_correlation": 0.9998320887997525,
+              "asymmetry_rmse": 0.027667680323259107,
+              "distortion": 0.014520390729929129,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03249843411673898,
+              "symmetric_rmse": 0.05679377361906489
+            },
+            "d5_07": {
+              "asymmetry_correlation": 0.9998766331361617,
+              "asymmetry_rmse": 0.025385647807066394,
+              "distortion": 0.013553936787531288,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.029221216082013838,
+              "symmetric_rmse": 0.05174479604844261
+            },
+            "d5_08": {
+              "asymmetry_correlation": 0.9998942374526717,
+              "asymmetry_rmse": 0.023588847819173208,
+              "distortion": 0.012743911478696262,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.026426476405970654,
+              "symmetric_rmse": 0.04975443201402567
+            },
+            "d5_09": {
+              "asymmetry_correlation": 0.9998307043516208,
+              "asymmetry_rmse": 0.028908082440598202,
+              "distortion": 0.015038322174711908,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.031886561198228754,
+              "symmetric_rmse": 0.05684772632616451
+            },
+            "d5_10": {
+              "asymmetry_correlation": 0.9999088143154848,
+              "asymmetry_rmse": 0.021753433686391793,
+              "distortion": 0.011122454784084988,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.023887643829583947,
+              "symmetric_rmse": 0.0442804626721128
+            },
+            "d5_11": {
+              "asymmetry_correlation": 0.999897082083467,
+              "asymmetry_rmse": 0.02360494408893999,
+              "distortion": 0.012413477239215898,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.026030488387554434,
+              "symmetric_rmse": 0.047070437375079655
+            },
+            "d5_12": {
+              "asymmetry_correlation": 0.9998215601913037,
+              "asymmetry_rmse": 0.02707148240390652,
+              "distortion": 0.014509310927762128,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03377170747430213,
+              "symmetric_rmse": 0.05654544861727479
+            },
+            "d5_13": {
+              "asymmetry_correlation": 0.9997950254922864,
+              "asymmetry_rmse": 0.026308959051688854,
+              "distortion": 0.009179073841437325,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.027221381844780772,
+              "symmetric_rmse": 0.04205138057782677
+            },
+            "d5_14": {
+              "asymmetry_correlation": 0.9998628017148843,
+              "asymmetry_rmse": 0.025628927370671722,
+              "distortion": 0.013806338716710607,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.029975189404709616,
+              "symmetric_rmse": 0.05350881513413332
+            },
+            "d5_15": {
+              "asymmetry_correlation": 0.999913209267037,
+              "asymmetry_rmse": 0.01708644435284099,
+              "distortion": 0.008185385098413862,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02258104122687776,
+              "symmetric_rmse": 0.033521610978145454
+            },
+            "d5_16": {
+              "asymmetry_correlation": 0.9999136752936597,
+              "asymmetry_rmse": 0.021760780926418987,
+              "distortion": 0.008557219963224841,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.01983028200718468,
+              "symmetric_rmse": 0.03739025805551994
+            },
+            "d5_17": {
+              "asymmetry_correlation": 0.9998819256128423,
+              "asymmetry_rmse": 0.025964779800462388,
+              "distortion": 0.01391612020742151,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02719790267441215,
+              "symmetric_rmse": 0.051956190717282906
+            },
+            "d5_18": {
+              "asymmetry_correlation": 0.9999249483785848,
+              "asymmetry_rmse": 0.01860300094248271,
+              "distortion": 0.008552937534423625,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02002800582379966,
+              "symmetric_rmse": 0.03595741343156461
+            },
+            "d5_19": {
+              "asymmetry_correlation": 0.9998246367074374,
+              "asymmetry_rmse": 0.024842266149126074,
+              "distortion": 0.012720279573344227,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03158948857508369,
+              "symmetric_rmse": 0.04994455236850243
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_correlation": 0.9998693764846569,
+            "asymmetry_rmse": 0.024115183755052044,
+            "distortion": 0.011826502045487415,
+            "hierarchy_alignment": 1.0,
+            "map_at_10": 1.0,
+            "normalized_stress": 0.02703326229381408,
+            "symmetric_rmse": 0.04700435356788267
+          }
         },
         "directed_tree_reconstruction": {
           "per_instance": {
@@ -10476,74 +11129,119 @@
               "normalized_stress": 0.030644139566421705,
               "symmetric_rmse": 0.05621906605105087
             },
-            "d7_01": null,
-            "d7_02": null,
-            "d7_03": null,
-            "d7_04": null,
-            "d7_05": null,
-            "d7_06": null,
-            "d7_07": null,
-            "d7_08": null,
-            "d7_09": null,
-            "d7_10": null,
-            "d7_11": null
+            "d7_01": {
+              "asymmetry_correlation": 0.9998446019957109,
+              "asymmetry_rmse": 0.02820950887864931,
+              "distortion": 0.012469876178909049,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02752837138163626,
+              "symmetric_rmse": 0.050387469989238536
+            },
+            "d7_02": {
+              "asymmetry_correlation": 0.9998689789874623,
+              "asymmetry_rmse": 0.026244860268321624,
+              "distortion": 0.01163751244232258,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.023704205535469154,
+              "symmetric_rmse": 0.04488320558232148
+            },
+            "d7_03": {
+              "asymmetry_correlation": 0.9998683187649325,
+              "asymmetry_rmse": 0.026220205160378818,
+              "distortion": 0.011919796639868958,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02334296600778833,
+              "symmetric_rmse": 0.04383136521834649
+            },
+            "d7_04": {
+              "asymmetry_correlation": 0.999936496755825,
+              "asymmetry_rmse": 0.01917899147176279,
+              "distortion": 0.008471775665361286,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.018080811880242464,
+              "symmetric_rmse": 0.03487333929888425
+            },
+            "d7_05": {
+              "asymmetry_correlation": 0.9999414349850051,
+              "asymmetry_rmse": 0.01787626707381633,
+              "distortion": 0.008722638473347746,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.017832598269292427,
+              "symmetric_rmse": 0.03381124695624716
+            },
+            "d7_06": {
+              "asymmetry_correlation": 0.9998862542750886,
+              "asymmetry_rmse": 0.023493091913566577,
+              "distortion": 0.010451440144510755,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02226048915406951,
+              "symmetric_rmse": 0.03993214619056365
+            },
+            "d7_07": {
+              "asymmetry_correlation": 0.999918979689967,
+              "asymmetry_rmse": 0.021571410530686543,
+              "distortion": 0.010206349010279437,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.020806238456495936,
+              "symmetric_rmse": 0.040347933225629816
+            },
+            "d7_08": {
+              "asymmetry_correlation": 0.999899728926051,
+              "asymmetry_rmse": 0.023697908374265317,
+              "distortion": 0.013294754676143132,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.024991532755542226,
+              "symmetric_rmse": 0.04845136885509031
+            },
+            "d7_09": {
+              "asymmetry_correlation": 0.9999018318580715,
+              "asymmetry_rmse": 0.02614025107762444,
+              "distortion": 0.01066172580736055,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02184029093058789,
+              "symmetric_rmse": 0.04578312721467696
+            },
+            "d7_10": {
+              "asymmetry_correlation": 0.9999092968033442,
+              "asymmetry_rmse": 0.022983801117263863,
+              "distortion": 0.01207473734756607,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02269274134689952,
+              "symmetric_rmse": 0.04452986753196548
+            },
+            "d7_11": {
+              "asymmetry_correlation": 0.9999285043614783,
+              "asymmetry_rmse": 0.019451034765541376,
+              "distortion": 0.010479054579174253,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.021289140805499627,
+              "symmetric_rmse": 0.04025592269563546
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_correlation": 0.9998947283784229,
+            "asymmetry_rmse": 0.023639864580363865,
+            "distortion": 0.011309795342806761,
+            "hierarchy_alignment": 1.0,
+            "map_at_10": 1.0,
+            "normalized_stress": 0.022917793840828756,
+            "symmetric_rmse": 0.04360883823413755
+          }
         }
       },
-      "failure_reasons": [
-        "command exited with status 1",
-        "d7_01: unreadable output (EOFError: No data left in file)",
-        "d7_02: missing output file",
-        "d7_03: missing output file",
-        "d7_04: missing output file",
-        "d7_05: missing output file",
-        "d7_06: missing output file",
-        "d7_07: missing output file",
-        "d7_08: missing output file",
-        "d7_09: missing output file",
-        "d7_10: missing output file",
-        "d7_11: missing output file",
-        "d5_00: missing output file",
-        "d5_01: missing output file",
-        "d5_02: missing output file",
-        "d5_03: missing output file",
-        "d5_04: missing output file",
-        "d5_05: missing output file",
-        "d5_06: missing output file",
-        "d5_07: missing output file",
-        "d5_08: missing output file",
-        "d5_09: missing output file",
-        "d5_10: missing output file",
-        "d5_11: missing output file",
-        "d5_12: missing output file",
-        "d5_13: missing output file",
-        "d5_14: missing output file",
-        "d5_15: missing output file",
-        "d5_16: missing output file",
-        "d5_17: missing output file",
-        "d5_18: missing output file",
-        "d5_19: missing output file",
-        "cora_00: missing output file",
-        "cora_01: missing output file",
-        "cora_02: missing output file",
-        "cora_03: missing output file",
-        "cora_04: missing output file",
-        "cora_05: missing output file",
-        "cora_06: missing output file",
-        "cora_07: missing output file",
-        "cora_08: missing output file",
-        "cora_09: missing output file",
-        "citeseer_00: missing output file",
-        "citeseer_01: missing output file",
-        "citeseer_02: missing output file",
-        "citeseer_03: missing output file",
-        "citeseer_04: missing output file",
-        "citeseer_05: missing output file",
-        "citeseer_06: missing output file",
-        "citeseer_07: missing output file"
-      ],
-      "n_failure_reasons": 52,
+      "failure_reasons": [],
+      "n_failure_reasons": 0,
       "run": {
         "card": "outputs/audit/ref_seed3/method.json",
         "command": [
@@ -10560,141 +11258,494 @@
           "3"
         ],
         "launch_error": null,
-        "log_tail": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 785, in _savez\n    with zipf.open(fname, 'w', force_zip64=True) as fid:\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1234, in close\n    self._fileobj.seek(self._zinfo.header_offset)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1925, in close\n    self.fp.seek(self.start_dir)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/home/user/method/embed.py\", line 96, in <module>\n    main()\n  File \"/home/user/method/embed.py\", line 87, in main\n    np.savez_compressed(\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 753, in savez_compressed\n    _savez(file, args, kwds, True, allow_pickle=allow_pickle)\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 790, in _savez\n    zipf.close()\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1930, in close\n    self._fpclose(fp)\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 2030, in _fpclose\n    fp.close()\nOSError: [Errno 28] No space left on device\n",
-        "returncode": 1,
-        "runtime_seconds_info_only": 1.71,
+        "log_tail": "",
+        "returncode": 0,
+        "runtime_seconds_info_only": 51.17,
         "timed_out": false
       }
     },
     "ref_seed4": {
-      "eligible": false,
+      "eligible": true,
       "experiments": {
         "citeseer_digraph_reconstruction": {
           "per_instance": {
-            "citeseer_00": null,
-            "citeseer_01": null,
-            "citeseer_02": null,
-            "citeseer_03": null,
-            "citeseer_04": null,
-            "citeseer_05": null,
-            "citeseer_06": null,
-            "citeseer_07": null,
-            "citeseer_08": null,
-            "citeseer_09": null
+            "citeseer_00": {
+              "asymmetry_error": 0.4994841572617955,
+              "distortion": 0.141962992419099,
+              "map": 0.45891558573964003,
+              "normalized_stress": 0.11030735088014354,
+              "symmetric_error": 0.09583216759505345
+            },
+            "citeseer_01": {
+              "asymmetry_error": 0.4377632865641646,
+              "distortion": 0.12993813886847524,
+              "map": 0.506169705960694,
+              "normalized_stress": 0.08728504995647954,
+              "symmetric_error": 0.07376389041950152
+            },
+            "citeseer_02": {
+              "asymmetry_error": 0.41671354435900587,
+              "distortion": 0.13238978552851827,
+              "map": 0.4607870453614781,
+              "normalized_stress": 0.091826277943709,
+              "symmetric_error": 0.07999101875667215
+            },
+            "citeseer_03": {
+              "asymmetry_error": 0.3648247227256692,
+              "distortion": 0.13720889111199658,
+              "map": 0.4840484673285357,
+              "normalized_stress": 0.08324034072992703,
+              "symmetric_error": 0.07171650518509762
+            },
+            "citeseer_04": {
+              "asymmetry_error": 0.4541308210790349,
+              "distortion": 0.14663303613493556,
+              "map": 0.4649640763469703,
+              "normalized_stress": 0.11769707857577558,
+              "symmetric_error": 0.10356867481614832
+            },
+            "citeseer_05": {
+              "asymmetry_error": 0.4405990325474184,
+              "distortion": 0.11898404820936871,
+              "map": 0.5033500236322371,
+              "normalized_stress": 0.06661317989612275,
+              "symmetric_error": 0.05477644689815557
+            },
+            "citeseer_06": {
+              "asymmetry_error": 0.29358650253261176,
+              "distortion": 0.1036599894987723,
+              "map": 0.47474077175508733,
+              "normalized_stress": 0.058579357721336295,
+              "symmetric_error": 0.05342152657217287
+            },
+            "citeseer_07": {
+              "asymmetry_error": 0.488620195019985,
+              "distortion": 0.12942168739603957,
+              "map": 0.5156030696265449,
+              "normalized_stress": 0.07948040351545635,
+              "symmetric_error": 0.06516858838260188
+            },
+            "citeseer_08": {
+              "asymmetry_error": 0.28996008840164006,
+              "distortion": 0.12659245397049107,
+              "map": 0.4898333976472768,
+              "normalized_stress": 0.07867680727906413,
+              "symmetric_error": 0.07135986365070808
+            },
+            "citeseer_09": {
+              "asymmetry_error": 0.42743423812727405,
+              "distortion": 0.12000022590501004,
+              "map": 0.49630553149668055,
+              "normalized_stress": 0.07962254850715107,
+              "symmetric_error": 0.06760860129961094
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_error": 0.4113116588618599,
+            "distortion": 0.12867912490427064,
+            "map": 0.4854717674895145,
+            "normalized_stress": 0.08533283950051654,
+            "symmetric_error": 0.07372072835757223
+          }
         },
         "cora_digraph_reconstruction": {
           "per_instance": {
-            "cora_00": null,
-            "cora_01": null,
-            "cora_02": null,
-            "cora_03": null,
-            "cora_04": null,
-            "cora_05": null,
-            "cora_06": null,
-            "cora_07": null,
-            "cora_08": null,
-            "cora_09": null
+            "cora_00": {
+              "asymmetry_error": 0.42069969130905555,
+              "distortion": 0.14117666367517767,
+              "map": 0.48178767954395324,
+              "normalized_stress": 0.09879199311143608,
+              "symmetric_error": 0.0851483436256649
+            },
+            "cora_01": {
+              "asymmetry_error": 0.38749409155964254,
+              "distortion": 0.13672779474252522,
+              "map": 0.3966980509982993,
+              "normalized_stress": 0.11161675364004048,
+              "symmetric_error": 0.09807824017831618
+            },
+            "cora_02": {
+              "asymmetry_error": 0.2112879059066901,
+              "distortion": 0.12874054815533229,
+              "map": 0.4933006432318216,
+              "normalized_stress": 0.1318856107085633,
+              "symmetric_error": 0.12912995881035044
+            },
+            "cora_03": {
+              "asymmetry_error": 0.23298740162688977,
+              "distortion": 0.1258986852849628,
+              "map": 0.4733873939104383,
+              "normalized_stress": 0.12534075165549247,
+              "symmetric_error": 0.12166565195382267
+            },
+            "cora_04": {
+              "asymmetry_error": 0.4797096205334379,
+              "distortion": 0.15069892665589357,
+              "map": 0.43916697846367797,
+              "normalized_stress": 0.10329011828720118,
+              "symmetric_error": 0.08642606951958742
+            },
+            "cora_05": {
+              "asymmetry_error": 0.45671789810902874,
+              "distortion": 0.12292124473214419,
+              "map": 0.3707276959797167,
+              "normalized_stress": 0.10005738120376216,
+              "symmetric_error": 0.08542283684514455
+            },
+            "cora_06": {
+              "asymmetry_error": 0.4776821631093018,
+              "distortion": 0.15286533700345048,
+              "map": 0.5089715017583872,
+              "normalized_stress": 0.1045813898045535,
+              "symmetric_error": 0.0888326993870457
+            },
+            "cora_07": {
+              "asymmetry_error": 0.42757413740041056,
+              "distortion": 0.116716727530146,
+              "map": 0.3297873973226843,
+              "normalized_stress": 0.09378681881084172,
+              "symmetric_error": 0.08187617543177866
+            },
+            "cora_08": {
+              "asymmetry_error": 0.5125540049931651,
+              "distortion": 0.14689101132538235,
+              "map": 0.4358722458751189,
+              "normalized_stress": 0.11072585744342234,
+              "symmetric_error": 0.09207620850864702
+            },
+            "cora_09": {
+              "asymmetry_error": 0.3998531646954193,
+              "distortion": 0.13323782657711947,
+              "map": 0.43970742867296214,
+              "normalized_stress": 0.1110640796348074,
+              "symmetric_error": 0.09764877935552695
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_error": 0.4006560079243041,
+            "distortion": 0.1355874765682134,
+            "map": 0.43694070157570597,
+            "normalized_stress": 0.10911407543001206,
+            "symmetric_error": 0.09663049636158845
+          }
         },
         "directed_tree_depth5_reconstruction": {
           "per_instance": {
-            "d5_00": null,
-            "d5_01": null,
-            "d5_02": null,
-            "d5_03": null,
-            "d5_04": null,
-            "d5_05": null,
-            "d5_06": null,
-            "d5_07": null,
-            "d5_08": null,
-            "d5_09": null,
-            "d5_10": null,
-            "d5_11": null,
-            "d5_12": null,
-            "d5_13": null,
-            "d5_14": null,
-            "d5_15": null,
-            "d5_16": null,
-            "d5_17": null,
-            "d5_18": null,
-            "d5_19": null
+            "d5_00": {
+              "asymmetry_correlation": 0.9998962750904377,
+              "asymmetry_rmse": 0.021493512491243136,
+              "distortion": 0.00957532295894302,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.023311773193803682,
+              "symmetric_rmse": 0.041548590330407795
+            },
+            "d5_01": {
+              "asymmetry_correlation": 0.9998184479326233,
+              "asymmetry_rmse": 0.027750967626874054,
+              "distortion": 0.00983943747159546,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.024633401592053048,
+              "symmetric_rmse": 0.04135267935794645
+            },
+            "d5_02": {
+              "asymmetry_correlation": 0.9999095514136719,
+              "asymmetry_rmse": 0.019694225601590374,
+              "distortion": 0.008846547926202191,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.021800516369759465,
+              "symmetric_rmse": 0.03747160185984411
+            },
+            "d5_03": {
+              "asymmetry_correlation": 0.9998493848248002,
+              "asymmetry_rmse": 0.02486234208073159,
+              "distortion": 0.013780551427553758,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03141806725105723,
+              "symmetric_rmse": 0.050511360484717716
+            },
+            "d5_04": {
+              "asymmetry_correlation": 0.9999013736013594,
+              "asymmetry_rmse": 0.023450721863569276,
+              "distortion": 0.0130103580493186,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02723535363764051,
+              "symmetric_rmse": 0.05198219977391848
+            },
+            "d5_05": {
+              "asymmetry_correlation": 0.9998400018301208,
+              "asymmetry_rmse": 0.026282767734489808,
+              "distortion": 0.012830397841074785,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03026937856051998,
+              "symmetric_rmse": 0.05017862652847388
+            },
+            "d5_06": {
+              "asymmetry_correlation": 0.9998318851236542,
+              "asymmetry_rmse": 0.02767914588087976,
+              "distortion": 0.014474364968989762,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03251871337200136,
+              "symmetric_rmse": 0.05682991955561138
+            },
+            "d5_07": {
+              "asymmetry_correlation": 0.9998749677028197,
+              "asymmetry_rmse": 0.02495004055841458,
+              "distortion": 0.013492709692378166,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02918974431785936,
+              "symmetric_rmse": 0.05173871225563408
+            },
+            "d5_08": {
+              "asymmetry_correlation": 0.9998910067905497,
+              "asymmetry_rmse": 0.02388677365416357,
+              "distortion": 0.012676811088253415,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.026382217569148568,
+              "symmetric_rmse": 0.049630806217790244
+            },
+            "d5_09": {
+              "asymmetry_correlation": 0.9998397615735972,
+              "asymmetry_rmse": 0.027482705251581932,
+              "distortion": 0.015048442331643399,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03185404984235027,
+              "symmetric_rmse": 0.05696267288850889
+            },
+            "d5_10": {
+              "asymmetry_correlation": 0.9999098269044868,
+              "asymmetry_rmse": 0.021547291386546402,
+              "distortion": 0.01115981830317374,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.023881956519962493,
+              "symmetric_rmse": 0.044294480801600915
+            },
+            "d5_11": {
+              "asymmetry_correlation": 0.9998938571232029,
+              "asymmetry_rmse": 0.0236641712278512,
+              "distortion": 0.01237084345269455,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.025925025804536296,
+              "symmetric_rmse": 0.046860248218072525
+            },
+            "d5_12": {
+              "asymmetry_correlation": 0.9998185566852912,
+              "asymmetry_rmse": 0.02729027813006499,
+              "distortion": 0.014540332785872665,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03378644391451708,
+              "symmetric_rmse": 0.05654524875808074
+            },
+            "d5_13": {
+              "asymmetry_correlation": 0.9997929655804225,
+              "asymmetry_rmse": 0.02644904988374432,
+              "distortion": 0.009188959096438298,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02721904059918047,
+              "symmetric_rmse": 0.042025432196357
+            },
+            "d5_14": {
+              "asymmetry_correlation": 0.9998637575923376,
+              "asymmetry_rmse": 0.025642502383840127,
+              "distortion": 0.013779918871872661,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.029938874303832665,
+              "symmetric_rmse": 0.053438640574795464
+            },
+            "d5_15": {
+              "asymmetry_correlation": 0.9999140346330551,
+              "asymmetry_rmse": 0.01713015634906347,
+              "distortion": 0.008188902771673794,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.022604452557854603,
+              "symmetric_rmse": 0.03355304967667059
+            },
+            "d5_16": {
+              "asymmetry_correlation": 0.9999139199274574,
+              "asymmetry_rmse": 0.02174131896782107,
+              "distortion": 0.008535425497533895,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.01982284501713396,
+              "symmetric_rmse": 0.03737787931420994
+            },
+            "d5_17": {
+              "asymmetry_correlation": 0.9998802581468664,
+              "asymmetry_rmse": 0.02607576731625537,
+              "distortion": 0.01385710299507942,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02712398285043582,
+              "symmetric_rmse": 0.0517922141999604
+            },
+            "d5_18": {
+              "asymmetry_correlation": 0.9999227969852823,
+              "asymmetry_rmse": 0.01885722973969453,
+              "distortion": 0.008563152871292595,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.019986349801561644,
+              "symmetric_rmse": 0.035844420227074125
+            },
+            "d5_19": {
+              "asymmetry_correlation": 0.9998257464268195,
+              "asymmetry_rmse": 0.02476176418377728,
+              "distortion": 0.012747424228780968,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03163611167035023,
+              "symmetric_rmse": 0.050032798982699266
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_correlation": 0.9998694187944427,
+            "asymmetry_rmse": 0.024034636615609846,
+            "distortion": 0.011825341231518256,
+            "hierarchy_alignment": 1.0,
+            "map_at_10": 1.0,
+            "normalized_stress": 0.027026914937277935,
+            "symmetric_rmse": 0.04699857911011869
+          }
         },
         "directed_tree_reconstruction": {
           "per_instance": {
-            "d7_00": null,
-            "d7_01": null,
-            "d7_02": null,
-            "d7_03": null,
-            "d7_04": null,
-            "d7_05": null,
-            "d7_06": null,
-            "d7_07": null,
-            "d7_08": null,
-            "d7_09": null,
-            "d7_10": null,
-            "d7_11": null
+            "d7_00": {
+              "asymmetry_correlation": 0.9998316520945071,
+              "asymmetry_rmse": 0.028566175192720693,
+              "distortion": 0.015321093405344205,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.030629597192175242,
+              "symmetric_rmse": 0.05619636584474127
+            },
+            "d7_01": {
+              "asymmetry_correlation": 0.9998446738890712,
+              "asymmetry_rmse": 0.028199275693935103,
+              "distortion": 0.012474167638275364,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.027529412502542188,
+              "symmetric_rmse": 0.050390956888150505
+            },
+            "d7_02": {
+              "asymmetry_correlation": 0.9998690614397238,
+              "asymmetry_rmse": 0.026224363257912615,
+              "distortion": 0.011638822343514495,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02369958826052073,
+              "symmetric_rmse": 0.04487671121601998
+            },
+            "d7_03": {
+              "asymmetry_correlation": 0.9998680755606862,
+              "asymmetry_rmse": 0.026236612139677474,
+              "distortion": 0.011913157441080745,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.023337876678638878,
+              "symmetric_rmse": 0.04381849878082866
+            },
+            "d7_04": {
+              "asymmetry_correlation": 0.9999358175055441,
+              "asymmetry_rmse": 0.01927464656663491,
+              "distortion": 0.00846719453447367,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.01807769741715072,
+              "symmetric_rmse": 0.03485368863591253
+            },
+            "d7_05": {
+              "asymmetry_correlation": 0.9999415488834466,
+              "asymmetry_rmse": 0.017836720686086546,
+              "distortion": 0.008725437083602398,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.017828505698599388,
+              "symmetric_rmse": 0.03380816717773847
+            },
+            "d7_06": {
+              "asymmetry_correlation": 0.9998831626507634,
+              "asymmetry_rmse": 0.023697832203452996,
+              "distortion": 0.010442342654463626,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.022253299566307106,
+              "symmetric_rmse": 0.03988786610808272
+            },
+            "d7_07": {
+              "asymmetry_correlation": 0.9999198970315385,
+              "asymmetry_rmse": 0.02154783020101248,
+              "distortion": 0.01021360055125652,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.020815836361461667,
+              "symmetric_rmse": 0.040371023710244806
+            },
+            "d7_08": {
+              "asymmetry_correlation": 0.9998995809132162,
+              "asymmetry_rmse": 0.023690551057845555,
+              "distortion": 0.013297219922518616,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.024987369669299236,
+              "symmetric_rmse": 0.04844371473044069
+            },
+            "d7_09": {
+              "asymmetry_correlation": 0.9999037449459974,
+              "asymmetry_rmse": 0.025936663890481847,
+              "distortion": 0.010662189454633457,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.0218432425037248,
+              "symmetric_rmse": 0.04581875213125597
+            },
+            "d7_10": {
+              "asymmetry_correlation": 0.9999095007178309,
+              "asymmetry_rmse": 0.022971194464699526,
+              "distortion": 0.012076722884657613,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.0226982213138283,
+              "symmetric_rmse": 0.044542962752656776
+            },
+            "d7_11": {
+              "asymmetry_correlation": 0.9999285154599007,
+              "asymmetry_rmse": 0.019417660588024417,
+              "distortion": 0.010476585542028332,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.021287122792121905,
+              "symmetric_rmse": 0.04025591228927609
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_correlation": 0.9998946025910188,
+            "asymmetry_rmse": 0.023633293828540347,
+            "distortion": 0.011309044454654084,
+            "hierarchy_alignment": 1.0,
+            "map_at_10": 1.0,
+            "normalized_stress": 0.022915647496364183,
+            "symmetric_rmse": 0.04360538502211237
+          }
         }
       },
-      "failure_reasons": [
-        "command exited with status 1",
-        "d7_00: unreadable output (EOFError: No data left in file)",
-        "d7_01: missing output file",
-        "d7_02: missing output file",
-        "d7_03: missing output file",
-        "d7_04: missing output file",
-        "d7_05: missing output file",
-        "d7_06: missing output file",
-        "d7_07: missing output file",
-        "d7_08: missing output file",
-        "d7_09: missing output file",
-        "d7_10: missing output file",
-        "d7_11: missing output file",
-        "d5_00: missing output file",
-        "d5_01: missing output file",
-        "d5_02: missing output file",
-        "d5_03: missing output file",
-        "d5_04: missing output file",
-        "d5_05: missing output file",
-        "d5_06: missing output file",
-        "d5_07: missing output file",
-        "d5_08: missing output file",
-        "d5_09: missing output file",
-        "d5_10: missing output file",
-        "d5_11: missing output file",
-        "d5_12: missing output file",
-        "d5_13: missing output file",
-        "d5_14: missing output file",
-        "d5_15: missing output file",
-        "d5_16: missing output file",
-        "d5_17: missing output file",
-        "d5_18: missing output file",
-        "d5_19: missing output file",
-        "cora_00: missing output file",
-        "cora_01: missing output file",
-        "cora_02: missing output file",
-        "cora_03: missing output file",
-        "cora_04: missing output file",
-        "cora_05: missing output file",
-        "cora_06: missing output file",
-        "cora_07: missing output file",
-        "cora_08: missing output file",
-        "cora_09: missing output file",
-        "citeseer_00: missing output file",
-        "citeseer_01: missing output file",
-        "citeseer_02: missing output file",
-        "citeseer_03: missing output file",
-        "citeseer_04: missing output file",
-        "citeseer_05: missing output file",
-        "citeseer_06: missing output file"
-      ],
-      "n_failure_reasons": 53,
+      "failure_reasons": [],
+      "n_failure_reasons": 0,
       "run": {
         "card": "outputs/audit/ref_seed4/method.json",
         "command": [
@@ -10711,9 +11762,9 @@
           "4"
         ],
         "launch_error": null,
-        "log_tail": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 785, in _savez\n    with zipf.open(fname, 'w', force_zip64=True) as fid:\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1234, in close\n    self._fileobj.seek(self._zinfo.header_offset)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1925, in close\n    self.fp.seek(self.start_dir)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/home/user/method/embed.py\", line 96, in <module>\n    main()\n  File \"/home/user/method/embed.py\", line 87, in main\n    np.savez_compressed(\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 753, in savez_compressed\n    _savez(file, args, kwds, True, allow_pickle=allow_pickle)\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 790, in _savez\n    zipf.close()\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1930, in close\n    self._fpclose(fp)\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 2030, in _fpclose\n    fp.close()\nOSError: [Errno 28] No space left on device\n",
-        "returncode": 1,
-        "runtime_seconds_info_only": 1.62,
+        "log_tail": "",
+        "returncode": 0,
+        "runtime_seconds_info_only": 51.64,
         "timed_out": false
       }
     },
@@ -10736,16 +11787,70 @@
               "normalized_stress": 1.0,
               "symmetric_error": 1.0
             },
-            "citeseer_02": null,
-            "citeseer_03": null,
-            "citeseer_04": null,
-            "citeseer_05": null,
-            "citeseer_06": null,
-            "citeseer_07": null,
-            "citeseer_08": null,
-            "citeseer_09": null
+            "citeseer_02": {
+              "asymmetry_error": 1.0,
+              "distortion": 10.051328320802005,
+              "map": 0.003832155689033752,
+              "normalized_stress": 1.0,
+              "symmetric_error": 1.0
+            },
+            "citeseer_03": {
+              "asymmetry_error": 1.0,
+              "distortion": 10.850520050125313,
+              "map": 0.004430033981707605,
+              "normalized_stress": 1.0,
+              "symmetric_error": 1.0
+            },
+            "citeseer_04": {
+              "asymmetry_error": 1.0,
+              "distortion": 7.211829573934837,
+              "map": 0.005235607290536489,
+              "normalized_stress": 1.0,
+              "symmetric_error": 1.0
+            },
+            "citeseer_05": {
+              "asymmetry_error": 1.0,
+              "distortion": 14.893101503759398,
+              "map": 0.0037147041496283562,
+              "normalized_stress": 1.0,
+              "symmetric_error": 1.0
+            },
+            "citeseer_06": {
+              "asymmetry_error": 1.0,
+              "distortion": 14.412180451127819,
+              "map": 0.00366285801989443,
+              "normalized_stress": 1.0,
+              "symmetric_error": 1.0
+            },
+            "citeseer_07": {
+              "asymmetry_error": 1.0,
+              "distortion": 11.949862155388471,
+              "map": 0.0039643883933702705,
+              "normalized_stress": 1.0,
+              "symmetric_error": 1.0
+            },
+            "citeseer_08": {
+              "asymmetry_error": 1.0,
+              "distortion": 10.813508771929824,
+              "map": 0.00467945444282003,
+              "normalized_stress": 1.0,
+              "symmetric_error": 1.0
+            },
+            "citeseer_09": {
+              "asymmetry_error": 1.0,
+              "distortion": 11.545300751879699,
+              "map": 0.0037688368262475598,
+              "normalized_stress": 1.0,
+              "symmetric_error": 1.0
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_error": 1.0,
+            "distortion": 10.999266290726815,
+            "map": 0.004224889224093564,
+            "normalized_stress": 1.0,
+            "symmetric_error": 1.0
+          }
         },
         "cora_digraph_reconstruction": {
           "per_instance": {
@@ -11144,7 +12249,6 @@
         }
       },
       "failure_reasons": [
-        "command exited with status 1",
         "d7_00: normalized_stress=1 fails <= 0.1",
         "d7_00: distortion=1.21 fails <= 0.1",
         "d7_00: asymmetry_rmse=1.525 fails <= 0.1",
@@ -11193,9 +12297,10 @@
         "d7_11: distortion=1.26 fails <= 0.1",
         "d7_11: asymmetry_rmse=1.599 fails <= 0.1",
         "d7_11: hierarchy_alignment=0 fails >= 0.8",
-        "d5_00: normalized_stress=1 fails <= 0.1"
+        "d5_00: normalized_stress=1 fails <= 0.1",
+        "d5_00: distortion=1.233 fails <= 0.1"
       ],
-      "n_failure_reasons": 197,
+      "n_failure_reasons": 228,
       "run": {
         "card": "outputs/audit/shortcut_answer_copy/method.json",
         "command": [
@@ -11206,9 +12311,9 @@
           "answer_copy"
         ],
         "launch_error": null,
-        "log_tail": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 786, in _savez\n    format.write_array(fid, val,\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_format_impl.py\", line 777, in write_array\n    fp.write(chunk.tobytes('C'))\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1196, in write\n    self._fileobj.write(data)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1926, in close\n    self._write_end_record()\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 2024, in _write_end_record\n    self.fp.flush()\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/home/user/redteam/hardening/shortcuts.py\", line 137, in <module>\n    main()\n  File \"/home/user/redteam/hardening/shortcuts.py\", line 75, in main\n    np.savez(out, predicted_distances=d.copy(), distances=d.copy(),\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 673, in savez\n    _savez(file, args, kwds, False, allow_pickle=allow_pickle)\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 790, in _savez\n    zipf.close()\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1930, in close\n    self._fpclose(fp)\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 2030, in _fpclose\n    fp.close()\nOSError: [Errno 28] No space left on device\n",
-        "returncode": 1,
-        "runtime_seconds_info_only": 1.57,
+        "log_tail": "",
+        "returncode": 0,
+        "runtime_seconds_info_only": 2.07,
         "timed_out": false
       }
     },
@@ -11350,58 +12455,358 @@
       "experiments": {
         "citeseer_digraph_reconstruction": {
           "per_instance": {
-            "citeseer_00": null,
-            "citeseer_01": null,
-            "citeseer_02": null,
-            "citeseer_03": null,
-            "citeseer_04": null,
-            "citeseer_05": null,
-            "citeseer_06": null,
-            "citeseer_07": null,
-            "citeseer_08": null,
-            "citeseer_09": null
+            "citeseer_00": {
+              "asymmetry_error": 0.4994832318843904,
+              "distortion": 0.1418911920654477,
+              "map": 0.45961329032447784,
+              "normalized_stress": 0.11027926615309099,
+              "symmetric_error": 0.09579949352606687
+            },
+            "citeseer_01": {
+              "asymmetry_error": 0.4377627313011832,
+              "distortion": 0.12977483656688002,
+              "map": 0.5070099704398207,
+              "normalized_stress": 0.08731752237680908,
+              "symmetric_error": 0.07380280579808733
+            },
+            "citeseer_02": {
+              "asymmetry_error": 0.41655404482727976,
+              "distortion": 0.13001121548648986,
+              "map": 0.49625219697300926,
+              "normalized_stress": 0.09236668130633496,
+              "symmetric_error": 0.0806285464169718
+            },
+            "citeseer_03": {
+              "asymmetry_error": 0.36482332279219476,
+              "distortion": 0.1371620249326791,
+              "map": 0.4853547608605803,
+              "normalized_stress": 0.08325955588493997,
+              "symmetric_error": 0.07173922340893445
+            },
+            "citeseer_04": {
+              "asymmetry_error": 0.4538096652681282,
+              "distortion": 0.14682628381006554,
+              "map": 0.4890765159395714,
+              "normalized_stress": 0.11926143818812997,
+              "symmetric_error": 0.10539411982632942
+            },
+            "citeseer_05": {
+              "asymmetry_error": 0.4406001647867077,
+              "distortion": 0.1190870077992965,
+              "map": 0.5031384351593977,
+              "normalized_stress": 0.06659008809827538,
+              "symmetric_error": 0.054748081017448186
+            },
+            "citeseer_06": {
+              "asymmetry_error": 0.2935862946287935,
+              "distortion": 0.10421155849626781,
+              "map": 0.4653896863527593,
+              "normalized_stress": 0.05872145138552306,
+              "symmetric_error": 0.05357839487170477
+            },
+            "citeseer_07": {
+              "asymmetry_error": 0.488624414918677,
+              "distortion": 0.12957445900388412,
+              "map": 0.5017164822119733,
+              "normalized_stress": 0.07947939612958396,
+              "symmetric_error": 0.06516706700381843
+            },
+            "citeseer_08": {
+              "asymmetry_error": 0.28996273868432,
+              "distortion": 0.12614934178427475,
+              "map": 0.5090222382857295,
+              "normalized_stress": 0.07870052480621526,
+              "symmetric_error": 0.0713862289859195
+            },
+            "citeseer_09": {
+              "asymmetry_error": 0.427431744546126,
+              "distortion": 0.11994632842542657,
+              "map": 0.4984650039737346,
+              "normalized_stress": 0.07965216210309693,
+              "symmetric_error": 0.06764398238746848
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_error": 0.41126383536378003,
+            "distortion": 0.12846342483707118,
+            "map": 0.49150385805210534,
+            "normalized_stress": 0.08556280864319996,
+            "symmetric_error": 0.07398879432427494
+          }
         },
         "cora_digraph_reconstruction": {
           "per_instance": {
-            "cora_00": null,
-            "cora_01": null,
-            "cora_02": null,
-            "cora_03": null,
-            "cora_04": null,
-            "cora_05": null,
-            "cora_06": null,
-            "cora_07": null,
-            "cora_08": null,
-            "cora_09": null
+            "cora_00": {
+              "asymmetry_error": 0.4206149397806365,
+              "distortion": 0.13918389519429544,
+              "map": 0.5095161746359039,
+              "normalized_stress": 0.09916527385247456,
+              "symmetric_error": 0.08559388434583601
+            },
+            "cora_01": {
+              "asymmetry_error": 0.38748244251775904,
+              "distortion": 0.13649313461947468,
+              "map": 0.40574478096245215,
+              "normalized_stress": 0.11154009326506509,
+              "symmetric_error": 0.09799013891653403
+            },
+            "cora_02": {
+              "asymmetry_error": 0.21128062738946943,
+              "distortion": 0.12870055785348433,
+              "map": 0.49479235724112225,
+              "normalized_stress": 0.13197706943525442,
+              "symmetric_error": 0.12922614675384464
+            },
+            "cora_03": {
+              "asymmetry_error": 0.23301028550280567,
+              "distortion": 0.12593387570698414,
+              "map": 0.47440820477355367,
+              "normalized_stress": 0.12528048310247963,
+              "symmetric_error": 0.12160106846637495
+            },
+            "cora_04": {
+              "asymmetry_error": 0.4797021455264497,
+              "distortion": 0.15099780341662564,
+              "map": 0.43551559361980713,
+              "normalized_stress": 0.10340812550073347,
+              "symmetric_error": 0.08656972645489802
+            },
+            "cora_05": {
+              "asymmetry_error": 0.45673725134356186,
+              "distortion": 0.12330509602753133,
+              "map": 0.37166415047569656,
+              "normalized_stress": 0.10009225151620291,
+              "symmetric_error": 0.08546282284202539
+            },
+            "cora_06": {
+              "asymmetry_error": 0.47768457849620066,
+              "distortion": 0.1529277967931928,
+              "map": 0.5054761446055749,
+              "normalized_stress": 0.10459684102569855,
+              "symmetric_error": 0.08885096230116311
+            },
+            "cora_07": {
+              "asymmetry_error": 0.42756333796501844,
+              "distortion": 0.11662351659232588,
+              "map": 0.3251781549471472,
+              "normalized_stress": 0.09377810434906605,
+              "symmetric_error": 0.08186675121984657
+            },
+            "cora_08": {
+              "asymmetry_error": 0.5125537243846848,
+              "distortion": 0.1469322786002178,
+              "map": 0.43738554084709824,
+              "normalized_stress": 0.1107390404747166,
+              "symmetric_error": 0.09209232425112766
+            },
+            "cora_09": {
+              "asymmetry_error": 0.3998477065606613,
+              "distortion": 0.1332868982234869,
+              "map": 0.438352949746856,
+              "normalized_stress": 0.11108729596568953,
+              "symmetric_error": 0.09767610942533628
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_error": 0.4006477039467248,
+            "distortion": 0.1354384853027619,
+            "map": 0.4398034051855212,
+            "normalized_stress": 0.10916645784873809,
+            "symmetric_error": 0.09669299349769866
+          }
         },
         "directed_tree_depth5_reconstruction": {
           "per_instance": {
-            "d5_00": null,
-            "d5_01": null,
-            "d5_02": null,
-            "d5_03": null,
-            "d5_04": null,
-            "d5_05": null,
-            "d5_06": null,
-            "d5_07": null,
-            "d5_08": null,
-            "d5_09": null,
-            "d5_10": null,
-            "d5_11": null,
-            "d5_12": null,
-            "d5_13": null,
-            "d5_14": null,
-            "d5_15": null,
-            "d5_16": null,
-            "d5_17": null,
-            "d5_18": null,
-            "d5_19": null
+            "d5_00": {
+              "asymmetry_correlation": 0.9998958314236442,
+              "asymmetry_rmse": 0.021520739672219326,
+              "distortion": 0.009540143573046271,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.023291951497171202,
+              "symmetric_rmse": 0.041507370682679054
+            },
+            "d5_01": {
+              "asymmetry_correlation": 0.9998155736825445,
+              "asymmetry_rmse": 0.027946688124194565,
+              "distortion": 0.009829142755677145,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.024609762296604235,
+              "symmetric_rmse": 0.04127552499076733
+            },
+            "d5_02": {
+              "asymmetry_correlation": 0.9999122276757051,
+              "asymmetry_rmse": 0.019401496052475087,
+              "distortion": 0.008886898814442228,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.021828653756966437,
+              "symmetric_rmse": 0.037561408325361194
+            },
+            "d5_03": {
+              "asymmetry_correlation": 0.9998470322473703,
+              "asymmetry_rmse": 0.02489766929779239,
+              "distortion": 0.013677800235196012,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03132686033549554,
+              "symmetric_rmse": 0.05035146658238677
+            },
+            "d5_04": {
+              "asymmetry_correlation": 0.9999027878488781,
+              "asymmetry_rmse": 0.02329932455923105,
+              "distortion": 0.012991042227923223,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02719537563426479,
+              "symmetric_rmse": 0.05191905464689722
+            },
+            "d5_05": {
+              "asymmetry_correlation": 0.9998516189638185,
+              "asymmetry_rmse": 0.02589617422547422,
+              "distortion": 0.012827344039644138,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.030313945026870882,
+              "symmetric_rmse": 0.05030771579685626
+            },
+            "d5_06": {
+              "asymmetry_correlation": 0.9998340353876942,
+              "asymmetry_rmse": 0.0274497571635274,
+              "distortion": 0.014526955234584563,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.032561191155072736,
+              "symmetric_rmse": 0.05693632357458961
+            },
+            "d5_07": {
+              "asymmetry_correlation": 0.9998717152375408,
+              "asymmetry_rmse": 0.025652696037947318,
+              "distortion": 0.013475968821569763,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.029148417685957422,
+              "symmetric_rmse": 0.0515750950211495
+            },
+            "d5_08": {
+              "asymmetry_correlation": 0.9998909791426102,
+              "asymmetry_rmse": 0.02389415813345602,
+              "distortion": 0.012649393503670775,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02635058443050779,
+              "symmetric_rmse": 0.049566959129814805
+            },
+            "d5_09": {
+              "asymmetry_correlation": 0.9998305006974685,
+              "asymmetry_rmse": 0.0287862309979098,
+              "distortion": 0.015070837739559152,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.031867206689913406,
+              "symmetric_rmse": 0.056826455622809115
+            },
+            "d5_10": {
+              "asymmetry_correlation": 0.9999075389286143,
+              "asymmetry_rmse": 0.021898202879319723,
+              "distortion": 0.011114491588862425,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.023854789814675554,
+              "symmetric_rmse": 0.04419801525318966
+            },
+            "d5_11": {
+              "asymmetry_correlation": 0.9998993198242986,
+              "asymmetry_rmse": 0.023099003444785552,
+              "distortion": 0.012440411096992829,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.026009317347709046,
+              "symmetric_rmse": 0.04709250883547076
+            },
+            "d5_12": {
+              "asymmetry_correlation": 0.9998215266354733,
+              "asymmetry_rmse": 0.027073031731244125,
+              "distortion": 0.014494615958631453,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03372772917139266,
+              "symmetric_rmse": 0.05646740579999359
+            },
+            "d5_13": {
+              "asymmetry_correlation": 0.9997948957169828,
+              "asymmetry_rmse": 0.026322055443440958,
+              "distortion": 0.009186258573288378,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.027228974313591024,
+              "symmetric_rmse": 0.04206220858593546
+            },
+            "d5_14": {
+              "asymmetry_correlation": 0.9998621957977483,
+              "asymmetry_rmse": 0.02605064843274322,
+              "distortion": 0.013793918281949312,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.029957134688297093,
+              "symmetric_rmse": 0.05342376680940363
+            },
+            "d5_15": {
+              "asymmetry_correlation": 0.9999134354024442,
+              "asymmetry_rmse": 0.0170962773555816,
+              "distortion": 0.008193655143180784,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.022587839057954945,
+              "symmetric_rmse": 0.03353110474028885
+            },
+            "d5_16": {
+              "asymmetry_correlation": 0.9999141642745828,
+              "asymmetry_rmse": 0.021701469597294118,
+              "distortion": 0.008556431613454802,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.019830360054784255,
+              "symmetric_rmse": 0.037399034546162425
+            },
+            "d5_17": {
+              "asymmetry_correlation": 0.9998805009295131,
+              "asymmetry_rmse": 0.026066579931606403,
+              "distortion": 0.013908162396002788,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.027167750629914465,
+              "symmetric_rmse": 0.05188223280301927
+            },
+            "d5_18": {
+              "asymmetry_correlation": 0.999924921297364,
+              "asymmetry_rmse": 0.018595347858650357,
+              "distortion": 0.008565355735733672,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02001395333006482,
+              "symmetric_rmse": 0.03593148570260796
+            },
+            "d5_19": {
+              "asymmetry_correlation": 0.9998259629475998,
+              "asymmetry_rmse": 0.024773192115796726,
+              "distortion": 0.01273966381766242,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03161871052688058,
+              "symmetric_rmse": 0.050002178132493316
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_correlation": 0.9998698382030948,
+            "asymmetry_rmse": 0.024071037152734495,
+            "distortion": 0.011823424557553606,
+            "hierarchy_alignment": 1.0,
+            "map_at_10": 1.0,
+            "normalized_stress": 0.027024525372204445,
+            "symmetric_rmse": 0.04699086577909379
+          }
         },
         "directed_tree_reconstruction": {
           "per_instance": {
@@ -11432,72 +12837,103 @@
               "normalized_stress": 0.023696338014926415,
               "symmetric_rmse": 0.04487140036101103
             },
-            "d7_03": null,
-            "d7_04": null,
-            "d7_05": null,
-            "d7_06": null,
-            "d7_07": null,
-            "d7_08": null,
-            "d7_09": null,
-            "d7_10": null,
-            "d7_11": null
+            "d7_03": {
+              "asymmetry_correlation": 0.9998682993770681,
+              "asymmetry_rmse": 0.026200809511826944,
+              "distortion": 0.01191265171188133,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.023329258701040252,
+              "symmetric_rmse": 0.04380622482071368
+            },
+            "d7_04": {
+              "asymmetry_correlation": 0.9999377610440344,
+              "asymmetry_rmse": 0.019004334429177136,
+              "distortion": 0.008469155409338819,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.01808373691532597,
+              "symmetric_rmse": 0.03490329948441624
+            },
+            "d7_05": {
+              "asymmetry_correlation": 0.9999415284072561,
+              "asymmetry_rmse": 0.01784917387239376,
+              "distortion": 0.008719910334998655,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.017825220086086568,
+              "symmetric_rmse": 0.033799859603153376
+            },
+            "d7_06": {
+              "asymmetry_correlation": 0.9998844330333703,
+              "asymmetry_rmse": 0.023603351445095642,
+              "distortion": 0.01044820099141056,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.022253957893901916,
+              "symmetric_rmse": 0.03990315239024562
+            },
+            "d7_07": {
+              "asymmetry_correlation": 0.9999187594839222,
+              "asymmetry_rmse": 0.02159634050707964,
+              "distortion": 0.010205920798609673,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.020807422122824434,
+              "symmetric_rmse": 0.040347058670579486
+            },
+            "d7_08": {
+              "asymmetry_correlation": 0.9998997429263957,
+              "asymmetry_rmse": 0.023672216519668117,
+              "distortion": 0.013298304614548524,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02498694063195118,
+              "symmetric_rmse": 0.04844507388005346
+            },
+            "d7_09": {
+              "asymmetry_correlation": 0.9999038978963278,
+              "asymmetry_rmse": 0.025923787298070006,
+              "distortion": 0.010666321178717386,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02184329032451417,
+              "symmetric_rmse": 0.0458206822499634
+            },
+            "d7_10": {
+              "asymmetry_correlation": 0.9999097810535389,
+              "asymmetry_rmse": 0.02293067143124156,
+              "distortion": 0.01207812832921617,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.022700790592703274,
+              "symmetric_rmse": 0.044553558892271146
+            },
+            "d7_11": {
+              "asymmetry_correlation": 0.999928629942801,
+              "asymmetry_rmse": 0.01942951427488007,
+              "distortion": 0.010480120283125066,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02129403301793733,
+              "symmetric_rmse": 0.04026831075481337
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_correlation": 0.999894844664846,
+            "asymmetry_rmse": 0.023598051488966727,
+            "distortion": 0.011309584767366064,
+            "hierarchy_alignment": 1.0,
+            "map_at_10": 1.0,
+            "normalized_stress": 0.022914919524645094,
+            "symmetric_rmse": 0.04360881595684593
+          }
         }
       },
       "failure_reasons": [
-        "command exited with status 1",
-        "d7_03: unreadable output (EOFError: No data left in file)",
-        "d7_04: missing output file",
-        "d7_05: missing output file",
-        "d7_06: missing output file",
-        "d7_07: missing output file",
-        "d7_08: missing output file",
-        "d7_09: missing output file",
-        "d7_10: missing output file",
-        "d7_11: missing output file",
-        "d5_00: missing output file",
-        "d5_01: missing output file",
-        "d5_02: missing output file",
-        "d5_03: missing output file",
-        "d5_04: missing output file",
-        "d5_05: missing output file",
-        "d5_06: missing output file",
-        "d5_07: missing output file",
-        "d5_08: missing output file",
-        "d5_09: missing output file",
-        "d5_10: missing output file",
-        "d5_11: missing output file",
-        "d5_12: missing output file",
-        "d5_13: missing output file",
-        "d5_14: missing output file",
-        "d5_15: missing output file",
-        "d5_16: missing output file",
-        "d5_17: missing output file",
-        "d5_18: missing output file",
-        "d5_19: missing output file",
-        "cora_00: missing output file",
-        "cora_01: missing output file",
-        "cora_02: missing output file",
-        "cora_03: missing output file",
-        "cora_04: missing output file",
-        "cora_05: missing output file",
-        "cora_06: missing output file",
-        "cora_07: missing output file",
-        "cora_08: missing output file",
-        "cora_09: missing output file",
-        "citeseer_00: missing output file",
-        "citeseer_01: missing output file",
-        "citeseer_02: missing output file",
-        "citeseer_03: missing output file",
-        "citeseer_04: missing output file",
-        "citeseer_05: missing output file",
-        "citeseer_06: missing output file",
-        "citeseer_07: missing output file",
-        "citeseer_08: missing output file",
-        "citeseer_09: missing output file"
+        "command exited with status 3"
       ],
-      "n_failure_reasons": 50,
+      "n_failure_reasons": 1,
       "run": {
         "card": "outputs/audit/shortcut_crash/method.json",
         "command": [
@@ -11508,9 +12944,9 @@
           "crash"
         ],
         "launch_error": null,
-        "log_tail": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 786, in _savez\n    format.write_array(fid, val,\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_format_impl.py\", line 770, in write_array\n    fp.write(chunk.tobytes('C'))\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1196, in write\n    self._fileobj.write(data)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 785, in _savez\n    with zipf.open(fname, 'w', force_zip64=True) as fid:\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1234, in close\n    self._fileobj.seek(self._zinfo.header_offset)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1925, in close\n    self.fp.seek(self.start_dir)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/home/user/redteam/hardening/shortcuts.py\", line 137, in <module>\n    main()\n  File \"/home/user/redteam/hardening/shortcuts.py\", line 118, in main\n    np.savez(out, embedding=_reference(d, seed, m), alpha=np.array(0.5))\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 673, in savez\n    _savez(file, args, kwds, False, allow_pickle=allow_pickle)\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 790, in _savez\n    zipf.close()\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1930, in close\n    self._fpclose(fp)\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 2030, in _fpclose\n    fp.close()\nOSError: [Errno 28] No space left on device\n",
-        "returncode": 1,
-        "runtime_seconds_info_only": 1.88,
+        "log_tail": "",
+        "returncode": 3,
+        "runtime_seconds_info_only": 59.02,
         "timed_out": false
       }
     },
@@ -11591,58 +13027,58 @@
         }
       },
       "failure_reasons": [
-        "command exited with status 1",
         "d7_00: drift norm 1 is not < 1",
         "d7_01: drift norm 1 is not < 1",
         "d7_02: drift norm 1 is not < 1",
-        "d7_03: unreadable output (EOFError: No data left in file)",
-        "d7_04: missing output file",
-        "d7_05: missing output file",
-        "d7_06: missing output file",
-        "d7_07: missing output file",
-        "d7_08: missing output file",
-        "d7_09: missing output file",
-        "d7_10: missing output file",
-        "d7_11: missing output file",
-        "d5_00: missing output file",
-        "d5_01: missing output file",
-        "d5_02: missing output file",
-        "d5_03: missing output file",
-        "d5_04: missing output file",
-        "d5_05: missing output file",
-        "d5_06: missing output file",
-        "d5_07: missing output file",
-        "d5_08: missing output file",
-        "d5_09: missing output file",
-        "d5_10: missing output file",
-        "d5_11: missing output file",
-        "d5_12: missing output file",
-        "d5_13: missing output file",
-        "d5_14: missing output file",
-        "d5_15: missing output file",
-        "d5_16: missing output file",
-        "d5_17: missing output file",
-        "d5_18: missing output file",
-        "d5_19: missing output file",
-        "cora_00: missing output file",
-        "cora_01: missing output file",
-        "cora_02: missing output file",
-        "cora_03: missing output file",
-        "cora_04: missing output file",
-        "cora_05: missing output file",
-        "cora_06: missing output file",
-        "cora_07: missing output file",
-        "cora_08: missing output file",
-        "cora_09: missing output file",
-        "citeseer_00: missing output file",
-        "citeseer_01: missing output file",
-        "citeseer_02: missing output file",
-        "citeseer_03: missing output file",
-        "citeseer_04: missing output file",
-        "citeseer_05: missing output file",
-        "citeseer_06: missing output file"
+        "d7_03: drift norm 1 is not < 1",
+        "d7_04: drift norm 1 is not < 1",
+        "d7_05: drift norm 1 is not < 1",
+        "d7_06: drift norm 1 is not < 1",
+        "d7_07: drift norm 1 is not < 1",
+        "d7_08: drift norm 1 is not < 1",
+        "d7_09: drift norm 1 is not < 1",
+        "d7_10: drift norm 1 is not < 1",
+        "d7_11: drift norm 1 is not < 1",
+        "d5_00: drift norm 1 is not < 1",
+        "d5_01: drift norm 1 is not < 1",
+        "d5_02: drift norm 1 is not < 1",
+        "d5_03: drift norm 1 is not < 1",
+        "d5_04: drift norm 1 is not < 1",
+        "d5_05: drift norm 1 is not < 1",
+        "d5_06: drift norm 1 is not < 1",
+        "d5_07: drift norm 1 is not < 1",
+        "d5_08: drift norm 1 is not < 1",
+        "d5_09: drift norm 1 is not < 1",
+        "d5_10: drift norm 1 is not < 1",
+        "d5_11: drift norm 1 is not < 1",
+        "d5_12: drift norm 1 is not < 1",
+        "d5_13: drift norm 1 is not < 1",
+        "d5_14: drift norm 1 is not < 1",
+        "d5_15: drift norm 1 is not < 1",
+        "d5_16: drift norm 1 is not < 1",
+        "d5_17: drift norm 1 is not < 1",
+        "d5_18: drift norm 1 is not < 1",
+        "d5_19: drift norm 1 is not < 1",
+        "cora_00: drift norm 1 is not < 1",
+        "cora_01: drift norm 1 is not < 1",
+        "cora_02: drift norm 1 is not < 1",
+        "cora_03: drift norm 1 is not < 1",
+        "cora_04: drift norm 1 is not < 1",
+        "cora_05: drift norm 1 is not < 1",
+        "cora_06: drift norm 1 is not < 1",
+        "cora_07: drift norm 1 is not < 1",
+        "cora_08: drift norm 1 is not < 1",
+        "cora_09: drift norm 1 is not < 1",
+        "citeseer_00: drift norm 1 is not < 1",
+        "citeseer_01: drift norm 1 is not < 1",
+        "citeseer_02: drift norm 1 is not < 1",
+        "citeseer_03: drift norm 1 is not < 1",
+        "citeseer_04: drift norm 1 is not < 1",
+        "citeseer_05: drift norm 1 is not < 1",
+        "citeseer_06: drift norm 1 is not < 1",
+        "citeseer_07: drift norm 1 is not < 1"
       ],
-      "n_failure_reasons": 53,
+      "n_failure_reasons": 52,
       "run": {
         "card": "outputs/audit/shortcut_drift_too_large/method.json",
         "command": [
@@ -11653,9 +13089,9 @@
           "drift_too_large"
         ],
         "launch_error": null,
-        "log_tail": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 786, in _savez\n    format.write_array(fid, val,\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_format_impl.py\", line 770, in write_array\n    fp.write(chunk.tobytes('C'))\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1196, in write\n    self._fileobj.write(data)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 785, in _savez\n    with zipf.open(fname, 'w', force_zip64=True) as fid:\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1234, in close\n    self._fileobj.seek(self._zinfo.header_offset)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1925, in close\n    self.fp.seek(self.start_dir)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/home/user/redteam/hardening/shortcuts.py\", line 137, in <module>\n    main()\n  File \"/home/user/redteam/hardening/shortcuts.py\", line 112, in main\n    np.savez(out, embedding=x / 2.0, alpha=np.array(1.0))\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 673, in savez\n    _savez(file, args, kwds, False, allow_pickle=allow_pickle)\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 790, in _savez\n    zipf.close()\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1930, in close\n    self._fpclose(fp)\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 2030, in _fpclose\n    fp.close()\nOSError: [Errno 28] No space left on device\n",
-        "returncode": 1,
-        "runtime_seconds_info_only": 2.04,
+        "log_tail": "",
+        "returncode": 0,
+        "runtime_seconds_info_only": 61.58,
         "timed_out": false
       }
     },
@@ -11800,7 +13236,7 @@
         "launch_error": null,
         "log_tail": "",
         "returncode": 0,
-        "runtime_seconds_info_only": 1.74,
+        "runtime_seconds_info_only": 2.0,
         "timed_out": false
       }
     },
@@ -11830,15 +13266,63 @@
               "normalized_stress": 1.0,
               "symmetric_error": 1.0
             },
-            "citeseer_03": null,
-            "citeseer_04": null,
-            "citeseer_05": null,
-            "citeseer_06": null,
-            "citeseer_07": null,
-            "citeseer_08": null,
-            "citeseer_09": null
+            "citeseer_03": {
+              "asymmetry_error": 1.0,
+              "distortion": 10.850520050125313,
+              "map": 0.004430033981707605,
+              "normalized_stress": 1.0,
+              "symmetric_error": 1.0
+            },
+            "citeseer_04": {
+              "asymmetry_error": 1.0,
+              "distortion": 7.211829573934837,
+              "map": 0.005235607290536489,
+              "normalized_stress": 1.0,
+              "symmetric_error": 1.0
+            },
+            "citeseer_05": {
+              "asymmetry_error": 1.0,
+              "distortion": 14.893101503759398,
+              "map": 0.0037147041496283562,
+              "normalized_stress": 1.0,
+              "symmetric_error": 1.0
+            },
+            "citeseer_06": {
+              "asymmetry_error": 1.0,
+              "distortion": 14.412180451127819,
+              "map": 0.00366285801989443,
+              "normalized_stress": 1.0,
+              "symmetric_error": 1.0
+            },
+            "citeseer_07": {
+              "asymmetry_error": 1.0,
+              "distortion": 11.949862155388471,
+              "map": 0.0039643883933702705,
+              "normalized_stress": 1.0,
+              "symmetric_error": 1.0
+            },
+            "citeseer_08": {
+              "asymmetry_error": 1.0,
+              "distortion": 10.813508771929824,
+              "map": 0.00467945444282003,
+              "normalized_stress": 1.0,
+              "symmetric_error": 1.0
+            },
+            "citeseer_09": {
+              "asymmetry_error": 1.0,
+              "distortion": 11.545300751879699,
+              "map": 0.0037688368262475598,
+              "normalized_stress": 1.0,
+              "symmetric_error": 1.0
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_error": 1.0,
+            "distortion": 10.999266290726815,
+            "map": 0.004224889224093564,
+            "normalized_stress": 1.0,
+            "symmetric_error": 1.0
+          }
         },
         "cora_digraph_reconstruction": {
           "per_instance": {
@@ -12237,7 +13721,6 @@
         }
       },
       "failure_reasons": [
-        "command exited with status 1",
         "d7_00: normalized_stress=1 fails <= 0.1",
         "d7_00: distortion=1.21 fails <= 0.1",
         "d7_00: asymmetry_rmse=1.525 fails <= 0.1",
@@ -12286,9 +13769,10 @@
         "d7_11: distortion=1.26 fails <= 0.1",
         "d7_11: asymmetry_rmse=1.599 fails <= 0.1",
         "d7_11: hierarchy_alignment=0 fails >= 0.8",
-        "d5_00: normalized_stress=1 fails <= 0.1"
+        "d5_00: normalized_stress=1 fails <= 0.1",
+        "d5_00: distortion=1.233 fails <= 0.1"
       ],
-      "n_failure_reasons": 201,
+      "n_failure_reasons": 228,
       "run": {
         "card": "outputs/audit/shortcut_forged_targets/method.json",
         "command": [
@@ -12299,9 +13783,9 @@
           "forged_targets"
         ],
         "launch_error": null,
-        "log_tail": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 786, in _savez\n    format.write_array(fid, val,\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_format_impl.py\", line 777, in write_array\n    fp.write(chunk.tobytes('C'))\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1196, in write\n    self._fileobj.write(data)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1926, in close\n    self._write_end_record()\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 2024, in _write_end_record\n    self.fp.flush()\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/home/user/redteam/hardening/shortcuts.py\", line 137, in <module>\n    main()\n  File \"/home/user/redteam/hardening/shortcuts.py\", line 93, in main\n    np.savez(out, embedding=np.zeros((n, m)), alpha=np.array(0.5),\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 673, in savez\n    _savez(file, args, kwds, False, allow_pickle=allow_pickle)\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 790, in _savez\n    zipf.close()\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1930, in close\n    self._fpclose(fp)\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 2030, in _fpclose\n    fp.close()\nOSError: [Errno 28] No space left on device\n",
-        "returncode": 1,
-        "runtime_seconds_info_only": 1.69,
+        "log_tail": "",
+        "returncode": 0,
+        "runtime_seconds_info_only": 2.2,
         "timed_out": false
       }
     },
@@ -12310,58 +13794,358 @@
       "experiments": {
         "citeseer_digraph_reconstruction": {
           "per_instance": {
-            "citeseer_00": null,
-            "citeseer_01": null,
-            "citeseer_02": null,
-            "citeseer_03": null,
-            "citeseer_04": null,
-            "citeseer_05": null,
-            "citeseer_06": null,
-            "citeseer_07": null,
-            "citeseer_08": null,
-            "citeseer_09": null
+            "citeseer_00": {
+              "asymmetry_error": 0.49760974447428674,
+              "distortion": 5.6192738741746115,
+              "map": 0.02418927331323487,
+              "normalized_stress": 0.8616976349320861,
+              "symmetric_error": 0.8653008398519066
+            },
+            "citeseer_01": {
+              "asymmetry_error": 0.4356932983556198,
+              "distortion": 7.7182470221865405,
+              "map": 0.03345962662412335,
+              "normalized_stress": 0.851533393358736,
+              "symmetric_error": 0.8552446059144112
+            },
+            "citeseer_02": {
+              "asymmetry_error": 0.4146866508748093,
+              "distortion": 7.242010708558951,
+              "map": 0.03169251726478553,
+              "normalized_stress": 0.8463497469558565,
+              "symmetric_error": 0.8502985703474284
+            },
+            "citeseer_03": {
+              "asymmetry_error": 0.3630506678335475,
+              "distortion": 7.439616313325988,
+              "map": 0.04163759757749485,
+              "normalized_stress": 0.8244277484795284,
+              "symmetric_error": 0.8291172200298915
+            },
+            "citeseer_04": {
+              "asymmetry_error": 0.45207761313605366,
+              "distortion": 4.953954446006051,
+              "map": 0.03373066654289367,
+              "normalized_stress": 0.826559899417051,
+              "symmetric_error": 0.8312532775405842
+            },
+            "citeseer_05": {
+              "asymmetry_error": 0.4390191530177265,
+              "distortion": 11.433034892029996,
+              "map": 0.04072705788716227,
+              "normalized_stress": 0.8789499659961031,
+              "symmetric_error": 0.881444836968116
+            },
+            "citeseer_06": {
+              "asymmetry_error": 0.29121228126189813,
+              "distortion": 11.07228495360299,
+              "map": 0.03696621854512093,
+              "normalized_stress": 0.8803647113781333,
+              "symmetric_error": 0.8830967873986202
+            },
+            "citeseer_07": {
+              "asymmetry_error": 0.48596086112375664,
+              "distortion": 9.164992042796046,
+              "map": 0.03398032990010192,
+              "normalized_stress": 0.8805502946994932,
+              "symmetric_error": 0.8832731006860766
+            },
+            "citeseer_08": {
+              "asymmetry_error": 0.2875697526562589,
+              "distortion": 7.324915158614137,
+              "map": 0.039490940628191994,
+              "normalized_stress": 0.8163332029168856,
+              "symmetric_error": 0.8213569040411242
+            },
+            "citeseer_09": {
+              "asymmetry_error": 0.42550816976934713,
+              "distortion": 8.656827828511151,
+              "map": 0.03591153047398191,
+              "normalized_stress": 0.8655180752778303,
+              "symmetric_error": 0.8688032057321827
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_error": 0.40923881925033045,
+            "distortion": 8.062515723980646,
+            "map": 0.03517857587570913,
+            "normalized_stress": 0.8532284673411704,
+            "symmetric_error": 0.8569189348510342
+          }
         },
         "cora_digraph_reconstruction": {
           "per_instance": {
-            "cora_00": null,
-            "cora_01": null,
-            "cora_02": null,
-            "cora_03": null,
-            "cora_04": null,
-            "cora_05": null,
-            "cora_06": null,
-            "cora_07": null,
-            "cora_08": null,
-            "cora_09": null
+            "cora_00": {
+              "asymmetry_error": 0.4176129948885292,
+              "distortion": 6.338092343349817,
+              "map": 0.0492224142579261,
+              "normalized_stress": 0.8377444756001942,
+              "symmetric_error": 0.8424552174241685
+            },
+            "cora_01": {
+              "asymmetry_error": 0.38386385235472503,
+              "distortion": 4.883087982942439,
+              "map": 0.05964412613074241,
+              "normalized_stress": 0.7950675066229052,
+              "symmetric_error": 0.8013286094019731
+            },
+            "cora_02": {
+              "asymmetry_error": 0.20670047908232547,
+              "distortion": 3.6463587812311204,
+              "map": 0.026648066434849665,
+              "normalized_stress": 0.7582279924488761,
+              "symmetric_error": 0.7674356140799933
+            },
+            "cora_03": {
+              "asymmetry_error": 0.22873461660747613,
+              "distortion": 3.9052407297141922,
+              "map": 0.023691901671625912,
+              "normalized_stress": 0.775166865106236,
+              "symmetric_error": 0.7834497951006666
+            },
+            "cora_04": {
+              "asymmetry_error": 0.47730450210320147,
+              "distortion": 6.380039513125899,
+              "map": 0.03632941333764229,
+              "normalized_stress": 0.8441106991248811,
+              "symmetric_error": 0.8482861129667916
+            },
+            "cora_05": {
+              "asymmetry_error": 0.45417432892711107,
+              "distortion": 5.808714155454355,
+              "map": 0.03814406822781136,
+              "normalized_stress": 0.8526731745336068,
+              "symmetric_error": 0.8568372830854486
+            },
+            "cora_06": {
+              "asymmetry_error": 0.4743919824304977,
+              "distortion": 6.503351885983257,
+              "map": 0.03521740350033445,
+              "normalized_stress": 0.8459820005054414,
+              "symmetric_error": 0.8500381764058939
+            },
+            "cora_07": {
+              "asymmetry_error": 0.4246720633568027,
+              "distortion": 5.9303109648026435,
+              "map": 0.03218081860522021,
+              "normalized_stress": 0.8537045868549106,
+              "symmetric_error": 0.8575579467126268
+            },
+            "cora_08": {
+              "asymmetry_error": 0.5104594435873885,
+              "distortion": 5.818698310240368,
+              "map": 0.028731552200465055,
+              "normalized_stress": 0.8509996325552525,
+              "symmetric_error": 0.8551034429143434
+            },
+            "cora_09": {
+              "asymmetry_error": 0.39611357831631494,
+              "distortion": 4.822078766669014,
+              "map": 0.02679968660178237,
+              "normalized_stress": 0.8056843311672134,
+              "symmetric_error": 0.811460365541111
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_error": 0.39740278416543723,
+            "distortion": 5.40359734335131,
+            "map": 0.03566094509683999,
+            "normalized_stress": 0.8219361264519517,
+            "symmetric_error": 0.8273952563633017
+          }
         },
         "directed_tree_depth5_reconstruction": {
           "per_instance": {
-            "d5_00": null,
-            "d5_01": null,
-            "d5_02": null,
-            "d5_03": null,
-            "d5_04": null,
-            "d5_05": null,
-            "d5_06": null,
-            "d5_07": null,
-            "d5_08": null,
-            "d5_09": null,
-            "d5_10": null,
-            "d5_11": null,
-            "d5_12": null,
-            "d5_13": null,
-            "d5_14": null,
-            "d5_15": null,
-            "d5_16": null,
-            "d5_17": null,
-            "d5_18": null,
-            "d5_19": null
+            "d5_00": {
+              "asymmetry_correlation": 0.9999999999999999,
+              "asymmetry_rmse": 1.1340293260029748e-15,
+              "distortion": 0.05498232637052378,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.11445348709372583,
+              "symmetric_rmse": 0.21070380362386143
+            },
+            "d5_01": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 5.001166955988537e-16,
+              "distortion": 0.04986805413446418,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.10225113877268449,
+              "symmetric_rmse": 0.1810566360371801
+            },
+            "d5_02": {
+              "asymmetry_correlation": 0.9999999999999999,
+              "asymmetry_rmse": 9.192936531854246e-16,
+              "distortion": 0.045504116034534955,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.09723258571419642,
+              "symmetric_rmse": 0.17280166601844135
+            },
+            "d5_03": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 6.307900921631209e-16,
+              "distortion": 0.06389469286154169,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.1145190296434115,
+              "symmetric_rmse": 0.1896079740185165
+            },
+            "d5_04": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 6.468240936481232e-16,
+              "distortion": 0.051848016309978796,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.07590621422201402,
+              "symmetric_rmse": 0.14851674907395968
+            },
+            "d5_05": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 5.256924064656987e-16,
+              "distortion": 0.04827420706515574,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.07699252516233653,
+              "symmetric_rmse": 0.1319376861654749
+            },
+            "d5_06": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 8.142049744009167e-16,
+              "distortion": 0.06088099785015561,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.09886528254872609,
+              "symmetric_rmse": 0.17782712608027168
+            },
+            "d5_07": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 8.581595090580145e-16,
+              "distortion": 0.055592393390471395,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.09076777299456491,
+              "symmetric_rmse": 0.16549615883811172
+            },
+            "d5_08": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 1.1095244742951265e-15,
+              "distortion": 0.06572374971269375,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.11230991095210241,
+              "symmetric_rmse": 0.21731136661870762
+            },
+            "d5_09": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 8.52826590688727e-16,
+              "distortion": 0.06671600935627893,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.10651955318893783,
+              "symmetric_rmse": 0.19594658052483832
+            },
+            "d5_10": {
+              "asymmetry_correlation": 0.9999999999999999,
+              "asymmetry_rmse": 1.4495733981762307e-15,
+              "distortion": 0.05091412535881039,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.08909927482081935,
+              "symmetric_rmse": 0.1700727016210596
+            },
+            "d5_11": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 1.0538490908094613e-15,
+              "distortion": 0.06105421201643894,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.10424276113996056,
+              "symmetric_rmse": 0.19433547066990858
+            },
+            "d5_12": {
+              "asymmetry_correlation": 0.9999999999999997,
+              "asymmetry_rmse": 5.116162971338261e-16,
+              "distortion": 0.06198458120470128,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.10078071228060688,
+              "symmetric_rmse": 0.17350882082170263
+            },
+            "d5_13": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 8.531743404224082e-16,
+              "distortion": 0.051014335639430725,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.12089139600378199,
+              "symmetric_rmse": 0.1956762627263523
+            },
+            "d5_14": {
+              "asymmetry_correlation": 0.9999999999999999,
+              "asymmetry_rmse": 8.721132881318314e-16,
+              "distortion": 0.06090037723908824,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.10419453525963061,
+              "symmetric_rmse": 0.1912573702979756
+            },
+            "d5_15": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 6.11834546817557e-16,
+              "distortion": 0.0358497456056123,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.07920219437065083,
+              "symmetric_rmse": 0.12133418657327368
+            },
+            "d5_16": {
+              "asymmetry_correlation": 0.9999999999999998,
+              "asymmetry_rmse": 9.8947358517115e-16,
+              "distortion": 0.03639884458909741,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.07076865698440511,
+              "symmetric_rmse": 0.1389699810327911
+            },
+            "d5_17": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 1.1664587480084891e-15,
+              "distortion": 0.06133960393601173,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.09196080924972813,
+              "symmetric_rmse": 0.18107398071994046
+            },
+            "d5_18": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 1.4555788157792675e-15,
+              "distortion": 0.05003645436408468,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.10805097191421394,
+              "symmetric_rmse": 0.2003754451092875
+            },
+            "d5_19": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 1.404713092150605e-15,
+              "distortion": 0.06336061321273105,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.12576729469697231,
+              "symmetric_rmse": 0.2049014462029865
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_correlation": 1.0,
+            "asymmetry_rmse": 9.179923509053904e-16,
+            "distortion": 0.05480687281259029,
+            "hierarchy_alignment": 1.0,
+            "map_at_10": 1.0,
+            "normalized_stress": 0.09923880535067349,
+            "symmetric_rmse": 0.17813557063873206
+          }
         },
         "directed_tree_reconstruction": {
           "per_instance": {
@@ -12374,74 +14158,155 @@
               "normalized_stress": 0.1238512462047351,
               "symmetric_rmse": 0.23445549312668953
             },
-            "d7_01": null,
-            "d7_02": null,
-            "d7_03": null,
-            "d7_04": null,
-            "d7_05": null,
-            "d7_06": null,
-            "d7_07": null,
-            "d7_08": null,
-            "d7_09": null,
-            "d7_10": null,
-            "d7_11": null
+            "d7_01": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 2.220392389528982e-15,
+              "distortion": 0.04741034699183105,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.08212183528539299,
+              "symmetric_rmse": 0.15609257949271907
+            },
+            "d7_02": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 5.506035706037182e-15,
+              "distortion": 0.056456331999363854,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.10344158494227555,
+              "symmetric_rmse": 0.20406306052647974
+            },
+            "d7_03": {
+              "asymmetry_correlation": 0.9999999999999992,
+              "asymmetry_rmse": 3.968102401435821e-15,
+              "distortion": 0.05650371395471506,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.10058342790343804,
+              "symmetric_rmse": 0.19713402219924597
+            },
+            "d7_04": {
+              "asymmetry_correlation": 0.9999999999999999,
+              "asymmetry_rmse": 4.7701756026079565e-15,
+              "distortion": 0.033786513523686876,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.0680960781309629,
+              "symmetric_rmse": 0.13621533736192787
+            },
+            "d7_05": {
+              "asymmetry_correlation": 0.9999999999999999,
+              "asymmetry_rmse": 4.23356664628383e-15,
+              "distortion": 0.04282029700166316,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.08926440543599916,
+              "symmetric_rmse": 0.17506245482649388
+            },
+            "d7_06": {
+              "asymmetry_correlation": 0.9999999999999996,
+              "asymmetry_rmse": 4.69986885151452e-15,
+              "distortion": 0.0496257869268192,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.10217194204746104,
+              "symmetric_rmse": 0.19104725021791719
+            },
+            "d7_07": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 3.382743465402778e-15,
+              "distortion": 0.042783786312101384,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.08105719811306553,
+              "symmetric_rmse": 0.16270728828899925
+            },
+            "d7_08": {
+              "asymmetry_correlation": 0.9999999999999996,
+              "asymmetry_rmse": 5.449400505778819e-15,
+              "distortion": 0.0560426322281621,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.09469059371907411,
+              "symmetric_rmse": 0.1889875848396123
+            },
+            "d7_09": {
+              "asymmetry_correlation": 1.0,
+              "asymmetry_rmse": 5.5435205757622255e-15,
+              "distortion": 0.03802049916126225,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.06192351495486511,
+              "symmetric_rmse": 0.13499433927852136
+            },
+            "d7_10": {
+              "asymmetry_correlation": 0.9999999999999998,
+              "asymmetry_rmse": 5.488728132995164e-15,
+              "distortion": 0.050808539379931676,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.08104287009744791,
+              "symmetric_rmse": 0.16424049733144913
+            },
+            "d7_11": {
+              "asymmetry_correlation": 0.9999999999999997,
+              "asymmetry_rmse": 5.321256811137775e-15,
+              "distortion": 0.05168035471835442,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.09822311306893733,
+              "symmetric_rmse": 0.19107481546220126
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_correlation": 0.9999999999999999,
+            "asymmetry_rmse": 4.610827381504033e-15,
+            "distortion": 0.050129358077202174,
+            "hierarchy_alignment": 1.0,
+            "map_at_10": 1.0,
+            "normalized_stress": 0.09053898415863788,
+            "symmetric_rmse": 0.17800622691268805
+          }
         }
       },
       "failure_reasons": [
-        "command exited with status 1",
         "d7_00: normalized_stress=0.1239 fails <= 0.1",
-        "d7_01: unreadable output (EOFError: No data left in file)",
-        "d7_02: missing output file",
-        "d7_03: missing output file",
-        "d7_04: missing output file",
-        "d7_05: missing output file",
-        "d7_06: missing output file",
-        "d7_07: missing output file",
-        "d7_08: missing output file",
-        "d7_09: missing output file",
-        "d7_10: missing output file",
-        "d7_11: missing output file",
-        "d5_00: missing output file",
-        "d5_01: missing output file",
-        "d5_02: missing output file",
-        "d5_03: missing output file",
-        "d5_04: missing output file",
-        "d5_05: missing output file",
-        "d5_06: missing output file",
-        "d5_07: missing output file",
-        "d5_08: missing output file",
-        "d5_09: missing output file",
-        "d5_10: missing output file",
-        "d5_11: missing output file",
-        "d5_12: missing output file",
-        "d5_13: missing output file",
-        "d5_14: missing output file",
-        "d5_15: missing output file",
-        "d5_16: missing output file",
-        "d5_17: missing output file",
-        "d5_18: missing output file",
-        "d5_19: missing output file",
-        "cora_00: missing output file",
-        "cora_01: missing output file",
-        "cora_02: missing output file",
-        "cora_03: missing output file",
-        "cora_04: missing output file",
-        "cora_05: missing output file",
-        "cora_06: missing output file",
-        "cora_07: missing output file",
-        "cora_08: missing output file",
-        "cora_09: missing output file",
-        "citeseer_00: missing output file",
-        "citeseer_01: missing output file",
-        "citeseer_02: missing output file",
-        "citeseer_03: missing output file",
-        "citeseer_04: missing output file",
-        "citeseer_05: missing output file",
-        "citeseer_06: missing output file"
+        "d7_02: normalized_stress=0.1034 fails <= 0.1",
+        "d7_03: normalized_stress=0.1006 fails <= 0.1",
+        "d7_06: normalized_stress=0.1022 fails <= 0.1",
+        "d5_00: normalized_stress=0.1145 fails <= 0.1",
+        "d5_01: normalized_stress=0.1023 fails <= 0.1",
+        "d5_03: normalized_stress=0.1145 fails <= 0.1",
+        "d5_08: normalized_stress=0.1123 fails <= 0.1",
+        "d5_09: normalized_stress=0.1065 fails <= 0.1",
+        "d5_11: normalized_stress=0.1042 fails <= 0.1",
+        "d5_12: normalized_stress=0.1008 fails <= 0.1",
+        "d5_13: normalized_stress=0.1209 fails <= 0.1",
+        "d5_14: normalized_stress=0.1042 fails <= 0.1",
+        "d5_18: normalized_stress=0.1081 fails <= 0.1",
+        "d5_19: normalized_stress=0.1258 fails <= 0.1",
+        "cora_00: normalized_stress=0.8377 fails <= 0.25",
+        "cora_01: normalized_stress=0.7951 fails <= 0.25",
+        "cora_02: normalized_stress=0.7582 fails <= 0.25",
+        "cora_03: normalized_stress=0.7752 fails <= 0.25",
+        "cora_04: normalized_stress=0.8441 fails <= 0.25",
+        "cora_05: normalized_stress=0.8527 fails <= 0.25",
+        "cora_06: normalized_stress=0.846 fails <= 0.25",
+        "cora_07: normalized_stress=0.8537 fails <= 0.25",
+        "cora_08: normalized_stress=0.851 fails <= 0.25",
+        "cora_09: normalized_stress=0.8057 fails <= 0.25",
+        "citeseer_00: normalized_stress=0.8617 fails <= 0.25",
+        "citeseer_01: normalized_stress=0.8515 fails <= 0.25",
+        "citeseer_02: normalized_stress=0.8463 fails <= 0.25",
+        "citeseer_03: normalized_stress=0.8244 fails <= 0.25",
+        "citeseer_04: normalized_stress=0.8266 fails <= 0.25",
+        "citeseer_05: normalized_stress=0.8789 fails <= 0.25",
+        "citeseer_06: normalized_stress=0.8804 fails <= 0.25",
+        "citeseer_07: normalized_stress=0.8806 fails <= 0.25",
+        "citeseer_08: normalized_stress=0.8163 fails <= 0.25",
+        "citeseer_09: normalized_stress=0.8655 fails <= 0.25"
       ],
-      "n_failure_reasons": 53,
+      "n_failure_reasons": 35,
       "run": {
         "card": "outputs/audit/shortcut_hierarchy_field/method.json",
         "command": [
@@ -12452,69 +14317,369 @@
           "hierarchy_field"
         ],
         "launch_error": null,
-        "log_tail": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 786, in _savez\n    format.write_array(fid, val,\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_format_impl.py\", line 777, in write_array\n    fp.write(chunk.tobytes('C'))\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1196, in write\n    self._fileobj.write(data)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 785, in _savez\n    with zipf.open(fname, 'w', force_zip64=True) as fid:\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1234, in close\n    self._fileobj.seek(self._zinfo.header_offset)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1925, in close\n    self.fp.seek(self.start_dir)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/home/user/redteam/hardening/shortcuts.py\", line 137, in <module>\n    main()\n  File \"/home/user/redteam/hardening/shortcuts.py\", line 79, in main\n    np.savez(out, predicted_distances=_randers(x, 0.5),\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 673, in savez\n    _savez(file, args, kwds, False, allow_pickle=allow_pickle)\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 790, in _savez\n    zipf.close()\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1930, in close\n    self._fpclose(fp)\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 2030, in _fpclose\n    fp.close()\nOSError: [Errno 28] No space left on device\n",
-        "returncode": 1,
-        "runtime_seconds_info_only": 1.78,
+        "log_tail": "",
+        "returncode": 0,
+        "runtime_seconds_info_only": 66.77,
         "timed_out": false
       }
     },
     "shortcut_impossible_diagonal": {
-      "eligible": false,
+      "eligible": true,
       "experiments": {
         "citeseer_digraph_reconstruction": {
           "per_instance": {
-            "citeseer_00": null,
-            "citeseer_01": null,
-            "citeseer_02": null,
-            "citeseer_03": null,
-            "citeseer_04": null,
-            "citeseer_05": null,
-            "citeseer_06": null,
-            "citeseer_07": null,
-            "citeseer_08": null,
-            "citeseer_09": null
+            "citeseer_00": {
+              "asymmetry_error": 0.4994832318843904,
+              "distortion": 0.1418911920654477,
+              "map": 0.45961329032447784,
+              "normalized_stress": 0.11027926615309099,
+              "symmetric_error": 0.09579949352606687
+            },
+            "citeseer_01": {
+              "asymmetry_error": 0.4377627313011832,
+              "distortion": 0.12977483656688002,
+              "map": 0.5070099704398207,
+              "normalized_stress": 0.08731752237680908,
+              "symmetric_error": 0.07380280579808733
+            },
+            "citeseer_02": {
+              "asymmetry_error": 0.41655404482727976,
+              "distortion": 0.13001121548648986,
+              "map": 0.49625219697300926,
+              "normalized_stress": 0.09236668130633496,
+              "symmetric_error": 0.0806285464169718
+            },
+            "citeseer_03": {
+              "asymmetry_error": 0.36482332279219476,
+              "distortion": 0.1371620249326791,
+              "map": 0.4853547608605803,
+              "normalized_stress": 0.08325955588493997,
+              "symmetric_error": 0.07173922340893445
+            },
+            "citeseer_04": {
+              "asymmetry_error": 0.4538096652681282,
+              "distortion": 0.14682628381006554,
+              "map": 0.4890765159395714,
+              "normalized_stress": 0.11926143818812997,
+              "symmetric_error": 0.10539411982632942
+            },
+            "citeseer_05": {
+              "asymmetry_error": 0.4406001647867077,
+              "distortion": 0.1190870077992965,
+              "map": 0.5031384351593977,
+              "normalized_stress": 0.06659008809827538,
+              "symmetric_error": 0.054748081017448186
+            },
+            "citeseer_06": {
+              "asymmetry_error": 0.2935862946287935,
+              "distortion": 0.10421155849626781,
+              "map": 0.4653896863527593,
+              "normalized_stress": 0.05872145138552306,
+              "symmetric_error": 0.05357839487170477
+            },
+            "citeseer_07": {
+              "asymmetry_error": 0.488624414918677,
+              "distortion": 0.12957445900388412,
+              "map": 0.5017164822119733,
+              "normalized_stress": 0.07947939612958396,
+              "symmetric_error": 0.06516706700381843
+            },
+            "citeseer_08": {
+              "asymmetry_error": 0.28996273868432,
+              "distortion": 0.12614934178427475,
+              "map": 0.5090222382857295,
+              "normalized_stress": 0.07870052480621526,
+              "symmetric_error": 0.0713862289859195
+            },
+            "citeseer_09": {
+              "asymmetry_error": 0.427431744546126,
+              "distortion": 0.11994632842542657,
+              "map": 0.4984650039737346,
+              "normalized_stress": 0.07965216210309693,
+              "symmetric_error": 0.06764398238746848
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_error": 0.41126383536378003,
+            "distortion": 0.12846342483707118,
+            "map": 0.49150385805210534,
+            "normalized_stress": 0.08556280864319996,
+            "symmetric_error": 0.07398879432427494
+          }
         },
         "cora_digraph_reconstruction": {
           "per_instance": {
-            "cora_00": null,
-            "cora_01": null,
-            "cora_02": null,
-            "cora_03": null,
-            "cora_04": null,
-            "cora_05": null,
-            "cora_06": null,
-            "cora_07": null,
-            "cora_08": null,
-            "cora_09": null
+            "cora_00": {
+              "asymmetry_error": 0.4206149397806365,
+              "distortion": 0.13918389519429544,
+              "map": 0.5095161746359039,
+              "normalized_stress": 0.09916527385247456,
+              "symmetric_error": 0.08559388434583601
+            },
+            "cora_01": {
+              "asymmetry_error": 0.38748244251775904,
+              "distortion": 0.13649313461947468,
+              "map": 0.40574478096245215,
+              "normalized_stress": 0.11154009326506509,
+              "symmetric_error": 0.09799013891653403
+            },
+            "cora_02": {
+              "asymmetry_error": 0.21128062738946943,
+              "distortion": 0.12870055785348433,
+              "map": 0.49479235724112225,
+              "normalized_stress": 0.13197706943525442,
+              "symmetric_error": 0.12922614675384464
+            },
+            "cora_03": {
+              "asymmetry_error": 0.23301028550280567,
+              "distortion": 0.12593387570698414,
+              "map": 0.47440820477355367,
+              "normalized_stress": 0.12528048310247963,
+              "symmetric_error": 0.12160106846637495
+            },
+            "cora_04": {
+              "asymmetry_error": 0.4797021455264497,
+              "distortion": 0.15099780341662564,
+              "map": 0.43551559361980713,
+              "normalized_stress": 0.10340812550073347,
+              "symmetric_error": 0.08656972645489802
+            },
+            "cora_05": {
+              "asymmetry_error": 0.45673725134356186,
+              "distortion": 0.12330509602753133,
+              "map": 0.37166415047569656,
+              "normalized_stress": 0.10009225151620291,
+              "symmetric_error": 0.08546282284202539
+            },
+            "cora_06": {
+              "asymmetry_error": 0.47768457849620066,
+              "distortion": 0.1529277967931928,
+              "map": 0.5054761446055749,
+              "normalized_stress": 0.10459684102569855,
+              "symmetric_error": 0.08885096230116311
+            },
+            "cora_07": {
+              "asymmetry_error": 0.42756333796501844,
+              "distortion": 0.11662351659232588,
+              "map": 0.3251781549471472,
+              "normalized_stress": 0.09377810434906605,
+              "symmetric_error": 0.08186675121984657
+            },
+            "cora_08": {
+              "asymmetry_error": 0.5125537243846848,
+              "distortion": 0.1469322786002178,
+              "map": 0.43738554084709824,
+              "normalized_stress": 0.1107390404747166,
+              "symmetric_error": 0.09209232425112766
+            },
+            "cora_09": {
+              "asymmetry_error": 0.3998477065606613,
+              "distortion": 0.1332868982234869,
+              "map": 0.438352949746856,
+              "normalized_stress": 0.11108729596568953,
+              "symmetric_error": 0.09767610942533628
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_error": 0.4006477039467248,
+            "distortion": 0.1354384853027619,
+            "map": 0.4398034051855212,
+            "normalized_stress": 0.10916645784873809,
+            "symmetric_error": 0.09669299349769866
+          }
         },
         "directed_tree_depth5_reconstruction": {
           "per_instance": {
-            "d5_00": null,
-            "d5_01": null,
-            "d5_02": null,
-            "d5_03": null,
-            "d5_04": null,
-            "d5_05": null,
-            "d5_06": null,
-            "d5_07": null,
-            "d5_08": null,
-            "d5_09": null,
-            "d5_10": null,
-            "d5_11": null,
-            "d5_12": null,
-            "d5_13": null,
-            "d5_14": null,
-            "d5_15": null,
-            "d5_16": null,
-            "d5_17": null,
-            "d5_18": null,
-            "d5_19": null
+            "d5_00": {
+              "asymmetry_correlation": 0.9998958314236442,
+              "asymmetry_rmse": 0.021520739672219326,
+              "distortion": 0.009540143573046271,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.023291951497171202,
+              "symmetric_rmse": 0.041507370682679054
+            },
+            "d5_01": {
+              "asymmetry_correlation": 0.9998155736825445,
+              "asymmetry_rmse": 0.027946688124194565,
+              "distortion": 0.009829142755677145,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.024609762296604235,
+              "symmetric_rmse": 0.04127552499076733
+            },
+            "d5_02": {
+              "asymmetry_correlation": 0.9999122276757051,
+              "asymmetry_rmse": 0.019401496052475087,
+              "distortion": 0.008886898814442228,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.021828653756966437,
+              "symmetric_rmse": 0.037561408325361194
+            },
+            "d5_03": {
+              "asymmetry_correlation": 0.9998470322473703,
+              "asymmetry_rmse": 0.02489766929779239,
+              "distortion": 0.013677800235196012,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03132686033549554,
+              "symmetric_rmse": 0.05035146658238677
+            },
+            "d5_04": {
+              "asymmetry_correlation": 0.9999027878488781,
+              "asymmetry_rmse": 0.02329932455923105,
+              "distortion": 0.012991042227923223,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02719537563426479,
+              "symmetric_rmse": 0.05191905464689722
+            },
+            "d5_05": {
+              "asymmetry_correlation": 0.9998516189638185,
+              "asymmetry_rmse": 0.02589617422547422,
+              "distortion": 0.012827344039644138,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.030313945026870882,
+              "symmetric_rmse": 0.05030771579685626
+            },
+            "d5_06": {
+              "asymmetry_correlation": 0.9998340353876942,
+              "asymmetry_rmse": 0.0274497571635274,
+              "distortion": 0.014526955234584563,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.032561191155072736,
+              "symmetric_rmse": 0.05693632357458961
+            },
+            "d5_07": {
+              "asymmetry_correlation": 0.9998717152375408,
+              "asymmetry_rmse": 0.025652696037947318,
+              "distortion": 0.013475968821569763,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.029148417685957422,
+              "symmetric_rmse": 0.0515750950211495
+            },
+            "d5_08": {
+              "asymmetry_correlation": 0.9998909791426102,
+              "asymmetry_rmse": 0.02389415813345602,
+              "distortion": 0.012649393503670775,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02635058443050779,
+              "symmetric_rmse": 0.049566959129814805
+            },
+            "d5_09": {
+              "asymmetry_correlation": 0.9998305006974685,
+              "asymmetry_rmse": 0.0287862309979098,
+              "distortion": 0.015070837739559152,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.031867206689913406,
+              "symmetric_rmse": 0.056826455622809115
+            },
+            "d5_10": {
+              "asymmetry_correlation": 0.9999075389286143,
+              "asymmetry_rmse": 0.021898202879319723,
+              "distortion": 0.011114491588862425,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.023854789814675554,
+              "symmetric_rmse": 0.04419801525318966
+            },
+            "d5_11": {
+              "asymmetry_correlation": 0.9998993198242986,
+              "asymmetry_rmse": 0.023099003444785552,
+              "distortion": 0.012440411096992829,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.026009317347709046,
+              "symmetric_rmse": 0.04709250883547076
+            },
+            "d5_12": {
+              "asymmetry_correlation": 0.9998215266354733,
+              "asymmetry_rmse": 0.027073031731244125,
+              "distortion": 0.014494615958631453,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03372772917139266,
+              "symmetric_rmse": 0.05646740579999359
+            },
+            "d5_13": {
+              "asymmetry_correlation": 0.9997948957169828,
+              "asymmetry_rmse": 0.026322055443440958,
+              "distortion": 0.009186258573288378,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.027228974313591024,
+              "symmetric_rmse": 0.04206220858593546
+            },
+            "d5_14": {
+              "asymmetry_correlation": 0.9998621957977483,
+              "asymmetry_rmse": 0.02605064843274322,
+              "distortion": 0.013793918281949312,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.029957134688297093,
+              "symmetric_rmse": 0.05342376680940363
+            },
+            "d5_15": {
+              "asymmetry_correlation": 0.9999134354024442,
+              "asymmetry_rmse": 0.0170962773555816,
+              "distortion": 0.008193655143180784,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.022587839057954945,
+              "symmetric_rmse": 0.03353110474028885
+            },
+            "d5_16": {
+              "asymmetry_correlation": 0.9999141642745828,
+              "asymmetry_rmse": 0.021701469597294118,
+              "distortion": 0.008556431613454802,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.019830360054784255,
+              "symmetric_rmse": 0.037399034546162425
+            },
+            "d5_17": {
+              "asymmetry_correlation": 0.9998805009295131,
+              "asymmetry_rmse": 0.026066579931606403,
+              "distortion": 0.013908162396002788,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.027167750629914465,
+              "symmetric_rmse": 0.05188223280301927
+            },
+            "d5_18": {
+              "asymmetry_correlation": 0.999924921297364,
+              "asymmetry_rmse": 0.018595347858650357,
+              "distortion": 0.008565355735733672,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02001395333006482,
+              "symmetric_rmse": 0.03593148570260796
+            },
+            "d5_19": {
+              "asymmetry_correlation": 0.9998259629475998,
+              "asymmetry_rmse": 0.024773192115796726,
+              "distortion": 0.01273966381766242,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.03161871052688058,
+              "symmetric_rmse": 0.050002178132493316
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_correlation": 0.9998698382030948,
+            "asymmetry_rmse": 0.024071037152734495,
+            "distortion": 0.011823424557553606,
+            "hierarchy_alignment": 1.0,
+            "map_at_10": 1.0,
+            "normalized_stress": 0.027024525372204445,
+            "symmetric_rmse": 0.04699086577909379
+          }
         },
         "directed_tree_reconstruction": {
           "per_instance": {
@@ -12536,73 +14701,110 @@
               "normalized_stress": 0.027533306981745522,
               "symmetric_rmse": 0.05039721379880265
             },
-            "d7_02": null,
-            "d7_03": null,
-            "d7_04": null,
-            "d7_05": null,
-            "d7_06": null,
-            "d7_07": null,
-            "d7_08": null,
-            "d7_09": null,
-            "d7_10": null,
-            "d7_11": null
+            "d7_02": {
+              "asymmetry_correlation": 0.9998690855147945,
+              "asymmetry_rmse": 0.026214990929138954,
+              "distortion": 0.011635822372669096,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.023696338014926415,
+              "symmetric_rmse": 0.04487140036101103
+            },
+            "d7_03": {
+              "asymmetry_correlation": 0.9998682993770681,
+              "asymmetry_rmse": 0.026200809511826944,
+              "distortion": 0.01191265171188133,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.023329258701040252,
+              "symmetric_rmse": 0.04380622482071368
+            },
+            "d7_04": {
+              "asymmetry_correlation": 0.9999377610440344,
+              "asymmetry_rmse": 0.019004334429177136,
+              "distortion": 0.008469155409338819,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.01808373691532597,
+              "symmetric_rmse": 0.03490329948441624
+            },
+            "d7_05": {
+              "asymmetry_correlation": 0.9999415284072561,
+              "asymmetry_rmse": 0.01784917387239376,
+              "distortion": 0.008719910334998655,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.017825220086086568,
+              "symmetric_rmse": 0.033799859603153376
+            },
+            "d7_06": {
+              "asymmetry_correlation": 0.9998844330333703,
+              "asymmetry_rmse": 0.023603351445095642,
+              "distortion": 0.01044820099141056,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.022253957893901916,
+              "symmetric_rmse": 0.03990315239024562
+            },
+            "d7_07": {
+              "asymmetry_correlation": 0.9999187594839222,
+              "asymmetry_rmse": 0.02159634050707964,
+              "distortion": 0.010205920798609673,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.020807422122824434,
+              "symmetric_rmse": 0.040347058670579486
+            },
+            "d7_08": {
+              "asymmetry_correlation": 0.9998997429263957,
+              "asymmetry_rmse": 0.023672216519668117,
+              "distortion": 0.013298304614548524,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02498694063195118,
+              "symmetric_rmse": 0.04844507388005346
+            },
+            "d7_09": {
+              "asymmetry_correlation": 0.9999038978963278,
+              "asymmetry_rmse": 0.025923787298070006,
+              "distortion": 0.010666321178717386,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02184329032451417,
+              "symmetric_rmse": 0.0458206822499634
+            },
+            "d7_10": {
+              "asymmetry_correlation": 0.9999097810535389,
+              "asymmetry_rmse": 0.02293067143124156,
+              "distortion": 0.01207812832921617,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.022700790592703274,
+              "symmetric_rmse": 0.044553558892271146
+            },
+            "d7_11": {
+              "asymmetry_correlation": 0.999928629942801,
+              "asymmetry_rmse": 0.01942951427488007,
+              "distortion": 0.010480120283125066,
+              "hierarchy_alignment": 1.0,
+              "map_at_10": 1.0,
+              "normalized_stress": 0.02129403301793733,
+              "symmetric_rmse": 0.04026831075481337
+            }
           },
-          "raw_mean": null
+          "raw_mean": {
+            "asymmetry_correlation": 0.999894844664846,
+            "asymmetry_rmse": 0.023598051488966727,
+            "distortion": 0.011309584767366064,
+            "hierarchy_alignment": 1.0,
+            "map_at_10": 1.0,
+            "normalized_stress": 0.022914919524645094,
+            "symmetric_rmse": 0.04360881595684593
+          }
         }
       },
-      "failure_reasons": [
-        "command exited with status 1",
-        "d7_02: unreadable output (EOFError: No data left in file)",
-        "d7_03: missing output file",
-        "d7_04: missing output file",
-        "d7_05: missing output file",
-        "d7_06: missing output file",
-        "d7_07: missing output file",
-        "d7_08: missing output file",
-        "d7_09: missing output file",
-        "d7_10: missing output file",
-        "d7_11: missing output file",
-        "d5_00: missing output file",
-        "d5_01: missing output file",
-        "d5_02: missing output file",
-        "d5_03: missing output file",
-        "d5_04: missing output file",
-        "d5_05: missing output file",
-        "d5_06: missing output file",
-        "d5_07: missing output file",
-        "d5_08: missing output file",
-        "d5_09: missing output file",
-        "d5_10: missing output file",
-        "d5_11: missing output file",
-        "d5_12: missing output file",
-        "d5_13: missing output file",
-        "d5_14: missing output file",
-        "d5_15: missing output file",
-        "d5_16: missing output file",
-        "d5_17: missing output file",
-        "d5_18: missing output file",
-        "d5_19: missing output file",
-        "cora_00: missing output file",
-        "cora_01: missing output file",
-        "cora_02: missing output file",
-        "cora_03: missing output file",
-        "cora_04: missing output file",
-        "cora_05: missing output file",
-        "cora_06: missing output file",
-        "cora_07: missing output file",
-        "cora_08: missing output file",
-        "cora_09: missing output file",
-        "citeseer_00: missing output file",
-        "citeseer_01: missing output file",
-        "citeseer_02: missing output file",
-        "citeseer_03: missing output file",
-        "citeseer_04: missing output file",
-        "citeseer_05: missing output file",
-        "citeseer_06: missing output file",
-        "citeseer_07: missing output file",
-        "citeseer_08: missing output file"
-      ],
-      "n_failure_reasons": 51,
+      "failure_reasons": [],
+      "n_failure_reasons": 0,
       "run": {
         "card": "outputs/audit/shortcut_impossible_diagonal/method.json",
         "command": [
@@ -12613,9 +14815,9 @@
           "impossible_diagonal"
         ],
         "launch_error": null,
-        "log_tail": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 786, in _savez\n    format.write_array(fid, val,\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_format_impl.py\", line 770, in write_array\n    fp.write(chunk.tobytes('C'))\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1196, in write\n    self._fileobj.write(data)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 785, in _savez\n    with zipf.open(fname, 'w', force_zip64=True) as fid:\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1234, in close\n    self._fileobj.seek(self._zinfo.header_offset)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1925, in close\n    self.fp.seek(self.start_dir)\nOSError: [Errno 28] No space left on device\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/home/user/redteam/hardening/shortcuts.py\", line 137, in <module>\n    main()\n  File \"/home/user/redteam/hardening/shortcuts.py\", line 100, in main\n    np.savez(out, embedding=x, alpha=np.array(0.5), predicted_distances=pred)\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 673, in savez\n    _savez(file, args, kwds, False, allow_pickle=allow_pickle)\n  File \"/usr/local/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py\", line 790, in _savez\n    zipf.close()\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 1930, in close\n    self._fpclose(fp)\n  File \"/usr/local/lib/python3.11/zipfile.py\", line 2030, in _fpclose\n    fp.close()\nOSError: [Errno 28] No space left on device\n",
-        "returncode": 1,
-        "runtime_seconds_info_only": 1.87,
+        "log_tail": "",
+        "returncode": 0,
+        "runtime_seconds_info_only": 60.45,
         "timed_out": false
       }
     },
@@ -12760,7 +14962,7 @@
         "launch_error": null,
         "log_tail": "",
         "returncode": 0,
-        "runtime_seconds_info_only": 1.6,
+        "runtime_seconds_info_only": 1.98,
         "timed_out": false
       }
     },
@@ -14636,7 +16838,7 @@
         "launch_error": null,
         "log_tail": "",
         "returncode": 0,
-        "runtime_seconds_info_only": 73.0,
+        "runtime_seconds_info_only": 67.02,
         "timed_out": false
       }
     },
