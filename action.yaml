@@ -1,8 +1,8 @@
 # Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends.
-action: pending
+action: submit
 gpus: 0
 test: false
 milestone: core_claim_plus
-notes: ""
+notes: "Calibration job: the previous job showed 2D Finsler SMACOF losing to Euclidean on the new Cora/Citeseer experiments (asymmetry error > 1). Measures reference vs Euclidean SMACOF for the paper's dims 2/5/10 and drifts 0.1-0.5 on the visible citation instances and whole graphs, to redesign the experiment."
