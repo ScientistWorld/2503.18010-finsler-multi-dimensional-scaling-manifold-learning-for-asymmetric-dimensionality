@@ -1,4 +1,60 @@
 {
+  "citeseer_digraph_reconstruction": {
+    "results": {
+      "euclidean_mds": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "finsler_mds": {
+        "asymmetry_error": 0.41126383536378003,
+        "distortion": 0.12846342483707118,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.49150385805210534,
+        "normalized_stress": 0.08556280864319996,
+        "symmetric_error": 0.07398879432427494
+      },
+      "shortcut_fixed_generator": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      }
+    }
+  },
+  "cora_digraph_reconstruction": {
+    "results": {
+      "euclidean_mds": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "finsler_mds": {
+        "asymmetry_error": 0.4006477039467248,
+        "distortion": 0.1354384853027619,
+        "euclidean_gain_pass": 0.7,
+        "map": 0.4398034051855212,
+        "normalized_stress": 0.10916645784873809,
+        "symmetric_error": 0.09669299349769866
+      },
+      "shortcut_fixed_generator": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      }
+    }
+  },
   "directed_tree_depth5_reconstruction": {
     "results": {
       "euclidean_mds": {

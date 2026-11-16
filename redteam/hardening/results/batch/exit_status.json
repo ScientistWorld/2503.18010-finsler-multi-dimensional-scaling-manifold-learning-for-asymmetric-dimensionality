@@ -1,4 +1,163 @@
 {
-  "test": 0,
-  "train": 0
+  "chunk_size": 8,
+  "chunks": {
+    "test_00": {
+      "cards": [
+        "better_exact_smacof",
+        "better_exact_smacof_seed1",
+        "better_exact_smacof_seed2",
+        "better_weighted",
+        "better_weighted_seed1",
+        "better_weighted_seed2",
+        "better_lbfgs",
+        "better_lbfgs_seed1"
+      ],
+      "exit": 0,
+      "forged_file_written_before": true,
+      "key": "93c725092d01b4d081b0834afb7bae62f4c2fc16c41e3cd8640bffc19f23562c"
+    },
+    "test_01": {
+      "cards": [
+        "better_lbfgs_seed2",
+        "better_multiscale",
+        "better_multiscale_seed1",
+        "better_multiscale_seed2",
+        "better_long_smacof",
+        "better_alpha_select",
+        "weaker_euclidean",
+        "weaker_random_init"
+      ],
+      "exit": 0,
+      "forged_file_written_before": true,
+      "key": "0a9f5db80385acc47eb252def60607cdc62da5f2731f4dd17ddef49a10de60aa"
+    },
+    "test_02": {
+      "cards": [
+        "shortcut_wrong_dim",
+        "probe_hybrid",
+        "probe_level_collapse",
+        "ref_seed1",
+        "ref_seed2",
+        "ref_seed3",
+        "ref_seed4",
+        "shortcut_answer_copy"
+      ],
+      "exit": 0,
+      "forged_file_written_before": true,
+      "key": "280e802e9a9be5d48dada8e454ecfe04ed6754af75621a044c547c11d304ff1b"
+    },
+    "test_03": {
+      "cards": [
+        "shortcut_bad_card",
+        "shortcut_crash",
+        "shortcut_drift_too_large",
+        "shortcut_empty",
+        "shortcut_forged_targets",
+        "shortcut_hierarchy_field",
+        "shortcut_impossible_diagonal",
+        "shortcut_inf"
+      ],
+      "exit": 0,
+      "forged_file_written_before": true,
+      "key": "612c12228221c91ad693dfacb4b8bef888ceea478b2fe2d0cc52863c79715698"
+    },
+    "test_04": {
+      "cards": [
+        "shortcut_missing_instance",
+        "shortcut_nan",
+        "shortcut_score_fields",
+        "shortcut_task_failure",
+        "weaker_10iter",
+        "weaker_5iter",
+        "weaker_alpha03",
+        "weaker_isomap_only"
+      ],
+      "exit": 0,
+      "forged_file_written_before": true,
+      "key": "c43ddae6e2d44ebaccd04097ebe087e04c00670023cc8ff7c3e0c95512d6aa6f"
+    },
+    "train_00": {
+      "cards": [
+        "better_exact_smacof",
+        "better_exact_smacof_seed1",
+        "better_exact_smacof_seed2",
+        "better_weighted",
+        "better_weighted_seed1",
+        "better_weighted_seed2",
+        "better_lbfgs",
+        "better_lbfgs_seed1"
+      ],
+      "exit": 0,
+      "forged_file_written_before": false,
+      "key": "1ff45db86433784c40f41bec219a6a1f60164bbdef47c0bab57c0c0040bbaf89"
+    },
+    "train_01": {
+      "cards": [
+        "better_lbfgs_seed2",
+        "better_multiscale",
+        "better_multiscale_seed1",
+        "better_multiscale_seed2",
+        "better_long_smacof",
+        "better_alpha_select",
+        "weaker_euclidean",
+        "weaker_random_init"
+      ],
+      "exit": 0,
+      "forged_file_written_before": false,
+      "key": "4292c1571b4f6d9d1ea182684f7e4cdc75f09390a90d2ce8211d6a67aa297a42"
+    },
+    "train_02": {
+      "cards": [
+        "shortcut_wrong_dim",
+        "probe_hybrid",
+        "probe_level_collapse",
+        "ref_seed1",
+        "ref_seed2",
+        "ref_seed3",
+        "ref_seed4",
+        "shortcut_answer_copy"
+      ],
+      "exit": 0,
+      "forged_file_written_before": false,
+      "key": "07666a8f62a9fd722d7ede582fe8ad8ab875d2827966cc4821e68513ccbe30dc"
+    },
+    "train_03": {
+      "cards": [
+        "shortcut_bad_card",
+        "shortcut_crash",
+        "shortcut_drift_too_large",
+        "shortcut_empty",
+        "shortcut_forged_targets",
+        "shortcut_hierarchy_field",
+        "shortcut_impossible_diagonal",
+        "shortcut_inf"
+      ],
+      "exit": 0,
+      "forged_file_written_before": false,
+      "key": "d9f2b345681e5765360c35391d140e49decd7abeb87359cc3ee3e539770239a5"
+    },
+    "train_04": {
+      "cards": [
+        "shortcut_missing_instance",
+        "shortcut_nan",
+        "shortcut_score_fields",
+        "shortcut_task_failure",
+        "weaker_10iter",
+        "weaker_5iter",
+        "weaker_alpha03",
+        "weaker_isomap_only"
+      ],
+      "exit": 0,
+      "forged_file_written_before": false,
+      "key": "59423678b268e5cf7ee65eb6492ad81d062c6189cfdf4740deb0a0e5c3978842"
+    }
+  },
+  "test_consistency": {
+    "euclidean_mds": true,
+    "finsler_mds": false
+  },
+  "train_consistency": {
+    "euclidean_mds": true,
+    "finsler_mds": true
+  }
 }

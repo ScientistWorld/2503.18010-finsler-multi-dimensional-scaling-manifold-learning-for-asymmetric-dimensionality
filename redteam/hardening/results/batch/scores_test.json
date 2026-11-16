@@ -1,41 +1,733 @@
 {
-  "directed_tree_depth5_reconstruction": {
+  "citeseer_digraph_reconstruction": {
     "results": {
+      "better_alpha_select": {
+        "asymmetry_error": 0.41126383536378003,
+        "distortion": 0.12846342483707118,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.49150385805210534,
+        "normalized_stress": 0.08556280864319996,
+        "symmetric_error": 0.07398879432427494
+      },
       "better_exact_smacof": {
-        "asymmetry_correlation": 0.9998152260650792,
-        "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.028458382274948273,
-        "distance_preservation_pass": 0.740387161610711,
-        "distortion": 0.011497925915900957,
-        "hierarchy_alignment": 1.0,
-        "hierarchy_direction_pass": 1.0,
-        "map_at_10": 1.0,
-        "normalized_stress": 0.025961283838928893,
-        "symmetric_rmse": 0.04438071729390962
+        "asymmetry_error": 0.4158722353216655,
+        "distortion": 0.10844164054462305,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.5195465650968967,
+        "normalized_stress": 0.0775247003376848,
+        "symmetric_error": 0.06402476186710242
       },
       "better_exact_smacof_seed1": {
-        "asymmetry_correlation": 0.9998152053312858,
-        "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.028460232508664973,
-        "distance_preservation_pass": 0.7403819326386115,
-        "distortion": 0.011497487532285121,
-        "hierarchy_alignment": 1.0,
-        "hierarchy_direction_pass": 1.0,
-        "map_at_10": 1.0,
-        "normalized_stress": 0.025961806736138848,
-        "symmetric_rmse": 0.044381102026614806
+        "asymmetry_error": 0.41586635427820184,
+        "distortion": 0.10848232484709248,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.5180455604166098,
+        "normalized_stress": 0.07753651564018438,
+        "symmetric_error": 0.0640395737125811
       },
       "better_exact_smacof_seed2": {
-        "asymmetry_correlation": 0.999815168551154,
+        "asymmetry_error": 0.41587263931956187,
+        "distortion": 0.10847400433840045,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.5187086304537302,
+        "normalized_stress": 0.07754027472885153,
+        "symmetric_error": 0.06404362161622108
+      },
+      "better_lbfgs": {
+        "asymmetry_error": 0.41586675740291995,
+        "distortion": 0.10830901540483881,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.5195950656325935,
+        "normalized_stress": 0.077492940025557,
+        "symmetric_error": 0.06398721659124648
+      },
+      "better_lbfgs_seed1": {
+        "asymmetry_error": 0.41586904331142727,
+        "distortion": 0.10833223864182781,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.5189400171694679,
+        "normalized_stress": 0.077496368436121,
+        "symmetric_error": 0.06399041573814022
+      },
+      "better_lbfgs_seed2": {
+        "asymmetry_error": 0.41586668142121297,
+        "distortion": 0.10832605684534491,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.519552252988977,
+        "normalized_stress": 0.0774960046064678,
+        "symmetric_error": 0.06399104791106289
+      },
+      "better_long_smacof": {
+        "asymmetry_error": 0.411260873519085,
+        "distortion": 0.1277211477418822,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.4991530387748819,
+        "normalized_stress": 0.08562592882404099,
+        "symmetric_error": 0.07406655196729342
+      },
+      "better_multiscale": {
+        "asymmetry_error": 0.41847344891921595,
+        "distortion": 0.10255038596310326,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.6105203037652462,
+        "normalized_stress": 0.07837905009983269,
+        "symmetric_error": 0.06489239390658283
+      },
+      "better_multiscale_seed1": {
+        "asymmetry_error": 0.41847018956995424,
+        "distortion": 0.1025433861635687,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.6095738909441697,
+        "normalized_stress": 0.07837215705921242,
+        "symmetric_error": 0.06488408129045554
+      },
+      "better_multiscale_seed2": {
+        "asymmetry_error": 0.4184706796317289,
+        "distortion": 0.10255369719929357,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.6107628149068953,
+        "normalized_stress": 0.0783786214920689,
+        "symmetric_error": 0.06489218171706049
+      },
+      "better_weighted": {
+        "asymmetry_error": 0.42697317388282413,
+        "distortion": 0.10275739691961379,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.6529484379780166,
+        "normalized_stress": 0.07934040917945923,
+        "symmetric_error": 0.06545815077266681
+      },
+      "better_weighted_seed1": {
+        "asymmetry_error": 0.42697369947284514,
+        "distortion": 0.10277047759672146,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.6518768424945712,
+        "normalized_stress": 0.07933797667778815,
+        "symmetric_error": 0.06545558814814648
+      },
+      "better_weighted_seed2": {
+        "asymmetry_error": 0.4269698815652244,
+        "distortion": 0.10279487205866981,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.6538882729487462,
+        "normalized_stress": 0.07935481961648642,
+        "symmetric_error": 0.06547644806352428
+      },
+      "euclidean_mds": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "finsler_mds": {
+        "asymmetry_error": 0.41126383536378003,
+        "distortion": 0.12846342483707118,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.49150385805210534,
+        "normalized_stress": 0.08556280864319996,
+        "symmetric_error": 0.07398879432427494
+      },
+      "probe_hybrid": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "probe_level_collapse": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "ref_seed1": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "ref_seed2": {
+        "asymmetry_error": 0.4112845380404694,
+        "distortion": 0.12871908054901152,
+        "euclidean_gain_pass": 0.9,
+        "map": 0.4884037253880017,
+        "normalized_stress": 0.08545643146637705,
+        "symmetric_error": 0.07385766006316181
+      },
+      "ref_seed3": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "ref_seed4": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_answer_copy": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_bad_card": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_crash": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_drift_too_large": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_empty": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_forged_targets": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_hierarchy_field": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_impossible_diagonal": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_inf": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_missing_instance": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_nan": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_score_fields": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_task_failure": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_wrong_dim": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "weaker_10iter": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "weaker_5iter": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "weaker_alpha03": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "weaker_euclidean": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "weaker_isomap_only": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "weaker_random_init": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.999266290726815,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004224889224093564,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      }
+    }
+  },
+  "cora_digraph_reconstruction": {
+    "results": {
+      "better_alpha_select": {
+        "asymmetry_error": 0.4006477039467248,
+        "distortion": 0.1354384853027619,
+        "euclidean_gain_pass": 0.7,
+        "map": 0.4398034051855212,
+        "normalized_stress": 0.10916645784873809,
+        "symmetric_error": 0.09669299349769866
+      },
+      "better_exact_smacof": {
+        "asymmetry_error": 0.408564420767611,
+        "distortion": 0.11331656062694362,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.48560455922201873,
+        "normalized_stress": 0.09963616807039485,
+        "symmetric_error": 0.08466013298851514
+      },
+      "better_exact_smacof_seed1": {
+        "asymmetry_error": 0.40856762143493164,
+        "distortion": 0.11332268699299648,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.48576434595427653,
+        "normalized_stress": 0.09964324056011653,
+        "symmetric_error": 0.08466822551783158
+      },
+      "better_exact_smacof_seed2": {
+        "asymmetry_error": 0.408566624810052,
+        "distortion": 0.11330799431834424,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.48637991542020104,
+        "normalized_stress": 0.09963934391284492,
+        "symmetric_error": 0.0846624402898193
+      },
+      "better_lbfgs": {
+        "asymmetry_error": 0.4085812474759555,
+        "distortion": 0.11316391535176624,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.48862996833671135,
+        "normalized_stress": 0.09957939051417172,
+        "symmetric_error": 0.08459299351057843
+      },
+      "better_lbfgs_seed1": {
+        "asymmetry_error": 0.4085801115713449,
+        "distortion": 0.11316190321798514,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.4892155416427165,
+        "normalized_stress": 0.09958050817332938,
+        "symmetric_error": 0.08459481535775056
+      },
+      "better_lbfgs_seed2": {
+        "asymmetry_error": 0.4085820488832025,
+        "distortion": 0.11314870714473726,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.4891323902350372,
+        "normalized_stress": 0.09957653037666883,
+        "symmetric_error": 0.08459033133792444
+      },
+      "better_long_smacof": {
+        "asymmetry_error": 0.40059832281109686,
+        "distortion": 0.13487404051599525,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.4709043691987674,
+        "normalized_stress": 0.10968642904056429,
+        "symmetric_error": 0.0972888127667556
+      },
+      "better_multiscale": {
+        "asymmetry_error": 0.40973606906609944,
+        "distortion": 0.10938185755643318,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.5441581547075837,
+        "normalized_stress": 0.10023336549455646,
+        "symmetric_error": 0.08529486058337243
+      },
+      "better_multiscale_seed1": {
+        "asymmetry_error": 0.4097359070358829,
+        "distortion": 0.10938469665617698,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.5436839433742813,
+        "normalized_stress": 0.10023557944535107,
+        "symmetric_error": 0.08529762162841467
+      },
+      "better_multiscale_seed2": {
+        "asymmetry_error": 0.4097363096789808,
+        "distortion": 0.10938133100193244,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.5444191831737241,
+        "normalized_stress": 0.10023048991970211,
+        "symmetric_error": 0.08529253694695697
+      },
+      "better_weighted": {
+        "asymmetry_error": 0.4164979196709503,
+        "distortion": 0.1100607638816015,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.5732348687634997,
+        "normalized_stress": 0.10090979315576298,
+        "symmetric_error": 0.08555313789944448
+      },
+      "better_weighted_seed1": {
+        "asymmetry_error": 0.41650921012960873,
+        "distortion": 0.11004005433393152,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.5731532642660306,
+        "normalized_stress": 0.10090083905454746,
+        "symmetric_error": 0.0855414723951067
+      },
+      "better_weighted_seed2": {
+        "asymmetry_error": 0.41649958867171455,
+        "distortion": 0.11005953033061922,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.5732206676715994,
+        "normalized_stress": 0.10091361993509913,
+        "symmetric_error": 0.08555503975681614
+      },
+      "euclidean_mds": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "finsler_mds": {
+        "asymmetry_error": 0.4006477039467248,
+        "distortion": 0.1354384853027619,
+        "euclidean_gain_pass": 0.7,
+        "map": 0.4398034051855212,
+        "normalized_stress": 0.10916645784873809,
+        "symmetric_error": 0.09669299349769866
+      },
+      "probe_hybrid": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "probe_level_collapse": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "ref_seed1": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "ref_seed2": {
+        "asymmetry_error": 0.4006321837550769,
+        "distortion": 0.13542520208810757,
+        "euclidean_gain_pass": 0.7,
+        "map": 0.443511162567557,
+        "normalized_stress": 0.10922903641959066,
+        "symmetric_error": 0.0967694148888668
+      },
+      "ref_seed3": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "ref_seed4": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_answer_copy": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_bad_card": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_crash": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_drift_too_large": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_empty": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_forged_targets": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_hierarchy_field": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_impossible_diagonal": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_inf": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_missing_instance": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_nan": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_score_fields": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_task_failure": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "shortcut_wrong_dim": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "weaker_10iter": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "weaker_5iter": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "weaker_alpha03": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "weaker_euclidean": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "weaker_isomap_only": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "weaker_random_init": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.83021365914787,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004122796456328255,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      }
+    }
+  },
+  "directed_tree_depth5_reconstruction": {
+    "results": {
+      "better_alpha_select": {
+        "asymmetry_correlation": 0.9998698382030948,
         "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.028462340331068786,
-        "distance_preservation_pass": 0.7403850839568676,
-        "distortion": 0.011497575361264254,
+        "asymmetry_rmse": 0.024071037152734495,
+        "distance_preservation_pass": 0.7297547462779556,
+        "distortion": 0.011823424557553606,
         "hierarchy_alignment": 1.0,
         "hierarchy_direction_pass": 1.0,
         "map_at_10": 1.0,
-        "normalized_stress": 0.02596149160431324,
-        "symmetric_rmse": 0.04438047888673735
+        "normalized_stress": 0.027024525372204445,
+        "symmetric_rmse": 0.04699086577909379
+      },
+      "better_exact_smacof": {
+        "asymmetry_correlation": 0.9998152912178826,
+        "asymmetry_preservation_pass": 1.0,
+        "asymmetry_rmse": 0.0284530422180329,
+        "distance_preservation_pass": 0.7403508340038034,
+        "distortion": 0.011499574009893085,
+        "hierarchy_alignment": 1.0,
+        "hierarchy_direction_pass": 1.0,
+        "map_at_10": 1.0,
+        "normalized_stress": 0.025964916599619664,
+        "symmetric_rmse": 0.04438869104443789
+      },
+      "better_exact_smacof_seed1": {
+        "asymmetry_correlation": 0.9998152590823279,
+        "asymmetry_preservation_pass": 1.0,
+        "asymmetry_rmse": 0.02845576064212891,
+        "distance_preservation_pass": 0.7403555960344559,
+        "distortion": 0.011498789392997753,
+        "hierarchy_alignment": 1.0,
+        "hierarchy_direction_pass": 1.0,
+        "map_at_10": 1.0,
+        "normalized_stress": 0.025964440396554416,
+        "symmetric_rmse": 0.04438701974262317
+      },
+      "better_exact_smacof_seed2": {
+        "asymmetry_correlation": 0.9998152101038519,
+        "asymmetry_preservation_pass": 1.0,
+        "asymmetry_rmse": 0.028459320175879193,
+        "distance_preservation_pass": 0.7403611361909496,
+        "distortion": 0.01149836182476963,
+        "hierarchy_alignment": 1.0,
+        "hierarchy_direction_pass": 1.0,
+        "map_at_10": 1.0,
+        "normalized_stress": 0.02596388638090504,
+        "symmetric_rmse": 0.04438536586138556
       },
       "better_lbfgs": {
         "asymmetry_correlation": 0.9998152276739974,
@@ -121,6 +813,42 @@
         "normalized_stress": 0.029074716735658857,
         "symmetric_rmse": 0.04848676260628091
       },
+      "better_weighted": {
+        "asymmetry_correlation": 0.9996583165401269,
+        "asymmetry_preservation_pass": 1.0,
+        "asymmetry_rmse": 0.03971641983351357,
+        "distance_preservation_pass": 0.7027226874006554,
+        "distortion": 0.009459111706976536,
+        "hierarchy_alignment": 1.0,
+        "hierarchy_direction_pass": 1.0,
+        "map_at_10": 1.0,
+        "normalized_stress": 0.029727731259934463,
+        "symmetric_rmse": 0.04954920723749802
+      },
+      "better_weighted_seed1": {
+        "asymmetry_correlation": 0.9996584392036215,
+        "asymmetry_preservation_pass": 1.0,
+        "asymmetry_rmse": 0.03970908865703894,
+        "distance_preservation_pass": 0.7027885866643424,
+        "distortion": 0.009458306886759539,
+        "hierarchy_alignment": 1.0,
+        "hierarchy_direction_pass": 1.0,
+        "map_at_10": 1.0,
+        "normalized_stress": 0.029721141333565765,
+        "symmetric_rmse": 0.04953778804075729
+      },
+      "better_weighted_seed2": {
+        "asymmetry_correlation": 0.9996583245285816,
+        "asymmetry_preservation_pass": 1.0,
+        "asymmetry_rmse": 0.03971524232939434,
+        "distance_preservation_pass": 0.7027497279446988,
+        "distortion": 0.009458677900414155,
+        "hierarchy_alignment": 1.0,
+        "hierarchy_direction_pass": 1.0,
+        "map_at_10": 1.0,
+        "normalized_stress": 0.029725027205530125,
+        "symmetric_rmse": 0.0495442421068369
+      },
       "euclidean_mds": {
         "asymmetry_correlation": 0.0,
         "asymmetry_preservation_pass": 0.0,
@@ -145,6 +873,18 @@
         "normalized_stress": 0.027024525372204445,
         "symmetric_rmse": 0.04699086577909379
       },
+      "probe_hybrid": {
+        "asymmetry_correlation": 0.0,
+        "asymmetry_preservation_pass": 0.0,
+        "asymmetry_rmse": 1.4847984152480715,
+        "distance_preservation_pass": 0.0,
+        "distortion": 1.2059282630568857,
+        "hierarchy_alignment": 0.0,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.0,
+        "normalized_stress": 1.0,
+        "symmetric_rmse": 1.6401838585593473
+      },
       "probe_level_collapse": {
         "asymmetry_correlation": 0.0,
         "asymmetry_preservation_pass": 0.0,
@@ -158,16 +898,16 @@
         "symmetric_rmse": 1.6401838585593473
       },
       "ref_seed1": {
-        "asymmetry_correlation": 0.9998691597642443,
-        "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.024116765953224338,
-        "distance_preservation_pass": 0.7296274050349242,
-        "distortion": 0.011826957549041558,
-        "hierarchy_alignment": 1.0,
-        "hierarchy_direction_pass": 1.0,
-        "map_at_10": 1.0,
-        "normalized_stress": 0.027037259496507593,
-        "symmetric_rmse": 0.04700898493153628
+        "asymmetry_correlation": 0.0,
+        "asymmetry_preservation_pass": 0.0,
+        "asymmetry_rmse": 1.4847984152480715,
+        "distance_preservation_pass": 0.0,
+        "distortion": 1.2059282630568857,
+        "hierarchy_alignment": 0.0,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.0,
+        "normalized_stress": 1.0,
+        "symmetric_rmse": 1.6401838585593473
       },
       "ref_seed2": {
         "asymmetry_correlation": 0.9998690652490462,
@@ -182,28 +922,28 @@
         "symmetric_rmse": 0.04698871726861126
       },
       "ref_seed3": {
-        "asymmetry_correlation": 0.9998693764846569,
-        "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.024115183755052044,
-        "distance_preservation_pass": 0.7296673770618592,
-        "distortion": 0.011826502045487415,
-        "hierarchy_alignment": 1.0,
-        "hierarchy_direction_pass": 1.0,
-        "map_at_10": 1.0,
-        "normalized_stress": 0.02703326229381408,
-        "symmetric_rmse": 0.04700435356788267
+        "asymmetry_correlation": 0.0,
+        "asymmetry_preservation_pass": 0.0,
+        "asymmetry_rmse": 1.4847984152480715,
+        "distance_preservation_pass": 0.0,
+        "distortion": 1.2059282630568857,
+        "hierarchy_alignment": 0.0,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.0,
+        "normalized_stress": 1.0,
+        "symmetric_rmse": 1.6401838585593473
       },
       "ref_seed4": {
-        "asymmetry_correlation": 0.9998694187944427,
-        "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.024034636615609846,
-        "distance_preservation_pass": 0.7297308506272205,
-        "distortion": 0.011825341231518256,
-        "hierarchy_alignment": 1.0,
-        "hierarchy_direction_pass": 1.0,
-        "map_at_10": 1.0,
-        "normalized_stress": 0.027026914937277935,
-        "symmetric_rmse": 0.04699857911011869
+        "asymmetry_correlation": 0.0,
+        "asymmetry_preservation_pass": 0.0,
+        "asymmetry_rmse": 1.4847984152480715,
+        "distance_preservation_pass": 0.0,
+        "distortion": 1.2059282630568857,
+        "hierarchy_alignment": 0.0,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.0,
+        "normalized_stress": 1.0,
+        "symmetric_rmse": 1.6401838585593473
       },
       "shortcut_answer_copy": {
         "asymmetry_correlation": 0.0,
@@ -290,16 +1030,16 @@
         "symmetric_rmse": 1.6401838585593473
       },
       "shortcut_impossible_diagonal": {
-        "asymmetry_correlation": 0.9998698382030948,
-        "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.024071037152734495,
-        "distance_preservation_pass": 0.7297547462779556,
-        "distortion": 0.011823424557553606,
-        "hierarchy_alignment": 1.0,
-        "hierarchy_direction_pass": 1.0,
-        "map_at_10": 1.0,
-        "normalized_stress": 0.027024525372204445,
-        "symmetric_rmse": 0.04699086577909379
+        "asymmetry_correlation": 0.0,
+        "asymmetry_preservation_pass": 0.0,
+        "asymmetry_rmse": 1.4847984152480715,
+        "distance_preservation_pass": 0.0,
+        "distortion": 1.2059282630568857,
+        "hierarchy_alignment": 0.0,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.0,
+        "normalized_stress": 1.0,
+        "symmetric_rmse": 1.6401838585593473
       },
       "shortcut_inf": {
         "asymmetry_correlation": 0.0,
@@ -410,6 +1150,30 @@
         "symmetric_rmse": 1.6401838585593473
       },
       "weaker_euclidean": {
+        "asymmetry_correlation": 0.0,
+        "asymmetry_preservation_pass": 0.0,
+        "asymmetry_rmse": 1.4847984152480715,
+        "distance_preservation_pass": 0.0,
+        "distortion": 1.2059282630568857,
+        "hierarchy_alignment": 0.0,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.0,
+        "normalized_stress": 1.0,
+        "symmetric_rmse": 1.6401838585593473
+      },
+      "weaker_isomap_only": {
+        "asymmetry_correlation": 0.0,
+        "asymmetry_preservation_pass": 0.0,
+        "asymmetry_rmse": 1.4847984152480715,
+        "distance_preservation_pass": 0.0,
+        "distortion": 1.2059282630568857,
+        "hierarchy_alignment": 0.0,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.0,
+        "normalized_stress": 1.0,
+        "symmetric_rmse": 1.6401838585593473
+      },
+      "weaker_random_init": {
         "asymmetry_correlation": 0.0,
         "asymmetry_preservation_pass": 0.0,
         "asymmetry_rmse": 1.4847984152480715,
@@ -425,77 +1189,89 @@
   },
   "directed_tree_reconstruction": {
     "results": {
-      "better_exact_smacof": {
-        "asymmetry_correlation": 0.9998500557120855,
+      "better_alpha_select": {
+        "asymmetry_correlation": 0.999894844664846,
         "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.028361787014987247,
-        "distance_preservation_pass": 0.7808504881052944,
-        "distortion": 0.01107306840748156,
+        "asymmetry_rmse": 0.023598051488966727,
+        "distance_preservation_pass": 0.7708508047535491,
+        "distortion": 0.011309584767366064,
         "hierarchy_alignment": 1.0,
         "hierarchy_direction_pass": 1.0,
         "map_at_10": 1.0,
-        "normalized_stress": 0.021914951189470566,
-        "symmetric_rmse": 0.040789567629694566
+        "normalized_stress": 0.022914919524645094,
+        "symmetric_rmse": 0.04360881595684593
+      },
+      "better_exact_smacof": {
+        "asymmetry_correlation": 0.9998501154283658,
+        "asymmetry_preservation_pass": 1.0,
+        "asymmetry_rmse": 0.028356899583507816,
+        "distance_preservation_pass": 0.7808285327296024,
+        "distortion": 0.011074176831766975,
+        "hierarchy_alignment": 1.0,
+        "hierarchy_direction_pass": 1.0,
+        "map_at_10": 1.0,
+        "normalized_stress": 0.021917146727039757,
+        "symmetric_rmse": 0.04079492911148547
       },
       "better_exact_smacof_seed1": {
-        "asymmetry_correlation": 0.9998500519421074,
+        "asymmetry_correlation": 0.9998501057288164,
         "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.028361554529088007,
-        "distance_preservation_pass": 0.7808483586511422,
-        "distortion": 0.011073146011254186,
+        "asymmetry_rmse": 0.02835704773162291,
+        "distance_preservation_pass": 0.7808280533447357,
+        "distortion": 0.011074161993556021,
         "hierarchy_alignment": 1.0,
         "hierarchy_direction_pass": 1.0,
         "map_at_10": 1.0,
-        "normalized_stress": 0.021915164134885784,
-        "symmetric_rmse": 0.040790073660429214
+        "normalized_stress": 0.02191719466552643,
+        "symmetric_rmse": 0.04079500146479323
       },
       "better_exact_smacof_seed2": {
-        "asymmetry_correlation": 0.9998500496142316,
+        "asymmetry_correlation": 0.9998501119220203,
         "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.028362095946576404,
-        "distance_preservation_pass": 0.7808493697223523,
-        "distortion": 0.01107314830043011,
+        "asymmetry_rmse": 0.028356933781555894,
+        "distance_preservation_pass": 0.7808252514468746,
+        "distortion": 0.011074307814154213,
         "hierarchy_alignment": 1.0,
         "hierarchy_direction_pass": 1.0,
         "map_at_10": 1.0,
-        "normalized_stress": 0.021915063027764765,
-        "symmetric_rmse": 0.04078975705345144
+        "normalized_stress": 0.021917474855312535,
+        "symmetric_rmse": 0.04079561364614223
       },
       "better_lbfgs": {
-        "asymmetry_correlation": 0.999849972869435,
+        "asymmetry_correlation": 0.9998499716862348,
         "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.028369192083804628,
-        "distance_preservation_pass": 0.7808880628447867,
-        "distortion": 0.011071448049618496,
+        "asymmetry_rmse": 0.02836923604904135,
+        "distance_preservation_pass": 0.7808875469833377,
+        "distortion": 0.011071427024323954,
         "hierarchy_alignment": 1.0,
         "hierarchy_direction_pass": 1.0,
         "map_at_10": 1.0,
-        "normalized_stress": 0.02191119371552132,
-        "symmetric_rmse": 0.04078060159240599
+        "normalized_stress": 0.021911245301666226,
+        "symmetric_rmse": 0.04078070216041122
       },
       "better_lbfgs_seed1": {
-        "asymmetry_correlation": 0.9998499847457184,
+        "asymmetry_correlation": 0.9998499870842638,
         "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.02836763001767997,
-        "distance_preservation_pass": 0.7808844251030355,
-        "distortion": 0.01107158523590445,
+        "asymmetry_rmse": 0.028367388799356238,
+        "distance_preservation_pass": 0.780883475788056,
+        "distortion": 0.011071637584553954,
         "hierarchy_alignment": 1.0,
         "hierarchy_direction_pass": 1.0,
         "map_at_10": 1.0,
-        "normalized_stress": 0.02191155748969645,
-        "symmetric_rmse": 0.04078161762086414
+        "normalized_stress": 0.02191165242119439,
+        "symmetric_rmse": 0.04078185810304203
       },
       "better_lbfgs_seed2": {
-        "asymmetry_correlation": 0.9998499778646052,
+        "asymmetry_correlation": 0.9998499779640185,
         "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.028368461568738554,
-        "distance_preservation_pass": 0.7808863850606892,
-        "distortion": 0.01107153759357643,
+        "asymmetry_rmse": 0.028368426431734678,
+        "distance_preservation_pass": 0.780885787984028,
+        "distortion": 0.01107153653015284,
         "hierarchy_alignment": 1.0,
         "hierarchy_direction_pass": 1.0,
         "map_at_10": 1.0,
-        "normalized_stress": 0.02191136149393109,
-        "symmetric_rmse": 0.04078099691522893
+        "normalized_stress": 0.021911421201597194,
+        "symmetric_rmse": 0.04078112730119391
       },
       "better_long_smacof": {
         "asymmetry_correlation": 0.9998921872279486,
@@ -510,40 +1286,76 @@
         "symmetric_rmse": 0.043561382384497666
       },
       "better_multiscale": {
-        "asymmetry_correlation": 0.9997343067774276,
+        "asymmetry_correlation": 0.9997343073052258,
         "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.03831568538458619,
-        "distance_preservation_pass": 0.7517595539427037,
-        "distortion": 0.00916770411053004,
+        "asymmetry_rmse": 0.038315642263233064,
+        "distance_preservation_pass": 0.7517590954820252,
+        "distortion": 0.009167716403366796,
         "hierarchy_alignment": 1.0,
         "hierarchy_direction_pass": 1.0,
         "map_at_10": 1.0,
-        "normalized_stress": 0.024824044605729633,
-        "symmetric_rmse": 0.04499886868530917
+        "normalized_stress": 0.02482409045179748,
+        "symmetric_rmse": 0.04499897582861515
       },
       "better_multiscale_seed1": {
-        "asymmetry_correlation": 0.9997342975704294,
+        "asymmetry_correlation": 0.9997342999495419,
         "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.03831651664404571,
-        "distance_preservation_pass": 0.7517553019934322,
-        "distortion": 0.009167746481395173,
+        "asymmetry_rmse": 0.03831639719927427,
+        "distance_preservation_pass": 0.7517538431131624,
+        "distortion": 0.009167800131403352,
         "hierarchy_alignment": 1.0,
         "hierarchy_direction_pass": 1.0,
         "map_at_10": 1.0,
-        "normalized_stress": 0.024824469800656793,
-        "symmetric_rmse": 0.04499944079755766
+        "normalized_stress": 0.024824615688683743,
+        "symmetric_rmse": 0.04499976971439951
       },
       "better_multiscale_seed2": {
-        "asymmetry_correlation": 0.9997342951240613,
+        "asymmetry_correlation": 0.9997342987737178,
         "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.03831664207775056,
-        "distance_preservation_pass": 0.7517657772336447,
-        "distortion": 0.009167525669845229,
+        "asymmetry_rmse": 0.038316466039290654,
+        "distance_preservation_pass": 0.751764765346015,
+        "distortion": 0.009167579464467408,
         "hierarchy_alignment": 1.0,
         "hierarchy_direction_pass": 1.0,
         "map_at_10": 1.0,
-        "normalized_stress": 0.024823422276635542,
-        "symmetric_rmse": 0.04499707012113177
+        "normalized_stress": 0.024823523465398515,
+        "symmetric_rmse": 0.04499731538162772
+      },
+      "better_weighted": {
+        "asymmetry_correlation": 0.9997350568039023,
+        "asymmetry_preservation_pass": 1.0,
+        "asymmetry_rmse": 0.039186636726885916,
+        "distance_preservation_pass": 0.7461219035037071,
+        "distortion": 0.009162402560044152,
+        "hierarchy_alignment": 1.0,
+        "hierarchy_direction_pass": 1.0,
+        "map_at_10": 1.0,
+        "normalized_stress": 0.025387809649629306,
+        "symmetric_rmse": 0.04602285873734327
+      },
+      "better_weighted_seed1": {
+        "asymmetry_correlation": 0.9997350667527938,
+        "asymmetry_preservation_pass": 1.0,
+        "asymmetry_rmse": 0.03918580367155147,
+        "distance_preservation_pass": 0.7461299107797057,
+        "distortion": 0.009162279804006532,
+        "hierarchy_alignment": 1.0,
+        "hierarchy_direction_pass": 1.0,
+        "map_at_10": 1.0,
+        "normalized_stress": 0.02538700892202943,
+        "symmetric_rmse": 0.04602111591657206
+      },
+      "better_weighted_seed2": {
+        "asymmetry_correlation": 0.9997350655987195,
+        "asymmetry_preservation_pass": 1.0,
+        "asymmetry_rmse": 0.0391860522055726,
+        "distance_preservation_pass": 0.7461319166508712,
+        "distortion": 0.00916225027837227,
+        "hierarchy_alignment": 1.0,
+        "hierarchy_direction_pass": 1.0,
+        "map_at_10": 1.0,
+        "normalized_stress": 0.025386808334912876,
+        "symmetric_rmse": 0.04602070442378491
       },
       "euclidean_mds": {
         "asymmetry_correlation": 0.0,
@@ -569,6 +1381,18 @@
         "normalized_stress": 0.022914919524645094,
         "symmetric_rmse": 0.04360881595684593
       },
+      "probe_hybrid": {
+        "asymmetry_correlation": 0.0,
+        "asymmetry_preservation_pass": 0.0,
+        "asymmetry_rmse": 1.6373368004503106,
+        "distance_preservation_pass": 0.0,
+        "distortion": 1.2814490802839131,
+        "hierarchy_alignment": 0.0,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.0,
+        "normalized_stress": 1.0,
+        "symmetric_rmse": 1.7984614993765848
+      },
       "probe_level_collapse": {
         "asymmetry_correlation": 0.0,
         "asymmetry_preservation_pass": 0.0,
@@ -582,16 +1406,16 @@
         "symmetric_rmse": 1.7984614993765848
       },
       "ref_seed1": {
-        "asymmetry_correlation": 0.9998948672747666,
-        "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.023611817318524478,
-        "distance_preservation_pass": 0.7708429985805155,
-        "distortion": 0.011309921357183885,
-        "hierarchy_alignment": 1.0,
-        "hierarchy_direction_pass": 1.0,
-        "map_at_10": 1.0,
-        "normalized_stress": 0.022915700141948447,
-        "symmetric_rmse": 0.043608542571581865
+        "asymmetry_correlation": 0.0,
+        "asymmetry_preservation_pass": 0.0,
+        "asymmetry_rmse": 1.6373368004503106,
+        "distance_preservation_pass": 0.0,
+        "distortion": 1.2814490802839131,
+        "hierarchy_alignment": 0.0,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.0,
+        "normalized_stress": 1.0,
+        "symmetric_rmse": 1.7984614993765848
       },
       "ref_seed2": {
         "asymmetry_correlation": 0.9998948358864528,
@@ -606,28 +1430,28 @@
         "symmetric_rmse": 0.04361090503487953
       },
       "ref_seed3": {
-        "asymmetry_correlation": 0.9998947283784229,
-        "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.023639864580363865,
-        "distance_preservation_pass": 0.7708220615917124,
-        "distortion": 0.011309795342806761,
-        "hierarchy_alignment": 1.0,
-        "hierarchy_direction_pass": 1.0,
-        "map_at_10": 1.0,
-        "normalized_stress": 0.022917793840828756,
-        "symmetric_rmse": 0.04360883823413755
+        "asymmetry_correlation": 0.0,
+        "asymmetry_preservation_pass": 0.0,
+        "asymmetry_rmse": 1.6373368004503106,
+        "distance_preservation_pass": 0.0,
+        "distortion": 1.2814490802839131,
+        "hierarchy_alignment": 0.0,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.0,
+        "normalized_stress": 1.0,
+        "symmetric_rmse": 1.7984614993765848
       },
       "ref_seed4": {
-        "asymmetry_correlation": 0.9998946025910188,
-        "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.023633293828540347,
-        "distance_preservation_pass": 0.7708435250363581,
-        "distortion": 0.011309044454654084,
-        "hierarchy_alignment": 1.0,
-        "hierarchy_direction_pass": 1.0,
-        "map_at_10": 1.0,
-        "normalized_stress": 0.022915647496364183,
-        "symmetric_rmse": 0.04360538502211237
+        "asymmetry_correlation": 0.0,
+        "asymmetry_preservation_pass": 0.0,
+        "asymmetry_rmse": 1.6373368004503106,
+        "distance_preservation_pass": 0.0,
+        "distortion": 1.2814490802839131,
+        "hierarchy_alignment": 0.0,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.0,
+        "normalized_stress": 1.0,
+        "symmetric_rmse": 1.7984614993765848
       },
       "shortcut_answer_copy": {
         "asymmetry_correlation": 0.0,
@@ -714,16 +1538,16 @@
         "symmetric_rmse": 1.7984614993765848
       },
       "shortcut_impossible_diagonal": {
-        "asymmetry_correlation": 0.999894844664846,
-        "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.023598051488966727,
-        "distance_preservation_pass": 0.7708508047535491,
-        "distortion": 0.011309584767366064,
-        "hierarchy_alignment": 1.0,
-        "hierarchy_direction_pass": 1.0,
-        "map_at_10": 1.0,
-        "normalized_stress": 0.022914919524645094,
-        "symmetric_rmse": 0.04360881595684593
+        "asymmetry_correlation": 0.0,
+        "asymmetry_preservation_pass": 0.0,
+        "asymmetry_rmse": 1.6373368004503106,
+        "distance_preservation_pass": 0.0,
+        "distortion": 1.2814490802839131,
+        "hierarchy_alignment": 0.0,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.0,
+        "normalized_stress": 1.0,
+        "symmetric_rmse": 1.7984614993765848
       },
       "shortcut_inf": {
         "asymmetry_correlation": 0.0,
@@ -834,6 +1658,30 @@
         "symmetric_rmse": 1.7984614993765848
       },
       "weaker_euclidean": {
+        "asymmetry_correlation": 0.0,
+        "asymmetry_preservation_pass": 0.0,
+        "asymmetry_rmse": 1.6373368004503106,
+        "distance_preservation_pass": 0.0,
+        "distortion": 1.2814490802839131,
+        "hierarchy_alignment": 0.0,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.0,
+        "normalized_stress": 1.0,
+        "symmetric_rmse": 1.7984614993765848
+      },
+      "weaker_isomap_only": {
+        "asymmetry_correlation": 0.0,
+        "asymmetry_preservation_pass": 0.0,
+        "asymmetry_rmse": 1.6373368004503106,
+        "distance_preservation_pass": 0.0,
+        "distortion": 1.2814490802839131,
+        "hierarchy_alignment": 0.0,
+        "hierarchy_direction_pass": 0.0,
+        "map_at_10": 0.0,
+        "normalized_stress": 1.0,
+        "symmetric_rmse": 1.7984614993765848
+      },
+      "weaker_random_init": {
         "asymmetry_correlation": 0.0,
         "asymmetry_preservation_pass": 0.0,
         "asymmetry_rmse": 1.6373368004503106,
