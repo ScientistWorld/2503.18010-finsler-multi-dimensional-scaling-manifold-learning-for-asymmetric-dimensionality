@@ -1,4 +1,44 @@
 {
+  "citeseer_digraph_reconstruction": {
+    "results": {
+      "euclidean_mds": {
+        "asymmetry_error": 1.0,
+        "distortion": 10.465525062656642,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004601462914613579,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "finsler_mds": {
+        "asymmetry_error": 0.4441878645627183,
+        "distortion": 0.13566301105350723,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.509195048731564,
+        "normalized_stress": 0.08888107800505085,
+        "symmetric_error": 0.07615043409320077
+      }
+    }
+  },
+  "cora_digraph_reconstruction": {
+    "results": {
+      "euclidean_mds": {
+        "asymmetry_error": 1.0,
+        "distortion": 7.7567268170426065,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.004091491797224804,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "finsler_mds": {
+        "asymmetry_error": 0.44979675084376813,
+        "distortion": 0.13368905363302078,
+        "euclidean_gain_pass": 0.6,
+        "map": 0.4080095912895271,
+        "normalized_stress": 0.1073691264487953,
+        "symmetric_error": 0.09286829060869153
+      }
+    }
+  },
   "directed_tree_depth5_reconstruction": {
     "results": {
       "euclidean_mds": {
@@ -42,16 +82,16 @@
         "symmetric_rmse": 1.7939838954405418
       },
       "finsler_mds": {
-        "asymmetry_correlation": 0.999864010728335,
+        "asymmetry_correlation": 0.9998640107283523,
         "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.02621383956440128,
-        "distance_preservation_pass": 0.7483705198071279,
-        "distortion": 0.01266610997086024,
+        "asymmetry_rmse": 0.026213839561660388,
+        "distance_preservation_pass": 0.7483705198073473,
+        "distortion": 0.01266610997122044,
         "hierarchy_alignment": 1.0,
         "hierarchy_direction_pass": 1.0,
         "map_at_10": 0.9999367462602757,
-        "normalized_stress": 0.025162948019287208,
-        "symmetric_rmse": 0.047730267778625324
+        "normalized_stress": 0.02516294801926528,
+        "symmetric_rmse": 0.04773026777893933
       }
     }
   }

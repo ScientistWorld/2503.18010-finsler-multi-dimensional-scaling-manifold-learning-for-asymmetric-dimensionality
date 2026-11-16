@@ -1,4 +1,44 @@
 {
+  "citeseer_digraph_reconstruction": {
+    "results": {
+      "euclidean_mds": {
+        "asymmetry_error": 1.0,
+        "distortion": 18.015545335553437,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.0007933488267857403,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "finsler_mds": {
+        "asymmetry_error": 0.499075877669132,
+        "distortion": 0.16034646795324395,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.4762551203902372,
+        "normalized_stress": 0.08247526020082084,
+        "symmetric_error": 0.07283205245659528
+      }
+    }
+  },
+  "cora_digraph_reconstruction": {
+    "results": {
+      "euclidean_mds": {
+        "asymmetry_error": 1.0,
+        "distortion": 11.75999831517284,
+        "euclidean_gain_pass": 0.0,
+        "map": 0.0007060508400252849,
+        "normalized_stress": 1.0,
+        "symmetric_error": 1.0
+      },
+      "finsler_mds": {
+        "asymmetry_error": 0.47499700427292985,
+        "distortion": 0.17004857610113966,
+        "euclidean_gain_pass": 1.0,
+        "map": 0.4060001132957488,
+        "normalized_stress": 0.10721190426031305,
+        "symmetric_error": 0.09474137469608924
+      }
+    }
+  },
   "directed_tree_depth5_reconstruction": {
     "results": {
       "euclidean_mds": {
@@ -42,16 +82,16 @@
         "symmetric_rmse": 1.9343627239361258
       },
       "finsler_mds": {
-        "asymmetry_correlation": 0.9999492688894127,
+        "asymmetry_correlation": 0.9999492688894276,
         "asymmetry_preservation_pass": 1.0,
-        "asymmetry_rmse": 0.01887085124839963,
-        "distance_preservation_pass": 0.7784636184603473,
-        "distortion": 0.01162745944499775,
+        "asymmetry_rmse": 0.01887085124560636,
+        "distance_preservation_pass": 0.7784636184544456,
+        "distortion": 0.0116274594449523,
         "hierarchy_alignment": 1.0,
         "hierarchy_direction_pass": 1.0,
         "map_at_10": 1.0,
-        "normalized_stress": 0.022153638153965267,
-        "symmetric_rmse": 0.04666914926702425
+        "normalized_stress": 0.02215363815455544,
+        "symmetric_rmse": 0.0466691492686007
       }
     }
   }

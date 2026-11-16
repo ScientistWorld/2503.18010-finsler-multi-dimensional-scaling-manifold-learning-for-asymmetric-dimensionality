@@ -1,0 +1,9 @@
+{
+  "files": [
+    "scores_train.json",
+    "details_train.json"
+  ],
+  "key": "3488ddff149b352fa5aa4e32cd057a60bc618cb778c838bcc1fff78870154e7a",
+  "script": "scripts/evaluate_train.sh",
+  "source": "job b4c96983-d30, final attempt: scripts/reproduce.sh at commit 2510288 (evaluators, graphs, method, baseline, data and scripts unchanged since)"
+}

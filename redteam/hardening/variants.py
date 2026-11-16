@@ -62,7 +62,7 @@ def _stress(x: np.ndarray, d: np.ndarray, alpha: float) -> float:
 
 
 def exact_smacof(
-    d: np.ndarray, x0: np.ndarray, alpha: float, max_iter: int = 5000, eps: float = 1e-10
+    d: np.ndarray, x0: np.ndarray, alpha: float, max_iter: int = 2000, eps: float = 1e-8
 ) -> tuple[np.ndarray, dict]:
     n, m = x0.shape
     sym = 0.5 * (d + d.T)
@@ -89,7 +89,7 @@ def exact_smacof(
     return x, {"n_iter": len(history) - 1, "initial": history[0], "final": history[-1]}
 
 
-def lbfgs_refine(d: np.ndarray, x0: np.ndarray, alpha: float, max_iter: int = 3000, multiscale: bool = False):
+def lbfgs_refine(d: np.ndarray, x0: np.ndarray, alpha: float, max_iter: int = 1500, multiscale: bool = False):
     n, m = x0.shape
     off = ~np.eye(n, dtype=bool)
     if multiscale:
@@ -127,7 +127,7 @@ def lbfgs_refine(d: np.ndarray, x0: np.ndarray, alpha: float, max_iter: int = 30
 
 
 def weighted_exact_smacof(
-    d: np.ndarray, x0: np.ndarray, alpha: float, max_iter: int = 5000, eps: float = 1e-10
+    d: np.ndarray, x0: np.ndarray, alpha: float, max_iter: int = 2000, eps: float = 1e-8
 ) -> tuple[np.ndarray, dict]:
     """Exact majorization of sum_ij w_ij (d_F(x_i, x_j) - D_ij)^2, w_ij = 1 / Dsym_ij.
 

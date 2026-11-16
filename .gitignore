@@ -236,3 +236,7 @@ tmp/
 protocol.md
 *.egg-info
 core.[0-9]*
+
+# Audit resumption state (per-chunk results are merged into results/batch/).
+redteam/hardening/results/state/
+redteam/hardening/results/batch/chunks/

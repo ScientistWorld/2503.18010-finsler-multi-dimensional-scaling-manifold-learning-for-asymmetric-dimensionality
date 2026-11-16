@@ -1,0 +1,9 @@
+{
+  "files": [
+    "scores_test.json",
+    "details_test.json"
+  ],
+  "key": "a173853dcec2fcaa3dc76a168068f567ac8ac7b4d2e11f3a0a5e1481d225da40",
+  "script": "scripts/evaluate_test.sh",
+  "source": "job b4c96983-d30, final attempt: scripts/reproduce.sh at commit 2510288 (evaluators, graphs, method, baseline, data and scripts unchanged since)"
+}

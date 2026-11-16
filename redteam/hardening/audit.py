@@ -6,19 +6,35 @@ scored by the unchanged ``bash scripts/evaluate_train.sh`` /
 ``bash scripts/evaluate_test.sh`` (no arguments). Shortcuts that modify
 problem files (the public tree generator, the public citation graphs, the
 public baseline, the train score file) run in isolation and are restored
-afterwards. The official score files are backed up first and restored at the
-end, so the audit never changes them.
+afterwards. The official score files live in ``results/official/`` and are
+copied back into ``scoring/`` after the audit, so the audit never changes them.
 
-    python -m redteam.hardening.audit run        # batch + isolated + summary
-    python -m redteam.hardening.audit summarize  # rank analysis (pure Python)
+The scheduler may restart a job at any time, so every step is resumable:
 
-The batch sets GYM_EVAL_WORKERS so that the evaluators run several method
-commands at once (one BLAS thread each); scores do not depend on it.
+    python -m redteam.hardening.audit recover     # undo an interrupted step
+    python -m redteam.hardening.audit step paper  # official reproduction steps
+    python -m redteam.hardening.audit step train  #   (skipped when already done
+    python -m redteam.hardening.audit step test   #    for the current code)
+    python -m redteam.hardening.audit run         # chunked batch + isolated + summary
+    python -m redteam.hardening.audit summarize   # rank analysis (pure Python)
+
+Each step and each audit chunk stores the SHA-256 of the code it ran
+(evaluators, graphs, method, baseline, data, audit variants and shortcuts,
+scripts) and is skipped on a restart only if that hash still matches. Files a
+step tampers with are first backed up under ``results/state/pending/`` and
+restored by ``recover`` if the step was killed.
+
+The batch runs the cards in chunks of at most ``CHUNK`` cards and sets
+GYM_EVAL_WORKERS so that the evaluators run them at once (one BLAS thread
+each); scores do not depend on either. The reference card
+(``outputs/finsler_mds``) and the frozen baseline are scored in every chunk;
+the merge checks that they agree across chunks.
 """
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 import os
@@ -30,6 +46,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 HERE = ROOT / "redteam" / "hardening"
 RESULTS = HERE / "results"
+OFFICIAL_DIR = RESULTS / "official"
+STATE = RESULTS / "state"
+PENDING = STATE / "pending"
 AUDIT_CARDS = ROOT / "outputs" / "audit"
 REFERENCE = "finsler_mds"
 BASELINE = "euclidean_mds"
@@ -37,13 +56,18 @@ OFFICIAL = [
     "scores.json", "details.json", "scores_train.json", "details_train.json",
     "scores_test.json", "details_test.json",
 ]
+STEPS = {
+    "paper": ("scripts/method.sh", ["scores.json", "details.json"]),
+    "train": ("scripts/evaluate_train.sh", ["scores_train.json", "details_train.json"]),
+    "test": ("scripts/evaluate_test.sh", ["scores_test.json", "details_test.json"]),
+}
 TREES = ["directed_tree_reconstruction", "directed_tree_depth5_reconstruction"]
 GRAPHS = ["cora_digraph_reconstruction", "citeseer_digraph_reconstruction"]
+CHUNK = 8
 
 REF = ["python", "-m", "method.embed", "--alpha", "0.5", "--max-iter", "500", "--eps", "1e-5"]
 VAR = ["python", "-m", "redteam.hardening.variants", "--variant"]
 SHORT = ["python", "-m", "redteam.hardening.shortcuts", "--kind"]
-
 GENUINE = {
     **{f"ref_seed{k}": REF + ["--seed-offset", str(k)] for k in range(1, 5)},
     "better_exact_smacof": VAR + ["exact_smacof"],
@@ -104,9 +128,24 @@ def smacof(dissimilarities, n_components=2, **kwargs):
 '''
 
 
+# Rough relative cost (seconds on the visible slice) used only to group the
+# slow cards together, so that each chunk's wall time stays short.
+COST = {
+    "better_exact_smacof": 450, "better_weighted": 420, "better_lbfgs": 330,
+    "better_multiscale": 300, "better_long_smacof": 200, "better_alpha_select": 125,
+    "weaker_euclidean": 85, "weaker_random_init": 55, "shortcut_wrong_dim": 45,
+}
+
+
 def _dump(path: Path, obj) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(obj, indent=2, sort_keys=True) + "\n")
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(json.dumps(obj, indent=2, sort_keys=True) + "\n")
+    os.replace(tmp, path)
+
+
+def _load(path: Path):
+    return json.loads(path.read_text()) if path.exists() else None
 
 
 def _card(name: str, command: list[str] | None, raw: str | None = None) -> None:
@@ -154,45 +193,232 @@ def _collect(dest: Path, names: list[str]) -> None:
             shutil.copy2(src, dest / name)
 
 
-def run_batch() -> None:
+# --------------------------------------------------------------------------
+# Restart safety
+# --------------------------------------------------------------------------
+
+
+def code_stamp(audit: bool = True) -> str:
+    """SHA-256 over every file that can change a score.
+
+    ``audit=False`` covers what the official reproduction depends on
+    (evaluators, graphs, method, baseline, data, scripts); ``audit=True`` adds
+    the audit's variants and shortcuts.
+    """
+
+    files: list[Path] = []
+    for folder in ("eval", "method", "baseline", "data"):
+        for path in sorted((ROOT / folder).rglob("*")):
+            if not path.is_file() or "__pycache__" in path.parts or "downloads" in path.parts:
+                continue
+            if path.suffix in {".py", ".txt", ".json"}:
+                files.append(path)
+    if audit:
+        files += [HERE / "variants.py", HERE / "shortcuts.py"]
+    files += [ROOT / "scripts" / s for s in ("method.sh", "evaluate.sh", "evaluate_train.sh", "evaluate_test.sh")]
+    digest = hashlib.sha256()
+    for path in files:
+        digest.update(str(path.relative_to(ROOT)).encode())
+        digest.update(hashlib.sha256(path.read_bytes()).digest())
+    return digest.hexdigest()
+
+
+def _key(*parts) -> str:
+    audit = parts[0] != "step"
+    return hashlib.sha256(json.dumps([code_stamp(audit), *parts], sort_keys=True).encode()).hexdigest()
+
+
+def _done(folder: Path, key: str) -> bool:
+    record = _load(folder / "done.json")
+    return bool(record) and record.get("key") == key
+
+
+def _tamper(path: Path, new_text: str) -> None:
+    """Back the file up under results/state/pending before modifying it."""
+
+    PENDING.mkdir(parents=True, exist_ok=True)
+    tag = hashlib.sha256(str(path).encode()).hexdigest()[:16]
+    backup = PENDING / f"{tag}.orig"
+    if not backup.exists():
+        shutil.copy2(path, backup)
+        _dump(PENDING / f"{tag}.json", {"path": str(path.relative_to(ROOT))})
+    path.write_text(new_text)
+
+
+def _untamper_all() -> list[str]:
+    restored = []
+    if not PENDING.exists():
+        return restored
+    for record_path in sorted(PENDING.glob("*.json")):
+        record = json.loads(record_path.read_text())
+        backup = record_path.with_suffix(".orig")
+        if backup.exists():
+            shutil.copy2(backup, ROOT / record["path"])
+            backup.unlink()
+            restored.append(record["path"])
+        record_path.unlink()
+    return restored
+
+
+def _restore_official() -> list[str]:
+    restored = []
+    for step, (_, names) in STEPS.items():
+        if not _done(OFFICIAL_DIR / step, _key("step", step)):
+            continue
+        for name in names:
+            src = OFFICIAL_DIR / name
+            if src.exists():
+                shutil.copy2(src, ROOT / "scoring" / name)
+                restored.append(name)
+    return restored
+
+
+def recover() -> None:
     _clear_cards()
-    for name, command in GENUINE.items():
-        _card(name, command)
-    for kind in BATCH_SHORTCUTS:
-        _card(f"shortcut_{kind}", SHORT + [kind])
-    _card("shortcut_bad_card", None, raw='{"name": "shortcut_bad_card", "command": "python -c 1"')
-    dest = RESULTS / "batch"
-    workers = _workers()
-    status = {"workers": workers,
-              "train": _run("scripts/evaluate_train.sh", dest / "train.log", workers)}
-    _collect(dest, ["scores_train.json", "details_train.json"])
-    # Forged score file: the evaluator must overwrite it from recomputed metrics.
-    forged = json.loads((ROOT / "scoring" / "scores_train.json").read_text())
+    print("recover: restored tampered files", _untamper_all(), flush=True)
+    print("recover: restored official score files", _restore_official(), flush=True)
+
+
+def run_step(step: str) -> None:
+    """One official reproduction step, skipped if already done for this code."""
+
+    script, names = STEPS[step]
+    folder = OFFICIAL_DIR / step
+    key = _key("step", step)
+    if _done(folder, key):
+        print(f"step {step}: already done for this code, restoring its score files", flush=True)
+        for name in names:
+            shutil.copy2(OFFICIAL_DIR / name, ROOT / "scoring" / name)
+        return
+    _clear_cards()
+    code = subprocess.run(["bash", script], cwd=ROOT).returncode
+    if code != 0:
+        raise SystemExit(f"step {step}: {script} exited with {code}")
+    OFFICIAL_DIR.mkdir(parents=True, exist_ok=True)
+    for name in names:
+        shutil.copy2(ROOT / "scoring" / name, OFFICIAL_DIR / name)
+    _dump(folder / "done.json", {"key": key, "script": script, "files": names})
+    print(f"step {step}: done", flush=True)
+
+
+# --------------------------------------------------------------------------
+# Batch (chunked, resumable)
+# --------------------------------------------------------------------------
+
+
+def _batch_cards() -> list[tuple[str, list[str] | None, str | None]]:
+    cards = [(name, command, None) for name, command in GENUINE.items()]
+    cards += [(f"shortcut_{kind}", SHORT + [kind], None) for kind in BATCH_SHORTCUTS]
+    cards.append(("shortcut_bad_card", None, '{"name": "shortcut_bad_card", "command": "python -c 1"'))
+
+    def cost(card):
+        name = card[0]
+        for prefix, value in COST.items():
+            if name.startswith(prefix):
+                return value
+        return 20
+
+    return sorted(cards, key=lambda card: (-cost(card), card[0]))
+
+
+def _forged_scores() -> dict:
+    template = _load(OFFICIAL_DIR / "scores_test.json") or {}
+    forged = json.loads(json.dumps(template))
     for experiment in forged.values():
         for metrics in experiment["results"].values():
             for key in metrics:
                 metrics[key] = 0.0 if key in {
                     "normalized_stress", "distortion", "asymmetry_rmse", "symmetric_rmse",
                     "asymmetry_error", "symmetric_error"} else 1.0
-    _dump(ROOT / "scoring" / "scores_test.json", forged)
-    status["test"] = _run("scripts/evaluate_test.sh", dest / "test.log", workers)
-    _collect(dest, ["scores_test.json", "details_test.json"])
-    _dump(dest / "exit_status.json", status)
-    _clear_cards()
+    return forged
+
+
+def _merge(slice_name: str, chunk_dirs: list[Path]) -> dict:
+    scores: dict = {}
+    details: dict = {}
+    consistency = {REFERENCE: True, BASELINE: True}
+    for folder in chunk_dirs:
+        s = _load(folder / f"scores_{slice_name}.json")
+        d = _load(folder / f"details_{slice_name}.json")
+        if not details:
+            details = {k: v for k, v in d.items() if k != "methods"}
+            details["methods"] = {}
+        for name, info in d["methods"].items():
+            if name in details["methods"]:
+                if name in consistency:
+                    same = all(
+                        scores[exp]["results"][name] == s[exp]["results"][name] for exp in s
+                    )
+                    consistency[name] = consistency[name] and same
+                continue
+            details["methods"][name] = info
+            for exp in s:
+                scores.setdefault(exp, {"results": {}})["results"][name] = s[exp]["results"][name]
+    dest = RESULTS / "batch"
+    _dump(dest / f"scores_{slice_name}.json", scores)
+    _dump(dest / f"details_{slice_name}.json", details)
+    return consistency
+
+
+def run_batch() -> None:
+    cards = _batch_cards()
+    chunks = [cards[i : i + CHUNK] for i in range(0, len(cards), CHUNK)]
+    status: dict = {"chunk_size": CHUNK, "chunks": {}}
+    for slice_name in ("train", "test"):
+        chunk_dirs = []
+        for k, chunk in enumerate(chunks):
+            folder = RESULTS / "batch" / "chunks" / f"{slice_name}_{k:02d}"
+            chunk_dirs.append(folder)
+            key = _key("batch", slice_name, chunk)
+            if _done(folder, key):
+                print(f"batch {slice_name} chunk {k}: already done", flush=True)
+                status["chunks"][folder.name] = _load(folder / "done.json")
+                continue
+            _clear_cards()
+            for name, command, raw in chunk:
+                _card(name, command, raw)
+            forged_written = False
+            if slice_name == "test":
+                # The evaluator must overwrite a forged score file from recomputed metrics.
+                _dump(ROOT / "scoring" / "scores_test.json", _forged_scores())
+                forged_written = True
+            script = f"scripts/evaluate_{slice_name}.sh"
+            print(f"batch {slice_name} chunk {k}: {[c[0] for c in chunk]}", flush=True)
+            code = _run(script, folder / f"{slice_name}.log", min(_workers(), len(chunk) + 1))
+            _collect(folder, [f"scores_{slice_name}.json", f"details_{slice_name}.json"])
+            record = {"key": key, "exit": code, "cards": [c[0] for c in chunk],
+                      "forged_file_written_before": forged_written}
+            _dump(folder / "done.json", record)
+            status["chunks"][folder.name] = record
+            _clear_cards()
+        status[f"{slice_name}_consistency"] = _merge(slice_name, chunk_dirs)
+    _dump(RESULTS / "batch" / "exit_status.json", status)
+
+
+# --------------------------------------------------------------------------
+# Isolated cases (each resumable)
+# --------------------------------------------------------------------------
 
 
 def _patched(path: Path, new_text: str, case: str, card: tuple[str, list[str]] | None) -> None:
-    original = path.read_bytes()
+    dest = RESULTS / case
+    key = _key("isolated", case, hashlib.sha256(new_text.encode()).hexdigest(), card)
+    if _done(dest, key):
+        print(f"isolated {case}: already done", flush=True)
+        return
     try:
-        path.write_text(new_text)
+        _clear_cards()
+        _tamper(path, new_text)
         if card:
             _card(*card)
-        dest = RESULTS / case
-        _dump(dest / "exit_status.json", {"test": _run("scripts/evaluate_test.sh", dest / "test.log", _workers())})
+        code = _run("scripts/evaluate_test.sh", dest / "test.log", _workers())
         _collect(dest, ["scores_test.json", "details_test.json"])
+        _dump(dest / "exit_status.json", {"test": code})
     finally:
-        path.write_bytes(original)
+        _untamper_all()
         _clear_cards()
+    _dump(dest / "done.json", {"key": key})
+    print(f"isolated {case}: done", flush=True)
 
 
 def run_isolated() -> None:
@@ -214,19 +440,15 @@ def run_isolated() -> None:
 
     # 4. Empty the method lists of the train score file; the test must still
     #    score every method on disk.
-    train_scores = ROOT / "scoring" / "scores_train.json"
-    saved = json.loads(train_scores.read_text())
+    saved = _load(OFFICIAL_DIR / "scores_train.json")
     emptied = json.dumps({exp: {"results": {}} for exp in saved}, indent=2)
-    _patched(train_scores, emptied, "train_filter", ("probe_level_collapse", VAR + ["level_collapse"]))
+    _patched(ROOT / "scoring" / "scores_train.json", emptied, "train_filter",
+             ("probe_level_collapse", VAR + ["level_collapse"]))
 
 
 # --------------------------------------------------------------------------
 # Rank analysis (pure Python so it also runs on the login node)
 # --------------------------------------------------------------------------
-
-
-def _load(path: Path):
-    return json.loads(path.read_text()) if path.exists() else None
 
 
 def _contract() -> dict:
@@ -417,19 +639,34 @@ def summarize() -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("command", choices=["run", "batch", "isolated", "summarize"])
+    parser.add_argument("command", choices=["recover", "step", "run", "batch", "isolated", "summarize", "stamp"])
+    parser.add_argument("step", nargs="?", choices=list(STEPS))
     args = parser.parse_args()
-    backups = {}
+    if args.command == "stamp":
+        print("official", code_stamp(audit=False))
+        print("audit   ", code_stamp(audit=True))
+        return
+    if args.command == "recover":
+        recover()
+        return
+    if args.command == "step":
+        if not args.step:
+            parser.error("step needs one of " + ", ".join(STEPS))
+        recover()
+        run_step(args.step)
+        return
     if args.command in ("run", "batch", "isolated"):
-        backups = {n: (ROOT / "scoring" / n).read_bytes() for n in OFFICIAL if (ROOT / "scoring" / n).exists()}
-    try:
-        if args.command in ("run", "batch"):
-            run_batch()
-        if args.command in ("run", "isolated"):
-            run_isolated()
-    finally:
-        for name, data in backups.items():
-            (ROOT / "scoring" / name).write_bytes(data)
+        missing = [s for s in STEPS if not _done(OFFICIAL_DIR / s, _key("step", s))]
+        if missing:
+            raise SystemExit(f"official steps not done for this code: {missing}")
+        recover()
+        try:
+            if args.command in ("run", "batch"):
+                run_batch()
+            if args.command in ("run", "isolated"):
+                run_isolated()
+        finally:
+            recover()
     if args.command in ("run", "summarize"):
         summarize()
 

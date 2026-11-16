@@ -16,25 +16,357 @@
       "ge"
     ]
   },
-  "gate": {
-    "asymmetry_rmse": [
-      0.1,
-      "le"
-    ],
-    "distortion": [
-      0.1,
-      "le"
-    ],
-    "hierarchy_alignment": [
+  "embedding_dims": {
+    "graph": 10,
+    "tree": 2
+  },
+  "empty_prediction": {
+    "citeseer_00": {
+      "asymmetry_error": 1.0,
+      "distortion": 8.608609022556392,
+      "euclidean_gain_pass": 0.0,
+      "map": 0.005229039940646385,
+      "normalized_stress": 1.0,
+      "symmetric_error": 1.0
+    },
+    "citeseer_01": {
+      "asymmetry_error": 1.0,
+      "distortion": 12.819805764411027,
+      "euclidean_gain_pass": 0.0,
+      "map": 0.004372111090237286,
+      "normalized_stress": 1.0,
+      "symmetric_error": 1.0
+    },
+    "citeseer_02": {
+      "asymmetry_error": 1.0,
+      "distortion": 9.344398496240602,
+      "euclidean_gain_pass": 0.0,
+      "map": 0.00490256257548806,
+      "normalized_stress": 1.0,
+      "symmetric_error": 1.0
+    },
+    "citeseer_03": {
+      "asymmetry_error": 1.0,
+      "distortion": 11.545300751879699,
+      "euclidean_gain_pass": 0.0,
+      "map": 0.0037688368262475598,
+      "normalized_stress": 1.0,
+      "symmetric_error": 1.0
+    },
+    "citeseer_04": {
+      "asymmetry_error": 1.0,
+      "distortion": 10.00951127819549,
+      "euclidean_gain_pass": 0.0,
+      "map": 0.004734764140448603,
+      "normalized_stress": 1.0,
+      "symmetric_error": 1.0
+    },
+    "cora_00": {
+      "asymmetry_error": 1.0,
+      "distortion": 6.560545112781955,
+      "euclidean_gain_pass": 0.0,
+      "map": 0.004180852375785059,
+      "normalized_stress": 1.0,
+      "symmetric_error": 1.0
+    },
+    "cora_01": {
+      "asymmetry_error": 1.0,
+      "distortion": 8.83999373433584,
+      "euclidean_gain_pass": 0.0,
+      "map": 0.0038884899049567113,
+      "normalized_stress": 1.0,
+      "symmetric_error": 1.0
+    },
+    "cora_02": {
+      "asymmetry_error": 1.0,
+      "distortion": 7.696936090225564,
+      "euclidean_gain_pass": 0.0,
+      "map": 0.004258023398193869,
+      "normalized_stress": 1.0,
+      "symmetric_error": 1.0
+    },
+    "cora_03": {
+      "asymmetry_error": 1.0,
+      "distortion": 7.378345864661654,
+      "euclidean_gain_pass": 0.0,
+      "map": 0.0038226264637674467,
+      "normalized_stress": 1.0,
+      "symmetric_error": 1.0
+    },
+    "cora_04": {
+      "asymmetry_error": 1.0,
+      "distortion": 8.30781328320802,
+      "euclidean_gain_pass": 0.0,
+      "map": 0.00430746684342093,
+      "normalized_stress": 1.0,
+      "symmetric_error": 1.0
+    },
+    "d5_00": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.4245673897950784,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.15907287944927,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.5848026449552228
+    },
+    "d5_01": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.5454977319840904,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.2301141648302942,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.68438817965366
+    },
+    "d5_02": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.495781861244143,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.2210901634879583,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.656392613007861
+    },
+    "d5_03": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.6630018741756065,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.3708327701234666,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.846732994569277
+    },
+    "d5_04": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.5168115545429663,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.239303658072094,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.6917080650251364
+    },
+    "d5_05": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.4433346328055883,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.1858985490129212,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.6377463996686858
+    },
+    "d5_06": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.4943593948796596,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.171566044575786,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.594272360692931
+    },
+    "d5_07": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.419092758188254,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.1674357823406218,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.585293262940916
+    },
+    "d5_08": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.4462857447337374,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.1452423841209134,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.5778826903165708
+    },
+    "d5_09": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.4635901258764925,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.2043166151945748,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.6417304198176221
+    },
+    "d5_10": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.4574743640611492,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.1910576872196652,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.6139279694694897
+    },
+    "d5_11": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.467059956145554,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.1922519292303828,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.6186944429958126
+    },
+    "d7_00": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.5557085723848245,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.242409714110298,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.7145295945209271
+    },
+    "d7_01": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.5509923270585066,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.2250629412481489,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.7083227985419518
+    },
+    "d7_02": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.6180296864813009,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.232016660633999,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.7470009298156537
+    },
+    "d7_03": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.7214190500109905,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.3349332432095153,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.8685293063703585
+    },
+    "d7_04": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.5266148021075316,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.2601810422691488,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.755550560447016
+    },
+    "d7_05": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.735747328560366,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.3393592169900588,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.902373729467587
+    },
+    "d7_06": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.5985411083534902,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.2432361978270152,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.759749625875188
+    },
+    "d7_07": {
+      "asymmetry_correlation": 0.0,
+      "asymmetry_preservation_pass": 0.0,
+      "asymmetry_rmse": 1.748292003771762,
+      "distance_preservation_pass": 0.0,
+      "distortion": 1.358191807632388,
+      "hierarchy_alignment": 0.0,
+      "hierarchy_direction_pass": 0.0,
+      "map_at_10": 0.0,
+      "normalized_stress": 1.0,
+      "symmetric_rmse": 1.8958146184856517
+    }
+  },
+  "graph_gate": {
+    "asymmetry_error": [
       0.8,
-      "ge"
+      "le"
     ],
     "normalized_stress": [
-      0.1,
+      0.25,
       "le"
     ]
   },
   "instance_ids": {
+    "citeseer_digraph_reconstruction": [
+      "citeseer_00",
+      "citeseer_01",
+      "citeseer_02",
+      "citeseer_03",
+      "citeseer_04"
+    ],
+    "cora_digraph_reconstruction": [
+      "cora_00",
+      "cora_01",
+      "cora_02",
+      "cora_03",
+      "cora_04"
+    ],
     "directed_tree_depth5_reconstruction": [
       "d5_00",
       "d5_01",
@@ -65,125 +397,217 @@
     "euclidean_mds": {
       "eligible": false,
       "experiments": {
+        "citeseer_digraph_reconstruction": {
+          "per_instance": {
+            "citeseer_00": {
+              "asymmetry_error": 1.0,
+              "distortion": 0.23498334504299587,
+              "map": 0.48352479342924237,
+              "normalized_stress": 0.14023871234489488,
+              "symmetric_error": 0.07676227836863839
+            },
+            "citeseer_01": {
+              "asymmetry_error": 1.0,
+              "distortion": 0.2079358429721865,
+              "map": 0.5367158119484998,
+              "normalized_stress": 0.10286400626599171,
+              "symmetric_error": 0.048892644207187134
+            },
+            "citeseer_02": {
+              "asymmetry_error": 1.0,
+              "distortion": 0.2446268572856201,
+              "map": 0.47453570430895986,
+              "normalized_stress": 0.13730132544605209,
+              "symmetric_error": 0.06910845724171355
+            },
+            "citeseer_03": {
+              "asymmetry_error": 1.0,
+              "distortion": 0.2065690819472968,
+              "map": 0.450273180195626,
+              "normalized_stress": 0.1134413382159339,
+              "symmetric_error": 0.054482877024957396
+            },
+            "citeseer_04": {
+              "asymmetry_error": 1.0,
+              "distortion": 0.2022873531610521,
+              "map": 0.45396462581596075,
+              "normalized_stress": 0.11584003981284223,
+              "symmetric_error": 0.06002528528689013
+            }
+          },
+          "raw_mean": {
+            "asymmetry_error": 1.0,
+            "distortion": 0.21928049608183028,
+            "map": 0.4798028231396578,
+            "normalized_stress": 0.12193708441714295,
+            "symmetric_error": 0.061854308425877316
+          }
+        },
+        "cora_digraph_reconstruction": {
+          "per_instance": {
+            "cora_00": {
+              "asymmetry_error": 1.0,
+              "distortion": 0.2247815364021753,
+              "map": 0.3829718273512924,
+              "normalized_stress": 0.16627195177971713,
+              "symmetric_error": 0.09350440405657769
+            },
+            "cora_01": {
+              "asymmetry_error": 1.0,
+              "distortion": 0.23207928123317081,
+              "map": 0.4392408662528923,
+              "normalized_stress": 0.13633218955527093,
+              "symmetric_error": 0.06554977909310607
+            },
+            "cora_02": {
+              "asymmetry_error": 1.0,
+              "distortion": 0.21397800351433038,
+              "map": 0.4062070241505878,
+              "normalized_stress": 0.14188903392951657,
+              "symmetric_error": 0.07923753751205478
+            },
+            "cora_03": {
+              "asymmetry_error": 1.0,
+              "distortion": 0.18671116621734773,
+              "map": 0.306958297263261,
+              "normalized_stress": 0.1349556965725607,
+              "symmetric_error": 0.06862132425135549
+            },
+            "cora_04": {
+              "asymmetry_error": 1.0,
+              "distortion": 0.21428354510951178,
+              "map": 0.41389178226259427,
+              "normalized_stress": 0.13650797779622523,
+              "symmetric_error": 0.06754913182246645
+            }
+          },
+          "raw_mean": {
+            "asymmetry_error": 1.0,
+            "distortion": 0.2143667064953072,
+            "map": 0.38985395945612555,
+            "normalized_stress": 0.1431913699266581,
+            "symmetric_error": 0.0748924353471121
+          }
+        },
         "directed_tree_depth5_reconstruction": {
           "per_instance": {
             "d5_00": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.4245673897950784,
-              "distortion": 0.2630140417250821,
+              "distortion": 0.2818563322098409,
               "hierarchy_alignment": 0.0,
               "map_at_10": 0.9764745500395096,
-              "normalized_stress": 0.465721362140525,
-              "symmetric_rmse": 0.38399315174901605
+              "normalized_stress": 0.41036073022988906,
+              "symmetric_rmse": 0.03209990879301627
             },
             "d5_01": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.5454977319840904,
-              "distortion": 0.30222783373139334,
+              "distortion": 0.3187861533474308,
               "hierarchy_alignment": 0.0,
               "map_at_10": 0.9661218756175711,
-              "normalized_stress": 0.47210071608665316,
-              "symmetric_rmse": 0.41023627953709946
+              "normalized_stress": 0.41736750500260056,
+              "symmetric_rmse": 0.033166465611433806
             },
             "d5_02": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.495781861244143,
-              "distortion": 0.2969131815901818,
+              "distortion": 0.30663257947097705,
               "hierarchy_alignment": 0.0,
-              "map_at_10": 0.9741871829253027,
-              "normalized_stress": 0.46933269114216464,
-              "symmetric_rmse": 0.41014199955635094
+              "map_at_10": 0.9957226805212154,
+              "normalized_stress": 0.4122267556935386,
+              "symmetric_rmse": 0.044012048877911485
             },
             "d5_03": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.6630018741756065,
-              "distortion": 0.3386356265702171,
+              "distortion": 0.34734236009005176,
               "hierarchy_alignment": 0.0,
-              "map_at_10": 0.9661218756175711,
-              "normalized_stress": 0.45656710977722037,
-              "symmetric_rmse": 0.4045297464816102
+              "map_at_10": 0.9764745500395096,
+              "normalized_stress": 0.4109727328648927,
+              "symmetric_rmse": 0.03737932130067621
             },
             "d5_04": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.5168115545429663,
-              "distortion": 0.3025995337820416,
+              "distortion": 0.30460853825735074,
               "hierarchy_alignment": 0.0,
-              "map_at_10": 0.9684417779374734,
-              "normalized_stress": 0.4647358010368551,
-              "symmetric_rmse": 0.4088443965775149
+              "map_at_10": 0.9872422079714787,
+              "normalized_stress": 0.40964814658147636,
+              "symmetric_rmse": 0.03998091457718475
             },
             "d5_05": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.4433346328055883,
-              "distortion": 0.28024879955919374,
+              "distortion": 0.27332405915169755,
               "hierarchy_alignment": 0.0,
-              "map_at_10": 0.9661218756175711,
-              "normalized_stress": 0.468955318286127,
-              "symmetric_rmse": 0.42848671721753034
+              "map_at_10": 0.9816715504871968,
+              "normalized_stress": 0.40428741172463156,
+              "symmetric_rmse": 0.05219196933955461
             },
             "d5_06": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.4943593948796596,
-              "distortion": 0.3054446541790306,
+              "distortion": 0.32411244152972696,
               "hierarchy_alignment": 0.0,
-              "map_at_10": 0.9782192699660477,
-              "normalized_stress": 0.48149533627125823,
-              "symmetric_rmse": 0.4005188468881545
+              "map_at_10": 0.9763687075094246,
+              "normalized_stress": 0.4249843006553621,
+              "symmetric_rmse": 0.04019149773087824
             },
             "d5_07": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.419092758188254,
-              "distortion": 0.2668025788350397,
+              "distortion": 0.2807605843308558,
               "hierarchy_alignment": 0.0,
-              "map_at_10": 0.9783467519117114,
-              "normalized_stress": 0.46938230281722865,
-              "symmetric_rmse": 0.4014509438786356
+              "map_at_10": 0.9787944523594119,
+              "normalized_stress": 0.4094080164808115,
+              "symmetric_rmse": 0.04661464039062348
             },
             "d5_08": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.4462857447337374,
-              "distortion": 0.27991184342803516,
+              "distortion": 0.2895388183397363,
               "hierarchy_alignment": 0.0,
-              "map_at_10": 0.9853700060992768,
-              "normalized_stress": 0.48577128961424926,
-              "symmetric_rmse": 0.4335557051569534
+              "map_at_10": 0.9876899084191791,
+              "normalized_stress": 0.417525933626359,
+              "symmetric_rmse": 0.047468357853132005
             },
             "d5_09": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.4635901258764925,
-              "distortion": 0.2863283665841445,
+              "distortion": 0.28527539884396536,
               "hierarchy_alignment": 0.0,
-              "map_at_10": 0.9695526342497949,
-              "normalized_stress": 0.46962893748157464,
-              "symmetric_rmse": 0.42075392569399206
+              "map_at_10": 0.9875991092441309,
+              "normalized_stress": 0.4081590004020701,
+              "symmetric_rmse": 0.05203461116252506
             },
             "d5_10": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.4574743640611492,
-              "distortion": 0.2773995263865549,
+              "distortion": 0.2937917112090731,
               "hierarchy_alignment": 0.0,
-              "map_at_10": 0.9661218756175712,
-              "normalized_stress": 0.46501577834673696,
-              "symmetric_rmse": 0.3834463598556463
+              "map_at_10": 0.9957226805212154,
+              "normalized_stress": 0.4119953294430853,
+              "symmetric_rmse": 0.034884295631079275
             },
             "d5_11": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.467059956145554,
-              "distortion": 0.2948896254750345,
+              "distortion": 0.2978590479757565,
               "hierarchy_alignment": 0.0,
               "map_at_10": 0.9876899084191791,
-              "normalized_stress": 0.46947703953584785,
-              "symmetric_rmse": 0.39753849858647694
+              "normalized_stress": 0.41338045647466204,
+              "symmetric_rmse": 0.04030151575508459
             }
           },
           "raw_mean": {
             "asymmetry_correlation": 0.0,
             "asymmetry_rmse": 1.48640478236936,
-            "distortion": 0.2912013009871624,
+            "distortion": 0.3003240020630386,
             "hierarchy_alignment": 0.0,
-            "map_at_10": 0.9735641320015483,
-            "normalized_stress": 0.46984864021137,
-            "symmetric_rmse": 0.4069580475982484
+            "map_at_10": 0.983131015095752,
+            "normalized_stress": 0.41252635993161485,
+            "symmetric_rmse": 0.04169379558525831
           }
         },
         "directed_tree_reconstruction": {
@@ -191,145 +615,237 @@
             "d7_00": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.5557085723848245,
-              "distortion": 0.309694934437034,
+              "distortion": 0.3107642427846673,
               "hierarchy_alignment": 0.0,
-              "map_at_10": 0.9980952976818876,
-              "normalized_stress": 0.47969027343894843,
-              "symmetric_rmse": 0.4588908682036465
+              "map_at_10": 0.997217880387358,
+              "normalized_stress": 0.41408517884229007,
+              "symmetric_rmse": 0.05229555817662236
             },
             "d7_01": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.5509923270585066,
-              "distortion": 0.2915586861279472,
+              "distortion": 0.30990879979139807,
               "hierarchy_alignment": 0.0,
               "map_at_10": 0.9922032627845524,
-              "normalized_stress": 0.47598010814197583,
-              "symmetric_rmse": 0.44275550267554536
+              "normalized_stress": 0.41369108642104746,
+              "symmetric_rmse": 0.03128451500930786
             },
             "d7_02": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.6180296864813009,
-              "distortion": 0.31438871451672534,
+              "distortion": 0.330649358961165,
               "hierarchy_alignment": 0.0,
               "map_at_10": 0.9963855309186449,
-              "normalized_stress": 0.48627630567533253,
-              "symmetric_rmse": 0.47112129485490806
+              "normalized_stress": 0.4205202143180193,
+              "symmetric_rmse": 0.030745830768985464
             },
             "d7_03": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.7214190500109905,
-              "distortion": 0.3743528090995048,
+              "distortion": 0.35727692723631177,
               "hierarchy_alignment": 0.0,
               "map_at_10": 0.9916301104466941,
-              "normalized_stress": 0.4819997356337941,
-              "symmetric_rmse": 0.4923666633049061
+              "normalized_stress": 0.4189643383997085,
+              "symmetric_rmse": 0.045451985577557405
             },
             "d7_04": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.5266148021075316,
-              "distortion": 0.2749857013518738,
+              "distortion": 0.28239015588581773,
               "hierarchy_alignment": 0.0,
               "map_at_10": 0.991630110446694,
-              "normalized_stress": 0.46469774724323293,
-              "symmetric_rmse": 0.45684713815065775
+              "normalized_stress": 0.39958488684760074,
+              "symmetric_rmse": 0.04980781863829432
             },
             "d7_05": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.735747328560366,
-              "distortion": 0.31809041735150945,
+              "distortion": 0.3383077298422883,
               "hierarchy_alignment": 0.0,
               "map_at_10": 0.9941878300097612,
-              "normalized_stress": 0.4860922567930845,
-              "symmetric_rmse": 0.5290470392892707
+              "normalized_stress": 0.415566762355761,
+              "symmetric_rmse": 0.043137672583930996
             },
             "d7_06": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.5985411083534902,
-              "distortion": 0.29185758886958496,
+              "distortion": 0.30963261315855073,
               "hierarchy_alignment": 0.0,
-              "map_at_10": 0.9941878300097613,
-              "normalized_stress": 0.48235293496938314,
-              "symmetric_rmse": 0.47989208365024866
+              "map_at_10": 0.9949005992387809,
+              "normalized_stress": 0.41398183719025583,
+              "symmetric_rmse": 0.03700139194779642
             },
             "d7_07": {
               "asymmetry_correlation": 0.0,
               "asymmetry_rmse": 1.748292003771762,
-              "distortion": 0.355203326386573,
+              "distortion": 0.3581944484604673,
               "hierarchy_alignment": 0.0,
-              "map_at_10": 1.0,
-              "normalized_stress": 0.48063690619994615,
-              "symmetric_rmse": 0.4926203235692718
+              "map_at_10": 0.9992847153026883,
+              "normalized_stress": 0.4191801363274955,
+              "symmetric_rmse": 0.04079867492536919
             }
           },
           "raw_mean": {
             "asymmetry_correlation": 0.0,
             "asymmetry_rmse": 1.6319181098410964,
-            "distortion": 0.3162665222675941,
+            "distortion": 0.3246405345150833,
             "hierarchy_alignment": 0.0,
-            "map_at_10": 0.9947899965372494,
-            "normalized_stress": 0.4797157835119622,
-            "symmetric_rmse": 0.4779426142123069
+            "map_at_10": 0.9946800049418967,
+            "normalized_stress": 0.4144468050877723,
+            "symmetric_rmse": 0.041315430953483
           }
         }
       },
       "failure_reasons": [
-        "d7_00: normalized_stress=0.4797 fails <= 0.1",
-        "d7_00: distortion=0.3097 fails <= 0.1",
+        "d7_00: normalized_stress=0.4141 fails <= 0.1",
+        "d7_00: distortion=0.3108 fails <= 0.1",
         "d7_00: asymmetry_rmse=1.556 fails <= 0.1",
         "d7_00: hierarchy_alignment=0 fails >= 0.8",
-        "d7_01: normalized_stress=0.476 fails <= 0.1",
-        "d7_01: distortion=0.2916 fails <= 0.1",
+        "d7_01: normalized_stress=0.4137 fails <= 0.1",
+        "d7_01: distortion=0.3099 fails <= 0.1",
         "d7_01: asymmetry_rmse=1.551 fails <= 0.1",
         "d7_01: hierarchy_alignment=0 fails >= 0.8",
-        "d7_02: normalized_stress=0.4863 fails <= 0.1",
-        "d7_02: distortion=0.3144 fails <= 0.1",
+        "d7_02: normalized_stress=0.4205 fails <= 0.1",
+        "d7_02: distortion=0.3306 fails <= 0.1",
         "d7_02: asymmetry_rmse=1.618 fails <= 0.1",
         "d7_02: hierarchy_alignment=0 fails >= 0.8",
-        "d7_03: normalized_stress=0.482 fails <= 0.1",
-        "d7_03: distortion=0.3744 fails <= 0.1",
+        "d7_03: normalized_stress=0.419 fails <= 0.1",
+        "d7_03: distortion=0.3573 fails <= 0.1",
         "d7_03: asymmetry_rmse=1.721 fails <= 0.1",
         "d7_03: hierarchy_alignment=0 fails >= 0.8",
-        "d7_04: normalized_stress=0.4647 fails <= 0.1",
-        "d7_04: distortion=0.275 fails <= 0.1",
+        "d7_04: normalized_stress=0.3996 fails <= 0.1",
+        "d7_04: distortion=0.2824 fails <= 0.1",
         "d7_04: asymmetry_rmse=1.527 fails <= 0.1",
         "d7_04: hierarchy_alignment=0 fails >= 0.8",
-        "d7_05: normalized_stress=0.4861 fails <= 0.1",
-        "d7_05: distortion=0.3181 fails <= 0.1",
+        "d7_05: normalized_stress=0.4156 fails <= 0.1",
+        "d7_05: distortion=0.3383 fails <= 0.1",
         "d7_05: asymmetry_rmse=1.736 fails <= 0.1",
         "d7_05: hierarchy_alignment=0 fails >= 0.8",
-        "d7_06: normalized_stress=0.4824 fails <= 0.1",
-        "d7_06: distortion=0.2919 fails <= 0.1",
+        "d7_06: normalized_stress=0.414 fails <= 0.1",
+        "d7_06: distortion=0.3096 fails <= 0.1",
         "d7_06: asymmetry_rmse=1.599 fails <= 0.1",
         "d7_06: hierarchy_alignment=0 fails >= 0.8",
-        "d7_07: normalized_stress=0.4806 fails <= 0.1",
-        "d7_07: distortion=0.3552 fails <= 0.1",
+        "d7_07: normalized_stress=0.4192 fails <= 0.1",
+        "d7_07: distortion=0.3582 fails <= 0.1",
         "d7_07: asymmetry_rmse=1.748 fails <= 0.1",
         "d7_07: hierarchy_alignment=0 fails >= 0.8",
-        "d5_00: normalized_stress=0.4657 fails <= 0.1",
-        "d5_00: distortion=0.263 fails <= 0.1",
+        "d5_00: normalized_stress=0.4104 fails <= 0.1",
+        "d5_00: distortion=0.2819 fails <= 0.1",
         "d5_00: asymmetry_rmse=1.425 fails <= 0.1",
         "d5_00: hierarchy_alignment=0 fails >= 0.8",
-        "d5_01: normalized_stress=0.4721 fails <= 0.1",
-        "d5_01: distortion=0.3022 fails <= 0.1",
+        "d5_01: normalized_stress=0.4174 fails <= 0.1",
+        "d5_01: distortion=0.3188 fails <= 0.1",
         "d5_01: asymmetry_rmse=1.545 fails <= 0.1",
         "d5_01: hierarchy_alignment=0 fails >= 0.8",
-        "d5_02: normalized_stress=0.4693 fails <= 0.1",
-        "d5_02: distortion=0.2969 fails <= 0.1",
+        "d5_02: normalized_stress=0.4122 fails <= 0.1",
+        "d5_02: distortion=0.3066 fails <= 0.1",
         "d5_02: asymmetry_rmse=1.496 fails <= 0.1",
         "d5_02: hierarchy_alignment=0 fails >= 0.8",
-        "d5_03: normalized_stress=0.4566 fails <= 0.1",
-        "d5_03: distortion=0.3386 fails <= 0.1",
+        "d5_03: normalized_stress=0.411 fails <= 0.1",
+        "d5_03: distortion=0.3473 fails <= 0.1",
         "d5_03: asymmetry_rmse=1.663 fails <= 0.1",
         "d5_03: hierarchy_alignment=0 fails >= 0.8",
-        "d5_04: normalized_stress=0.4647 fails <= 0.1",
-        "d5_04: distortion=0.3026 fails <= 0.1"
+        "d5_04: normalized_stress=0.4096 fails <= 0.1",
+        "d5_04: distortion=0.3046 fails <= 0.1"
       ],
-      "n_failure_reasons": 80,
+      "n_failure_reasons": 100,
       "source": "frozen Euclidean SMACOF inside the evaluator"
     },
     "finsler_mds": {
       "eligible": true,
       "experiments": {
+        "citeseer_digraph_reconstruction": {
+          "per_instance": {
+            "citeseer_00": {
+              "asymmetry_error": 0.4305982079783564,
+              "distortion": 0.1446796126060972,
+              "map": 0.5047456860221841,
+              "normalized_stress": 0.10378251034391665,
+              "symmetric_error": 0.09119717190683488
+            },
+            "citeseer_01": {
+              "asymmetry_error": 0.47383278411332097,
+              "distortion": 0.13050389676598337,
+              "map": 0.5484525114422767,
+              "normalized_stress": 0.07556478973780988,
+              "symmetric_error": 0.06243978303900926
+            },
+            "citeseer_02": {
+              "asymmetry_error": 0.39849294902267113,
+              "distortion": 0.14244050423273116,
+              "map": 0.4887427338895604,
+              "normalized_stress": 0.09511852945112201,
+              "symmetric_error": 0.08306151731766515
+            },
+            "citeseer_03": {
+              "asymmetry_error": 0.42745332068055114,
+              "distortion": 0.12139485331581787,
+              "map": 0.47994516061912396,
+              "normalized_stress": 0.07952001073649578,
+              "symmetric_error": 0.06748538778259522
+            },
+            "citeseer_04": {
+              "asymmetry_error": 0.4905620610186916,
+              "distortion": 0.13929618834690655,
+              "map": 0.5240891516846742,
+              "normalized_stress": 0.09041954975590992,
+              "symmetric_error": 0.07656831041989934
+            }
+          },
+          "raw_mean": {
+            "asymmetry_error": 0.4441878645627183,
+            "distortion": 0.13566301105350723,
+            "map": 0.509195048731564,
+            "normalized_stress": 0.08888107800505085,
+            "symmetric_error": 0.07615043409320077
+          }
+        },
+        "cora_digraph_reconstruction": {
+          "per_instance": {
+            "cora_00": {
+              "asymmetry_error": 0.345107615044506,
+              "distortion": 0.12376111413894526,
+              "map": 0.41012638676955143,
+              "normalized_stress": 0.11684845174804506,
+              "symmetric_error": 0.1077200845047517
+            },
+            "cora_01": {
+              "asymmetry_error": 0.49427358680239253,
+              "distortion": 0.14997284926382715,
+              "map": 0.4765801992815357,
+              "normalized_stress": 0.10503558919134802,
+              "symmetric_error": 0.08738382552581847
+            },
+            "cora_02": {
+              "asymmetry_error": 0.4394016879679842,
+              "distortion": 0.13541636948558783,
+              "map": 0.4042236674432925,
+              "normalized_stress": 0.10685279736849847,
+              "symmetric_error": 0.09406998663368908
+            },
+            "cora_03": {
+              "asymmetry_error": 0.5270482944739858,
+              "distortion": 0.12959339176745455,
+              "map": 0.30232430311790764,
+              "normalized_stress": 0.10740270993110562,
+              "symmetric_error": 0.08873125986338921
+            },
+            "cora_04": {
+              "asymmetry_error": 0.44315256992997226,
+              "distortion": 0.1297015435092891,
+              "map": 0.44679339983534777,
+              "normalized_stress": 0.10070608400497934,
+              "symmetric_error": 0.08643629651580921
+            }
+          },
+          "raw_mean": {
+            "asymmetry_error": 0.44979675084376813,
+            "distortion": 0.13368905363302078,
+            "map": 0.4080095912895271,
+            "normalized_stress": 0.1073691264487953,
+            "symmetric_error": 0.09286829060869153
+          }
+        },
         "directed_tree_depth5_reconstruction": {
           "per_instance": {
             "d5_00": {
@@ -454,86 +970,86 @@
         "directed_tree_reconstruction": {
           "per_instance": {
             "d7_00": {
-              "asymmetry_correlation": 0.9997262668364812,
-              "asymmetry_rmse": 0.03675084296529641,
-              "distortion": 0.016542986865309976,
+              "asymmetry_correlation": 0.9997262668364816,
+              "asymmetry_rmse": 0.036750842965290464,
+              "distortion": 0.016542986865312134,
               "hierarchy_alignment": 1.0,
               "map_at_10": 1.0,
-              "normalized_stress": 0.03344924277839731,
-              "symmetric_rmse": 0.06023539947896165
+              "normalized_stress": 0.033449242778397184,
+              "symmetric_rmse": 0.06023539947896232
             },
             "d7_01": {
-              "asymmetry_correlation": 0.999935631710246,
-              "asymmetry_rmse": 0.017799591598335354,
-              "distortion": 0.009539254300638315,
+              "asymmetry_correlation": 0.9999356317102462,
+              "asymmetry_rmse": 0.017799591598331513,
+              "distortion": 0.009539254300638216,
               "hierarchy_alignment": 1.0,
               "map_at_10": 1.0,
-              "normalized_stress": 0.01972165033027426,
-              "symmetric_rmse": 0.035913532278778436
+              "normalized_stress": 0.019721650330275044,
+              "symmetric_rmse": 0.03591353227878043
             },
             "d7_02": {
-              "asymmetry_correlation": 0.9999375623555752,
-              "asymmetry_rmse": 0.01844165352428431,
-              "distortion": 0.009136306470371695,
+              "asymmetry_correlation": 0.999937562355714,
+              "asymmetry_rmse": 0.018441653502400027,
+              "distortion": 0.009136306473246009,
               "hierarchy_alignment": 1.0,
               "map_at_10": 1.0,
-              "normalized_stress": 0.018966267387673832,
-              "symmetric_rmse": 0.0353310365662216
+              "normalized_stress": 0.018966267387498587,
+              "symmetric_rmse": 0.03533103656872863
             },
             "d7_03": {
-              "asymmetry_correlation": 0.9999125978584563,
-              "asymmetry_rmse": 0.023991764475714647,
-              "distortion": 0.014024449934707243,
+              "asymmetry_correlation": 0.9999125978584552,
+              "asymmetry_rmse": 0.023991764475703743,
+              "distortion": 0.014024449934708314,
               "hierarchy_alignment": 1.0,
               "map_at_10": 1.0,
-              "normalized_stress": 0.025061245012146283,
-              "symmetric_rmse": 0.05014193823630726
+              "normalized_stress": 0.025061245012146478,
+              "symmetric_rmse": 0.05014193823630898
             },
             "d7_04": {
-              "asymmetry_correlation": 0.9997999142939774,
-              "asymmetry_rmse": 0.03076795145442003,
-              "distortion": 0.015551733496320615,
+              "asymmetry_correlation": 0.9997999142939779,
+              "asymmetry_rmse": 0.030767951454418442,
+              "distortion": 0.01555173349632135,
               "hierarchy_alignment": 1.0,
               "map_at_10": 1.0,
-              "normalized_stress": 0.032132263710693165,
-              "symmetric_rmse": 0.05955639357573885
+              "normalized_stress": 0.03213226371069292,
+              "symmetric_rmse": 0.059556393575738574
             },
             "d7_05": {
-              "asymmetry_correlation": 0.9998804364830132,
-              "asymmetry_rmse": 0.027156106300504065,
-              "distortion": 0.013197875928969758,
+              "asymmetry_correlation": 0.9998804364830133,
+              "asymmetry_rmse": 0.027156106300504416,
+              "distortion": 0.013197875928969833,
               "hierarchy_alignment": 1.0,
               "map_at_10": 1.0,
-              "normalized_stress": 0.025376961721313734,
-              "symmetric_rmse": 0.05129629624905241
+              "normalized_stress": 0.02537696172131352,
+              "symmetric_rmse": 0.0512962962490519
             },
             "d7_06": {
-              "asymmetry_correlation": 0.9998019254807072,
-              "asymmetry_rmse": 0.031824160997525705,
-              "distortion": 0.010811594134671313,
+              "asymmetry_correlation": 0.9998019254807073,
+              "asymmetry_rmse": 0.031824160997524116,
+              "distortion": 0.01081159413467171,
               "hierarchy_alignment": 1.0,
               "map_at_10": 1.0,
-              "normalized_stress": 0.023510977796147428,
-              "symmetric_rmse": 0.04256397783766889
+              "normalized_stress": 0.023510977796147716,
+              "symmetric_rmse": 0.042563977837669784
             },
             "d7_07": {
               "asymmetry_correlation": 0.9999177508082228,
-              "asymmetry_rmse": 0.022978645199129705,
-              "distortion": 0.012524678635892997,
+              "asymmetry_rmse": 0.022978645199110387,
+              "distortion": 0.01252467863589595,
               "hierarchy_alignment": 1.0,
               "map_at_10": 0.9994939700822054,
-              "normalized_stress": 0.02308497541765164,
-              "symmetric_rmse": 0.04680356800627349
+              "normalized_stress": 0.023084975417650783,
+              "symmetric_rmse": 0.04680356800627402
             }
           },
           "raw_mean": {
-            "asymmetry_correlation": 0.999864010728335,
-            "asymmetry_rmse": 0.02621383956440128,
-            "distortion": 0.01266610997086024,
+            "asymmetry_correlation": 0.9998640107283523,
+            "asymmetry_rmse": 0.026213839561660388,
+            "distortion": 0.01266610997122044,
             "hierarchy_alignment": 1.0,
             "map_at_10": 0.9999367462602757,
-            "normalized_stress": 0.025162948019287208,
-            "symmetric_rmse": 0.047730267778625324
+            "normalized_stress": 0.02516294801926528,
+            "symmetric_rmse": 0.04773026777893933
           }
         }
       },
@@ -555,10 +1071,28 @@
         "launch_error": null,
         "log_tail": "",
         "returncode": 0,
-        "runtime_seconds_info_only": 2.1,
+        "runtime_seconds_info_only": 37.31,
         "timed_out": false
       }
     }
   },
-  "slice": "train"
+  "slice": "train",
+  "tree_gate": {
+    "asymmetry_rmse": [
+      0.1,
+      "le"
+    ],
+    "distortion": [
+      0.1,
+      "le"
+    ],
+    "hierarchy_alignment": [
+      0.8,
+      "ge"
+    ],
+    "normalized_stress": [
+      0.1,
+      "le"
+    ]
+  }
 }
