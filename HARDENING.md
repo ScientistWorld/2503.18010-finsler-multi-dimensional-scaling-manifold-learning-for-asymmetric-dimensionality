@@ -24,7 +24,7 @@ Sources:
    - **Gate:** stress ≤ 0.25, asymmetry error ≤ 0.80, and better than the empty prediction, on every instance.
    - **Weights:** trees 0.30 / 0.20, Cora 0.25, Citeseer 0.25.
 2. **Embedding dimension per instance.** `index.json` gives `embedding_dim` per instance: 2 for trees (Figure 5) and 10 for citation graphs (a Table 1 dimension). Shape and drift checks and the frozen Euclidean baseline follow it. The baseline now fits `(D + Dᵀ)/2`, the least-squares optimum among symmetric distances.
-3. **`reference.json`.** The citation `results` hold the paper's Table 1 10D values. They come from a neural setup, so they are context, not on this gym's scale.
+3. **`reference.json`.** The citation `results` hold the paper's Table 1 10D Finsler values and the claim check. They come from a neural setup, so they are context, not on this gym's scale. The gym's Euclidean baseline is never eligible, so its score rows hold failure values. The paper's Euclidean values are therefore kept only in `_paper_table1_10d_reconstruction`, and the raw Euclidean metrics are in `details*.json`.
 
 ### Why 10D: the 2D claim does not reproduce
 

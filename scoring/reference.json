@@ -143,7 +143,7 @@
             }
         },
         "cora_digraph_reconstruction": {
-            "description": "Paper Table 1 (Cora, embedding dimension 10): reconstruct the directed shortest-path distances of the Cora citation digraph (LINQS; largest weakly connected component: 2485 papers, 5209 citations) from a 10-dimensional embedding per node and one drift vector. A citation graph is nearly acyclic, so the gym follows the paper's own directed-tree construction to make every directed distance finite: following a citation costs 1, travelling against it costs 3 (the tree's 1.5 / 0.5). scores.json scores the whole component; scores_train.json / scores_test.json score induced breadth-first subgraphs of 400 papers with shuffled labels (5 visible / 10 hidden). Of the paper's Table 1 dimensions {2, 5, 10, 50}, 10 is the smallest at which the reference (Finsler SMACOF) beats the Euclidean embedding on both distortion and MAP on the visible slice; in 2D it does not (see PROGRESS.md). The paper embeds with a neural representation learner; the gym scores whatever embedding a method returns, and the reference is Finsler SMACOF. The eligibility rule is shared with the tree experiments. 'results' holds the paper's Table 1 values at dimension 10 (neural embedding of the whole graph, the paper's own distance handling) and the claim it supports (euclidean_gain_pass: Finsler 1, Euclidean 0); the distortion and MAP values are not on this gym's scale.",
+            "description": "Paper Table 1 (Cora, embedding dimension 10): reconstruct the directed shortest-path distances of the Cora citation digraph (LINQS; largest weakly connected component: 2485 papers, 5209 citations) from a 10-dimensional embedding per node and one drift vector. A citation graph is nearly acyclic, so the gym follows the paper's own directed-tree construction to make every directed distance finite: following a citation costs 1, travelling against it costs 3 (the tree's 1.5 / 0.5). scores.json scores the whole component; scores_train.json / scores_test.json score induced breadth-first subgraphs of 400 papers with shuffled labels (5 visible / 10 hidden). Of the paper's Table 1 dimensions {2, 5, 10, 50}, 10 is the smallest at which the reference (Finsler SMACOF) beats the Euclidean embedding on both distortion and MAP on the visible slice; in 2D it does not (see PROGRESS.md). The paper embeds with a neural representation learner; the gym scores whatever embedding a method returns, and the reference is Finsler SMACOF. The eligibility rule is shared with the tree experiments. 'results' holds the paper's Table 1 Finsler values at dimension 10 (neural embedding of the whole graph, the paper's own distance handling; not on this gym's scale) and the claim they support (euclidean_gain_pass: Finsler 1, Euclidean 0). The gym scores its Euclidean baseline as not eligible (a symmetric embedding cannot pass the asymmetry gate), so its score rows hold the failure values; its raw distortion and MAP are in details*.json, and the paper's Euclidean values are listed under _paper_table1_10d_reconstruction.",
             "weight": 0.25,
             "primary_metric": "distortion",
             "metrics": {
@@ -181,8 +181,6 @@
             "results": {
                 "euclidean_mds": {
                     "type": "baseline",
-                    "distortion": 0.322,
-                    "map": 0.677,
                     "euclidean_gain_pass": 0
                 },
                 "finsler_mds": {
@@ -194,7 +192,7 @@
             }
         },
         "citeseer_digraph_reconstruction": {
-            "description": "Paper Table 1 (Citeseer, embedding dimension 10): reconstruct the directed shortest-path distances of the Citeseer citation digraph (LINQS; largest weakly connected component: 2120 papers, 3716 citations) from a 10-dimensional embedding per node and one drift vector. A citation graph is nearly acyclic, so the gym follows the paper's own directed-tree construction to make every directed distance finite: following a citation costs 1, travelling against it costs 3 (the tree's 1.5 / 0.5). scores.json scores the whole component; scores_train.json / scores_test.json score induced breadth-first subgraphs of 400 papers with shuffled labels (5 visible / 10 hidden). Of the paper's Table 1 dimensions {2, 5, 10, 50}, 10 is the smallest at which the reference (Finsler SMACOF) beats the Euclidean embedding on both distortion and MAP on the visible slice; in 2D it does not (see PROGRESS.md). The paper embeds with a neural representation learner; the gym scores whatever embedding a method returns, and the reference is Finsler SMACOF. The eligibility rule is shared with the tree experiments. 'results' holds the paper's Table 1 values at dimension 10 (neural embedding of the whole graph, the paper's own distance handling) and the claim it supports (euclidean_gain_pass: Finsler 1, Euclidean 0); the distortion and MAP values are not on this gym's scale.",
+            "description": "Paper Table 1 (Citeseer, embedding dimension 10): reconstruct the directed shortest-path distances of the Citeseer citation digraph (LINQS; largest weakly connected component: 2120 papers, 3716 citations) from a 10-dimensional embedding per node and one drift vector. A citation graph is nearly acyclic, so the gym follows the paper's own directed-tree construction to make every directed distance finite: following a citation costs 1, travelling against it costs 3 (the tree's 1.5 / 0.5). scores.json scores the whole component; scores_train.json / scores_test.json score induced breadth-first subgraphs of 400 papers with shuffled labels (5 visible / 10 hidden). Of the paper's Table 1 dimensions {2, 5, 10, 50}, 10 is the smallest at which the reference (Finsler SMACOF) beats the Euclidean embedding on both distortion and MAP on the visible slice; in 2D it does not (see PROGRESS.md). The paper embeds with a neural representation learner; the gym scores whatever embedding a method returns, and the reference is Finsler SMACOF. The eligibility rule is shared with the tree experiments. 'results' holds the paper's Table 1 Finsler values at dimension 10 (neural embedding of the whole graph, the paper's own distance handling; not on this gym's scale) and the claim they support (euclidean_gain_pass: Finsler 1, Euclidean 0). The gym scores its Euclidean baseline as not eligible (a symmetric embedding cannot pass the asymmetry gate), so its score rows hold the failure values; its raw distortion and MAP are in details*.json, and the paper's Euclidean values are listed under _paper_table1_10d_reconstruction.",
             "weight": 0.25,
             "primary_metric": "distortion",
             "metrics": {
@@ -232,8 +230,6 @@
             "results": {
                 "euclidean_mds": {
                     "type": "baseline",
-                    "distortion": 0.305,
-                    "map": 0.681,
                     "euclidean_gain_pass": 0
                 },
                 "finsler_mds": {
