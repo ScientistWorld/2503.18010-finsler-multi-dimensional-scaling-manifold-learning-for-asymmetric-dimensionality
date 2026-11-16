@@ -17,8 +17,19 @@ Variants (all two-dimensional, canonical Randers drift along the last axis):
 * ``multiscale``    - the reference SMACOF result refined by L-BFGS on the sum
   of the normalised stress (squared) and the 1/D-weighted stress, i.e. the
   global and the local (relative) distance criteria together.
+* ``weighted``      - exact majorization (as ``exact_smacof``) of the stress
+  with symmetric weights w_ij = 2 / (D_ij + D_ji), i.e. the paper's weighted
+  Finsler stress with the 1/D weights of its Table 1 distortion.
+* ``alpha_select``  - the reference SMACOF run for alpha in {0.3, ..., 0.7};
+  keeps the embedding with the lowest normalised stress.
+* ``random_init``   - the reference SMACOF from a uniform random start instead
+  of the Isomap initialisation (weaker).
+* ``isomap_only``   - closed form, no optimisation: the Isomap initialisation
+  with drift (0, alpha) (weaker).
 * ``level_collapse`` - degenerate probe: every node on one vertical line at the
   height given by the antisymmetric potential of the input; x = 0.
+* ``hybrid``        - closed-form probe: first classical-scaling coordinate of
+  the symmetrised input as x, the antisymmetric potential as y.
 """
 
 from __future__ import annotations
@@ -28,10 +39,12 @@ import json
 from pathlib import Path
 
 import numpy as np
+from scipy.linalg import pinv
 from scipy.optimize import minimize
 
 from data.initialization import isomap_initialization
 from method.embed import embed_one
+from method.finsler_smacof import smacof
 
 
 def _init(dissimilarities: np.ndarray, seed: int, dim: int, noise: float = 0.05) -> np.ndarray:
@@ -111,6 +124,79 @@ def lbfgs_refine(d: np.ndarray, x0: np.ndarray, alpha: float, max_iter: int = 30
     return x - x.mean(axis=0, keepdims=True), {"initial": start, "final": float(min(res.fun, start)), "n_iter": int(res.nit)}
 
 
+def weighted_exact_smacof(
+    d: np.ndarray, x0: np.ndarray, alpha: float, max_iter: int = 5000, eps: float = 1e-10
+) -> tuple[np.ndarray, dict]:
+    """Exact majorization of sum_ij w_ij (d_F(x_i, x_j) - D_ij)^2, w_ij = 1 / Dsym_ij.
+
+    With V the weighted Laplacian, B(Z)_ij = -w_ij Dsym_ij / ||z_j - z_i|| and
+    c_k = sum_i w_ik (D_ik - D_ki), the update is
+    X <- V^+ (B(X) X + c omega^T / 2) (I + omega omega^T)^-1.
+    """
+
+    n, m = x0.shape
+    sym = 0.5 * (d + d.T)
+    off = ~np.eye(n, dtype=bool)
+    w = np.zeros_like(d)
+    w[off] = 1.0 / sym[off]
+    lap = -w.copy()
+    np.fill_diagonal(lap, w.sum(axis=1))
+    lap_pinv = pinv(lap)
+    c = (w * (d - d.T)).sum(axis=0)
+    omega = np.zeros(m)
+    omega[-1] = alpha
+    axis_scale = 1.0 + omega**2
+
+    def wstress(x):
+        delta = x[None, :, :] - x[:, None, :]
+        pred = np.linalg.norm(delta, axis=-1) + alpha * delta[..., -1]
+        return float(np.sum(w * (pred - d) ** 2))
+
+    x = x0 - x0.mean(axis=0, keepdims=True)
+    history = [wstress(x)]
+    for _ in range(max_iter):
+        delta = x[None, :, :] - x[:, None, :]
+        euclid = np.linalg.norm(delta, axis=-1)
+        euclid[euclid <= 1e-12] = 1e-12
+        b = -w * sym / euclid
+        np.fill_diagonal(b, 0.0)
+        np.fill_diagonal(b, -b.sum(axis=1))
+        x = lap_pinv @ (b @ x + 0.5 * np.outer(c, omega)) / axis_scale
+        x -= x.mean(axis=0, keepdims=True)
+        history.append(wstress(x))
+        if history[-1] > history[-2] * (1 + 1e-9) + 1e-12:
+            raise RuntimeError("weighted majorization increased the stress")
+        if abs(1.0 - history[-1] / max(history[-2], 1e-12)) < eps:
+            break
+    return x, {"n_iter": len(history) - 1, "initial": history[0], "final": history[-1]}
+
+
+def alpha_select(d: np.ndarray, seed: int, dim: int) -> tuple[np.ndarray, float, dict]:
+    off = ~np.eye(d.shape[0], dtype=bool)
+    best = None
+    for alpha in (0.3, 0.4, 0.5, 0.6, 0.7):
+        x, _ = embed_one(d, seed, dim, alpha, 500, 1e-5, 0.05)
+        delta = x[None, :, :] - x[:, None, :]
+        pred = np.linalg.norm(delta, axis=-1) + alpha * delta[..., -1]
+        stress = float(np.sqrt(np.sum((pred - d)[off] ** 2) / np.sum(d[off] ** 2)))
+        if best is None or stress < best[2]:
+            best = (x, alpha, stress)
+    return best[0], best[1], {"alpha": best[1], "normalized_stress": best[2]}
+
+
+def random_init(d: np.ndarray, seed: int, dim: int, alpha: float) -> np.ndarray:
+    result = smacof(d, alpha=alpha, n_components=dim, init=None, max_iter=500, eps=1e-5,
+                    random_state=seed, check_monotony=False)
+    return result.embedding
+
+
+def hybrid(d: np.ndarray, alpha: float) -> np.ndarray:
+    n = d.shape[0]
+    x = isomap_initialization(d, 1)[:, 0]
+    potential = d.sum(axis=0) - d.sum(axis=1)
+    return np.column_stack([x, potential / (2.0 * alpha * n)])
+
+
 def level_collapse(d: np.ndarray, alpha: float) -> np.ndarray:
     n = d.shape[0]
     potential = d.sum(axis=0) - d.sum(axis=1)
@@ -120,7 +206,8 @@ def level_collapse(d: np.ndarray, alpha: float) -> np.ndarray:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--variant", required=True, choices=["exact_smacof", "lbfgs", "multiscale", "level_collapse"])
+    parser.add_argument("--variant", required=True, choices=["exact_smacof", "lbfgs", "multiscale", "weighted", "alpha_select",
+                                                  "random_init", "isomap_only", "level_collapse", "hybrid"])
     parser.add_argument("--instances", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--alpha", type=float, default=0.5)
@@ -135,17 +222,28 @@ def main() -> None:
             d = np.asarray(data["dissimilarities"], dtype=np.float64)
             seed = int(data["seed"]) + args.seed_offset
         info: dict = {}
+        alpha = args.alpha
         if args.variant == "exact_smacof":
             x, info = exact_smacof(d, _init(d, seed, dim), args.alpha)
         elif args.variant in ("lbfgs", "multiscale"):
             x_ref, _ = embed_one(d, seed, dim, args.alpha, 500, 1e-5, 0.05)
             x, info = lbfgs_refine(d, x_ref, args.alpha, multiscale=args.variant == "multiscale")
+        elif args.variant == "weighted":
+            x, info = weighted_exact_smacof(d, _init(d, seed, dim), args.alpha)
+        elif args.variant == "alpha_select":
+            x, alpha, info = alpha_select(d, seed, dim)
+        elif args.variant == "random_init":
+            x = random_init(d, seed, dim, args.alpha)
+        elif args.variant == "isomap_only":
+            x = isomap_initialization(d, dim)
+        elif args.variant == "hybrid":
+            x = hybrid(d, args.alpha)
         else:
             x = level_collapse(d, args.alpha)
         np.savez_compressed(
             args.output / f"{entry['id']}.npz",
             embedding=x,
-            alpha=np.array(args.alpha),
+            alpha=np.array(alpha),
             info=np.array(json.dumps(info)),
         )
         print(entry["id"], args.variant, info, flush=True)

@@ -1,4 +1,10 @@
-"""Euclidean SMACOF baseline for the directed-tree benchmark."""
+"""Euclidean SMACOF baseline for the directed-distance benchmark.
+
+A symmetric (Euclidean) distance can only represent the symmetric part of a
+directed dissimilarity matrix, and the least-squares fit of the directed
+stress over symmetric distances is the fit to (D + D^T) / 2, so ``smacof``
+symmetrises its input first.
+"""
 
 from __future__ import annotations
 
@@ -29,9 +35,11 @@ def smacof(
     weights: np.ndarray | None = None,
     random_state: int = 0,
 ) -> EuclideanResult:
+    dissimilarities = 0.5 * (dissimilarities + dissimilarities.T)
     if weights is None:
         weights = np.ones_like(dissimilarities)
     weights = weights.astype(np.float64, copy=True)
+    weights = 0.5 * (weights + weights.T)
     np.fill_diagonal(weights, 0.0)
     n = dissimilarities.shape[0]
 

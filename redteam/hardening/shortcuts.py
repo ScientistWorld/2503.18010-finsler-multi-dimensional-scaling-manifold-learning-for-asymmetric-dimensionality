@@ -119,6 +119,9 @@ def main() -> None:
             from data.directed_tree import make_directed_binary_tree
 
             depth = int(round(np.log2(n + 1))) - 1
+            if 2 ** (depth + 1) - 1 != n:  # not a tree instance
+                np.savez(out, embedding=_reference(d, seed), alpha=np.array(0.5))
+                continue
             tree = make_directed_binary_tree(depth=depth)
             # Under a patched generator these are the "perfect" coordinates
             # for the generator's own node order.

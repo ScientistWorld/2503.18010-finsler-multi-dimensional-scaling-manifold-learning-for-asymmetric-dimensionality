@@ -2,7 +2,7 @@
     "experiments": {
         "directed_tree_reconstruction": {
             "description": "Directed binary-tree hierarchy reconstruction (Figure 5 / Appendix D.1.1), depth 7 (255 nodes), 2D embedding. The paper reports this result qualitatively: symmetric embeddings neither reveal the hierarchy direction nor preserve the distances, while Finsler MDS reveals the direction and highly preserves all distances. scores.json scores the exact paper tree; scores_train.json / scores_test.json score visible / hidden trees of the same topology with per-level edge weights drawn around the paper's (0.5, 1.5, 0.1) and shuffled node labels. A method that returns an invalid output or misses a claim threshold on any instance is scored as failed (every metric set to the value of the empty prediction).",
-            "weight": 0.6,
+            "weight": 0.3,
             "primary_metric": "distance_preservation_pass",
             "metrics": {
                 "normalized_stress": {
@@ -73,7 +73,7 @@
         },
         "directed_tree_depth5_reconstruction": {
             "description": "The same directed hierarchy reconstruction on depth-5 trees (63 nodes), matching Figure 5's various-depth trees. Qualitative expectations, instance families and the eligibility rule are the same as for the depth-7 experiment.",
-            "weight": 0.4,
+            "weight": 0.2,
             "primary_metric": "distance_preservation_pass",
             "metrics": {
                 "normalized_stress": {
@@ -141,11 +141,105 @@
                     "hierarchy_direction_pass": 1
                 }
             }
+        },
+        "cora_digraph_reconstruction": {
+            "description": "Paper Table 1 (Cora, 2D): reconstruct the directed shortest-path distances of the Cora citation digraph (LINQS; largest weakly connected component: 2485 papers, 5209 citations) from two coordinates per node and one drift. A citation graph is nearly acyclic, so the gym follows the paper's own directed-tree construction to make every directed distance finite: following a citation costs 1, travelling against it costs 3 (the tree's 1.5 / 0.5). scores.json scores the whole component; scores_train.json / scores_test.json score induced breadth-first subgraphs of 400 papers with shuffled labels (5 visible / 10 hidden). The paper embeds with a neural representation learner; the gym scores whatever 2D embedding a method returns, and the reference is Finsler SMACOF. The eligibility rule is shared with the tree experiments.",
+            "weight": 0.25,
+            "primary_metric": "euclidean_gain_pass",
+            "metrics": {
+                "distortion": {
+                    "higher_is_better": false,
+                    "coefficient": -1.0,
+                    "description": "The paper's Table 1 distortion: mean over ordered node pairs of (d_pred - D)^2 / D (stress with weights 1/D). Mean over instances."
+                },
+                "map": {
+                    "higher_is_better": true,
+                    "coefficient": 1.0,
+                    "description": "The paper's Table 1 MAP (graph reconstruction): for every paper that cites another paper of the instance, rank all other papers by predicted directed distance from it and take the average precision of the papers it cites; mean over citing papers, then over instances. Exact ties are broken pessimistically."
+                },
+                "normalized_stress": {
+                    "higher_is_better": false,
+                    "coefficient": -0.5,
+                    "description": "Global directed-distance reconstruction error, sqrt(sum (d_pred - D)^2 / sum D^2) over ordered pairs (the uniform-weight stress the paper's MDS objective uses). Must stay <= 0.50 on every instance."
+                },
+                "asymmetry_error": {
+                    "higher_is_better": false,
+                    "coefficient": -0.3,
+                    "description": "Constraint: RMSE of the antisymmetric part, (d_ij - d_ji) - (D_ij - D_ji), divided by the RMS of (D_ij - D_ji); 1.0 for any symmetric (Euclidean) embedding. Must stay <= 0.90 on every instance (eligibility gate)."
+                },
+                "symmetric_error": {
+                    "higher_is_better": false,
+                    "coefficient": 0.0,
+                    "description": "Diagnostic only. RMSE of the symmetric part, (d_ij + d_ji)/2 - (D_ij + D_ji)/2, divided by the RMS of (D_ij + D_ji)/2."
+                },
+                "euclidean_gain_pass": {
+                    "higher_is_better": true,
+                    "coefficient": 0.3,
+                    "description": "Table 1 claim check: fraction of instances on which the method has both lower distortion and higher MAP than the Euclidean embedding of the same instance (the evaluator's frozen Euclidean SMACOF baseline); 0 when the method is not eligible."
+                }
+            },
+            "results": {
+                "euclidean_mds": {
+                    "type": "baseline",
+                    "euclidean_gain_pass": 0
+                },
+                "finsler_mds": {
+                    "type": "proposed",
+                    "euclidean_gain_pass": 1
+                }
+            }
+        },
+        "citeseer_digraph_reconstruction": {
+            "description": "Paper Table 1 (Citeseer, 2D): reconstruct the directed shortest-path distances of the Citeseer citation digraph (LINQS; largest weakly connected component: 2120 papers, 3716 citations) from two coordinates per node and one drift. A citation graph is nearly acyclic, so the gym follows the paper's own directed-tree construction to make every directed distance finite: following a citation costs 1, travelling against it costs 3 (the tree's 1.5 / 0.5). scores.json scores the whole component; scores_train.json / scores_test.json score induced breadth-first subgraphs of 400 papers with shuffled labels (5 visible / 10 hidden). The paper embeds with a neural representation learner; the gym scores whatever 2D embedding a method returns, and the reference is Finsler SMACOF. The eligibility rule is shared with the tree experiments.",
+            "weight": 0.25,
+            "primary_metric": "euclidean_gain_pass",
+            "metrics": {
+                "distortion": {
+                    "higher_is_better": false,
+                    "coefficient": -1.0,
+                    "description": "The paper's Table 1 distortion: mean over ordered node pairs of (d_pred - D)^2 / D (stress with weights 1/D). Mean over instances."
+                },
+                "map": {
+                    "higher_is_better": true,
+                    "coefficient": 1.0,
+                    "description": "The paper's Table 1 MAP (graph reconstruction): for every paper that cites another paper of the instance, rank all other papers by predicted directed distance from it and take the average precision of the papers it cites; mean over citing papers, then over instances. Exact ties are broken pessimistically."
+                },
+                "normalized_stress": {
+                    "higher_is_better": false,
+                    "coefficient": -0.5,
+                    "description": "Global directed-distance reconstruction error, sqrt(sum (d_pred - D)^2 / sum D^2) over ordered pairs (the uniform-weight stress the paper's MDS objective uses). Must stay <= 0.50 on every instance."
+                },
+                "asymmetry_error": {
+                    "higher_is_better": false,
+                    "coefficient": -0.3,
+                    "description": "Constraint: RMSE of the antisymmetric part, (d_ij - d_ji) - (D_ij - D_ji), divided by the RMS of (D_ij - D_ji); 1.0 for any symmetric (Euclidean) embedding. Must stay <= 0.90 on every instance (eligibility gate)."
+                },
+                "symmetric_error": {
+                    "higher_is_better": false,
+                    "coefficient": 0.0,
+                    "description": "Diagnostic only. RMSE of the symmetric part, (d_ij + d_ji)/2 - (D_ij + D_ji)/2, divided by the RMS of (D_ij + D_ji)/2."
+                },
+                "euclidean_gain_pass": {
+                    "higher_is_better": true,
+                    "coefficient": 0.3,
+                    "description": "Table 1 claim check: fraction of instances on which the method has both lower distortion and higher MAP than the Euclidean embedding of the same instance (the evaluator's frozen Euclidean SMACOF baseline); 0 when the method is not eligible."
+                }
+            },
+            "results": {
+                "euclidean_mds": {
+                    "type": "baseline",
+                    "euclidean_gain_pass": 0
+                },
+                "finsler_mds": {
+                    "type": "proposed",
+                    "euclidean_gain_pass": 1
+                }
+            }
         }
     },
-    "_setup_note": "The paper reports the tree experiment only qualitatively (Figure 5); the per-experiment 'results' encode those qualitative claims as pass checks (1 = claim holds, 0 = it does not) and are unchanged. The gym scores continuous quantities the paper uses (stress and the Table 1 distortion) on the paper's trees and on per-level-jittered trees of the same sizes; no paper number exists on that scale. The paper's quantitative digraph reconstruction numbers (Table 1, real graphs, neural representation learning) are kept below for context only; this gym does not include those datasets.",
+    "_setup_note": "The paper reports the tree experiment only qualitatively (Figure 5); its 'results' encode those qualitative claims as pass checks (1 = claim holds, 0 = it does not) and are unchanged. The citation experiments reproduce Table 1's claim (Finsler embeddings of real digraphs have lower distortion and higher MAP than Euclidean ones) on the paper's Cora and Citeseer digraphs; their 'results' encode that claim as euclidean_gain_pass (Finsler 1, Euclidean 0). The gym's directed distances (reverse traversal at cost 3), 400-node subgraphs for train/test and SMACOF reference differ from the paper's neural setup, so the paper's Table 1 numbers are not on this gym's scale and are kept below for context only.",
     "_paper_table1_2d_reconstruction": {
-        "note": "Paper Table 1, embedding dimension 2: distortion (lower is better) and MAP (higher is better), Euclidean vs Finsler. Not on this gym's scale.",
+        "note": "Paper Table 1, embedding dimension 2: distortion (lower is better) and MAP (higher is better), Euclidean vs Finsler, whole graphs, neural representation learning. Not on this gym's scale (see _setup_note); Cora and Citeseer correspond to the gym's citation experiments.",
         "Cora": {
             "distortion_euclidean": 0.426,
             "distortion_finsler": 0.127,
