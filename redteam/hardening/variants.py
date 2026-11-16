@@ -3,7 +3,8 @@
 
     python -m redteam.hardening.variants --variant <name> --instances DIR --output DIR
 
-Variants (all two-dimensional, canonical Randers drift along the last axis):
+Variants (embedding dimension per instance from index.json: 2 for trees, 10
+for citation graphs; canonical Randers drift along the last axis):
 
 * ``exact_smacof``  - SMACOF that exactly majorizes the Finsler stress. The
   released update (method/finsler_smacof.py, copied from the authors' code)
@@ -25,11 +26,12 @@ Variants (all two-dimensional, canonical Randers drift along the last axis):
 * ``random_init``   - the reference SMACOF from a uniform random start instead
   of the Isomap initialisation (weaker).
 * ``isomap_only``   - closed form, no optimisation: the Isomap initialisation
-  with drift (0, alpha) (weaker).
+  with drift (0, ..., 0, alpha) (weaker).
 * ``level_collapse`` - degenerate probe: every node on one vertical line at the
-  height given by the antisymmetric potential of the input; x = 0.
-* ``hybrid``        - closed-form probe: first classical-scaling coordinate of
-  the symmetrised input as x, the antisymmetric potential as y.
+  height given by the antisymmetric potential of the input; other axes 0.
+* ``hybrid``        - closed-form probe: the first m - 1 classical-scaling
+  coordinates of the symmetrised input, the antisymmetric potential as the
+  last (drift) axis.
 """
 
 from __future__ import annotations
@@ -190,18 +192,18 @@ def random_init(d: np.ndarray, seed: int, dim: int, alpha: float) -> np.ndarray:
     return result.embedding
 
 
-def hybrid(d: np.ndarray, alpha: float) -> np.ndarray:
+def hybrid(d: np.ndarray, alpha: float, dim: int) -> np.ndarray:
     n = d.shape[0]
-    x = isomap_initialization(d, 1)[:, 0]
+    x = isomap_initialization(d, dim - 1)
     potential = d.sum(axis=0) - d.sum(axis=1)
     return np.column_stack([x, potential / (2.0 * alpha * n)])
 
 
-def level_collapse(d: np.ndarray, alpha: float) -> np.ndarray:
+def level_collapse(d: np.ndarray, alpha: float, dim: int) -> np.ndarray:
     n = d.shape[0]
     potential = d.sum(axis=0) - d.sum(axis=1)
     y = potential / (2.0 * alpha * n)
-    return np.column_stack([np.zeros(n), y])
+    return np.column_stack([np.zeros((n, dim - 1)), y])
 
 
 def main() -> None:
@@ -215,9 +217,9 @@ def main() -> None:
     args = parser.parse_args()
 
     index = json.loads((args.instances / "index.json").read_text())
-    dim = int(index.get("embedding_dim", 2))
     args.output.mkdir(parents=True, exist_ok=True)
     for entry in index["instances"]:
+        dim = int(entry.get("embedding_dim", index.get("embedding_dim", 2)))
         with np.load(args.instances / entry["file"], allow_pickle=False) as data:
             d = np.asarray(data["dissimilarities"], dtype=np.float64)
             seed = int(data["seed"]) + args.seed_offset
@@ -237,9 +239,9 @@ def main() -> None:
         elif args.variant == "isomap_only":
             x = isomap_initialization(d, dim)
         elif args.variant == "hybrid":
-            x = hybrid(d, args.alpha)
+            x = hybrid(d, args.alpha, dim)
         else:
-            x = level_collapse(d, args.alpha)
+            x = level_collapse(d, args.alpha, dim)
         np.savez_compressed(
             args.output / f"{entry['id']}.npz",
             embedding=x,

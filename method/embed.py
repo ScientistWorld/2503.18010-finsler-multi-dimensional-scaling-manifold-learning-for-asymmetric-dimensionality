@@ -7,8 +7,9 @@ The evaluators call
 
 where ``<dir>/index.json`` lists instance files holding a directed
 ``dissimilarities`` matrix and an integer ``seed``. For every instance this
-writes ``<output>/<id>.npz`` with the two-dimensional ``embedding`` and the
-scalar ``alpha`` of the canonical Randers drift (drift along the last axis),
+writes ``<output>/<id>.npz`` with the ``embedding`` (dimension given per
+instance by ``embedding_dim``: 2 for the trees, 10 for the citation graphs)
+and the scalar ``alpha`` of the canonical Randers drift (drift along the last axis),
 following Appendix D.1.1: Isomap initialisation of the symmetrised
 dissimilarities (plus small seeded noise), then Finsler SMACOF with
 alpha = 0.5 and uniform weights.
@@ -68,9 +69,9 @@ def main() -> None:
     args = parser.parse_args()
 
     index = json.loads((args.instances / "index.json").read_text())
-    dim = int(index.get("embedding_dim", 2))
     args.output.mkdir(parents=True, exist_ok=True)
     for entry in index["instances"]:
+        dim = int(entry.get("embedding_dim", index.get("embedding_dim", 2)))
         with np.load(args.instances / entry["file"], allow_pickle=False) as data:
             dissimilarities = np.asarray(data["dissimilarities"], dtype=np.float64)
             seed = int(data["seed"])

@@ -43,6 +43,8 @@
 - The final CPU test completed successfully. Remaining work is expansion to the paper's larger neural graph benchmarks, not a known correctness bug in the packaged tree reproduction.
 - A side-agent compliance check found that `scripts/run.sh` refreshed only split scores; it now calls `scripts/evaluate.sh` as well.
 
+- Citation-digraph experiments (Cora, Citeseer; paper Table 1), iteration 11. Calibration job `6fb65fac-dc7` (visible subgraphs and whole graphs, reverse traversal at cost 3) compared the reference Finsler SMACOF (alpha 0.5) with Euclidean SMACOF in the paper's Table 1 dimensions. In 2D the claim does **not** reproduce: on the visible subgraphs the reference loses to Euclidean on distortion (Cora 1.27 vs 0.79, Citeseer 1.58 vs 0.89) and MAP (0.089 vs 0.130, 0.135 vs 0.178), and its asymmetry error exceeds 1 (worse than a symmetric embedding); smaller drifts and exact/weighted/L-BFGS variants do not change this. In 5D the reference wins on Citeseer but not on Cora MAP (0.266 vs 0.282). In 10D it wins on both graphs (Cora distortion 0.134 vs 0.214, MAP 0.408 vs 0.390; Citeseer 0.136 vs 0.219, 0.509 vs 0.480; whole graphs likewise). The rule fixed before the calibration (smallest Table 1 dimension where the reference beats Euclidean on both distortion and MAP on the visible slice) selects 10D, so the citation experiments embed in 10D; the trees stay 2D (Figure 5).
+
 ## Deviations from Paper
 
 <!-- Do not edit this section unless you deviated from the paper's original setup.
@@ -64,3 +66,4 @@
 
 - The first executable reproduction uses the paper's directed binary-tree visualization task rather than the full neural directed-graph experiments. This preserves the paper's Finsler SMACOF algorithm and Appendix D.1.1 procedure while avoiding large graph representation-learning runs before the core method is validated.
 - The evaluator adds explicit numeric metrics for the qualitative Figure 5 tree result: normalized stress, MAP@10, asymmetry RMSE, symmetric RMSE, and hierarchy alignment. These quantify the same reconstruction and hierarchy-preservation claim shown visually in the paper.
+- Citation-digraph experiments: the paper learns Table 1 embeddings with an MLP (Riemannian SGD adapted to the Randers metric) on directed shortest-path distances and does not say how unreachable pairs are handled. The gym uses the paper's Finsler SMACOF (Sec. 6.1, same Finsler MDS problem) as the reference, makes all directed distances finite with the paper's own tree convention (reverse traversal costs 3x), embeds in dimension 10 (a Table 1 dimension; 2D does not reproduce, see above) and uses 400-node subgraphs for the train/test slices (whole largest components for scores.json).

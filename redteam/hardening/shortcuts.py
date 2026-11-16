@@ -28,7 +28,7 @@ KINDS = [
     "nan",                  # all-NaN embedding
     "inf",                  # all-infinite embedding
     "empty",                # empty embedding
-    "wrong_dim",            # a three-dimensional Randers embedding (more capacity)
+    "wrong_dim",            # a Randers embedding with one extra dimension (more capacity)
     "drift_too_large",      # reference embedding with drift norm >= 1 (not a metric)
     "missing_instance",     # reference embeddings, but one instance left out
     "crash",                # reference embeddings, then a non-zero exit status
@@ -46,11 +46,11 @@ def _randers(x: np.ndarray, alpha: float) -> np.ndarray:
     return np.linalg.norm(delta, axis=-1) + alpha * delta[..., -1]
 
 
-def _depth_field(d: np.ndarray) -> np.ndarray:
+def _depth_field(d: np.ndarray, m: int) -> np.ndarray:
     """A hierarchy coordinate read off the input's antisymmetric potential."""
     n = d.shape[0]
     potential = d.sum(axis=0) - d.sum(axis=1)
-    return np.column_stack([np.zeros(n), potential / n])
+    return np.column_stack([np.zeros((n, m - 1)), potential / n])
 
 
 def main() -> None:
@@ -68,17 +68,18 @@ def main() -> None:
             d = np.asarray(data["dissimilarities"], dtype=np.float64)
             seed = int(data["seed"])
         n = d.shape[0]
+        m = int(entry.get("embedding_dim", index.get("embedding_dim", 2)))
         out = args.output / f"{entry['id']}.npz"
         kind = args.kind
         if kind == "answer_copy":
             np.savez(out, predicted_distances=d.copy(), distances=d.copy(),
-                     embedding=np.zeros((n, 2)), alpha=np.array(0.5))
+                     embedding=np.zeros((n, m)), alpha=np.array(0.5))
         elif kind == "hierarchy_field":
-            x = _reference(d, seed)
+            x = _reference(d, seed, m)
             np.savez(out, predicted_distances=_randers(x, 0.5),
-                     embedding=_depth_field(d), alpha=np.array(0.5))
+                     embedding=_depth_field(d, m), alpha=np.array(0.5))
         elif kind == "task_failure":
-            x = _reference(d, seed)
+            x = _reference(d, seed, m)
             np.savez(out, embedding=x, alpha=np.array(0.38))
         elif kind == "score_fields":
             fake = {m: np.array(1.0) for m in ["map_at_10", "hierarchy_alignment",
@@ -87,40 +88,40 @@ def main() -> None:
                                                "hierarchy_direction_pass", "success", "eligible"]}
             fake.update({m: np.array(0.0) for m in ["normalized_stress", "distortion",
                                                     "asymmetry_rmse", "symmetric_rmse"]})
-            np.savez(out, embedding=np.zeros((n, 2)), alpha=np.array(0.5), **fake)
+            np.savez(out, embedding=np.zeros((n, m)), alpha=np.array(0.5), **fake)
         elif kind == "forged_targets":
-            np.savez(out, embedding=np.zeros((n, 2)), alpha=np.array(0.5),
+            np.savez(out, embedding=np.zeros((n, m)), alpha=np.array(0.5),
                      distances=np.zeros((n, n)), dissimilarities=np.zeros((n, n)),
                      depths=np.zeros(n))
         elif kind == "impossible_diagonal":
-            x = _reference(d, seed)
+            x = _reference(d, seed, m)
             pred = _randers(x, 0.5)
             np.fill_diagonal(pred, -np.inf)
             np.savez(out, embedding=x, alpha=np.array(0.5), predicted_distances=pred)
         elif kind == "nan":
-            np.savez(out, embedding=np.full((n, 2), np.nan), alpha=np.array(0.5))
+            np.savez(out, embedding=np.full((n, m), np.nan), alpha=np.array(0.5))
         elif kind == "inf":
-            np.savez(out, embedding=np.full((n, 2), np.inf), alpha=np.array(0.5))
+            np.savez(out, embedding=np.full((n, m), np.inf), alpha=np.array(0.5))
         elif kind == "empty":
-            np.savez(out, embedding=np.empty((0, 2)), alpha=np.array(0.5))
+            np.savez(out, embedding=np.empty((0, m)), alpha=np.array(0.5))
         elif kind == "wrong_dim":
-            x = _reference(d, seed, dim=3)
+            x = _reference(d, seed, dim=m + 1)
             np.savez(out, embedding=x, alpha=np.array(0.5))
         elif kind == "drift_too_large":
-            x = _reference(d, seed)
+            x = _reference(d, seed, m)
             np.savez(out, embedding=x / 2.0, alpha=np.array(1.0))
         elif kind == "missing_instance":
             if position == len(entries) - 1:
                 continue
-            np.savez(out, embedding=_reference(d, seed), alpha=np.array(0.5))
+            np.savez(out, embedding=_reference(d, seed, m), alpha=np.array(0.5))
         elif kind == "crash":
-            np.savez(out, embedding=_reference(d, seed), alpha=np.array(0.5))
+            np.savez(out, embedding=_reference(d, seed, m), alpha=np.array(0.5))
         elif kind == "generator_easy":
             from data.directed_tree import make_directed_binary_tree
 
             depth = int(round(np.log2(n + 1))) - 1
             if 2 ** (depth + 1) - 1 != n:  # not a tree instance
-                np.savez(out, embedding=_reference(d, seed), alpha=np.array(0.5))
+                np.savez(out, embedding=_reference(d, seed, m), alpha=np.array(0.5))
                 continue
             tree = make_directed_binary_tree(depth=depth)
             # Under a patched generator these are the "perfect" coordinates

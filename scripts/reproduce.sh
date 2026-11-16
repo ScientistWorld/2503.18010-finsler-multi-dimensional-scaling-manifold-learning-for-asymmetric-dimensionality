@@ -2,15 +2,18 @@
 # Reproduce the paper's results end-to-end.
 #
 # Registers the paper's method, then scores it (and the evaluator's frozen
-# Euclidean SMACOF baseline) on the exact paper trees (scoring/scores.json), the
-# visible instance family (scoring/scores_train.json) and the hidden instance
-# family (scoring/scores_test.json).
+# Euclidean SMACOF baseline) on the paper setting (exact trees + whole citation
+# graphs, scoring/scores.json), the visible slice (scoring/scores_train.json)
+# and the hidden slice (scoring/scores_test.json).
 #
 # Assumes the container is built and the working directory is /home/user.
 
 set -e
 
 cd /home/user
+
+# Leftover audit method cards (e.g. from an interrupted audit) would be scored too.
+rm -rf outputs/audit
 
 bash scripts/baseline.sh
 bash scripts/method.sh

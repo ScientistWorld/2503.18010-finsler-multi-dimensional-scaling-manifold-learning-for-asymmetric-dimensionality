@@ -18,7 +18,7 @@ cat > outputs/finsler_mds/method.json <<'JSON'
 {
   "name": "finsler_mds",
   "command": ["python", "-m", "method.embed", "--alpha", "0.5", "--max-iter", "500", "--eps", "1e-5"],
-  "description": "Finsler SMACOF in the 2D canonical Randers space (alpha 0.5), Isomap initialisation, uniform weights."
+  "description": "Finsler SMACOF in the canonical Randers space (2D for trees, 10D for citation graphs; alpha 0.5), Isomap initialisation, uniform weights."
 }
 JSON
 

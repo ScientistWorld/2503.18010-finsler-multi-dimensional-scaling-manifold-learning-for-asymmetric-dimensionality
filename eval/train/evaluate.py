@@ -1,7 +1,7 @@
 """Visible (train) slice evaluator for the directed-distance embedding gym.
 
 Every method registered on disk is *run* on directed-graph instances and scored
-from the two-dimensional embedding it returns. Nothing a method writes is
+from the embedding it returns. Nothing a method writes is
 trusted except its coordinates and its drift vector; every distance and every
 metric is recomputed here.
 
@@ -12,16 +12,19 @@ A method registers itself with a card ``outputs/<any>/method.json``::
     {"name": "my_method", "command": ["python", "-m", "my_pkg.embed", "--flag"]}
 
 The evaluator appends ``--instances <dir> --output <dir>`` and runs the command
-from the workspace root. ``<dir>/index.json`` lists ``{"id", "file"}`` entries;
-each instance file holds ``dissimilarities`` (N x N directed distances, row =
-source) and ``seed`` (an int the method may use). For every instance the
-method must write ``<output>/<id>.npz`` holding ``embedding`` (N x 2, finite)
-and either ``drift`` (2-vector) or ``alpha`` (scalar, meaning drift (0, alpha)),
+from the workspace root. ``<dir>/index.json`` lists ``{"id", "file",
+"embedding_dim"}`` entries; each instance file holds ``dissimilarities``
+(N x N directed distances, row = source) and ``seed`` (an int the method may
+use). For every instance the method must write ``<output>/<id>.npz`` holding
+``embedding`` (N x m, finite, m = the entry's ``embedding_dim``) and either
+``drift`` (m-vector) or ``alpha`` (scalar, meaning drift (0, ..., 0, alpha)),
 with drift norm < 1. Predicted directed distances are
 
     d(i -> j) = ||x_j - x_i||_2 + drift . (x_j - x_i)
 
-so ``drift = 0`` is the ordinary Euclidean plane.
+so ``drift = 0`` is ordinary Euclidean space. The tree instances are embedded
+in m = 2 (the paper's Figure 5), the citation instances in m = 10 (one of the
+paper's Table 1 dimensions).
 
 Experiments
 -----------
@@ -73,7 +76,8 @@ SLICE = "train"
 WORKSPACE = Path(__file__).resolve().parents[2]
 CARD_ROOT = WORKSPACE / "outputs"
 GRAPH_DIR = Path(__file__).resolve().parent / "graphs"
-EMBEDDING_DIM = 2
+# Embedding dimension per instance kind (index.json gives it per instance).
+EMBEDDING_DIMS = {"tree": 2, "graph": 10}
 # Hang guard only. The reference needs a small fraction of this, so its scores
 # do not depend on machine load.
 METHOD_TIMEOUT_SECONDS = 4 * 3600
@@ -136,8 +140,8 @@ TREE_GATE = {
     "hierarchy_alignment": (0.80, "ge"),
 }
 GRAPH_GATE = {
-    "normalized_stress": (0.50, "le"),
-    "asymmetry_error": (0.90, "le"),
+    "normalized_stress": (0.25, "le"),
+    "asymmetry_error": (0.80, "le"),
 }
 TREE_RAW_METRICS = (
     "normalized_stress",
@@ -516,7 +520,7 @@ def gate_failures(item: dict, metrics: dict) -> list[str]:
 # --------------------------------------------------------------------------
 
 
-def read_prediction(path: Path, n_nodes: int) -> np.ndarray:
+def read_prediction(path: Path, n_nodes: int, dim: int) -> np.ndarray:
     if not path.is_file():
         raise InvalidOutput("missing output file")
     try:
@@ -530,19 +534,18 @@ def read_prediction(path: Path, n_nodes: int) -> np.ndarray:
                 alpha = np.asarray(data["alpha"], dtype=np.float64)
                 if alpha.size != 1:
                     raise InvalidOutput("'alpha' must be a scalar")
-                drift = np.array([0.0, float(alpha.reshape(()))])
+                drift = np.zeros(dim)
+                drift[-1] = float(alpha.reshape(()))
             else:
                 raise InvalidOutput("output has neither 'drift' nor 'alpha'")
     except InvalidOutput:
         raise
     except Exception as exc:  # unreadable, pickled or non-numeric content
         raise InvalidOutput(f"unreadable output ({type(exc).__name__}: {exc})") from None
-    if embedding.shape != (n_nodes, EMBEDDING_DIM):
-        raise InvalidOutput(
-            f"embedding shape {embedding.shape} != ({n_nodes}, {EMBEDDING_DIM})"
-        )
-    if drift.shape != (EMBEDDING_DIM,):
-        raise InvalidOutput(f"drift shape {drift.shape} != ({EMBEDDING_DIM},)")
+    if embedding.shape != (n_nodes, dim):
+        raise InvalidOutput(f"embedding shape {embedding.shape} != ({n_nodes}, {dim})")
+    if drift.shape != (dim,):
+        raise InvalidOutput(f"drift shape {drift.shape} != ({dim},)")
     if not np.all(np.isfinite(embedding)) or not np.all(np.isfinite(drift)):
         raise InvalidOutput("non-finite embedding or drift")
     if float(np.linalg.norm(drift)) >= 1.0:
@@ -572,7 +575,7 @@ def _classical_scaling(dissimilarities: np.ndarray, n_components: int) -> np.nda
     return eigvecs * signs * np.sqrt(np.clip(eigvals[order], 0.0, None))
 
 
-def _euclidean_smacof_baseline(dissimilarities: np.ndarray, seed: int) -> np.ndarray:
+def _euclidean_smacof_baseline(dissimilarities: np.ndarray, seed: int, dim: int) -> np.ndarray:
     """Uniform-weight Euclidean SMACOF. A symmetric distance can only fit the
     symmetric part of D, so it is fitted to (D + D^T) / 2 (the least-squares
     optimum of the directed stress over symmetric distances)."""
@@ -580,7 +583,7 @@ def _euclidean_smacof_baseline(dissimilarities: np.ndarray, seed: int) -> np.nda
     d_sym = 0.5 * (dissimilarities + dissimilarities.T)
     n = d_sym.shape[0]
     rng = np.random.default_rng(seed)
-    x = _classical_scaling(d_sym, EMBEDDING_DIM)
+    x = _classical_scaling(d_sym, dim)
     x = x + 0.05 * rng.standard_normal(x.shape)
     old_stress = None
     for _ in range(500):
@@ -595,7 +598,7 @@ def _euclidean_smacof_baseline(dissimilarities: np.ndarray, seed: int) -> np.nda
         np.fill_diagonal(b, -b.sum(axis=1))
         x = b @ x / n
         x -= x.mean(axis=0, keepdims=True)
-    return randers_distances(x, np.zeros(EMBEDDING_DIM))
+    return randers_distances(x, np.zeros(dim))
 
 
 # --------------------------------------------------------------------------
@@ -658,10 +661,10 @@ def write_instances(instances: dict[str, list[dict]], inst_dir: Path) -> None:
                 dissimilarities=item["distances"],
                 seed=np.array(item["method_seed"], dtype=np.int64),
             )
-            entries.append({"id": item["id"], "file": filename})
-    (inst_dir / "index.json").write_text(
-        json.dumps({"embedding_dim": EMBEDDING_DIM, "instances": entries}, indent=1)
-    )
+            entries.append(
+                {"id": item["id"], "file": filename, "embedding_dim": EMBEDDING_DIMS[item["kind"]]}
+            )
+    (inst_dir / "index.json").write_text(json.dumps({"instances": entries}, indent=1))
 
 
 def run_card(card: dict, inst_dir: Path, out_dir: Path) -> dict:
@@ -790,7 +793,9 @@ def evaluate_card(card: dict, instances: dict[str, list[dict]], baseline_rows: d
             result = score_method(
                 instances,
                 lambda item: read_prediction(
-                    out_dir / f"{item['id']}.npz", item["distances"].shape[0]
+                    out_dir / f"{item['id']}.npz",
+                    item["distances"].shape[0],
+                    EMBEDDING_DIMS[item["kind"]],
                 ),
                 failure,
                 baseline_rows,
@@ -814,7 +819,9 @@ def evaluate(kind: str) -> tuple[dict, dict]:
     # comparison side for every other method.
     baseline = score_method(
         instances,
-        lambda item: _euclidean_smacof_baseline(item["distances"], item["method_seed"]),
+        lambda item: _euclidean_smacof_baseline(
+            item["distances"], item["method_seed"], EMBEDDING_DIMS[item["kind"]]
+        ),
         None,
         None,
     )
@@ -843,6 +850,7 @@ def evaluate(kind: str) -> tuple[dict, dict]:
         "instance_ids": {exp: [item["id"] for item in items] for exp, items in instances.items()},
         "tree_gate": {metric: list(rule) for metric, rule in TREE_GATE.items()},
         "graph_gate": {metric: list(rule) for metric, rule in GRAPH_GATE.items()},
+        "embedding_dims": dict(EMBEDDING_DIMS),
         "claim_thresholds": {k: list(v) for k, v in CLAIM_THRESHOLDS.items()},
         "empty_prediction": {
             item["id"]: item["floor"] for items in instances.values() for item in items

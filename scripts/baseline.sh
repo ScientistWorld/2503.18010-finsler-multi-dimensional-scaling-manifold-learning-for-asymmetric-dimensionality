@@ -1,5 +1,5 @@
 #!/bin/bash
-# Euclidean SMACOF baseline (symmetric 2D embedding of the directed distances).
+# Euclidean SMACOF baseline (symmetric embedding of the directed distances; 2D trees, 10D citation graphs).
 #
 # Every evaluator scores its own frozen copy of this baseline under the name
 # `euclidean_mds`, so it cannot be altered by editing baseline/. baseline/embed.py

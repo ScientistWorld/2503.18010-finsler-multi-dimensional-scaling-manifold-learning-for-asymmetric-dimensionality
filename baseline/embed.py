@@ -3,8 +3,8 @@
 
     python -m baseline.embed --instances <dir> --output <dir>
 
-Writes ``<output>/<id>.npz`` with a two-dimensional ``embedding`` and a zero
-drift (``alpha = 0``), i.e. ordinary symmetric Euclidean distances. The
+Writes ``<output>/<id>.npz`` with an ``embedding`` of the instance's
+``embedding_dim`` and a zero drift (``alpha = 0``), i.e. ordinary symmetric Euclidean distances. The
 evaluators always score their own frozen copy of this baseline under the name
 ``euclidean_mds``; this public copy is a template for the method interface.
 """
@@ -31,9 +31,9 @@ def main() -> None:
     args = parser.parse_args()
 
     index = json.loads((args.instances / "index.json").read_text())
-    dim = int(index.get("embedding_dim", 2))
     args.output.mkdir(parents=True, exist_ok=True)
     for entry in index["instances"]:
+        dim = int(entry.get("embedding_dim", index.get("embedding_dim", 2)))
         with np.load(args.instances / entry["file"], allow_pickle=False) as data:
             dissimilarities = np.asarray(data["dissimilarities"], dtype=np.float64)
             seed = int(data["seed"])
