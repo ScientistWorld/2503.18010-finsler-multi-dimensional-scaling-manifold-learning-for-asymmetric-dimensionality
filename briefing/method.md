@@ -9,7 +9,7 @@ The paper generalizes multidimensional scaling to asymmetric dissimilarities by 
 The canonical embedding space keeps straight-line geodesics but assigns direction-dependent lengths:
 `d(x, y) = ||y - x||_2 + omega^T (y - x)`, with a constant drift vector `omega` of norm below one. The paper minimizes a Finsler stress objective and derives a SMACOF-style majorization update. For larger examples it uses a stabilized linear solve based on multiplying the update equation by `V^T` and solving with GMRES.
 
-The paper also presents a neural representation-learning version for larger directed graphs, using the same canonical distance in a Fermi-Dirac decoder for link prediction.
+The paper also presents a neural representation-learning version for larger directed graphs, using the same canonical distance in a Fermi-Dirac decoder for link prediction. In this gym the reference for every experiment, including the citation graphs, is the SMACOF solver (embedding dimension 2 for the trees, 10 for the citation graphs, drift 0.5 along the last axis).
 
 ## Main Claims
 

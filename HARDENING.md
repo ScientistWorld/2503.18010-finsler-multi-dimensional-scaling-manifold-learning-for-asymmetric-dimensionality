@@ -1,5 +1,122 @@
 # Hardening Report
 
+## Iteration 11: the paper's real digraphs (Cora, Citeseer)
+
+`REVIEW.md` asked for an experiment on the paper's real directed graphs, so that the test measures the paper's main result. This section covers that change. The earlier tree-only hardening is kept below it, and its numbers still hold for the tree experiments.
+
+Sources:
+- Official files (reference alone, `scripts/reproduce.sh` at commit `2510288`): CPU job `b4c96983-d30`.
+- Audit: jobs `d7a0a917-6ea` and `90cda42d-ad6`. Every variant and shortcut ran as a method card through the unchanged `bash scripts/evaluate_train.sh` / `evaluate_test.sh`. Raw results are in [results/summary.json](redteam/hardening/results/summary.json) and [results/results_table.md](redteam/hardening/results/results_table.md).
+- `python validate.py` passes.
+
+### What changed in the gym
+
+1. **Two new experiments, `cora_digraph_reconstruction` and `citeseer_digraph_reconstruction` (paper Table 1).**
+   - **Graphs:** the largest weakly connected components of the LINQS Cora and Citeseer citation digraphs (2,485 / 2,120 papers). Each evaluator ships its own SHA-256-checked copy. `scripts/download.sh` fetches the raw files, and `data/build_citation_graphs.py` rebuilds the public copies.
+   - **Directed distances:** a citation is followed at cost 1 and travelled against at cost 3, the paper's own tree ratio 1.5 / 0.5. A citation graph is almost acyclic, so plain directed shortest paths barely exist (under 1% of papers reachable from a typical paper); the reverse cost makes every distance finite and asymmetric.
+   - **Instances:** `scores.json` embeds the whole components. Train uses 5 and test 10 connected 400-paper subgraphs per graph, with shuffled labels. The test seeds exist only in `eval/test/evaluate.py`.
+   - **Metrics:**
+     - Table 1 `distortion` (primary) and `map`;
+     - `normalized_stress`;
+     - `asymmetry_error`: the antisymmetric error relative to the target's antisymmetric part, exactly 1.0 for any symmetric embedding;
+     - `euclidean_gain_pass`: the claim check, i.e. the fraction of instances where both distortion and MAP beat the evaluator's frozen Euclidean SMACOF;
+     - `symmetric_error` (diagnostic).
+   - **Gate:** stress ≤ 0.25, asymmetry error ≤ 0.80, and better than the empty prediction, on every instance.
+   - **Weights:** trees 0.30 / 0.20, Cora 0.25, Citeseer 0.25.
+2. **Embedding dimension per instance.** `index.json` gives `embedding_dim` per instance: 2 for trees (Figure 5) and 10 for citation graphs (a Table 1 dimension). Shape and drift checks and the frozen Euclidean baseline follow it. The baseline now fits `(D + Dᵀ)/2`, the least-squares optimum among symmetric distances.
+3. **`reference.json`.** The citation `results` hold the paper's Table 1 10D values. They come from a neural setup, so they are context, not on this gym's scale.
+
+### Why 10D: the 2D claim does not reproduce
+
+Calibration job `6fb65fac-dc7` ran the reference against Euclidean on the visible subgraphs and on the whole graphs. All values are means over the 5 visible subgraphs per graph.
+
+| | Cora distortion (ref / Eucl.) | Cora MAP | Citeseer distortion | Citeseer MAP | Ref. asymmetry error |
+|---|---|---|---|---|---|
+| 2D, drift 0.5 | 1.274 / 0.792 | 0.089 / 0.130 | 1.582 / 0.888 | 0.135 / 0.178 | 1.32 / 1.43 |
+| 5D | 0.269 / 0.304 | **0.266 / 0.282** | 0.259 / 0.298 | 0.378 / 0.361 | 0.46 / 0.45 |
+| 10D | 0.134 / 0.214 | 0.408 / 0.390 | 0.136 / 0.219 | 0.509 / 0.480 | 0.45 / 0.44 |
+
+- **2D:** the reference loses on every metric, and its asymmetry error is above 1, worse than a symmetric embedding.
+  - **Cause:** the drift uses up the only vertical axis, so stress-optimal coordinates leak spurious asymmetry.
+  - **No fix found:** smaller drifts (0.1–0.3) and better solvers (exact, weighted, L-BFGS) do not change this.
+- **Choosing the dimension:** before calibrating, I fixed the rule "smallest Table 1 dimension where the reference beats Euclidean on both distortion and MAP on the visible slice". It selects 10D; 5D fails on Cora MAP.
+- **Whole graphs at 10D:** the reference also wins. Cora distortion is 0.170 vs 0.247 and MAP 0.406 vs 0.384; Citeseer 0.160 vs 0.226 and 0.476 vs 0.424.
+- `PROGRESS.md` records the 2D result as a finding that does not reproduce.
+
+### Reference on the hidden slice (`scoring/scores_test.json`)
+
+| | Reference | Euclidean SMACOF (raw, not eligible) |
+|---|---|---|
+| Cora distortion / MAP / stress / asym. error | 0.135 / 0.440 / 0.109 / 0.40 | 0.235 / 0.426 / 0.152 / 1.00 |
+| Citeseer distortion / MAP / stress / asym. error | 0.129 / 0.492 / 0.086 / 0.41 | 0.222 / 0.443 / 0.122 / 1.00 |
+| `euclidean_gain_pass` Cora / Citeseer | 0.7 / 1.0 | 0 / 0 |
+| Tree stress d7 / d5 | 0.0229 / 0.0270 | 0.41 / 0.41 |
+
+On the paper slice and the visible slice, `euclidean_gain_pass` is 1.0 / 1.0 (whole graphs) and 0.6 / 1.0 (visible subgraphs). The reference passes every gate with margin: on the 12 calibration instances its worst values are stress 0.12 and asymmetry error 0.53, against limits of 0.25 and 0.80.
+
+### Do better results score higher?
+
+Yes. Rank = Σ weight × |coefficient| × improvement ÷ pool standard deviation, as before. The pools are:
+- **E:** 19 eligible genuine attempts;
+- **G:** E plus the failed weaker variants and probes;
+- **A:** every submission.
+
+All numbers are on the hidden test.
+
+| Attempt | Rank E / G / A | Cora dist. / MAP | Citeseer dist. / MAP | Tree stress d7 / d5 |
+|---|---|---|---|---|
+| Reference | 0 / 0 / 0 | 0.135 / 0.440 | 0.128 / 0.492 | 0.0229 / 0.0270 |
+| Reference, 4 other seeds | −0.33…+0.003 (range 0.34) / range 0.03 | 0.135–0.136 / 0.437–0.445 | 0.129 / 0.484–0.488 | same |
+| L-BFGS refinement (3 seeds) | **+2.59** / +0.14 / +0.13 | 0.113 / 0.489 | 0.108 / 0.520 | 0.0219 / 0.0260 |
+| Exact-majorization SMACOF (3 seeds) | **+2.56** / +0.14 / +0.13 | 0.113 / 0.486 | 0.108 / 0.519 | 0.0219 / 0.0260 |
+| Multi-scale refinement (3 seeds) | **+2.42** / +0.28 / +0.26 | 0.109 / 0.544 | 0.103 / 0.611 | 0.0248 / 0.0291 |
+| 1/D-weighted majorization (3 seeds) | **+2.07** / +0.34 / +0.32 | 0.110 / **0.573** | 0.103 / **0.653** | 0.0254 / 0.0297 |
+| Longer SMACOF (2000 iterations) | +0.35 / +0.09 / +0.09 | 0.135 / 0.471 | 0.128 / 0.499 | 0.0229 / 0.0270 |
+| Drift chosen per instance by stress | 0 (chose 0.5 on every test instance) | = reference | = reference | = reference |
+| 10 / 5 SMACOF iterations, drift 0.3, Isomap only, Euclidean | failed (tree gates) | — | — | — |
+| Random initialisation | failed (tree asymmetry RMSE 0.127 on 1 of 32 trees) | — | — | — |
+
+- **Gains are well above noise.** Each better variant beats the reference in all three paired seeds. The smallest paired gain in pool E is +2.07, about 6× the reference's seed range (0.34). The spread within each variant is ≤ 0.009.
+- **The ordering reflects real trade-offs.** The weighted and multi-scale variants give the largest MAP gains on the citation graphs (+0.13 / +0.16 MAP), but they pay a little tree stress, so the pure-stress refinements rank higher in pool E. The gym rewards both directions.
+- **Rank-preserving across slices.** The train ranks have the same order: L-BFGS +2.72, exact +2.70, multi-scale +2.52, weighted +2.18 and longer SMACOF +0.49, with the other reference seeds at +0.21…+0.34 and per-instance drift selection at −0.10, since it picks another drift on some visible instances.
+
+### Shortcuts on the new experiments (hidden test)
+
+All shortcuts from the earlier hardening were replayed. Each one is failed, scores the floor of −14.1 in pool E, and never outranks a genuine attempt. The table lists what each one does on the citation graphs.
+
+| Shortcut / probe | Citation-graph behaviour | Outcome |
+|---|---|---|
+| answer_copy, score_fields, forged_targets | zero embedding: stress 1.0, asymmetry error 1.0 | failed |
+| hierarchy_field, level-collapse probe (all nodes on one axis at their potential) | asymmetry error 0.40, but stress 0.82–0.85 | fails the graph stress gate on all 20 subgraphs |
+| closed-form probe (classical scaling + potential axis) | passes the graph gate, but distortion 0.49 / 0.29 vs 0.135 / 0.128 | failed on trees; would rank far below in any case |
+| task_failure (drift 0.38 on the reference embedding) | — | failed on trees |
+| wrong_dim (one extra dimension) | shape (400, 11) ≠ (400, 10) | failed |
+| missing_instance, crash, nan, inf, empty, drift ≥ 1, bad card | — | failed |
+| impossible_diagonal | extra field ignored; identical to the reference | ties the reference, gains nothing |
+| Forged `scores_test.json` | overwritten by the evaluator | — |
+
+The isolated tamper cases each ran their own `evaluate_test.sh`:
+- replacing the public tree generator;
+- replacing the public Cora graph with a chain;
+- sabotaging the public baseline;
+- emptying `scores_train.json`.
+
+None of them changed the reference or `euclidean_mds` rows, and every method on disk was still scored.
+
+### Infrastructure notes
+
+- **Scheduler restarts:** hive restarts jobs every 3–60 minutes. `scripts/run.sh` is therefore resumable. Each official step and each audit chunk (≤ 8 cards) stores the SHA-256 of the code it ran and is skipped when that is unchanged. Files the tamper cases modify are backed up on disk and restored by `audit.py recover`.
+- **Out-of-space failures:** the container's `/tmp` is a small tmpfs. With 9 cards writing hidden-slice instances at once it ran out of space, and two test chunks had to be rerun. The audit now sets `TMPDIR` on the workspace and rejects any chunk in which the reference is not eligible or a log reports running out of space. A single evaluator run (the default, one card at a time) is not affected.
+- **Determinism:** the reference and `euclidean_mds` rows are identical across all 10 chunks.
+
+### Limitations left open
+
+- **Gym choices, not the paper's procedure:** the reverse-traversal cost (3), the 400-paper subgraphs and the 10D setting are this gym's choices. The paper's Table 1 uses an MLP embedding of whole graphs with unspecified handling of unreachable pairs. Its 2D claim does not reproduce with the paper's SMACOF solver in this setting.
+- **Weak Cora margin:** the reference's Cora claim margin is thin, with MAP 0.440 vs 0.426 on the hidden test and the claim met on 7/10 subgraphs. Better solvers meet it on 10/10.
+- **Trees decide some eligibility:** several weaker variants pass the citation gate and fail only on the trees. On the citation experiments alone, their (worse) metrics decide their rank.
+
+# Earlier hardening (directed trees)
+
 All "after" numbers come from CPU job `9b3a14c7-d19` (exit 0, 44 min). It:
 - scored the reference on the hardened paper, train and test slices;
 - replayed every variant and shortcut as a real method card through the unchanged `bash scripts/evaluate_train.sh` and `bash scripts/evaluate_test.sh` (no arguments);

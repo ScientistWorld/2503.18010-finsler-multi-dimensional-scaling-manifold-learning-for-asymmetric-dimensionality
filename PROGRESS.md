@@ -17,6 +17,13 @@
 
 ## Results
 
+- Citation digraphs (iteration 11; official files from job `b4c96983-d30`, hidden test slice, 10D, reference vs the evaluator's Euclidean SMACOF):
+  - `cora_digraph_reconstruction`: distortion `0.135` vs `0.235`, MAP `0.440` vs `0.426`, stress `0.109` vs `0.152`, asymmetry error `0.40` vs `1.00`; Table 1 claim (both better) on 7/10 subgraphs.
+  - `citeseer_digraph_reconstruction`: distortion `0.129` vs `0.222`, MAP `0.492` vs `0.443`, stress `0.086` vs `0.122`, asymmetry error `0.41` vs `1.00`; claim on 10/10 subgraphs.
+  - Whole graphs (`scores.json`): Cora distortion `0.170` vs `0.247`, MAP `0.406` vs `0.384`; Citeseer `0.160` vs `0.226`, `0.476` vs `0.424`.
+  - In 2D the claim does not reproduce (see the iteration-11 note above).
+- Hardening audit of the citation experiments: see `HARDENING.md` (better solvers rank +2.07 to +2.59 above the reference in the eligible pool, all shortcuts fail).
+
 - `directed_tree_reconstruction` (depth 7):
   - Euclidean SMACOF baseline: normalized stress `0.5028`, MAP@10 `0.2669`, asymmetry RMSE `1.8698`, symmetric RMSE `0.5379`, hierarchy alignment `0.0082`.
   - Finsler MDS: normalized stress `0.0222`, MAP@10 `0.2679`, asymmetry RMSE `0.0188`, symmetric RMSE `0.0466`, hierarchy alignment `0.9249`.
