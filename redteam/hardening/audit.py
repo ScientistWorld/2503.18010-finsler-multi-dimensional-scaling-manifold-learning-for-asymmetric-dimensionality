@@ -160,8 +160,18 @@ def _clear_cards() -> None:
         shutil.rmtree(AUDIT_CARDS)
 
 
+# Evaluator temp files (instances and method outputs of every card running at
+# once) go to the workspace filesystem: the container's own /tmp is a small
+# tmpfs that 9 cards writing hidden-slice instances at once can fill.
+AUDIT_TMP = ROOT / "tmp" / "audit_tmp"
+
+
 def _env(workers: int) -> dict:
     env = dict(os.environ)
+    if AUDIT_TMP.exists():
+        shutil.rmtree(AUDIT_TMP, ignore_errors=True)
+    AUDIT_TMP.mkdir(parents=True, exist_ok=True)
+    env["TMPDIR"] = str(AUDIT_TMP)
     env["GYM_EVAL_WORKERS"] = str(workers)
     if workers > 1:
         for var in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
@@ -183,6 +193,23 @@ def _run(script: str, log: Path, workers: int = 1) -> int:
         proc = subprocess.run(["bash", script], cwd=ROOT, stdout=handle,
                               stderr=subprocess.STDOUT, env=_env(workers))
     return proc.returncode
+
+
+def _problems(details_path: Path) -> list[str]:
+    """Infrastructure failures that make a chunk's scores meaningless."""
+
+    details = _load(details_path)
+    if not details:
+        return [f"{details_path.name} missing"]
+    problems = []
+    reference = details["methods"].get(REFERENCE)
+    if not reference or not reference.get("eligible"):
+        problems.append(f"reference not eligible: {(reference or {}).get('failure_reasons', [])[:3]}")
+    for name, info in details["methods"].items():
+        text = ((info.get("run") or {}).get("log_tail") or "") + " ".join(info.get("failure_reasons", []))
+        if "No space left on device" in text:
+            problems.append(f"{name}: no space left on device")
+    return problems
 
 
 def _collect(dest: Path, names: list[str]) -> None:
@@ -294,6 +321,9 @@ def run_step(step: str) -> None:
     code = subprocess.run(["bash", script], cwd=ROOT).returncode
     if code != 0:
         raise SystemExit(f"step {step}: {script} exited with {code}")
+    problems = _problems(ROOT / "scoring" / names[1])
+    if problems:
+        raise SystemExit(f"step {step}: infrastructure failure {problems[:5]}")
     OFFICIAL_DIR.mkdir(parents=True, exist_ok=True)
     for name in names:
         shutil.copy2(ROOT / "scoring" / name, OFFICIAL_DIR / name)
@@ -374,20 +404,28 @@ def run_batch() -> None:
                 print(f"batch {slice_name} chunk {k}: already done", flush=True)
                 status["chunks"][folder.name] = _load(folder / "done.json")
                 continue
-            _clear_cards()
-            for name, command, raw in chunk:
-                _card(name, command, raw)
-            forged_written = False
-            if slice_name == "test":
-                # The evaluator must overwrite a forged score file from recomputed metrics.
-                _dump(ROOT / "scoring" / "scores_test.json", _forged_scores())
-                forged_written = True
-            script = f"scripts/evaluate_{slice_name}.sh"
-            print(f"batch {slice_name} chunk {k}: {[c[0] for c in chunk]}", flush=True)
-            code = _run(script, folder / f"{slice_name}.log", min(_workers(), len(chunk) + 1))
-            _collect(folder, [f"scores_{slice_name}.json", f"details_{slice_name}.json"])
+            for attempt in (1, 2):
+                _clear_cards()
+                for name, command, raw in chunk:
+                    _card(name, command, raw)
+                forged_written = False
+                if slice_name == "test":
+                    # The evaluator must overwrite a forged score file from recomputed metrics.
+                    _dump(ROOT / "scoring" / "scores_test.json", _forged_scores())
+                    forged_written = True
+                script = f"scripts/evaluate_{slice_name}.sh"
+                print(f"batch {slice_name} chunk {k} (attempt {attempt}): {[c[0] for c in chunk]}", flush=True)
+                code = _run(script, folder / f"{slice_name}.log", min(_workers(), len(chunk) + 1))
+                _collect(folder, [f"scores_{slice_name}.json", f"details_{slice_name}.json"])
+                problems = _problems(folder / f"details_{slice_name}.json")
+                if not problems:
+                    break
+                print(f"batch {slice_name} chunk {k}: invalid run {problems[:5]}", flush=True)
+                _dump(folder / f"invalid_attempt{attempt}.json", {"problems": problems})
+            else:
+                raise SystemExit(f"batch {slice_name} chunk {k}: infrastructure failure {problems[:5]}")
             record = {"key": key, "exit": code, "cards": [c[0] for c in chunk],
-                      "forged_file_written_before": forged_written}
+                      "forged_file_written_before": forged_written, "attempts": attempt}
             _dump(folder / "done.json", record)
             status["chunks"][folder.name] = record
             _clear_cards()
@@ -417,6 +455,9 @@ def _patched(path: Path, new_text: str, case: str, card: tuple[str, list[str]] |
     finally:
         _untamper_all()
         _clear_cards()
+    problems = _problems(dest / "details_test.json")
+    if problems:
+        raise SystemExit(f"isolated {case}: infrastructure failure {problems[:5]}")
     _dump(dest / "done.json", {"key": key})
     print(f"isolated {case}: done", flush=True)
 
