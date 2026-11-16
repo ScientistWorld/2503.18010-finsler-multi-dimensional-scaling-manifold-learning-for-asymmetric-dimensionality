@@ -1,8 +1,6 @@
 # Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends.
-action: submit
-gpus: 0
-test: false
+action: done
 milestone: core_claim_plus
-notes: "Resume the audit: rerun the two hidden-slice chunks that ran out of space in the container /tmp (now TMPDIR on the workspace, with an invariant check), re-merge, summarize, validate. Official steps, other chunks and isolated cases are skipped (stamped)."
+notes: "Hardening iteration complete: Cora/Citeseer citation-digraph experiments (paper Table 1, 10D) added with hidden test subgraphs; reference rerun end to end from the final scoring code (job b4c96983-d30); audit (jobs d7a0a917-6ea, 90cda42d-ad6) shows better solvers rank well above seed noise and every shortcut fails; 2D Table 1 claim documented as not reproduced; reference.json keeps the paper's Euclidean values out of results (the gym's Euclidean baseline is scored as not eligible); validate.py --post-design passes."
